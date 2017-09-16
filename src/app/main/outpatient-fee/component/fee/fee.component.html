@@ -1,0 +1,508 @@
+<app-qiezzi-right-header
+  [rightComponentName]="rightComponentName"
+  [controlList]="controlList"
+  (onClose)="shutoff($event)"
+  (onBack)="onBack($event)"
+  (onControl)="onControl($event)"></app-qiezzi-right-header>
+
+<qiezzi-loading [attr.status]="mainShowLoading" class="loading6 purple"></qiezzi-loading>
+<!--<div class="right-content" id="rightContentScroll" malihu-scrollbar-->
+     <!--[scrollbarOptions]="scrollbarOptions">-->
+
+<div class="sideslip-scroll" [style.border-top]="isBorders?'1px solid #DBDBDB':''" malihu-scrollbar [scrollbarOptions]="scrollbarOptionsRight">
+  <div style="padding: 1.1rem 1.5rem 0;" *ngIf="response">
+    <div *ngIf="response.Bill.BillStatus==0">
+      <!--状态开始-->
+      <div class="center font-size-12 ">
+        <span>待收费</span>
+        <span class="fr">应收:&nbsp;<span style="color: #7B81FA;font-size: 0.8rem;font-weight: bold;">￥121.11</span></span>
+      </div>
+      <!--状态结束-->
+      <div style="border-top:1px dashed #DBDBDB;"></div>
+      <!--医生信息开始-->
+      <div class="fee-info generation-info">
+        <!--左侧-->
+          <div><em>单号：</em>{{response.Bill.BillCode}}</div>
+          <div class="patient"><em>患者：</em>{{response.Bill.PatientName}}
+            <span class="pL-20">男</span><em>|</em>
+            <span>43</span><em>|</em>
+            <span>NO.{{response.Bill.BillCode}}</span><em>|</em>
+            <span>{{response.Bill.BillCode}}</span>
+          </div>
+          <div><em>医生：</em>{{response.Bill.DoctorName}} <em class="pL-20">护士：</em>{{response.Bill.DoctorName}}</div>
+      </div>
+      <!--医生信息结束-->
+      <div style="border-top:1px dashed #DBDBDB;"></div>
+      <!--列表开始-->
+      <div class="font-size-14 pad-t-b" style="color: #333;">
+        <i class="icon-xiangqingshoufei" style="font-size:.8rem;vertical-align: middle"></i><span style="padding-left:.3rem;">收费项目及折扣信息</span>
+      </div>
+      <div class="list-table">
+        <div class="list-table-head">
+          <div class="list-table-col0">明细收费</div>
+          <div class="mobile-hidden list-table-col1">数量</div>
+          <div class="mobile-hidden list-table-col2">折扣率</div>
+          <div class="mobile-hidden list-table-col3">折后小计</div>
+        </div>
+        <!--内容-->
+        <div class="list-table-content single-line">
+          <div  class="list-table-item click-no-hide-detail">
+            <div class="list-table-col0">
+              <span>陶瓷托槽矫正</span>
+            </div>
+            <div
+              class="mobile-hidden list-table-col1"><span>35</span>
+            </div>
+            <div
+              class="mobile-hidden list-table-col2"><span>{{response.Bill.Discount}}</span>
+            </div>
+            <div class="mobile-hidden list-table-col3"><span>{{response.Bill.ReducedPrice}}</span></div>
+
+          </div>
+          <div  class="list-table-item click-no-hide-detail">
+            <div class="list-table-col0">
+              <span>陶瓷托槽矫正</span>
+            </div>
+            <div
+              class="mobile-hidden list-table-col1"><span>35</span>
+            </div>
+            <div
+              class="mobile-hidden list-table-col2"><span>{{response.Bill.Discount}}</span>
+            </div>
+            <div class="mobile-hidden list-table-col3"><span>{{response.Bill.ReducedPrice}}</span></div>
+
+          </div>
+          <div  class="list-table-item click-no-hide-detail">
+            <div class="list-table-col0">
+              <span>陶瓷托槽矫正</span>
+            </div>
+            <div
+              class="mobile-hidden list-table-col1"><span>35</span>
+            </div>
+            <div
+              class="mobile-hidden list-table-col2"><span>{{response.Bill.Discount}}</span>
+            </div>
+            <div class="mobile-hidden list-table-col3"><span>{{response.Bill.ReducedPrice}}</span></div>
+
+          </div>
+        </div>
+      </div>
+      <!--列表结束-->
+      <!--支付信息开始-->
+      <div class="tab-ctrl-footer-right">
+        <div class="tab-ctrl-info-right">
+          <div>原价: <i>￥99.999.999</i></div>
+          <div><span class="discount">总折扣率: <i>30%</i></span> <span>优惠金额: <i>￥39.000.000</i></span> </div>
+          <div>账单金额：<i class="money">￥1,545,145,1</i></div>
+        </div>
+      </div>
+      <!--支付信息结束-->
+    </div>
+    <div *ngIf="response.Bill.BillStatus==1">
+      <!--状态开始-->
+      <div class="center font-size-12 ">
+        <span>已付清</span>
+        <span class="fr">账单金额:&nbsp;<span style="color: #7B81FA;font-size: 0.8rem;font-weight: bold;">￥121.11</span></span>
+      </div>
+      <!--状态结束-->
+      <div style="border-top:1px dashed #DBDBDB;"></div>
+      <!--医生信息开始-->
+      <div class="fee-info generation-info">
+        <!--左侧-->
+        <div><em>单号：</em>{{response.Bill.BillCode}}</div>
+        <div class="patient"><em>患者：</em>{{response.Bill.PatientName}}
+          <span class="pL-20">男</span><em>|</em>
+          <span>43</span><em>|</em>
+          <span>NO.{{response.Bill.BillCode}}</span><em>|</em>
+          <span>{{response.Bill.BillCode}}</span>
+        </div>
+        <div><em>医生：</em>{{response.Bill.DoctorName}} <em class="pL-20">护士：</em>{{response.Bill.DoctorName}}</div>
+      </div>
+      <!--医生信息结束-->
+      <div style="border-top:1px dashed #DBDBDB;"></div>
+      <!--列表开始-->
+      <div class="font-size-14 pad-t-b" style="color: #333;">
+        <i class="icon-xiangqingshoufei" style="font-size:.8rem;vertical-align: middle"></i><span style="padding-left:.3rem;">收费项目及折扣信息</span>
+      </div>
+      <div class="list-table">
+        <div class="list-table-head">
+          <div class="list-table-col0">明细收费</div>
+          <div class="mobile-hidden list-table-col1">数量</div>
+          <div class="mobile-hidden list-table-col2">折扣率</div>
+          <div class="mobile-hidden list-table-col3">折后小计</div>
+        </div>
+        <!--内容-->
+        <div class="list-table-content single-line">
+          <div  class="list-table-item click-no-hide-detail">
+            <div class="list-table-col0">
+              <span>陶瓷托槽矫正</span>
+            </div>
+            <div
+              class="mobile-hidden list-table-col1"><span>35</span>
+            </div>
+            <div
+              class="mobile-hidden list-table-col2"><span>{{response.Bill.Discount}}</span>
+            </div>
+            <div class="mobile-hidden list-table-col3"><span>{{response.Bill.ReducedPrice}}</span></div>
+
+          </div>
+          <div  class="list-table-item click-no-hide-detail">
+            <div class="list-table-col0">
+              <span>陶瓷托槽矫正</span>
+            </div>
+            <div
+              class="mobile-hidden list-table-col1"><span>35</span>
+            </div>
+            <div
+              class="mobile-hidden list-table-col2"><span>{{response.Bill.Discount}}</span>
+            </div>
+            <div class="mobile-hidden list-table-col3"><span>{{response.Bill.ReducedPrice}}</span></div>
+
+          </div>
+          <div  class="list-table-item click-no-hide-detail">
+            <div class="list-table-col0">
+              <span>陶瓷托槽矫正</span>
+            </div>
+            <div
+              class="mobile-hidden list-table-col1"><span>35</span>
+            </div>
+            <div
+              class="mobile-hidden list-table-col2"><span>{{response.Bill.Discount}}</span>
+            </div>
+            <div class="mobile-hidden list-table-col3"><span>{{response.Bill.ReducedPrice}}</span></div>
+
+          </div>
+          <div  class="list-table-item click-no-hide-detail">
+            <div class="list-table-col0">
+              <span>陶瓷托槽矫正</span>
+            </div>
+            <div
+              class="mobile-hidden list-table-col1"><span>35</span>
+            </div>
+            <div
+              class="mobile-hidden list-table-col2"><span>{{response.Bill.Discount}}</span>
+            </div>
+            <div class="mobile-hidden list-table-col3"><span>{{response.Bill.ReducedPrice}}</span></div>
+
+          </div>
+        </div>
+      </div>
+      <!--列表结束-->
+      <!--支付信息开始-->
+      <div class="tab-ctrl-footer-right">
+        <div class="tab-ctrl-info-right">
+          <div>原价: <i>￥99.999.999</i></div>
+          <div><span class="discount">总折扣率: <i>30%</i></span> <span>优惠金额: <i>￥39.000.000</i></span> </div>
+          <div>账单金额：<i class="money">￥1,545,145,1</i></div>
+        </div>
+      </div>
+      <!--支付信息结束-->
+    </div>
+    <div *ngIf="response.Bill.BillStatus==3">
+      <!--状态开始-->
+      <div class="center font-size-12 code">
+        <span style="line-height: 2rem;"><i>已退费</i></span>
+        <div class="fr">
+          <div class="fr"><i><i>退费：</i></i><span style="color: #333;font-size: 0.8rem;font-weight: bold;">￥-1,555,555,5</span></div>
+          <div style="clear:both"></div>
+          <span style="padding-right:.4rem;padding-top:.5rem;">账单金额：<i>￥{{response.Bill.BillCode}}</i></span><span>已收：<i>￥{{response.Bill.BillCode}}</i></span></div>
+      </div>
+      <!--状态结束-->
+      <div style="border-top:1px dashed #DBDBDB;"></div>
+      <!--医生信息开始-->
+      <div class="fee-info generation-info">
+        <!--左侧-->
+        <div><em>单号：</em>{{response.Bill.BillCode}}</div>
+        <div class="patient"><em>患者：</em>{{response.Bill.PatientName}}
+          <span class="pL-20">男</span><em>|</em>
+          <span>43</span><em>|</em>
+          <span>NO.{{response.Bill.BillCode}}</span><em>|</em>
+          <span>{{response.Bill.BillCode}}</span>
+        </div>
+        <div><em>医生：</em>{{response.Bill.DoctorName}} <em class="pL-20">护士：</em>{{response.Bill.DoctorName}}</div>
+      </div>
+      <!--医生信息结束-->
+      <div style="border-top:1px dashed #DBDBDB;"></div>
+      <!--退费信息开始-->
+      <div class="refund-information">
+        <div class="refund-title"><i class="icon-chongzhi-cehua-tuifeixinxi" style="font-size:.8rem;vertical-align: middle"></i><strong>退费信息</strong></div>
+        <div class="ask">
+          <div>退费时间：</div>
+          <div>操作人：</div>
+          <div>退费原因：</div>
+        </div>
+        <div class="answer">
+          <div>2017-03-07</div>
+          <div>闫医生</div>
+          <div>退费原因允许换行退费原因允许换行退费原因允许换行退费原因允许换行退费原因允许换行退费原因允许换行退费原因允许换行退费原因允许换行退费原因允许换行</div>
+        </div>
+      </div>
+      <!--退费信息结束-->
+      <div style="border-top:1px dashed #DBDBDB;"></div>
+      <!--列表开始-->
+      <div class="font-size-14 pad-t-b" style="color: #333;">
+        <i class="icon-xiangqingshoufei" style="font-size:.8rem;vertical-align: middle"></i><span style="padding-left:.3rem;">收费项目</span>
+      </div>
+      <div class="list-table">
+        <!--内容-->
+        <div class="list-table-content single-line">
+          <div  class="list-table-item click-no-hide-detail">
+            <div class="refund">
+                <div class="list-table-col0 refund">
+                  <span>陶瓷托槽矫正</span>
+                </div>
+                <div
+                  class="mobile-hidden list-table-col1"><span>35</span>
+                </div>
+            </div>
+            <div class="refund">
+                <div class="mobile-hidden list-table-col2">
+                  <span>陶瓷托槽</span>
+                </div>
+                <div class="mobile-hidden list-table-col3"><span>{{response.Bill.ReducedPrice}}</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--列表结束-->
+      <!--支付信息开始-->
+      <div class="tab-ctrl-footer-right">
+        <div class="tab-ctrl-info-right">
+          <div>原价: <i>￥99.999.999</i></div>
+          <div><span class="discount">总折扣率: <i>30%</i></span> <span>优惠金额: <i>￥39.000.000</i></span> </div>
+          <div>应收：<i>￥1,545,145,1</i></div>
+        </div>
+      </div>
+      <!--支付信息结束-->
+    </div>
+    <div *ngIf="response.Bill.BillStatus==2">
+      <!--状态开始-->
+      <div class="center font-size-12 code">
+        <span style="line-height: 2rem;"><i>欠费</i></span>
+        <div class="fr">
+          <div class="fr">
+            <i>欠费：</i><span style="color: #fe4e74;font-size: 0.8rem;font-weight: bold;">￥121.11</span></div>
+          <div style="clear:both"></div>
+          <span style="padding-right:.4rem;padding-top:.5rem;">账单金额：<i>￥{{response.Bill.BillCode}}</i></span><span>已收：<i>￥{{response.Bill.BillCode}}</i></span>
+        </div>
+      </div>
+      <!--状态结束-->
+      <div style="border-top:1px dashed #DBDBDB;"></div>
+      <!--医生信息开始-->
+      <div class="fee-info generation-info">
+        <!--左侧-->
+        <div><em>单号：</em>{{response.Bill.BillCode}}</div>
+        <div class="patient"><em>患者：</em>{{response.Bill.PatientName}}
+          <span class="pL-20">男</span><em>|</em>
+          <span>43</span><em>|</em>
+          <span>NO.{{response.Bill.BillCode}}</span><em>|</em>
+          <span>{{response.Bill.BillCode}}</span>
+        </div>
+        <div><em>医生：</em>{{response.Bill.DoctorName}} <em class="pL-20">护士：</em>{{response.Bill.DoctorName}}</div>
+      </div>
+      <!--医生信息结束-->
+      <div style="border-top:1px dashed #DBDBDB;"></div>
+      <!--列表开始-->
+      <div class="font-size-14 pad-t-b" style="color: #333;">
+        <i class="icon-xiangqingshoufei" style="font-size:.8rem;vertical-align: middle"></i><span style="padding-left:.3rem;">收费项目及折扣信息</span>
+      </div>
+      <div class="list-table">
+        <div class="list-table-head">
+          <div class="list-table-col0">明细收费</div>
+          <div class="mobile-hidden list-table-col1">数量</div>
+          <div class="mobile-hidden list-table-col2">折扣率</div>
+          <div class="mobile-hidden list-table-col3">折后小计</div>
+        </div>
+        <!--内容-->
+        <div class="list-table-content single-line">
+          <div  class="list-table-item click-no-hide-detail">
+            <div class="list-table-col0">
+              <span>陶瓷托槽矫正</span>
+            </div>
+            <div
+              class="mobile-hidden list-table-col1"><span>35</span>
+            </div>
+            <div
+              class="mobile-hidden list-table-col2"><span>{{response.Bill.Discount}}</span>
+            </div>
+            <div class="mobile-hidden list-table-col3"><span>{{response.Bill.ReducedPrice}}</span></div>
+
+          </div>
+          <div  class="list-table-item click-no-hide-detail">
+            <div class="list-table-col0">
+              <span>陶瓷托槽矫正</span>
+            </div>
+            <div
+              class="mobile-hidden list-table-col1"><span>35</span>
+            </div>
+            <div
+              class="mobile-hidden list-table-col2"><span>{{response.Bill.Discount}}</span>
+            </div>
+            <div class="mobile-hidden list-table-col3"><span>{{response.Bill.ReducedPrice}}</span></div>
+
+          </div>
+          <div  class="list-table-item click-no-hide-detail">
+            <div class="list-table-col0">
+              <span>陶瓷托槽矫正</span>
+            </div>
+            <div
+              class="mobile-hidden list-table-col1"><span>35</span>
+            </div>
+            <div
+              class="mobile-hidden list-table-col2"><span>{{response.Bill.Discount}}</span>
+            </div>
+            <div class="mobile-hidden list-table-col3"><span>{{response.Bill.ReducedPrice}}</span></div>
+
+          </div>
+          <div  class="list-table-item click-no-hide-detail">
+            <div class="list-table-col0">
+              <span>陶瓷托槽矫正</span>
+            </div>
+            <div
+              class="mobile-hidden list-table-col1"><span>35</span>
+            </div>
+            <div
+              class="mobile-hidden list-table-col2"><span>{{response.Bill.Discount}}</span>
+            </div>
+            <div class="mobile-hidden list-table-col3"><span>{{response.Bill.ReducedPrice}}</span></div>
+
+          </div>
+        </div>
+      </div>
+      <!--列表结束-->
+      <!--支付信息开始-->
+      <div class="tab-ctrl-footer-right">
+        <div class="tab-ctrl-info-right">
+          <div>原价: <i>￥99.999.999</i></div>
+          <div><span class="discount">总折扣率: <i>30%</i></span> <span>优惠金额: <i>￥39.000.000</i></span> </div>
+          <div>账单金额：<i class="money">￥1,545,145,1</i></div>
+        </div>
+        <div style="border-bottom:1px solid #DBDBDB;width: 15rem;float:right"></div>
+        <div class="tab-ctrl-info-right">
+          <div class="color">2017-10-2</div>
+          <div class="color">共支付: <i>￥400</i></div>
+          <div>支付宝: <i class="person">￥200</i></div>
+          <div>金茄子分期: <i class="person">￥400</i></div>
+          <div class="person">收费员：小猴</div>
+        </div>
+        <div class="tab-ctrl-info-right top-none">
+          <div class="color">2017-10-2</div>
+          <div class="color">共支付: <i>￥400</i></div>
+          <div>支付宝: <i class="person">￥200</i></div>
+          <div>金茄子分期: <i class="person">￥400</i></div>
+          <div class="person">收费员：小猴</div>
+        </div>
+        <div style="border-bottom:1px solid #DBDBDB;width: 10rem;float:right"></div>
+        <div class="tab-ctrl-info-right history">
+          <div>历史支付：<i style="font-size:.8rem;color:#57BC85">￥200</i></div>
+        </div>
+      </div>
+      <!--支付信息结束-->
+    </div>
+    <div *ngIf="response.Bill.BillStatus==4">
+      <!--状态开始-->
+      <div class="center font-size-12 ">
+        <span>已作废</span>
+        <span class="fr">账单金额：<span style="color: #999;font-size: 0.8rem;font-weight: bold;text-decoration:line-through;">￥121.11</span></span>
+      </div>
+      <!--状态结束-->
+      <div style="border-top:1px dashed #DBDBDB;"></div>
+      <!--医生信息开始-->
+      <div class="fee-info generation-info">
+        <!--左侧-->
+        <div><em>单号：</em>{{response.Bill.BillCode}}</div>
+        <div class="patient"><em>患者：</em>{{response.Bill.PatientName}}
+          <span class="pL-20">男</span><em>|</em>
+          <span>43</span><em>|</em>
+          <span>NO.{{response.Bill.BillCode}}</span><em>|</em>
+          <span>{{response.Bill.BillCode}}</span>
+        </div>
+        <div><em>医生：</em>{{response.Bill.DoctorName}} <em class="pL-20">护士：</em>{{response.Bill.DoctorName}}</div>
+      </div>
+      <!--医生信息结束-->
+      <div style="border-top:1px dashed #DBDBDB;"></div>
+      <!--列表开始-->
+      <div class="font-size-14 pad-t-b" style="color: #333;">
+        <i class="icon-xiangqingshoufei" style="font-size:.8rem;vertical-align: middle"></i><span style="padding-left:.3rem;">收费项目及折扣信息</span>
+      </div>
+      <div class="list-table">
+        <div class="list-table-head">
+          <div class="list-table-col0">明细收费</div>
+          <div class="mobile-hidden list-table-col1">数量</div>
+          <div class="mobile-hidden list-table-col2">折扣率</div>
+          <div class="mobile-hidden list-table-col3">折后小计</div>
+        </div>
+        <!--内容-->
+        <div class="list-table-content single-line">
+          <div  class="list-table-item click-no-hide-detail">
+            <div class="list-table-col0">
+              <span>陶瓷托槽矫正</span>
+            </div>
+            <div
+              class="mobile-hidden list-table-col1"><span>35</span>
+            </div>
+            <div
+              class="mobile-hidden list-table-col2"><span>{{response.Bill.Discount}}</span>
+            </div>
+            <div class="mobile-hidden list-table-col3"><span>{{response.Bill.ReducedPrice}}</span></div>
+
+          </div>
+          <div  class="list-table-item click-no-hide-detail">
+            <div class="list-table-col0">
+              <span>陶瓷托槽矫正</span>
+            </div>
+            <div
+              class="mobile-hidden list-table-col1"><span>35</span>
+            </div>
+            <div
+              class="mobile-hidden list-table-col2"><span>{{response.Bill.Discount}}</span>
+            </div>
+            <div class="mobile-hidden list-table-col3"><span>{{response.Bill.ReducedPrice}}</span></div>
+
+          </div>
+          <div  class="list-table-item click-no-hide-detail">
+            <div class="list-table-col0">
+              <span>陶瓷托槽矫正</span>
+            </div>
+            <div
+              class="mobile-hidden list-table-col1"><span>35</span>
+            </div>
+            <div
+              class="mobile-hidden list-table-col2"><span>{{response.Bill.Discount}}</span>
+            </div>
+            <div class="mobile-hidden list-table-col3"><span>{{response.Bill.ReducedPrice}}</span></div>
+
+          </div>
+        </div>
+      </div>
+      <!--列表结束-->
+      <!--支付信息开始-->
+      <div class="tab-ctrl-footer-right">
+        <div class="tab-ctrl-info-right">
+          <div>原价: <i>￥99.999.999</i></div>
+          <div><span class="discount">总折扣率: <i>30%</i></span> <span>优惠金额: <i>￥39.000.000</i></span> </div>
+          <div>账单金额：<i class="money">￥1,545,145,1</i></div>
+        </div>
+      </div>
+      <!--支付信息结束-->
+    </div>
+    <div *ngIf="response.Bill.BillStatus==-1"></div>
+  <!--  *ngFor="let item of response.BillItem;let i = index;"  {{item.ChargeItemTypeName}} ￥{{item.ReducedPrice}}-->
+    <div style="border-bottom:1px dashed #DBDBDB;"></div>
+    <!--备注开始-->
+    <div>
+        <div class="font-size-14 pad-t-b">
+          <i class="fa fa-pencil-square-o"></i>
+          <span style="padding-left: .5rem;color: #333;">备注</span>
+          <span style="display:block;padding-top:.5rem;color:#999999;">洁敏</span>
+        </div>
+        <div style="border-bottom:1px solid #DBDBDB;height: 0.75rem;"></div>
+
+        <div class="" style="height:1.6rem;color:#999; line-height: 1.6rem; text-align: right">
+          <span class="font-size-12 " style="padding-right:1.5rem;display:inline;">确认人: {{response.Bill.DoctorName}}</span>
+          <span>账单日期：2017-07-11</span>
+        </div>
+    </div>
+    <!--备注结束-->
+  </div>
+</div>

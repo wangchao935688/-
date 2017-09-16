@@ -1,0 +1,40 @@
+.header {
+  font-size: 0.8rem; }
+
+.center {
+  padding: 0rem 0rem 1.25rem 0rem; }
+
+.center span {
+  font-size: 0.6rem; }
+
+.font-size-14 {
+  font-size: 0.7rem; }
+
+.padding-top-30 {
+  padding-top: 1.25rem; }
+
+.padding-top-20 {
+  padding-top: 0.75rem; }
+
+.padding-top-10 {
+  padding-top: .25rem; }
+
+.padding-bottom-30 {
+  padding-bottom: 1.25rem; }
+
+.font-size-12 {
+  font-size: .6rem;
+  display: flex;
+  justify-content: space-between; }
+
+div.app-center-content {
+  height: 4.5rem;
+  overflow: hidden; }
+
+.last-margin:last-child {
+  margin-bottom: 1rem; }
+
+.sideslip-scroll {
+  height:calc(100% - 3rem); }
+
+/*# sourceMappingURL=fee.component.css.map */

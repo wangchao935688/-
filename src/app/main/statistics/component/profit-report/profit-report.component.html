@@ -1,0 +1,96 @@
+<div [attr.status]="displayStatus" class="right-slider-container">
+  <router-outlet></router-outlet>
+</div>
+<div id="app-center-container">
+  <qiezzi-loading [attr.status]="mainShowLoading" class="loading6 purple"></qiezzi-loading>
+  <app-qiezzi-center-header [showSearch]="false"
+                            [showFilter]="false"
+                            [showAdd]="false"
+                            [showOptions]="false"
+                            [moduleName]="'利润报表'"
+                            [searchPlaceholder]=""
+                            [controlList]="['添加']"
+                            (onControl)="onControl($event)"
+                            (onSearch)="onSearch($event)"
+                            (onOptions)="onOptions($event)"
+                            (onShowFilter)="onShowFilter($event)"
+  ></app-qiezzi-center-header>
+  <div id="appCenterContent" class="app-center-content" malihu-scrollbar
+       [scrollbarOptions]="scrollbarOptions">
+    <div class="main-income-content">
+
+      <div class="content-body">
+        <!--日期选择-->
+        <div class="header-top">
+          <div class="button-group button-group-right">
+            <button class="button4"><i class="icon iconfont icon-daochu"></i>导出</button>
+          </div>
+          <qiezzi-select-date-slot (onSelectDate)="selectDate($event)"></qiezzi-select-date-slot>
+        </div>
+        <div class="my-header">
+          <span class="my-header-name">利润报表</span><span class="my-header-time">({{requestData?.beginTime|date:'yyyy'}}年{{requestData?.beginTime|date:'MM'}}月)</span>
+        </div>
+        <!--利润趋势图-->
+        <div class="data-ec">
+          <div class="data-ec-header">
+            <span class="data-ec-header-left fl">利润趋势</span>
+            <div class="data-ec-header-right fr">
+              <span>当期利润合计</span>
+              <span class="money-count">{{profitResponse?.TotalInflow | qiezziMoeny:true}}</span>
+            </div>
+            <br clear="both">
+          </div>
+          <div class="data-ec-container">
+            <div style="height: 400px;" id="ec-main"></div>
+          </div>
+        </div>
+
+        <!--利润列表-->
+        <div class="data-list">
+          <div class="list-table">
+            <div class="list-table-head">
+              <div class="list-table-col0">日期</div>
+              <div class="list-table-col1">收入</div>
+              <div class="list-table-col2">支出</div>
+              <div class="list-table-col3">当期利润</div>
+              <br clear="left">
+            </div>
+            <div class="data-empty" *ngIf="showEmptyState">
+              <app-data-empty [showEmpty]="!(profitResponse && profitResponse?.Items>0)"></app-data-empty>
+            </div>
+            <div class="list-table-content">
+              <div class="list-table-item click-no-hide-detail"
+                   *ngFor="let item of profitResponse?.Items;let i = index" [ngClass]="{'selected': false}">
+                <div class="list-table-col0">
+                  <span>{{item.Date | date:'yyyy-MM-dd'}}</span>
+                </div>
+                <div class="list-table-col1">
+                  <span>{{item.Inflow}}</span>
+                </div>
+                <div class="list-table-col2">
+                  <span>{{item.Outflow}}</span>
+                </div>
+                <div class="list-table-col3">
+                  <span>{{item.Sum}}</span>
+                </div>
+                <br clear="left">
+              </div>
+
+
+            </div>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+
+<!--<div [ng2-echarts]="burnData" style="height: 300px; width: 100%"></div>-->
+<!--<div echarts [options]="burnData" style="height: 300px; width: 100%"></div>-->

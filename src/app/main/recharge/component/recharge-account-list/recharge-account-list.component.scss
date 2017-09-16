@@ -1,0 +1,42 @@
+:host{
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.col-0{
+  width:calc(100% - 22%*3);
+}
+.col-22{
+  width:22%;
+}
+
+.list-table-item{
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+.list-table-head{
+  span{
+    cursor: pointer;
+    span{
+      position: relative;
+      padding-right: .8rem;
+      i{
+        position: absolute;
+        right:0;
+        width: .3rem;
+        height:.2rem;
+      }
+      .up{
+        top: 0;
+      }
+      .down{
+        bottom: 0;
+      }
+    }
+  }
+}
+.orderBy{
+
+}

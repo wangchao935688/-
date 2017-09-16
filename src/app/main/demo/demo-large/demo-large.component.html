@@ -1,0 +1,8 @@
+<div [attr.status]="displayStatus" class="right-slider-container large"><!--此处是超宽860侧滑，需要在侧滑的class添加一个 large -->
+  <router-outlet></router-outlet>
+</div>
+<div id="app-center-container">
+  <app-qiezzi-center-header [moduleName]="moduleName" [controlList]="controlList"></app-qiezzi-center-header>
+  <button (click)="onClick($event)">侧滑1</button>
+</div>
+

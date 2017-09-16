@@ -1,0 +1,70 @@
+﻿1、文件名遵循 feature.type.ts ,字母之间横线链接 这样的规则，新建项可以用指令 ng generate directive/pipe/service/class/module ，这样创建出来的命名比较规范
+例如：
+服务名 （功能.service.ts）
+路由模块的命名（模块名.module.router.ts）
+
+另：文件名最好和里面的类名一致
+
+2、但构造函数不应该包含复杂的逻辑，实现 ngOnInit，比如刚打开一个页面时，需要请求很多数据，可以放到这个方法里。
+
+3、Core 模块作为添加全局服务的入口，不是全局的就在自己的模块中注入
+
+4、core/messages 里放和接口交互的数据结构，按照接口的分类建好文件，message中的命名和接口对应起来，接口属性是首字母大写，也定义成大写，不然会取不到值，
+其它命名按标准规范来，项目中用到的一些接口模拟数据，放到mocks目录中并且和messages里的对应起来
+
+   例如：
+   api/Bill/Add
+   在文件 bill-request-response.ts 中定义AddRequest\AddResponse类
+
+   例如：
+   PatientModel
+   患者详情
+   Api_Clinic.Data.Entities.Patient.Patient_Simple
+   None.
+
+   感觉其他地方都用到这个模型，就把他单独定义到/messages/model里来公用,命名：patient_simple	。用的时候根据Api_Clinic.Data.Entities.Patient.Patient_Simple来判断是否同一个model
+
+   另外,如果返回的是一个数组
+Collection of Api_Clinic.Data.Entities.HospitalAccount.HospitalAccount_Full
+直接定义一个数组的类型：HospitalAccount_Full，不用再定义相应的respone类。
+
+补充：
+如果两个接口地址一样，如下
+GET api/Worker/GetList?workerTypeArray[0]={workerTypeArray[0]}&workerTypeArray[1]={workerTypeArray[1]}
+GET api/Worker/GetList?workerType={workerType}&accessState={accessState}&keyword={keyword}&pageIndex={pageIndex}&pageSize={pageSize}
+把返回的实体加到相应的名称后面
+GetListWokerSimpleRequest GetListWokerSimpleResponse
+GetListWokerWorkerFullRequest GetListWokerFullResponse
+
+5、core/forms 里方表单的数据模型，按照一级菜单放到对应的文件夹里,通用的放到最外层就可以
+
+6、每个子路由都创建一个路由模块
+
+7、各模块中组件、指令、管道在模块中按文件夹分类，定义组件时，界面逻辑要和展示的模版分开，模版html css要分别单独提到一个文件中
+
+8、服务层不引用core/forms里的模型,如果传入service层的参数比较复杂，可以定义一个dto对象，如果只作为展示core/messages 、Dto、forms都可以在组件中用
+
+9、整个项目中的服务，都放到core/services中，不涉及业务的工具类服务，都放到core/utils
+
+10、需要添加引入第三方模块、添加服务、共用组件、指令、管道,先给张冰强说明添加原因，并更新到文档里，然后再添加，开发完成之后也给说，更新开发状态
+
+11、share模块里的共享的组件、指令都以qiezzi作为前缀
+
+12、每个方法必须添加注释、重要的变量、语句必须添加注释、文件的头部必须加注释，对这个文件进行说明
+
+13、能用方法属性能类型批注的，都限定类型
+
+14、页面使用那些特殊组件，服务都必须添加对应的接口，来强制约束实现某些方法.例如：侧滑、中栏头、部侧滑头部、验证，接口在对应
+组件类、服务文件中找
+
+15、开发过程中loading的效果，直接找产品确认；做的时候按照原型来做，样式参考效果图；ui图有问题先找爽哥确认
+
+16、共享组件需要弹窗的统一都在，共享组件所在的模块添加 entryComponents
+
+17、有的公用的组件，在定义的组件类文件底部会有对应的接口，表示使用的时候必须实现的接口。
+
+12、提交表单必须处理服务端成功、失败的情况，isProcessing=false（是否正在处理中 ），来控制提交按钮是否置灰.
+
+13、组件类里的属性都定义在构造函数的上方、方法都定义在构造函数下面、私有函数都定义在组件类的最下方
+
+风格指南：https://angular.cn/docs/ts/latest/guide/style-guide.html#!#single-responsibility

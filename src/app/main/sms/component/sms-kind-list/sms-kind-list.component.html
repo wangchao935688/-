@@ -1,0 +1,35 @@
+<div class="popup-content-container" style="height: 100%;" malihu-scrollbar [scrollbarOptions]="scrollbarOptions">
+  <div class="popup-content-box">
+    <qiezzi-loading [attr.status]="mainShowLoading" class="loading6 purple"></qiezzi-loading>
+    <div class="sms-list-top">
+     <form class="validate-form" >
+
+      <div class="form-section" *ngFor="let item of templateTypeListResponse; let i = index;">
+        <div class="form-title"><span class="red-point"><i></i></span>{{item.Name}}</div>
+        <div class="form-element">
+          <div class="err-message" ></div>
+          <input class="input-text" placeholder="请输入名称"  style="border-color: #dbdbdb;box-shadow: none;outline: none !important;width:15.3rem;">
+        </div>
+        <div class="sms-list-right">
+          <i class="icon iconfont icon-xiangshang"></i>
+          <i class="icon iconfont icon-xiangxia"></i>
+          <i class="icon iconfont icon-shanchu" (click)="delTemplateType(item.Code)"></i>
+        </div>
+      </div>
+
+      </form>
+    </div>
+    <div class="addlists">
+      <div class="addli">
+        <div class="addli">
+          <i class="icon iconfont icon-xinzeng"></i>
+          <span>添加类别</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="button-group button-group-right">
+  <button class="button5" (click)="ok()"  [disabled]="isProcessing">保存</button>
+  <button class="button4" (click)="cancel()">取消</button>
+</div>

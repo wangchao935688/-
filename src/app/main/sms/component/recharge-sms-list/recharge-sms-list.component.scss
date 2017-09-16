@@ -1,0 +1,68 @@
+:host{
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+/*
+TODO 顶部头部
+*/
+app-qiezzi-center-header{
+  border-bottom:1px solid #DBDBDB;
+}
+.list-table{
+  padding:0 1rem;
+}
+// 当前金额
+.total{
+  padding-left:1rem;
+  padding-bottom:.5rem;
+  span{
+    color:#999;
+    line-height:1rem;
+    font-size:.6rem;
+    display: inline-block;
+    &:first-child{
+      padding-right:1rem;
+    }
+    i{
+      color:#333;
+      font-weight:bold;
+      padding-left:.1rem;
+    }
+  }
+}
+/*
+TODO 列表头部
+*/
+.list-table-head{
+  border:1px solid #DBDBDB;
+  border-bottom: none;
+}
+/*
+TODO 滚动条
+*/
+.app-center-content{
+  height: calc(100% - 4rem);
+}
+/*
+TODO 查询
+*/
+.search-bar{
+  margin:1.5rem 0 1rem 0;
+}
+.list-table-col-1:first-of-type{
+  width:calc(100% - (12% * 5) - 18%);
+}
+.list-table-col-1:nth-of-type(2),
+.list-table-col-1:nth-of-type(3),
+.list-table-col-1:nth-of-type(4),
+.list-table-col-1:nth-of-type(6),
+.list-table-col-1:nth-of-type(7){
+  width:12%;
+}
+.list-table-col-1:nth-of-type(5){
+  width:18%;
+}
+.pay{
+  cursor: pointer;
+}

@@ -1,0 +1,50 @@
+.search-bar {
+  display: flex;
+  border-bottom: 1px solid #e6e7f3;
+}
+@media screen and (max-width: 999px) {
+  .search-bar {
+    flex-direction: column;
+    .search-left {
+      margin-bottom: 1rem;
+    }
+  }
+}
+.button-group-right{
+  .button5{
+    position: absolute;
+    top:3rem;
+    right:1.5rem;
+  }
+}
+/*内容区开始*/
+.list-table{
+  padding:0;
+}
+.list-table-content-col-2 {
+  width: 10rem;
+  span {
+    color: #DBDBDB;
+    span {
+      padding: 0 .5rem;
+      color: #e4e6fe;
+    }
+  }
+  i {
+    font-size: .9rem;
+  }
+  i:hover {
+    color: #7a80fa;
+    cursor: pointer;
+  }
+}
+.list-table-col-1{
+  width:100%;
+}
+.col16{
+  flex:0 0 16%;
+}
+.col20{
+  flex:0 0 20%;
+}
+/*内容区结束*/

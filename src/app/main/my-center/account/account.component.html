@@ -1,0 +1,23 @@
+<div [attr.status]="''" class="right-slider-container"></div>
+<div id="app-center-container">
+  <div id="app-center-content">
+    <app-qiezzi-center-header [showSearch]="false"
+                              [showFilter]="false"
+                              [showAdd]="false"
+                              [showOptions]="false"
+                              [moduleName]="'账号管理'"
+                              (onControl)="onControl($event)"
+                              (onSearch)="onSearch($event)"
+                              (onOptions)="onOptions($event)"
+                              (onShowFilter)="onShowFilter($event)"
+    ></app-qiezzi-center-header>
+    <div class="tab-ctrl tab-ctrl3">
+      <app-qiezzi-tab-control class="tab-ctrl-head" [tabData]="tabData.data"
+                              [defaultSelectedIndex]="tabData.defaultIndex"
+                              (onTabIndexChange)="changeTab($event)"></app-qiezzi-tab-control>
+      <div class="tab-ctrl-content" style="position: relative; min-height: 400px;">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+</div>

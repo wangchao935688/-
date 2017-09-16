@@ -1,0 +1,213 @@
+/*
+TODO 顶部头部
+*/
+app-qiezzi-center-header{
+  border-bottom:1px solid #DBDBDB;
+}
+#reply-sms-content{
+    width:43rem;
+    height:30rem;
+    border:1px solid #dbdbdb;
+    margin-left:1.5rem;
+    margin-top:1.5rem;
+    position: relative;
+}
+.reply-sms-left{
+    width:15.5rem;
+    height:30rem;
+    border-right:1px solid #dbdbdb;
+}
+.reply-sms-right-top{
+    width:27.5rem;
+    height:23rem;
+    position: absolute;
+    right:0;
+    top:0;
+    border-bottom:0.05rem solid #dbdbdb;
+}
+.thisPeople{
+  text-align:center;
+  margin:1rem 0;
+  color:#333;
+  line-height:1rem;
+  font-size:0.7rem;
+}
+.reply-sms-right-tops{
+  div{
+    img{
+      width:1.3rem;
+      height:1.3rem;
+      border-radius:50%;
+      margin-left:1rem;
+      margin-right:0.6rem;
+      position: relative;
+      top: 9px;
+      }
+    }
+}
+.reply-sms-right-tops div span:nth-child(2){
+  display:inline-block;
+  width:0;
+  height:0;
+  border-top:8px solid transparent;
+  border-right:8px solid #f3f3f3;
+  border-bottom:8px solid transparent;
+  padding-bottom:0.3rem;
+  position: relative;
+  left: 4px;
+  top: 7px;
+}
+.reply-sms-right-tops div span:nth-child(3){
+  vertical-align: top;
+  display:inline-block;
+  background:#f3f3f3;
+  width:76%;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  line-height:1rem;
+  color:#333;
+  font-size:0.6rem;
+}
+.reply-sms-right-bottom{
+    width:27.5rem;
+    height:7rem;
+    top:23rem;
+    right:0;
+    position: absolute;
+}
+.reply-sms-right-bottom textarea{
+    width:27.4rem;
+    height:6.9rem;
+    margin-left:0.1rem;
+    padding-left:0.95rem;
+    padding-top:0.6rem;
+    padding-right:0.6rem;
+    border:none;
+    overflow:hidden;
+    resize:none;
+    outline:none;
+    color:#333;
+    font-size:0.6rem;
+}
+.reply-sms-right-bottom textarea::-webkit-input-placeholder{
+    color:#999;
+    font-family:"微软雅黑";
+}
+.reply-sms-right-bottom button{
+    position: absolute;
+    right:1rem;
+    bottom:1rem;
+
+}
+.reply-sms-talk{
+    height:3.2rem;
+    width:15.5rem;
+    margin: 1rem 0;
+}
+.writein{
+    position: relative;
+}
+.writein input{
+    width:13.3rem;
+    height:1.6rem;
+    border:1px solid #dbdbdb;
+    border-radius:4px;
+    padding-left:0.45rem;
+    margin:1rem 0 0 1rem;
+}
+.writein input::-webkit-input-placeholder{
+    color:#999;
+}
+.icon-fangdajing{
+    position: absolute;
+    top:1.4rem;
+    right:1.8rem;
+    color:#aaa;
+    font-size:0.8rem;
+}
+.tab-ctrl1{
+    margin-left:1rem;
+    margin-right:1rem;
+}
+.reply-sms-talk img{
+    width:1.7rem;
+    height:1.7rem;
+    border-radius: 50%;
+    position: absolute;
+    left: 20px;
+}
+.reply-sms-talk span:first-of-type{
+    font-size:0.7rem;
+    line-height: 1rem;
+    color:#333;
+    position: absolute;
+    left: 3.4rem;
+    width: 4rem;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.reply-sms-talk span:nth-of-type(2){
+    font-size:0.6rem;
+    line-height: 1rem;
+    color:#999;
+    position: relative;
+    left:3.4rem;
+    top:1rem;
+    display: inline-block;
+    width: 7rem;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.reply-sms-talk span:nth-of-type(3){
+  float:right;
+  padding-right:1.5rem;
+  font-size:0.6rem;
+  line-height:1rem;
+  color:#999;
+}
+.talk-time{
+  margin:1rem 0;
+  margin-top:1.2rem;
+  text-align:center;
+  color:#999;
+  font-size:0.6rem;
+  line-height:1rem;
+}
+
+//右边聊天人
+.reply-sms-right-tops>img{
+  width:1.3rem;
+  height:1.3rem;
+  border-radius:50%;
+  margin-left:25.2rem;
+  margin-right:0.6rem;
+  position: relative;
+  top: 9px;
+}
+.reply-sms-right-tops .sanjiao{
+  display:inline-block;
+  width:0;
+  height:0;
+  border-top:8px solid transparent;
+  border-left:8px solid #f3f3f3;
+  border-bottom:8px solid transparent;
+  padding-bottom:0.3rem;
+  position: relative;
+  left: 24rem;
+  top: -0.8rem;
+}
+.reply-sms-right-tops .talk-content{
+  vertical-align: top;
+  display:inline-block;
+  background:#f3f3f3;
+  width:76%;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  line-height:1rem;
+  color:#333;
+  font-size:0.6rem;
+  margin-top: -1.4rem;
+  margin-left: 2.6rem;
+}

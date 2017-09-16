@@ -1,0 +1,130 @@
+<div class="right-slider-container">
+  <router-outlet></router-outlet>
+</div>
+<app-qiezzi-center-header [showSearch]="false"
+                          [showFilter]="false"
+                          [showAdd]="false"
+                          [showOptions]="false"
+                          [moduleName]="'短信回复'"
+></app-qiezzi-center-header>
+<qiezzi-loading [attr.status]="dataLoading" class="loading6 purple transparent" style="margin-top: 15rem"></qiezzi-loading>
+<div id="reply-sms-content">
+  <div class="reply-sms-left">
+    <div class="writein">
+      <input type="text" name="bingli" id="bingli" value="" placeholder="姓名/手机号/病例号"/>
+      <i class="icon iconfont icon-fangdajing"></i>
+    </div>
+    <div>
+
+      <div class="tab-ctrl tab-ctrl1">
+        <app-qiezzi-tab-control class="tab-ctrl-head" [tabData]="tabData.data"
+                                [defaultSelectedIndex]="tabData.defaultIndex"
+                                (onTabIndexChange)="changeTab($event)"></app-qiezzi-tab-control>
+      </div>
+      <div class="reply-talkbox" style="height: 28.4rem;">
+        <div id="appCenterContent"
+             [ngStyle]="{'display': centerLoadReady?'block':'none','border-top':isBorder?'1px solid #DBDBDB':''}"
+             class="app-center-content" malihu-scrollbar
+             [scrollbarOptions]="scrollbarOptions">
+          <!--第一列显示隐藏-->
+          <div class='showhide'>
+            <div class="reply-sms-talk" *ngFor="let item of replyListResponse?.Items; let i = index;">
+              <img src="../../../../../assets/imgs/logo.png"/>
+              <span>{{item?.SendModel?.Name}}</span>
+              <span>{{item?.Content}}</span>
+              <span>{{item.SendTime| qiezziDateAuto : 2}}</span>
+            </div>
+          </div>
+          <div class="data-empty" *ngIf="showEmptyState">
+            <app-data-empty style="border: none;" [showEmpty]="!(getRechargerListResponse && getRechargerListResponse?.TotalItems>0)"></app-data-empty>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="reply-sms-right-top">
+      <div class="thisPeople">张医生</div>
+
+
+
+      <!--滚动条-->
+      <div id="appCenterContents"
+           [ngStyle]="{'display': centerLoadReady?'block':'none','border-top':isBorder?'1px solid #DBDBDB':''}"
+           class="app-center-content" malihu-scrollbar
+           [scrollbarOptions]="scrollbarOptions" style=" height: calc(100% - 3rem) !important;">
+
+      <!--对话左边的人-->
+      <div class="reply-sms-right-tops">
+        <div>
+          <img src="../../../../../assets/images/logo.png" alt="">
+          <!--三角-->
+          <span></span>
+          <span>购买商品换课程的活动将于今晚</span>
+        </div>
+      </div>
+      <div class="talk-time">2017-06-05 10:05</div>
+
+
+        <!--对话左边的人-->
+      <div class="reply-sms-right-tops">
+        <div>
+          <img src="../../../../../assets/images/logo.png" alt="">
+          <!--三角-->
+          <span></span>
+          <span>购买商品换课程的活动将于今晚购买商品换课程的活动将于今晚购买商品换课程的活动将于今晚购买商品换课程的活动将于今晚购买商品换课程的活动将商品换课程的活动将于今晚购买商品换课程的活动将于今晚购买商品换课程的活动将于今晚购买商品换课程的活动将于今晚购买商品换课程的活动商品换课程的活动将于今晚购买商品换课程的活动将于今晚购买商品换课程的活动将于今晚购买商品换课程的活动将于今晚购买商品换课程的活动于今晚</span>
+        </div>
+      </div>
+      <div class="talk-time">2017-06-05 10:05</div>
+
+
+        <!--对话左边的人-->
+      <div class="reply-sms-right-tops">
+        <div>
+          <img src="../../../../../assets/images/logo.png" alt="">
+          <!--三角-->
+          <span></span>
+          <span>购买商品换课程的活动将于今晚购买商品换课程的活动将于今晚购买商品换课程的活动将于今晚购买商品换课程的活动将于今晚购买商品换课程的活动将商品换课程的活动将于今晚购买商品换课程的活购买商品换课程的活动于今晚</span>
+        </div>
+      </div>
+      <div class="talk-time">2017-06-05 10:05</div>
+
+          <!--对话右边的人-->
+        <div class= "reply-sms-right-tops">
+          <img src="../../../../../assets/images/qiezzi.png">
+          <!--三角-->
+          <span class="sanjiao"></span>
+          <span class="talk-content">品换课程的活动将于今晚购买商品买商品换课程的活动将商品换课程课程的活购</span>
+        </div>
+        <div class="talk-time">2017-06-05 10:05</div>
+
+        <!--对话右边的人-->
+        <div class= "reply-sms-right-tops">
+          <img src="../../../../../assets/images/qiezzi.png">
+          <!--三角-->
+          <span class="sanjiao"></span>
+          <span class="talk-content">品换课程的活动将于今晚购买商品买商品换课程的活动将商品换课程课程的活购</span>
+        </div>
+        <div class="talk-time">2017-06-05 10:05</div>
+
+        <!--对话左边的人-->
+        <div class="reply-sms-right-tops">
+          <div>
+            <img src="../../../../../assets/images/logo.png" alt="">
+            <!--三角-->
+            <span></span>
+            <span>购买商品换课程的活动将于今晚购买商品换课程的活动将于今晚购买商品换课程的活动将于今晚购买商品换课程的活动将于今晚购买商品换课程的活动将商品换课程的活动将于今晚购买商品换课程的活动将于今晚购买商品换课程的活动将于今晚购买商品换课程的活动将于今晚购买商品换课程的活动商品换课程的活动将于今晚购买商品换课程的活动将于今晚购买商品换课程的活动将于今晚购买商品换课程的活动将于今晚购买商品换课程的活动于今晚</span>
+          </div>
+        </div>
+        <div class="talk-time">2017-06-05 10:05</div>
+     </div>
+    </div>
+
+
+
+
+    <div class="reply-sms-right-bottom">
+      <textarea placeholder="请输入回复内容"></textarea>
+      <button class="button5">发送</button>
+    </div>
+  </div>
+</div>
+

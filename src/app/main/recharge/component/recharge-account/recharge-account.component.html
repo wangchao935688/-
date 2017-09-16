@@ -1,0 +1,52 @@
+<app-qiezzi-right-header
+  [rightComponentName]="compName"
+  [controlList]="ctrlList"
+  (onControl)="onControlListClick($event)"></app-qiezzi-right-header>
+<qiezzi-loading [attr.status]="dataLoading" class="loading6 purple transparent" style="padding-top: 300px;"></qiezzi-loading>
+<div class="right-content" id="rightContentScroll" malihu-scrollbar [scrollbarOptions]="scrollbarOptions">
+  <div class="contain-item" style="text-align: right;">
+    <span>余额:
+      <i class="Money">{{rechargeAccountGet?.Balance | qiezziMoeny : true}}</i>
+    </span>
+  </div>
+  <div  class="contain-item">
+    <span style="margin-right: .5rem;">{{rechargeAccountGet?.PatientModel?.PatientName}}</span>
+    <span style="margin-right: .5rem;">|</span>
+    <span style="color: red;margin-right: .5rem;">无手机号</span>
+    <span style="margin-right: .5rem;" *ngIf="rechargeAccountGet?.PatientModel?.PatientCode">|</span>
+    <span style="margin-right: .5rem;">{{rechargeAccountGet?.PatientModel?.PatientCode}}</span>
+  </div>
+  <div  class="contain-item">
+    <div class="title">
+      <i class="icon iconfont icon-chongzhicehua-mingxixiangqing"></i>
+      <span style="margin-left: .3rem;font-size: .8rem;color: #333;">明细详情</span>
+    </div>
+    <div class="content-row">
+      <div class="list-table-exp" style="padding: 0;">
+        <div class="list-table-head-exp">
+          <span class="col-0">时间</span>
+          <span class="col-28" (click)="accountSort()">类别</span>
+          <span class="col-28" (click)="rechargeSort()">金额</span>
+        </div>
+        <div class="list-table-content-exp">
+          <div class="list-table-item" *ngFor="let item of rechargeAccountGetChangeRecord?.Items; let i = index;">
+            <div class="col-0"><span>{{item.RecordTime | qiezziDateAuto : 1}}</span></div>
+            <div class="col-28"><span>{{item.RecordType }}</span></div>
+            <div class="col-28"><span>{{item.Money | qiezziMoeny: true}}</span></div>
+          </div>
+        </div>
+        <div *ngIf="!rechargeAccountGetChangeRecord || !rechargeAccountGetChangeRecord.TotalItems|| rechargeAccountGetChangeRecord.TotalItems == 0" class="data-empty">
+          <app-data-empty [showEmpty]="rechargeAccountState"></app-data-empty>
+        </div>
+        <qiezzi-paginator *ngIf="rechargeAccountGetChangeRecord && rechargeAccountGetChangeRecord.TotalItems>10"
+                          [rows]="rechargeAccountGetChangeRecord?.ItemsPerPage"
+                          [totalRecords]="rechargeAccountGetChangeRecord?.TotalItems"
+                          [rowsPerPageOptions]="[10,20,30]"
+                          (onPageChange)="pageChange($event)"></qiezzi-paginator>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+

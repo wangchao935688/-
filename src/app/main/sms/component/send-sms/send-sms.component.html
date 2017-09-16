@@ -1,0 +1,116 @@
+<div class="right-slider-container">
+  <router-outlet></router-outlet>
+</div>
+<div id="app-center-container">
+  <qiezzi-loading [attr.status]="mainShowLoading" class="loading6 purple"></qiezzi-loading>
+  <app-qiezzi-center-header [showSearch]="false"
+                            [showFilter]="false"
+                            [showAdd]="false"
+                            [showOptions]="false"
+                            [moduleName]="'发短信'"
+                            [searchPlaceholder]="'患者/收费单号'"
+                            [controlList]="['添加']"
+                            (onControl)="onControl($event)"
+                            (onSearch)="onSearch($event)"
+                            (onOptions)="onOptions($event)"
+                            (onShowFilter)="onShowFilter($event)"
+  ></app-qiezzi-center-header>
+  <div id="appCenterContent" class="app-center-content" malihu-scrollbar [scrollbarOptions]="scrollbarOptions">
+    <div id="app-center-content">
+      <div class="send-sms-container">
+        <div class="send-sms-now" *ngIf="authenticationState.State !== 1">
+          <span>当前诊所未认证</span>
+          <span>（认证后每日免费赠送50条短信）</span>
+          <button (click)="SetAuthenticationState()">立即认证</button>
+        </div>
+        <div class="send-sms-lists">
+          <span>已购买短信剩余</span>
+          <span>{{sMSStatisticsResponse?.SMSBalance}}</span><span>条</span>
+          <span
+            *ngIf="sMSStatisticsResponse?.TodayPresentNumber">包含赠送短信{{sMSStatisticsResponse?.TodayPresentNumber}}条</span>
+          <span>|</span>
+          <a (click)="buySmsbag()">立即充值</a>
+        </div>
+        <!-- 发短信 -->
+        <div class="sendms">
+          <div class="sendms-word">
+            <i class="red-point"></i>
+            <span>发短信</span>
+            <span style="color: red;">（提示：重新编辑系统备案短信，发送需经人工审核，不能保证实时发送）</span>
+          </div>
+          <div class="send-sms-sendsms">
+
+            <div class="send-sms-top">
+              <span style="float: left;line-height: 1.5rem;">收信人 : </span>
+              <i style="float: right;line-height: 1.5rem;" class="icon iconfont icon-tianjia"
+                 (click)="selectReceiver()"></i>
+              <div style="width:86%;min-height: 1rem">
+                <app-tag-box-group style="border: none;" class="tag-box" [(ngModel)]="tagValues"></app-tag-box-group>
+              </div>
+            </div>
+            <div class="send-sms-center">
+              <textarea name="name" rows="8" cols="80" placeholder="请填写短信内容" [(ngModel)]="sendMess"
+                        (ngModelChange)="sendMessCount()"></textarea>
+            </div>
+            <div class="send-sms-bottom">
+              <div style="float: right;">
+                <span>( 按{{numCount}}条计费，共发送{{personNum * numCount}}条 ) 您还能输入<span>{{350- sendMess.length}}</span>个字</span>
+              </div>
+              <div>
+                <i class="icon iconfont icon-duanxinmoban"></i>
+                <span>短信样例</span>
+              </div>
+            </div>
+          </div>
+          <div class="button-group button-group-left" style="margin-top: 1rem;">
+            <button class="button5" (click)="sendMessage()">发送</button>
+            <button class="button4" (click)="saveTemplate()">另存模板短信</button>
+          </div>
+        </div>
+        <!-- 短信模板 -->
+        <div class="mstemplate">
+          <div class="msmb">短信模板</div>
+          <div class="send-sms-sendsmsbox2">
+            <div class="tab-ctrl tab-ctrl2">
+              <app-qiezzi-tab-control class="tab-ctrl-head" [tabData]="['我的模板','系统模板']"
+                                      [defaultSelectedIndex]="0"
+                                      (onTabIndexChange)="selectTab($event)"></app-qiezzi-tab-control>
+              <div class="tab-ctrl-content">
+                <div class="two-level">
+                  <div class="two-level-title">
+                    <div class="item-add">
+                      <span><i class="icon-jiantouxiangshang"></i></span>
+                    </div>
+                    <div class="triangle-title">
+                      <span><i class="icon-youjiantou"></i></span>
+                      <span>标题一</span>
+                    </div>
+                  </div>
+                  <div class="two-level-content">
+                    <div class="two-level-item">
+                      <div class="dot-content">
+                        <span><i></i></span>
+                        <span>中和</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--短信发送须知-->
+          <div class="sms-send">
+            <div qiezzi-popup-bubble
+                 [options]="{type:'LIST ',position:'TOP_RIGHT_FIXED'}"
+                 [listData]="['我是测试']" (onListClick)="clickListIndex($event)"
+                 style=""
+                 class="tishixinxi">
+              <i class="icon-tishixinxi"></i>
+              <span>短信发送须知</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

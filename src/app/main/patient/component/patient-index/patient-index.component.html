@@ -1,0 +1,45 @@
+<app-qiezzi-right-header
+  [rightComponentName]="patientName"
+  [controlList]="ctrlList"
+  (onControl)="onControlListClick($event)"></app-qiezzi-right-header>
+<qiezzi-loading [attr.status]="mainShowLoading" class="loading6 purple transparent" style="height:100%;margin-top: 10rem;"></qiezzi-loading>
+
+<div class="right-content" style="padding: 0 1.5rem">
+  <div class="header">
+    <div class="picture" [ngStyle]="{background: PatientCenterResponse?.Patient.Image ? PatientCenterResponse.Patient.Image : null}"></div>
+    <div class="infor">
+      <div class="row">
+        <span class="name">{{PatientCenterResponse?.Patient.PatientName}}</span>
+        <i *ngIf="PatientCenterResponse?.Patient.IsImportant" class="icon iconfont icon-zhongdianhuanzhehoubiaoqian" style="color:#FEA356;"></i>
+        <i *ngIf="PatientCenterResponse?.Patient.IsArrearage" class="icon iconfont icon-qianfeihuanzhehoubiaoqian" style="color: #fe4e74;"></i>
+        <span class="infor-content" style="float: right;" *ngIf="PatientCenterResponse?.Patient.PatientCode">{{PatientCenterResponse?.Patient.PatientCode}}</span>
+      </div>
+      <div class="row">
+        <span style="font-size: .7rem"
+              *ngIf="PatientCenterResponse?.Patient.Sex == 0"
+              class="icon iconfont icon-nan"></span>
+        <span style="font-size: .7rem"
+              *ngIf="PatientCenterResponse?.Patient.Sex == 1"
+              class="icon iconfont icon-nv"></span>
+        <span class="infor-content"
+              *ngIf="PatientCenterResponse?.Patient.Age">{{PatientCenterResponse?.Patient.Age}}岁</span>
+        <span class="infor-content"
+              *ngIf="PatientCenterResponse?.Patient.Tel">{{PatientCenterResponse?.Patient.Tel}}</span>
+
+      </div>
+      <div class="row">
+        <app-tag-box-group class="tag-box" #tagBox [(ngModel)]="tagList"></app-tag-box-group>
+      </div>
+    </div>
+  </div>
+  <div class="tab-ctrl tab-ctrl1">
+    <app-qiezzi-tab-control class="tab-ctrl-head" [tabData]="tabData.data"
+                            [defaultSelectedIndex]="tabData.defaultIndex"
+                            (onTabIndexChange)="tabData.changeTab($event)"></app-qiezzi-tab-control>
+    <div [attr.status]="true" style="margin-top: 1.5rem;height: calc(100% - 13rem);">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+
+</div>
+

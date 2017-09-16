@@ -1,0 +1,87 @@
+<div [attr.status]="displayStatus" class="right-slider-container">
+  <router-outlet></router-outlet>
+</div>
+<div id="app-center-container">
+  <qiezzi-loading [attr.status]="mainShowLoading" class="loading6 purple" style="height:100%;"></qiezzi-loading>
+  <app-qiezzi-center-header [showSearch]="false"
+                            [showFilter]="false"
+                            [showAdd]="true"
+                            [moduleName]="'外加工'"
+                            [searchPlaceholder]="'患者/单号'"
+                            [controlList]="['新增']"
+                            (onControl)="onControl($event)"
+                            (onOptions)="onOptions($event)"
+                            (onSearch)="onSearch($event)"
+                            (onShowFilter)="onShowFilter($event)"
+  ></app-qiezzi-center-header>
+  <div id="app-center-content">
+    <div id="appCenterContent" [style.border-top]="isBorder?'1px solid #DBDBDB':''"
+         class="app-center-content" malihu-scrollbar [scrollbarOptions]="scrollbarOptions">
+      <div class="search-bar">
+        <div class="search-left">
+          <app-icon-input [placeholder]="'输入患者姓名'" [(ngModel)]="requestData.keyword" style="width:10rem;"></app-icon-input>
+          <qiezzi-drop-down-list name="ProcessCompanyId" class="drop-down-select"
+                                 [(ngModel)]="requestData.doctorID"
+                                 [placeholder]="'全部'"
+                                 [required]="false"
+                                 [selectIndex]="0"
+                                 [dataList]="doctorList"></qiezzi-drop-down-list>
+        </div>
+        <div class="search-right">
+          <qiezzi-double-date (onSelectLeft)="selectLeft($event)"
+                              (onSelectRight)="selectRight($event)"></qiezzi-double-date>
+          <button class="button4" (click)="searchProcessList()">查询</button>
+        </div>
+      </div>
+
+      <div class="tab-ctrl tab-ctrl1">
+        <app-qiezzi-tab-control class="tab-ctrl-head" style="margin: 0 2rem;" [tabData]="tabData.data"
+                                [defaultSelectedIndex]="tabData.defaultIndex"
+                                (onTabIndexChange)="tabData.changeTab($event)"></app-qiezzi-tab-control>
+        <div class="tab-ctrl-content" style="position: relative; min-height: 400px;">
+          <qiezzi-loading [attr.status]="dataLoading" class="loading6 purple transparent"
+                          style="padding-top: 300px"></qiezzi-loading>
+          <div class="list-table">
+            <div class="list-table-head">
+              <span class="list-table-col-1">患者|病历号</span>
+              <span class="mobile-hidden list-table-col-15">手机号</span>
+              <span class="mobile-hidden list-table-col-15">医生</span>
+              <span class="mobile-hidden list-table-col-15">就诊日期</span>
+              <span class="list-table-col-15">加工费</span>
+              <span class="list-table-col-12">加工数量</span>
+            </div>
+            <div class="list-table-content">
+              <div class="list-table-item" [ngClass]="{'selected': i==selectIndex}"
+                   *ngFor="let item of responseData.Items;let i=index;" (click)="openDetail($event,item.Id,i)">
+                <div class="list-table-col-1">
+                  <span class="span-ellipsis">{{item.PatientModel.PatientName|qiezziTextNull}}</span>
+                  <span>{{item.PatientModel.PatientCode|qiezziTextNull}}</span>
+                </div>
+                <div class="mobile-hidden list-table-col-15">
+                  <span>{{item.PatientModel.Tel}}</span>
+                </div>
+                <div class="mobile-hidden list-table-col-15"><span
+                  class="span-ellipsis">{{item.DoctorName|qiezziTextNull}}</span>
+                </div>
+                <div class="mobile-hidden list-table-col-15"><span>{{item.VisitingTime | qiezziDateAuto:0}}</span>
+                </div>
+                <div class="list-table-col-15"><span><b>{{item.Price|qiezziTextNull|qiezziMoeny}}</b></span></div>
+                <div class="list-table-col-12"><span>{{item.ProcessNum|qiezziTextNull}}</span></div>
+              </div>
+            </div>
+            <app-data-empty *ngIf="!(responseData && responseData.TotalItems>0)"
+                            [showEmpty]="showEmpty"></app-data-empty>
+            <div [ngStyle]="{display: (responseData && responseData.TotalItems>requestData.pageSize) ?'block' : 'none'}">
+              <qiezzi-paginator  [style]="showOrHide"  [rows]="responseData.ItemsPerPage" [totalRecords]="responseData.TotalItems"
+                                [rowsPerPageOptions]="[10,20,30]"
+                                (onPageChange)="pageChange($event)"></qiezzi-paginator>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+

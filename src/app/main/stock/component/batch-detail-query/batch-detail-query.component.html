@@ -1,0 +1,138 @@
+<!--批次明细查询页面-->
+<!--<div class="capital-flow-content batch-detail-query" *ngIf="pageIndex==2">-->
+<div class="capital-flow-content batch-detail-query">
+  <!--<div class="capital-flow-content-right">-->
+  <!--<div>-->
+  <div id="appCenterRightContent"
+       [ngStyle]="{'display': centerRightLoadReady?'block':'none','border-top':isBorderRight?'1px solid #DBDBDB':''}"
+       class="app-center-content" malihu-scrollbar
+       [scrollbarOptions]="scrollbarOptionsRight">
+    <div>
+      <div class="search-bar">
+        <div class="search-left">
+          <app-icon-input [placeholder]="'物品名称/拼音码'" [(ngModel)]="requestData.keyword"
+                          style="width:10rem;"></app-icon-input>
+          <qiezzi-drop-down-list name="ProcessCompanyId" class="drop-down-select"
+                                 [required]="false"
+                                 [selectIndex]="0"
+                                 (onChange)="onChangeDropDownList($event)"
+                                 [dataList]="goodsKindsList"></qiezzi-drop-down-list>
+        </div>
+        <div class="time-to">
+          有效期至
+        </div>
+        <div class="search-right">
+
+          <qiezzi-double-date (onSelectLeft)="selectLeft($event)"
+                              (onSelectRight)="selectRight($event)"></qiezzi-double-date>
+          <button class="button4 search-right-button" (click)="search()">查询</button>
+        </div>
+      </div>
+      <div class="button-search-right-icon rt">
+        <button class="button4 search-right-icon"><i class="icon iconfont icon-daochu"></i>导出</button>
+      </div>
+    </div>
+    <qiezzi-loading [attr.status]="dataLoading" class="loading6 purple transparent"
+                    style="padding-top: 300px"></qiezzi-loading>
+    <!-- 列表 -->
+    <div class="list-table">
+      <div class="list-table-head">
+        <div class="list-table-col0" (click)="goodsNameSort()">物品名称
+          <span class="icon-sort">
+              <i class="icon top iconfont icon-qiehuanjiantouxiangxia"
+                 [ngClass]="{'active-color':currentClick===1&&goodsNameSortBoolean}"></i>
+              <i class="icon bottom iconfont icon-qiehuanjiantouxiangshang"
+                 [ngClass]="{'active-color':currentClick===1&&!goodsNameSortBoolean}"></i>
+            </span>
+        </div>
+        <div class="list-table-col1 " (click)="numberSort()">数量
+          <span class="icon-sort">
+              <i class="icon top iconfont icon-qiehuanjiantouxiangxia"
+                 [ngClass]="{'active-color':currentClick===2&&numberSortBoolean}"></i>
+              <i class="icon bottom iconfont icon-qiehuanjiantouxiangshang"
+                 [ngClass]="{'active-color':currentClick===2&&!numberSortBoolean}"></i>
+            </span>
+        </div>
+        <div class="list-table-col1" (click)="batchNameSort()">批次
+          <span class="icon-sort">
+              <i class="icon top iconfont icon-qiehuanjiantouxiangxia"
+                 [ngClass]="{'active-color':currentClick===3&&batchNameSortBoolean}"></i>
+              <i class="icon bottom iconfont icon-qiehuanjiantouxiangshang"
+                 [ngClass]="{'active-color':currentClick===3&&!batchNameSortBoolean}"></i>
+            </span>
+        </div>
+        <div class="list-table-col1" (click)="productionDateSort()">生产日期
+          <span class="icon-sort">
+              <i class="icon top iconfont icon-qiehuanjiantouxiangxia"
+                 [ngClass]="{'active-color':currentClick===4&&productionDateSortBoolean}"></i>
+              <i class="icon bottom iconfont icon-qiehuanjiantouxiangshang"
+                 [ngClass]="{'active-color':currentClick===4&&!productionDateSortBoolean}"></i>
+            </span>
+        </div>
+        <div class="list-table-col1" (click)="shelfLifeDayNumSort()">保质期天数
+          <span class="icon-sort">
+              <i class="icon top iconfont icon-qiehuanjiantouxiangxia"
+                 [ngClass]="{'active-color':currentClick===5&&shelfLifeDayNumSortBoolean}"></i>
+              <i class="icon bottom iconfont icon-qiehuanjiantouxiangshang"
+                 [ngClass]="{'active-color':currentClick===5&&!shelfLifeDayNumSortBoolean}"></i>
+            </span>
+        </div>
+        <div class="list-table-col1" (click)="shelfLifeDateSort()">有效期至
+          <span class="icon-sort">
+              <i class="icon top iconfont icon-qiehuanjiantouxiangxia"
+                 [ngClass]="{'active-color':currentClick===6&&shelfLifeDateSortBoolean}"></i>
+              <i class="icon bottom iconfont icon-qiehuanjiantouxiangshang"
+                 [ngClass]="{'active-color':currentClick===6&&!shelfLifeDateSortBoolean}"></i>
+            </span>
+        </div>
+        <div class="list-table-col1 list-table-col-last" (click)="remainingDayNumSort()">剩余天数
+          <span class="icon-sort">
+              <i class="icon top iconfont icon-qiehuanjiantouxiangxia"
+                 [ngClass]="{'active-color':currentClick===7&&remainingDayNumSortBoolean}"></i>
+              <i class="icon bottom iconfont icon-qiehuanjiantouxiangshang"
+                 [ngClass]="{'active-color':currentClick===7&&!remainingDayNumSortBoolean}"></i>
+            </span>
+        </div>
+      </div>
+      <div class="list-table-content">
+        <div class="list-table-item click-no-hide-detail" *ngFor="let item of batchListResponse.Items, let i = index">
+          <div class="list-table-col0">
+            <p>{{item?.GoodsName | qiezziTextNull}}</p>
+            <div class="list-table-col0-text">
+              <span class="list-table-col0-text-left" *ngIf="item?.Specifications">规格：{{item?.Specifications}}</span>
+              <span class="list-table-col0-text-right" *ngIf="item?.Specifications">单位：{{item?.Unit}}</span>
+            </div>
+          </div>
+          <div class="list-table-col1">
+            <span>{{item?.BatchAmount}}</span>
+          </div>
+          <div class="list-table-col1">
+            <span>{{item?.Name}}</span>
+          </div>
+          <div class="list-table-col1">
+            <span>{{item?.ProductionDate}}</span>
+          </div>
+          <div class="list-table-col1">
+            <span>{{item?.ShelfLifeDayNum}}</span>
+          </div>
+          <div class="list-table-col1">
+            <span>{{item?.ShelfLifeDate}}</span>
+          </div>
+          <div class="list-table-col1 list-table-col-last">
+            <span>{{item?.RemainingDayNum}}</span>
+          </div>
+        </div>
+        <div class="data-empty" *ngIf="showEmptyState">
+          <app-data-empty [showEmpty]="!(batchListResponse && batchListResponse?.TotalItems>0)"></app-data-empty>
+        </div>
+      </div>
+      <qiezzi-paginator [ngStyle]="{display: (batchListResponse && batchListResponse?.TotalItems>20) ?'block' : 'none'}"
+                        [rows]="batchListResponse?.ItemsPerPage" [totalRecords]="batchListResponse?.TotalItems"
+                        [rowsPerPageOptions]="[10,20,30]"
+                        [style]="showOrHide" (onPageChange)="onPageChange($event)">
+      </qiezzi-paginator>
+    </div>
+    <!-- 结束列表 -->
+  </div>
+  <!--</div>-->
+</div>

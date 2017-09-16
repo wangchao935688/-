@@ -1,0 +1,76 @@
+<div id="app-center-container">
+  <div id="app-center-content">
+    <qiezzi-loading [attr.status]="dataLoading" class="loading6 purple transparent" style="margin-top: 15rem"></qiezzi-loading>
+    <app-qiezzi-center-header [showSearch]="false"
+                              [showFilter]="false"
+                              [showOptions]="true"
+                              [showAdd]="true"
+                              [moduleName]="moduleName"
+                              [controlList]="['添加']"
+                              style="border-bottom:1px solid #dddddd;"
+    ></app-qiezzi-center-header>
+    <div style="padding:0.5rem 2rem;line-height: 2.4rem;width: 100%; font-size: .6rem; color: #333;">
+      <span class="icon iconfont icon-dingwei" style="margin-right: .5rem;"></span>
+      <span style="margin-right: .2rem;cursor:pointer;" (click)="back()">日常收支</span>
+      <!--<span> > </span>-->
+      <span class="icon iconfont icon-jinru" style="margin-right: .5rem;"></span>
+      <span style="margin-right: .2rem;">收支类别设置</span>
+    </div>
+
+    <div class="tab-ctrl">
+      <app-qiezzi-tab-control class="tab-ctrl-head" [tabData]="tabData.data"
+                              [defaultSelectedIndex]="tabData.defaultIndex"
+                              (onTabIndexChange)="changeTab($event)"></app-qiezzi-tab-control>
+      <div class="button-group button-group-left" style="float: right;margin-top: -2.5rem;margin-right: 2rem;" (click)="addExpenseType()">
+        <button class="button5" >{{btnName}}</button>
+      </div>
+    </div>
+
+    <div class="tab-ctrl-content">
+      <div class="list-table">
+        <div class="list-table-head">
+          <span class="">类别名称</span>
+          <span class="">操作</span>
+        </div>
+        <div class="list-table-content">
+          <div class="list-table-item" style="display:block;line-height: 0;" *ngFor="let typeList of templateList;let i = index;">
+            <div class="list-table-content-col-2" style="float:right;">
+              <span style="text-align: right;">
+                <i class="icon iconfont icon-xiangshang hover-show"
+                   (click)="up(typeList.ID)"
+                    [ngStyle]="{color: i === 0 ? '#AAA' : '',disabled: i === 0 }"></i>
+
+                <i class="iconfont icon-xiangxia hover-show"
+                   (click)="down(typeList.ID)"
+                   [ngStyle]="{color: i === templateList.length-1 ? '#AAA' : '',disabled: i === templateList.length-1 }"></i>
+
+                <i class="iconfont icon-zhiding hover-show"
+                   (click)="top(typeList.ID)"
+                   [ngStyle]="{color: i === 0 ? '#AAA' : '',disabled: i === 0 }"></i>
+
+                <i class="iconfont icon-zhidi hover-show"
+                   (click)="bottom(typeList.ID)"
+                   [ngStyle]="{color: i === templateList.length-1 ? '#AAA' : '',disabled: i === templateList.length-1 }"></i>
+
+                <i class="iconfont icon-xiugai" (click)="update(typeList.ID)"></i>
+
+                <i class="iconfont icon-shanchu" (click)="delete(typeList.ID)"></i>
+              </span>
+            </div>
+            <div class="type-name">
+              <span>{{typeList.TypeName}}</span>
+            </div>
+            <br clear="left">
+          </div>
+        </div>
+        <div class="data-empty" *ngIf="showEmptyState">
+          <app-data-empty [showEmpty]="!(templateList && templateList.length>0)"></app-data-empty>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+

@@ -1,0 +1,43 @@
+<div [attr.status]="displayStatus" class="right-slider-container large">
+  <router-outlet></router-outlet>
+</div>
+<div id="app-center-container">
+  <div id="appCenterContent" [style.border-top]="isBorder?'1px solid #DBDBDB':''"
+       class="app-center-content" malihu-scrollbar [scrollbarOptions]="scrollbarOptions">
+    <!--<app-qiezzi-center-header [moduleName]="rightComponentName" [controlList]="controlList"></app-qiezzi-center-header>-->
+    <button (click)="onClick($event)">侧滑1</button>
+    <button [ngStyle]="{'width':currWidth}" (click)="onPopupWindow($event)">弹窗</button>
+    <button (click)="clickPopupConfirm($event)">弹出确认信息</button>
+    <button (click)="demo_input_pop($event)">公用单个输入框弹窗</button>
+    <div style="width:100px; height:40px; background-color:#ff0000;" qiezzi-popup-bubble
+         [options]="{type:'LIST',position:'TOP_RIGHT_FIXED'}" [listData]="['我是测试','测试标题','打印','打印设置','删除','删除全部']" (onListClick)="clickListIndex($event)"></div>
+
+    <!--  <div class="toggle-button">
+        <div [ngClass]="{'toggle-selected':toggleSelected === 0 }" (click)="toggleClick(0)">恒牙</div>
+        <div [ngClass]="{'toggle-selected':toggleSelected === 1 }" (click)="toggleClick(1)">乳牙</div>
+      </div>-->
+
+    <div class="form-checkbox-group">
+      <label class="form-checkbox"><input (click)="onClickCheckBox()" type="checkbox" name="noname"/>
+        <span class="iconfont"></span><span>男</span>
+      </label>
+      <label class="form-checkbox"><input (click)="onClickCheckBox()" type="checkbox" name="noname"/>
+        <span class="iconfont"></span><span>女</span>
+      </label>
+    </div>
+    <div style="padding: 10px;">
+      <app-icon-input [marginRight]="'4px'" [placeholder]="'请输入患者姓名'" [iconList]="inputIconList"
+                      (onIconClick)="onInputIconClick($event)"></app-icon-input>
+    </div>
+
+    <qiezzi-drop-down-list class="drop-down-select" [placeholder]="'——'" [selectIndex]="0" [required]="false"
+                           [dataList]="[{label:'qatgdfvsd',value:'123'},{label:'qdfvsd',value:'124'}]"></qiezzi-drop-down-list>
+
+    <app-qiezzi-user-head></app-qiezzi-user-head>
+
+    <app-qiezzi-image-view></app-qiezzi-image-view>
+
+
+
+  </div>
+</div>

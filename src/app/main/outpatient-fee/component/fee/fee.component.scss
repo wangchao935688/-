@@ -1,0 +1,244 @@
+/*状态*/
+.center {
+  margin-bottom:.5rem;
+  padding-bottom:.6rem;
+  color:#333;
+  line-height:1rem;
+  span {
+    font-size: 0.6rem;
+  }
+}
+/*医生信息*/
+.fee-info{
+  margin:.5rem 0;
+  padding:.6rem 0;
+}
+.code{
+  display:flex;
+  justify-content: space-between;
+  line-height:1rem;
+  color:#999;
+  span{
+    padding:0 .3rem;
+    i{
+      color:#333;
+    }
+  }
+}
+.generation-info{
+  div{
+    padding-top:.5rem;
+    &:first-child{
+      padding-top:0;
+    }
+  }
+  em{
+    display:inline-block;
+    font-size:.6rem;
+    color:#999;
+  }
+  span{
+    display:inline-block;
+    color:#333;
+    font-size:.6rem;
+  }
+  .patient{
+    em{
+      padding:0 .5rem;
+      &:first-child{
+        padding:0;
+      }
+    }
+  }
+  .pL-20{
+    padding-left:1rem;
+  }
+}
+/*退费*/
+.refund-information{
+  margin:.5rem 0;
+  padding:.6rem 0;
+  .refund-title{
+    color:#333;
+    i{
+      padding-right:.3rem;
+    }
+  }
+  .ask{
+    float:left;
+    width:4rem;
+    color:#666;
+    div{
+      padding-top:.5rem;
+    }
+  }
+  .answer{
+    color:#333;
+    div{
+      padding-top:.5rem;
+    }
+  }
+}
+
+
+
+.pt-10{
+  padding-top:1rem;
+}
+.pt-4{
+  padding-top:.2rem;
+}
+.font-size-14 {
+  font-size: 0.7rem;
+}
+
+.padding-top-30 {
+  padding-top: 1.25rem;
+}
+
+.padding-top-20 {
+  padding-top: 1rem;
+}
+
+.padding-top-10 {
+  padding-top: .5rem;
+}
+
+.padding-bottom-30 {
+  padding-bottom: 1.1rem;
+}
+.font-size-12 {
+  font-size: .6rem;
+  display:flex;
+  justify-content:space-between;
+}
+/*折扣*/
+.discount-rate{
+  padding-right:1rem;
+}
+div.app-center-content{
+  height:4.5rem;
+}
+.last-margin{
+    &:last-child{
+      margin-bottom:1rem;
+      padding-bottom:1rem;
+  }
+}
+
+/*列表*/
+.pad-t-b{
+  padding:1.1rem 0 .6rem 0;
+}
+.list-table-col0{
+  width:100%;
+}
+.list-table-col1{
+  flex:0 0 15%;
+}
+.list-table-col2{
+  flex:0 0 25%;
+}
+.list-table-col3{
+ flex:0 0 30%;
+}
+.list-table{
+  border:1px solid #DBDBDB;
+  padding:0 !important;
+  .list-table-head{
+    border-bottom:1px solid #DBDBDB;
+    height:1.6rem !important;
+    div{
+      color:#666 !important;
+    }
+    > *{
+      height:1.6rem !important;
+      line-height: 1.6rem !important;
+    }
+  }
+  .list-table-content{
+    border:none;
+    div{
+      color:#333;
+    }
+  }
+}
+.list-table-content .list-table-item > div > *:only-child{
+  height:1.3rem;
+}
+.list-table-content .list-table-item{
+  border-bottom:none;
+  padding-bottom:0 !important;
+  padding-top:0 !important;
+  &:first-child{
+      padding-top:.65rem !important;
+  }
+  &:last-child{
+    padding-bottom:.65rem !important;
+  }
+}
+
+/*简略收费*/
+.abbreviated-charge{
+  width:50%;
+  .list-table-col0{
+    width:4.3rem;
+  }
+}
+/*支付信息*/
+.payment-information{
+  text-align: right;
+}
+.tab-ctrl-footer-right{
+  text-align:right;
+  .tab-ctrl-info-right{
+    padding:.6rem 0;
+    color:#999;
+    line-height:1rem;
+    font-size:.6rem;
+    i{
+      color:#333;
+    }
+    .discount{
+      padding-right:1rem;
+    }
+    .person{
+      color:#999;
+    }
+  }
+  .top-none{
+    padding-top:0;
+  }
+}
+.money{
+  font-size:.8rem;
+  color:#7A80FA !important;
+}
+.history{
+  color:#57BC85 !important;
+  font-size:.6rem;
+}
+.color{
+  color:#333;
+}
+.sideslip-scroll {
+  height:calc(100% - 4rem); }
+/*退费列表*/
+.refund{
+  width:50%;
+  display: flex;
+  div{
+    &:first-child{
+      flex:0 0 4.3rem;
+      span{
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+      }
+    }
+    &:last-child{
+      width:100%;
+    }
+  }
+
+}

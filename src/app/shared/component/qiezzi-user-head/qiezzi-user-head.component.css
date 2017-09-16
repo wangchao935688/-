@@ -1,0 +1,220 @@
+.upload-box {
+  height: 1rem;
+  margin-bottom: 0.8rem; }
+
+.upload-box > span {
+  display: inline-block;
+  color: #7a80fa; }
+
+.upload-box label {
+  cursor: pointer; }
+
+.upload-box > span:hover {
+  color: #524ddb;
+  cursor: pointer; }
+
+.upload-box i {
+  height: 1rem;
+  width: 0.6rem;
+  font-size: 12px;
+  font-style: normal;
+  margin-right: 0.3rem;
+  display: inline-block;
+  line-height: 1rem; }
+
+.upload-box > span span {
+  height: 1rem;
+  line-height: 1rem;
+  display: inline-block; }
+
+span.pc-upload i:after {
+  content: "\e727"; }
+
+span.mobile-upload i:after {
+  content: "\e726"; }
+
+.upload-box > span:last-child {
+  margin-left: 1.5rem; }
+
+.head-box {
+  width: 250px;
+  height: 250px;
+  position: relative;
+  overflow: hidden;
+  border: solid 1px #E6E7F3; }
+
+.head-box img {
+  width: 100%;
+  height: 100%;
+  z-index: 1; }
+
+.head-cover {
+  width: 100px;
+  height: 100px;
+  border: 250px solid rgba(0, 0, 0, 0.35);
+  border-radius: 50%;
+  position: absolute;
+  z-index: 2;
+  box-sizing: content-box; }
+
+.head-cover > div {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  border: solid 1px #524ddb;
+  cursor: move; }
+
+.head-cover > div > div.left-top {
+  width: 4px;
+  height: 4px;
+  position: absolute;
+  left: -2px;
+  top: -2px;
+  background-color: #524ddb; }
+
+.head-cover > div > div.left-bottom {
+  width: 4px;
+  height: 4px;
+  position: absolute;
+  left: -2px;
+  bottom: -2px;
+  background-color: #524ddb; }
+
+.head-cover > div > div.right-top {
+  width: 4px;
+  height: 4px;
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  background-color: #524ddb; }
+
+.head-cover > div > div.right-bottom {
+  width: 4px;
+  height: 4px;
+  position: absolute;
+  bottom: -2px;
+  right: -2px;
+  background-color: #524ddb;
+  cursor: nw-resize; }
+
+.rotate-panel {
+  height: 1rem;
+  margin-top: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center; }
+
+.rotate-panel span {
+  color: #aaa;
+  display: flex; }
+
+.rotate-panel span:hover {
+  color: #524DDB;
+  cursor: pointer; }
+
+.rotate-panel span i {
+  width: 0.8rem;
+  height: 0.8rem;
+  font-size: 0.8rem;
+  margin-right: 0.3rem;
+  font-style: normal;
+  overflow: hidden;
+  display: block; }
+
+.rotate-panel span:first-child i:after {
+  content: "\e6d0"; }
+
+.rotate-panel span:last-child i {
+  margin-left: 0.3rem;
+  margin-right: 0; }
+
+.rotate-panel span:last-child i:after {
+  content: "\e6d1"; }
+
+.head-view {
+  margin-left: 2.5rem;
+  margin-top: 3.9rem;
+  width: 5rem;
+  overflow: hidden;
+  position: relative; }
+
+.head-view i {
+  position: absolute;
+  z-index: 2;
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  border: solid 1px #E6E7F3;
+  background-color: #FDFDFE;
+  color: #BBBEFB;
+  font-size: 2.4rem;
+  text-align: center;
+  line-height: 5rem;
+  display: block; }
+
+.head-view i:after {
+  content: "\e725"; }
+
+.head-view img {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  border: solid 1px #E6E7F3;
+  overflow: hidden;
+  display: block; }
+
+.pre-upload {
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+  position: absolute;
+  left: 0;
+  top: 0; }
+
+.pre-upload label {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #FDFDFE;
+  cursor: pointer; }
+
+.pre-upload label input {
+  display: none; }
+
+.pre-upload .pre-message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer; }
+
+.pre-upload .pre-message i {
+  width: 2rem;
+  height: 2rem;
+  font-size: 2rem;
+  font-style: normal;
+  color: #7A80FA; }
+
+.pre-upload .pre-message i:after {
+  content: "\e6d9"; }
+
+.pre-upload .pre-message .message-text {
+  line-height: 1rem;
+  color: #999;
+  text-align: center;
+  margin-top: 0.5rem; }
+
+canvas {
+  height: 12.5rem;
+  width: 12.5rem; }
+
+.head-delete {
+  margin-top: 0.8rem;
+  text-align: center;
+  line-height: 1rem;
+  font-size: 14px;
+  color: #7a80fa;
+  cursor: pointer; }
+
+/*# sourceMappingURL=qiezzi-user-head.component.css.map */

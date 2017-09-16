@@ -1,0 +1,61 @@
+.list-table-content-col-2 {
+  width: 10rem;
+  span {
+    color: #DBDBDB;
+    span {
+      padding: 0 .5rem;
+      color: #e4e6fe;
+    }
+  }
+  i {
+    font-size: .9rem;
+  }
+  i:hover {
+    color: #7a80fa;
+    cursor: pointer;
+  }
+}
+.list-table-item{
+  color:#666;
+}
+.list-table{
+  padding:0;
+}
+.list-table-col0{
+  width:100%;
+}
+.list-table-col1{
+  flex: 0 0 20%;
+}
+.list-table-col2{
+  flex: 0 0 20%;
+}
+.list-table-col6{
+  flex: 0 0 25%;
+}
+.operation{
+  text-align:right;
+}
+.icon{
+  padding-right:.5rem;
+  font-size:1.1rem;
+  vertical-align: middle;
+}
+.icon-xianjin{
+  color:#7aca9e;
+}
+.icon-yibaoqia{
+  color:#ffb564;
+}
+.icon-yinhangqia{
+  color:#ffbf79;
+}
+.icon-zhifubao{
+ color: #8dc8ff;
+}
+.icon-weixin2{
+  color:#f88181;
+}
+.icon-qita{
+  color:#aca6ff;
+}

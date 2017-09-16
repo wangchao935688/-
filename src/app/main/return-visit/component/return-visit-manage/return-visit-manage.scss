@@ -1,0 +1,29 @@
+*{
+  box-sizing:border-box;
+}
+.tab-ctrl1 > .tab-ctrl-head,.tab-ctrl-content{
+  padding:0 2rem !important;
+}
+.list-table,.list-table-head>*{
+  padding:0;
+}
+.list-table-content .list-table-item > div > :only-child{
+  padding:.6rem 0 !important;
+}
+.list-table-col0{
+  width:100%;
+}
+.col14{
+  flex:0 0 14%;
+}
+.col10{
+  flex:0 0 10%;
+}
+.icon-dianhuahuifang{
+  font-size:.8rem;
+  width:.16rem;
+  height:1.6rem;
+}
+.list-table-item{
+  color:#666;
+}

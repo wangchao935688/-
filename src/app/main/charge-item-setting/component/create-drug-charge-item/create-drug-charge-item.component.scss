@@ -1,0 +1,343 @@
+/*初始化*/
+p, ul {
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+:host {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.capital-flow-content {
+  overflow: hidden;
+  //width: 100%;
+  //width: 47rem;
+  height: 100%;
+  //border-top: 1px solid #dddddd;
+  color: #333;
+  font-size: .7rem;
+}
+
+.capital-flow-content-left {
+  float: left;
+  width: 11rem;
+  height: 100%;
+  //height:calc(100% -4rem);
+  border-right: 1px solid #dddddd;
+  padding-top: 1rem;
+}
+
+.capital-flow-content-left .capital-flow-content-left-header {
+  /*
+ 根据UI设计，修改滚动条位置，所以调整头部位置宽度
+ */
+  margin: 0 2rem;
+
+  padding-bottom: 1rem;
+  //border-bottom: 1px dotted #dddddd;
+  border-bottom: 1px dashed #dddddd;
+  line-height: 1.5rem;
+}
+
+.capital-flow-content-left-list-item .size-normal {
+  font-size: .6rem;
+  color: #666;
+}
+
+.rt {
+  float: right;
+}
+.capital-flow-content-left-list .capital-flow-content-left-list-item {
+  line-height: 2.1rem;
+  border: 1px solid transparent;
+  padding: 0 !important;
+  display: flex;
+  justify-content: space-between;
+}
+
+.list-table-content > li {
+  line-height: 2.1rem;
+}
+
+/***********************************************************************************引用列表框架样式*/
+.list-table-head .list-table-col1, .list-table-head .list-table-col3 {
+  font-weight: normal;
+}
+
+/***修改表单样式*/
+
+.list-table-item {
+  overflow: hidden;
+}
+
+.search-bar {
+  margin-top: 1.5rem;
+  display: flex;
+  padding: 0.3rem 2rem 1rem;
+  //border-bottom: 1px solid #e6e7f3;
+  .search-left {
+    width: 10rem;
+    display: flex;
+    //justify-content: space-between;
+    margin-right: 0.5rem;
+    input {
+      width: 10rem;
+    }
+    qiezzi-drop-down-list {
+      width: 6rem;
+      margin-left: 0.5rem;
+    }
+  }
+  .search-right {
+    width: 16.5rem;
+    display: flex;
+    .search-right-button {
+      //margin-left: 0.5rem;
+      border-color: #DBDBDB;
+      color: #999;
+      //background-color: #DBDBDB;
+    }
+    .search-right-button:hover {
+      //border-color: #DBDBDB;
+      border-color: #605bf5;
+      //background-color: #DBDBDB;
+      //background-color: #fff;
+      //color: #605bf5;
+      background-color: #605BF5;
+      color: #fff;
+      //color: #999;
+    }
+    .begin-end-time {
+      height: 32px;
+      width: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-radius: 4px 4px;
+      border: solid 1px #e6e7f3;
+
+      margin-right: 0.5rem;
+      input {
+        width: 98px;
+        line-height: 30px;
+        margin: 0;
+        border: 0 !important;
+        text-indent: 10px;
+        background-color: transparent;
+      }
+      span {
+        display: block;
+        height: 20px;
+        width: 1px;
+        background-color: #DBDBDB;
+      }
+    }
+  }
+}
+
+/*****复制的列表样式*/
+#app-center-container {
+  //width: 47rem;
+  height: 100%;
+  //margin-left: -9rem;
+  .my-center-header {
+    width: 100%;
+    border-bottom: solid 1px #DBDBDB;
+    app-qiezzi-center-header {
+      //width: 47rem;
+    }
+  }
+}
+
+//下面主体
+div#appCenterContent {
+  //width: 47rem;
+  //height: 100%;
+  height: 29.5rem;
+  //左侧
+  div.capital-flow-content-left {
+    float: left;
+    width: 11rem;
+    height: 100%;
+    //height:calc(100% -4rem);
+    border-right: 1px solid #dddddd;
+    padding-top: 2rem;
+    font-size: 0.7rem;
+
+    div.app-center-content {
+      height: 100%;
+    }
+    #appCenterLeftContent {
+      height: 100%;
+      /*左侧级联菜单*/
+      .one-level{
+        padding:0 1rem;
+        .one-level-title{
+          padding:0;
+        }
+      }
+    }
+  }
+
+  //右侧
+  .capital-flow-content-right {
+    margin-left: 11rem;
+    height: 100%;
+    position: relative;
+    div.app-center-content {
+      height: 100px;
+    }
+    #appCenterRightContent {
+      height: 100%;
+      padding-bottom: 3rem;
+
+      //下面主体部分右侧顶端搜索条
+      .app-center-content-top {
+        //搜索条
+        .search-bar {
+          padding: 0.3rem 1.5rem 1rem;
+          .search-left {
+
+          }
+          .search-right {
+
+          }
+        }
+        // 显示库存
+        .form-checkbox-group{
+          width:20%;
+        }
+        //导出
+        .button-search-right-icon {
+          margin-right: 1rem;
+          margin-top: -2.6rem;
+          .search-right-icon {
+            border: none;
+            color: #969AFC;
+            font-size: 0.6rem;
+            min-width: 4rem;
+            padding: 0;
+            //display: inline-block;
+            .iconfont {
+              font-size: 0.6rem;
+            }
+          }
+          .search-right-icon:hover {
+            //background-color: #605BF5;
+            //color:#fff;
+            background-color: #fff;
+            color: #969AFC;
+
+          }
+        }
+      }
+
+      //列表
+      .list-table {
+        padding: 0 1.5rem;
+
+        .list-table-col0 {
+          width: calc(100% - 4% - 0.8rem);
+
+          .list-table-col0-text {
+            font-size: 0.6rem;
+            color: #999;
+            .list-table-col0-text-left {
+              position: relative;
+              float: left;
+            }
+            .list-table-col0-text-left::after {
+              content: "";
+              height: 0.5rem;
+              position: absolute;
+              right: -0.5rem;
+              top: 0.3rem;
+              display: block;
+              border: 1px solid #dddddd;
+            }
+            .list-table-col0-text-right {
+              //float: right;
+              margin-left: 0.6rem;
+            }
+          }
+        }
+
+        .list-table-col1, .list-table-col2 {
+          width: 20%;
+        }
+        .list-table-col3 {
+          width: 0.8rem;
+          //margin-left: -1rem;
+          .form-checkbox {
+            //display: flex;
+            width: 0.8rem;
+            margin-left: -0.4rem;
+            justify-content: flex-start;
+            align-items: center;
+            //height: 1rem;
+            height: 2.4rem;
+            font-size: 0.8rem;
+            cursor: pointer;
+            //margin-left: 30px;
+            input[type="checkbox"] {
+              display: none;
+              margin: 3px 3px 3px 4px;
+            }
+            .iconfont {
+              //margin-left: 0.5rem;
+              font-size: 0.8rem;
+              margin-left: 0;
+            }
+          }
+        }
+
+        .list-table-head {
+          overflow: hidden;
+          border: 1px solid #ccc;
+          border-bottom: none;
+          padding: 0 1rem;
+          .list-table-col3 {
+            //margin-left: -0.5rem;
+            span {
+              margin-left: -0.4rem;
+            }
+          }
+        }
+
+        .list-table-content {
+          border: 1px solid #DBDBDB;
+          border-bottom: none;
+
+          .list-table-item {
+
+          }
+
+        }
+      }
+    }
+
+  }
+}
+//选择类型
+.validate-form{
+  position: absolute;
+  bottom:0;
+  left:1.5rem;
+  .form-title{
+    width:6.6rem;
+  }
+}
+.drop-down-select{
+  margin-left:1rem;
+}
+//自定义以及修改调整样式
+
+
+
+

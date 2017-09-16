@@ -1,0 +1,222 @@
+<div [attr.status]="displayStatus" class="right-slider-container">
+  <router-outlet></router-outlet>
+</div>
+<div id="app-center-container">
+  <app-qiezzi-center-header [moduleName]="'演示中心'" (onOptions)="onOptionClick()"></app-qiezzi-center-header>
+  <div id="appCenterContent" [style.border-top]="isBorder?'1px solid #DBDBDB':''"
+       class="app-center-content" malihu-scrollbar [scrollbarOptions]="scrollbarOptions">
+    <div style="padding:30px">
+      <br/>按钮与多按钮容器 居左 居右<br/>
+      <div class="button-group button-group-left" style="height:60px; border: solid 1px #7a80fa">
+        <button class="button1">我是button1</button>
+        <button class="button2">我是button2</button>
+        <button class="button3">我是button3</button>
+        <button class="button4">我是button4</button>
+        <button class="button5" (click)="testNamedRouter()">我是button5</button>
+      </div>
+      <br/>
+      <div class="button-group button-group-right" style="height:60px; border: solid 1px #7a80fa">
+        <button class="button1">我是button1</button>
+        <button class="button2">我是button2</button>
+        <button class="button3">我是button3</button>
+        <button class="button4">我是button4</button>
+        <button class="button5">我是button5</button>
+      </div>
+      <br><br>选项卡1<br>
+      <div class="tab-ctrl">
+        <app-qiezzi-tab-control class="tab-ctrl-head" [tabData]="tabData.data"
+                                [defaultSelectedIndex]="tabData.defaultIndex"
+                                (onTabIndexChange)="changeTab($event)"></app-qiezzi-tab-control>
+        <div class="tab-ctrl-content">
+          数据展示数据展示数据展示数据展示数据展示数据展示数据展示数据展示数据展示数据展示数据展示
+        </div>
+      </div>
+      <br><br>选项卡2<br>
+      <div class="tab-ctrl tab-ctrl1">
+        <app-qiezzi-tab-control class="tab-ctrl-head" [tabData]="tabData.data"
+                                [defaultSelectedIndex]="tabData.defaultIndex"
+                                (onTabIndexChange)="changeTab($event)"></app-qiezzi-tab-control>
+        <div class="tab-ctrl-content">
+          数据展示数据展示数据展示数据展示数据展示数据展示数据展示数据展示数据展示数据展示数据展示
+        </div>
+      </div>
+      <br><br>选项卡3<br>
+      <div class="tab-ctrl tab-ctrl2">
+        <app-qiezzi-tab-control class="tab-ctrl-head" [tabData]="tabData.data"
+                                [defaultSelectedIndex]="tabData.defaultIndex"
+                                (onTabIndexChange)="changeTab($event)"></app-qiezzi-tab-control>
+        <div class="tab-ctrl-content">
+          数据展示数据展示数据展示数据展示数据展示数据展示数据展示数据展示数据展示数据展示数据展示
+        </div>
+      </div>
+      <br><br>单选框（多个）<br>
+      <div class="form-radio-group">
+        <label class="form-radio"><input type="radio" name="sex"/>
+          <span class="iconfont"></span><span>男</span>
+        </label>
+        <label class="form-radio"><input type="radio" name="sex"/>
+          <span class="iconfont"></span><span>女</span>
+        </label>
+      </div>
+      <br><br>复选框（多个）<br>
+      <div class="form-checkbox-group">
+        <label class="form-checkbox"><input type="checkbox" name="noname"/>
+          <span class="iconfont"></span><span>男</span>
+        </label>
+        <label class="form-checkbox"><input type="checkbox" name="noname"/>
+          <span class="iconfont"></span><span>女</span>
+        </label>
+      </div>
+      <br><br>选中按钮组<br>
+      <app-select-button-group class="select-button-group"
+                               [list]="buttonGroupData" [(ngModel)]="selectedButtons"></app-select-button-group>
+      <br><br>标签列表<br>
+      <app-tag-box-group class="tag-box" #tagBox></app-tag-box-group>
+      <br><br>图标文本框<br>
+      <form class="validate-form" [formGroup]="formGroup">
+        <div class="form-section">
+          <div class="form-title"><span class="red-point"><i></i></span>患者姓名</div>
+          <div class="form-element">
+            <div class="err-message" [attr.error]="formErrors['PatientName']">{{formErrors['PatientName']}}</div>
+            <input class="input-text" placeholder="" id="PatientName" formControlName="PatientName"
+                   (blur)="onInputElementBlur('DictDetailName')">
+          </div>
+        </div>
+        <div class="form-section">
+          <div class="form-title"><span class="red-point"><i></i></span>病历号</div>
+          <div class="form-element">
+            <div class="err-message" [attr.error]="formErrors['PatientCode']">{{formErrors['PatientCode']}}</div>
+            <input class="input-text" placeholder="" id="PatientCode" name="PatientCode" formControlName="PatientCode"
+                   (blur)="onInputElementBlur('DictDetailName')">
+          </div>
+        </div>
+        <div class="form-section">
+          <div class="form-title"><span class="red-point"><i></i></span>性别</div>
+          <div class="form-element">
+            <div class="form-radio-group">
+              <label class="form-radio"><input type="radio" name="Sex" formControlName="Sex" value="男"/>
+                <span class="iconfont"></span><span>男</span>
+              </label>
+              <label class="form-radio"><input type="radio" name="Sex" formControlName="Sex" value="女"/>
+                <span class="iconfont"></span><span>女</span>
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="form-section">
+          <div class="form-title"><span class="red-point"><i></i></span>年龄</div>
+          <div class="form-element">
+            <div class="err-message" [attr.error]="formErrors['Age']">{{formErrors['Age']}}</div>
+            <input class="input-text" placeholder="" id="Age" formControlName="Age"
+                   (blur)="onInputElementBlur('DictDetailName')">
+          </div>
+        </div>
+        <div class="form-section">
+          <div class="form-title"><span class="red-point"><i></i></span>生日</div>
+          <div class="form-element">
+            <div class="err-message" [attr.error]="formErrors['BirthDate']">{{formErrors['BirthDate']}}</div>
+            <input class="input-text" placeholder="" id="BirthDate" formControlName="BirthDate"
+                   (blur)="onInputElementBlur('DictDetailName')">
+          </div>
+        </div>
+        <div class="form-section">
+          <div class="form-title"><span class="red-point"><i></i></span>手机</div>
+          <div class="form-element">
+            <div class="err-message" [attr.error]="formErrors['Tel']">{{formErrors['Tel']}}</div>
+            <input class="input-text" placeholder="" id="Tel" formControlName="Tel"
+                   (blur)="onInputElementBlur('DictDetailName')">
+          </div>
+        </div>
+      </form>
+
+      <button class="button5" (click)="changeError()">我是button5</button>
+      <button class="button5" (click)="changeError1()">我是button5</button>
+      <!--<app-drop-down-->
+      <!--[placeholder]="'请选择医生'"-->
+      <!--[dataList]="dropdownList"-->
+      <!--[selectIndex]="2"></app-drop-down>-->
+
+      <!--<app-rel-select [placeholder]="'请选择提醒'"-->
+      <!--[dataList]="{'测试000':['测试02','测试13','测试41'],'测试1':['测试2','测试3','测试4'],'测试5':['测试6','测试7','测试8'],'测试9':['测试10','测试11','测试12'],'测试13':['测试3','测试4'],'测试14':['测试2','测试3','测试4']}"-->
+      <!--[selectIndex]="2"></app-rel-select>-->
+
+      <!--<br/><br/>-->
+      <!--<label><input type="text" placeholder="输入用户名" class="input-text input-error"/></label>-->
+      <!--<br/>-->
+
+
+      <!--<br/>-->
+
+      <!--<app-select-button-group-->
+      <!--[list]="buttonGroupData"></app-select-button-group>-->
+      <!--<br/>-->
+
+      <!--<br/>-->
+      <!--<label><textarea class="ta-text"></textarea></label>-->
+      <!--<br/>-->
+
+
+      <!--<br/><br/>-->
+      <!--<form>-->
+      <!--<div class="form-section">-->
+      <!--<div class="form-title"><span class="red-point"><i></i></span>用户名</div>-->
+      <!--<div class="form-element">-->
+      <!--<input class="input-text" placeholder="用户名">-->
+      <!--<div class="err-message">县市级错误信息</div>-->
+      <!--</div>-->
+      <!--<br clear="both">-->
+      <!--</div>-->
+      <!--<div class="form-section">-->
+      <!--<div class="form-title"><span class="red-point"><i></i></span>用户名</div>-->
+      <!--<div class="form-element">-->
+      <!--<input class="input-text" placeholder="用户名">-->
+      <!--<div class="err-message">县市级错误信息</div>-->
+      <!--</div>-->
+      <!--<br clear="both">-->
+      <!--</div>-->
+      <!--<div class="form-section">-->
+      <!--<div class="form-title"><span class="red-point"><i></i></span>用户名</div>-->
+      <!--<div class="form-element">-->
+      <!--<input class="input-text" placeholder="用户名">-->
+      <!--<div class="err-message">县市级错误信息</div>-->
+      <!--</div>-->
+      <!--<br clear="both">-->
+      <!--</div>-->
+      <!--<div class="form-section">-->
+      <!--<div class="form-title"><span class="red-point"><i></i></span>用户名</div>-->
+      <!--<div class="form-element">-->
+      <!--<input class="input-text" placeholder="用户名">-->
+      <!--<div class="err-message">县市级错误信息</div>-->
+      <!--</div>-->
+      <!--<br clear="both">-->
+      <!--</div>-->
+      <!--<div class="form-section">-->
+      <!--<div class="form-title"><span class="red-point"><i></i></span>用户名</div>-->
+      <!--<div class="form-element">-->
+      <!--<input class="input-text" placeholder="用户名">-->
+      <!--<div class="err-message">县市级错误信息</div>-->
+      <!--</div>-->
+      <!--<br clear="both">-->
+      <!--</div>-->
+      <!--<div class="form-section">-->
+      <!--<div class="form-title"><span class="red-point"><i></i></span>用户名</div>-->
+      <!--<div class="form-element">-->
+      <!--<app-icon-input-->
+      <!--[iconList]="[{'iconName':'address-book-o', 'color':'#524ddb'},{'iconName':'envelope-open', 'color':'#524ddb'},{'iconName':'cutlery', 'color':'#524ddb'}]"-->
+      <!--[marginRight]="'0.2rem'"></app-icon-input>-->
+      <!--<div class="err-message">县市级错误信息</div>-->
+      <!--</div>-->
+      <!--<br clear="both">-->
+      <!--</div>-->
+      <!--<div class="form-section">-->
+      <!--<div class="form-title"><span class="red-point"><i></i></span>用户名</div>-->
+      <!--<div class="form-element">-->
+      <!---->
+      <!--<div class="err-message"></div>-->
+      <!--</div>-->
+      <!--<br clear="both">-->
+      <!--</div>-->
+      <!--</form>-->
+    </div>
+  </div>
+</div>

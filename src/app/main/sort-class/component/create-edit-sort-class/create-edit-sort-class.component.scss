@@ -1,0 +1,111 @@
+:host {
+  display: block;
+  width:100%;
+  height:100%;
+}
+.tab-ctrl{
+  .tab-ctrl-content{
+    .list-table{
+      padding-right: 2rem;
+      .list-table-head{
+        border:1px solid #dddddd;
+        border-bottom:none;
+        height: 3.8rem;
+        line-height: 3.8rem;
+        .head-item{
+          min-width: 4.3rem;
+          height: 3.8rem;
+          line-height: 3.8rem;
+          .contain{
+            text-align: center;
+            margin: auto;
+            margin-top:50%;
+            -webkit-transform: translateY(-40%);
+            -moz-transform: translateY(-40%);
+            -ms-transform: translateY(-40%);
+            transform: translateY(-40%);
+            span{
+              line-height: 1rem;
+              display: block;
+            }
+            .week{
+              font-size: .7rem;
+              color: #333333;
+            }
+            .date{
+              font-size: .6rem;
+              color: #999;
+            }
+          }
+        }
+      }
+      .list-table-content{
+        .list-table-item{
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          height: 4.3rem;
+          padding-top: 0 !important;
+          padding-bottom:0 !important;
+          .content-item{
+            padding: 2rem 0;
+            min-width: 4.3rem;
+            max-width: 5rem;
+            height:100%;
+            line-height: 3.3rem;
+            .shift-name{
+              text-align: center;
+              position: relative;
+              border: 1px solid #dddddd;
+              border-radius: 50%;
+              padding:0;
+              width:2.5rem;
+              height:2.5rem;
+              line-height: 2.5rem;
+
+              margin-top:50%;
+              -webkit-transform: translateY(-40%);
+              -moz-transform: translateY(-40%);
+              -ms-transform: translateY(-40%);
+              transform: translateY(-40%);
+              .delIcon{
+                position: absolute;
+                top:-.3rem;
+                right:-.3rem;
+
+                width: .8rem;
+                height: .8rem;
+                border-radius: 50%;
+                background: #000;
+                color: #fff;
+                display: none;
+                font-size: .6rem;
+                margin: 0;
+                text-align: center;
+                line-height: .6rem;
+                padding: .1rem;
+                opacity:0.8;
+              }
+            }
+            .shift-name:hover{
+              border-color: #605bf5;
+              .delIcon{
+                display: block;
+                opacity:0.5;
+              }
+            }
+          }
+          :not(:last-child){
+            border-right: 1px solid #dddddd;
+          }
+        }
+      }
+    }
+  }
+}
+.button-group-set{
+  margin:0 2rem;
+  .button4{
+    margin-bottom: .6rem;
+  }
+}

@@ -1,0 +1,180 @@
+<div [attr.status]="displayStatus" class="right-slider-container large">
+  <router-outlet></router-outlet>
+</div>
+<div id="app-center-container">
+  <qiezzi-loading [attr.status]="mainShowLoading" class="loading6 purple"></qiezzi-loading>
+  <app-qiezzi-center-header [showSearch]="false"
+                            [showFilter]="false"
+                            [showAdd]="false"
+                            [showOptions]="false"
+                            [moduleName]="moduleName"
+                            [searchPlaceholder]="'单号'"
+                            [controlList]="['添加']"
+                            (onControl)="onControl($event)"
+                            (onSearch)="onSearch($event)"
+                            (onOptions)="onOptions($event)"
+                            (onShowFilter)="onShowFilter($event)"
+  ></app-qiezzi-center-header>
+  <!--设置-->
+  <!-- 面包屑导航 -->
+  <div class="gps">
+    <i class="icon iconfont icon-dingwei"></i><span class="gps-span" (click)="jump()">物品退货</span><span><i class="icon jinru icon-jinru"></i>退货明细查询</span>
+  </div>
+  <!--搜索-->
+  <div class="search-bar">
+    <div class="search-left">
+      <app-icon-input [placeholder]="'入库单号/物品名称/拼音码'" style="width:10rem;"></app-icon-input>
+      <qiezzi-drop-down-list name="ProcessCompanyId" class="drop-down-select"
+                             [placeholder]="'物品有库存'"
+                             [required]="false"
+                             [selectIndex]="0"
+                             [dataList]="[
+                                        {value: '0', label: '全部'},
+                                        {value: '1', label: '物品有库存'},
+                                        {value: '2', label: '物品无库存'}]"></qiezzi-drop-down-list>
+    </div>
+    <div class="search-right">
+      <qiezzi-double-date (onSelectLeft)="selectLeft($event)"
+                          (onSelectRight)="selectRight($event)"></qiezzi-double-date>
+      <button class="button4 search-right-button">查询</button>
+    </div>
+  </div>
+
+  <div id="app-center-content">
+    <div id="appCenterContent"
+         [ngStyle]="{'display': true?'block':'none','border-top':isBorder?'1px solid #DBDBDB':''}"
+         class="app-center-content" malihu-scrollbar
+         [scrollbarOptions]="scrollbarOptions">
+      <!--配置筛选条件-->
+      <app-qiezzi-data-filter [filterConfig]="filterConfig"
+                              (onConditionChanged)="onConditionChanged($event)"></app-qiezzi-data-filter>
+      <div class="tab-ctrl-content" style="position: relative; min-height: 400px;">
+        <qiezzi-loading [attr.status]="dataLoading" class="loading6 purple transparent"></qiezzi-loading>
+        <div class="tab-ctrl-head">
+          <button class="button4 search-right-icon"><i class="icon iconfont icon-daochu"></i>导出</button>
+        </div>
+        <div class="list-table">
+          <div class="list-table-head">
+            <div class="list-table-col0">物品名称</div>
+            <div class="list-table-col1">物品类别</div>
+            <div class="list-table-col2">退货数量</div>
+            <div class="mobile-hidden list-table-col3">退货价</div>
+            <div class="mobile-hidden list-table-col4">小计</div>
+            <div class="list-table-col5">退货日期</div>
+            <br clear="left">
+          </div>
+          <app-data-empty [showEmpty]="showEmptyState"></app-data-empty>
+
+          <div class="list-table-content">
+            <div class="list-table-item click-no-hide-detail"
+                 [ngClass]="{'selected': false}" (click)="clickFeeItem($event,1,0)">
+              <div class="list-table-col0">
+                <span>2016-08-12</span>
+              </div>
+              <div class="list-table-col1">
+                <span>TH2016081201</span>
+              </div>
+              <div class="list-table-col2">
+                <span>2</span>
+              </div>
+              <div class="list-table-col3">
+                <span>21,235.00</span>
+              </div>
+              <div class="list-table-col4">
+                <span>张三</span>
+              </div>
+              <div class="list-table-col5">
+                <span>张三</span>
+              </div>
+              <div class="list-table-col6">
+                <span>正常</span>
+              </div>
+              <br clear="left">
+            </div>
+
+            <div class="list-table-item click-no-hide-detail"
+                 [ngClass]="{'selected': false}" (click)="clickFeeItem($event,1,0)">
+              <div class="list-table-col0">
+                <span>2016-08-12</span>
+              </div>
+              <div class="list-table-col1">
+                <span>TH2016081201</span>
+              </div>
+              <div class="list-table-col2">
+                <span>2</span>
+              </div>
+              <div class="list-table-col3">
+                <span>21,235.00</span>
+              </div>
+              <div class="list-table-col4">
+                <span>张三</span>
+              </div>
+              <div class="list-table-col5">
+                <span>张三</span>
+              </div>
+              <div class="list-table-col6">
+                <span>正常</span>
+              </div>
+              <br clear="left">
+            </div>
+
+            <div class="list-table-item click-no-hide-detail"
+                 [ngClass]="{'selected': false}" (click)="clickFeeItem($event,1,0)">
+              <div class="list-table-col0">
+                <span>2016-08-12</span>
+              </div>
+              <div class="list-table-col1">
+                <span>TH2016081201</span>
+              </div>
+              <div class="list-table-col2">
+                <span>2</span>
+              </div>
+              <div class="list-table-col3">
+                <span>21,235.00</span>
+              </div>
+              <div class="list-table-col4">
+                <span>张三</span>
+              </div>
+              <div class="list-table-col5">
+                <span>张三</span>
+              </div>
+              <div class="list-table-col6">
+                <span>正常</span>
+              </div>
+              <br clear="left">
+            </div>
+
+            <div class="list-table-item click-no-hide-detail"
+                 [ngClass]="{'selected': false}" (click)="clickFeeItem($event,1,0)">
+              <div class="list-table-col0">
+                <span>2016-08-12</span>
+              </div>
+              <div class="list-table-col1">
+                <span>TH2016081201</span>
+              </div>
+              <div class="list-table-col2">
+                <span>2</span>
+              </div>
+              <div class="list-table-col3">
+                <span>21,235.00</span>
+              </div>
+              <div class="list-table-col4">
+                <span>张三</span>
+              </div>
+              <div class="list-table-col5">
+                <span>张三</span>
+              </div>
+              <div class="list-table-col6">
+                <span>正常</span>
+              </div>
+              <br clear="left">
+            </div>
+
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

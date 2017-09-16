@@ -1,0 +1,32 @@
+<div style="margin-bottom: 40px;">
+<div>
+  <qiezzi-drop-down-list name="DoctorID" class="drop-down-select"
+                         [required]="false"
+                         [dataList]="dropDataList"
+                         [(ngModel)]="form.label" (onChange)="change($event)"></qiezzi-drop-down-list>
+</div>
+
+<button  class="button3" value="add" (click)="add()">添加item</button><input type="text" [(ngModel)]="soitem">
+
+<button class="button3" value="sort" (click)="sort()">下拉框反转</button>
+
+
+<button class="button3" value="sort" (click)="setvalue()">设置选择项</button>
+<input type="text" [(ngModel)]="newvalue">
+
+<a href="javascript:;" (click)="showValue(0)">目前的值</a>
+</div>
+
+<div style="margin-bottom: 40px;">
+  <app-tag-box-group name="test4" class="tag-box"
+                     [(ngModel)]="tagValues"></app-tag-box-group>
+
+  <a href="javascript:;" (click)="showValue(2)">目前的值</a>
+</div>
+
+<div style="margin-bottom: 40px;">
+<app-select-button-group class="select-button-group"
+                         [list]="selectButtonGroupList"></app-select-button-group>
+
+  <a href="javascript:;" (click)="showValue(1)">目前的值</a>
+</div>

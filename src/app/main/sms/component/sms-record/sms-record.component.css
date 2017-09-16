@@ -1,0 +1,60 @@
+.sms-talk1 {
+  width: 100%;
+  height: 7.25rem;
+  border-bottom: 1px dashed #dbdbdb;
+  position: relative; }
+
+.sms-talk1-name {
+  position: absolute;
+  top: 1rem;
+  left: 1.5rem; }
+
+.sms-talk1-name span {
+  color: #333;
+  font-weight: bold; }
+
+.sms-talk1-name span:nth-of-type(2) {
+  padding-left: 0.5rem; }
+
+.sms-talk1-info {
+  position: absolute;
+  top: 3.1rem;
+  left: 1.5rem; }
+
+.sms-talk1-info span:first-of-type {
+  color: #333;
+  font-weight: bold;
+  position: absolute; }
+
+.sms-talk1-info span:nth-of-type(2) {
+  display: inline-block;
+  width: 89%;
+  color: #333;
+  padding-left: 2.9rem; }
+
+.sms-talk1-list {
+  position: absolute;
+  top: 5.75rem;
+  left: 1.5rem; }
+
+.sms-talk1-list span {
+  font-weight: bold;
+  color: #333; }
+
+.sms-talk2 {
+  position: relative;
+  left: 1.5rem;
+  top: 1rem; }
+
+.sms-talk2 span:first-of-type {
+  padding-right: 0.5rem; }
+
+.sms-talk2 span:not(.sms-nowtime) {
+  color: #333;
+  font-weight: bold; }
+
+.sms-nowtime {
+  float: right;
+  padding-right: 4.1rem; }
+
+/*# sourceMappingURL=sms-record.component.css.map */

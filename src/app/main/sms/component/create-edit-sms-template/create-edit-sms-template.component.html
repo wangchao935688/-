@@ -1,0 +1,50 @@
+<div class="popup-content-container" style="height: 100%;" malihu-scrollbar [scrollbarOptions]="scrollbarOptions">
+  <div class="popup-content-box">
+    <form class="validate-form"  [formGroup]="formGroup">
+      <div class="form-section">
+        <div class="form-title"><span class="red-point"><i></i></span>类别</div>
+        <div class="form-element">
+          <div class="err-message"  [attr.error]="formErrors['TypeCode']">{{formErrors['TypeCode']}}</div>
+          <qiezzi-drop-down-list class="drop-down-select"
+                                 [placeholder]="''"
+                                 [required]="false"
+                                 [selectIndex]="tempIndex"
+                                 (onChange)="chooseTemp($event)"
+                                 formControlName="TypeCode"
+                                 (blur)="onInputElementBlur('TypeCode')"
+                                 [dataList]="templateTypeList"></qiezzi-drop-down-list>
+        </div>
+      </div>
+      <!--短信名称-->
+      <div class="form-section">
+        <div class="form-title"><span class="red-point"><i></i></span>短信名称</div>
+        <div class="form-element">
+          <div class="err-message" [attr.error]="formErrors['SMSName']" >{{formErrors['SMSName']}}</div>
+          <input class="input-text"
+                 placeholder="请输入短信名称"
+                 formControlName="SMSName"
+                 (blur)="onInputElementBlur('SMSName')">
+        </div>
+      </div>
+
+      <!--短信内容-->
+      <div class="form-section">
+        <div class="form-title"><span class="red-point"><i></i></span>短信内容</div>
+        <div class="form-element">
+          <div class="err-message" [attr.error]="formErrors['SMSContent']" >{{formErrors['SMSContent']}}</div>
+          <textarea placeholder="请输入短信内容"
+                    style="margin-left:0;width: 100%;"
+                    formControlName="SMSContent"
+                    (blur)="onInputElementBlur('SMSContent')">
+          </textarea>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<div>
+  <div class="button-group button-group-right" >
+    <button class="button5" (click)="ok()" [disabled]="!formGroup.valid || isProcessing">保存</button>
+    <button class="button4" (click)="cancel()">取消</button>
+  </div>
+</div>

@@ -1,0 +1,122 @@
+.img-preview {
+  width: 100%;
+  height: 17.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.img-view {
+  width: 100%;
+  height: 100%;
+}
+
+.img-prev, .img-next {
+  position: absolute;
+  width: 2.5rem;
+  height: 2.5rem;
+  top: 7.2rem;
+  opacity: 0;
+  z-index: -1;
+  background-color: rgba(0, 0, 0, 0.5);
+  transition: opacity 0.2s;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.6rem;
+  color: #fff;
+  text-align: center;
+  line-height: 2.5rem;
+}
+
+.img-prev:after {
+  content: "\e6e8";
+}
+
+.img-next:after {
+  content: "\e6e9";
+}
+
+.img-prev {
+  left: 1rem;
+}
+
+.img-next {
+  right: 1rem;
+}
+
+.img-ctrl {
+  position: absolute;
+  height: 1.6rem;
+  bottom: -1.6rem;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  text-align: center;
+  transition: bottom 0.2s;
+}
+
+.img-ctrl-box {
+  display: flex;
+  height: 1.6rem;
+  justify-content: center;
+}
+
+.img-ctrl-box i {
+  display: block;
+  width: 1.6rem;
+  height: 1.6rem;
+  margin-right: 0.5rem;
+  font-size: 0.8rem;
+  line-height: 1.6rem;
+  cursor: pointer;
+  color: #fff;
+}
+
+.img-ctrl-box i:hover {
+  color: #7a80fa;
+}
+
+.img-ctrl-box i:last-child {
+  margin-right: 0;
+}
+
+.img-ctrl-box .zoom-out:after {
+  content: "\e6c4";
+}
+
+.img-ctrl-box .zoom-in:after {
+  content: "\e6c9";
+}
+
+.img-ctrl-box .rotate-left:after {
+  content: "\e6d0";
+}
+
+.img-ctrl-box .rotate-right:after {
+  content: "\e6d1";
+}
+
+.img-ctrl-box .download:after {
+  content: "\e6cf";
+}
+
+.img-ctrl-box .delete:after {
+  content: "\e6ad";
+}
+
+.img-preview:hover .img-prev, .img-preview:hover .img-next {
+  opacity: 1;
+  z-index: 10;
+  transition: opacity 0.2s;
+}
+
+.img-preview:hover .img-ctrl {
+  bottom: 0;
+  transition: bottom 0.2s;
+}
+
+.prompt-msg {
+  margin-top: 0.5rem;
+  line-height: 1rem;
+  color: #999;
+  text-align: center;
+  cursor: default;
+}

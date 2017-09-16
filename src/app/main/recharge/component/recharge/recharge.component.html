@@ -1,0 +1,67 @@
+<app-qiezzi-right-header
+  [rightComponentName]="compName"
+  [controlList]="ctrlList"
+  (onControl)="onControlListClick($event)"></app-qiezzi-right-header>
+<qiezzi-loading [attr.status]="loading" class="loading6 purple transparent" style="padding-top: 300px;"></qiezzi-loading>
+<!-- [ngStyle]="{'height': processState == 0 && responseData.Status != 5?'calc(100% - 162px)': ''}" -->
+<div class="right-content" id="rightContentScroll" malihu-scrollbar [scrollbarOptions]="scrollbarOptions">
+  <div class="contain-item">
+    <div style="text-align: right;">
+      <span class="">充值金额:
+        <i class="Money"
+           [ngStyle]="{textDecoration: rechargeRecordDetail?.Disabled ? 'line-through' : null, color: rechargeRecordDetail?.Disabled ? '#999' : '#605bf5'}">
+          {{rechargeRecordDetail?.Money | qiezziMoeny : true}}
+        </i>
+      </span>
+      <span class="fl">收费单号:{{rechargeRecordDetail?.RechargeCode}}</span>
+    </div>
+    <div style="text-align: right;" *ngIf="rechargeRecordDetail?.Disabled">
+      <span>已作废</span>
+    </div>
+  </div>
+  <div  class="contain-item">
+    <span>{{rechargeRecordDetail?.PatientModel?.PatientName}}</span>
+    <span>|</span>
+    <span style="color: red;">无手机号</span>
+    <span>|</span>
+    <span>{{rechargeRecordDetail?.PatientModel?.PatientCode}}</span>
+  </div>
+  <div  class="contain-item">
+      <div class="title">
+        <i class="icon iconfont icon-chongzhicehua-chongzhixinxi"></i>
+        <span style="margin-left: .3rem;font-size: .8rem;color: #333;">充值信息</span>
+      </div>
+      <div class="content-row">
+        <span class="row-title">充值时间</span>
+        <span class="row-content">{{rechargeRecordDetail?.RechargeTime | date: 'yyyy-MM-dd'}}</span>
+      </div>
+      <div class="content-row">
+        <span class="row-title">推荐人</span>
+        <span class="row-content">{{rechargeRecordDetail?.ReferrerModel?.WorkerName}}</span>
+      </div>
+      <div class="content-row">
+        <span class="row-title">充值账户</span>
+        <span class="row-content">{{rechargeRecordDetail?.AccountName}}</span>
+      </div>
+      <div class="content-row">
+        <span class="row-title" style="margin-bottom: 0;">当前余额</span>
+        <span class="row-content" style="color: red;">无当前余额</span>
+      </div>
+  </div>
+
+  <div class="contain-item" style="border-bottom:1px solid #dddddd;">
+    <div class="title">
+      <i class="icon-beizhu"></i>
+      <span style="margin-left: .3rem; font-size: .8rem">备注</span>
+    </div>
+    <div class="content-row">
+      {{rechargeRecordDetail?.Note}}
+    </div>
+  </div>
+  <div class="detail-footer">
+    <span>确认人:</span>
+    <span>{{rechargeRecordDetail?.OperatorModel?.WorkerName}}</span>
+    <span style="margin-left: 1rem;">操作日期:</span>
+    <span>{{rechargeRecordDetail?.LastOperationTime | date: 'yyyy-MM-dd'}}</span>
+  </div>
+</div>

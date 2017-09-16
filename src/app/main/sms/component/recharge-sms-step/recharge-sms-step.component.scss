@@ -1,0 +1,85 @@
+.rechange-content{
+  position: relative;
+}
+.rechange-buy{
+  height:14rem;
+  border-bottom:1px dashed #dbdbdb;
+  overflow: hidden;
+}
+.choose-list>span{
+  position: absolute;
+  color:#333;
+  top:3rem;
+  left:1.5rem;
+}
+.choose-list-num{
+  position: absolute;
+  top:1.5rem;
+  left:5.5rem;
+  div{
+    display:inline-block;
+    width:8rem;
+    height:3.5rem;
+    line-height: 3.5rem;
+    font-size:0.8rem;
+    font-weight:bold;
+    text-align:center;
+    margin-right:1rem;
+    margin-bottom:1rem;
+    border:1px solid #dbdbdb;
+    cursor:pointer;
+    span{
+      font-size:0.6rem;
+      color:#666;
+      font-weight:normal;
+      padding-left:2px;
+    }
+  }
+}
+.pay-num{
+  position: absolute;
+  top:11.2rem;
+  left:1.5rem;
+  span:first-child,
+  span:last-child{
+    color:#666;
+    font-size:0.7rem;
+  }
+  span:nth-of-type(2){
+    color:#524ddb;
+    font-size:0.8rem;
+    font-weight:bold;
+    padding-left:0.8rem;
+  }
+}
+
+.rechange-pay{
+  height:4rem;
+  line-height:4rem;
+  width:100%;
+}
+
+.rechange-pay i{
+  color:#19ad19;
+  font-size:0.8rem;
+}
+.form-element{
+  display:inline-block;
+  .form-radio-group{
+  i:first-of-type{
+    font-size:1rem;
+    padding-left:0.8rem;
+  }
+    label{
+      span{
+        margin-left:0.3rem;
+        font-size:0.8rem;
+      }
+    }
+  }
+}
+.form-section{
+  span{
+    margin-left:1.5rem;
+  }
+}

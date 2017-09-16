@@ -1,0 +1,29 @@
+:host{
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.code{
+  position: absolute;
+  right: -5.5rem;
+  top:0;
+  width: 5rem;
+  height: 1.6rem;
+  img{
+    width: 100%;
+    height:100%;
+  }
+}
+.all-width{
+  width:100% !important;
+}
+.half-width{
+  width:calc(100% - 110px) !important;
+}
+.button5{
+  padding:0 .5rem;
+}
+
+@media screen and (max-width: 999px) {
+
+}

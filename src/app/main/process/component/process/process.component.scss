@@ -1,0 +1,51 @@
+.right-content {
+  .right-content-header {
+    min-height: 4rem;
+    border-bottom: 1px dashed #DBDBDB;
+    padding: 1rem 0rem;
+    .right-content-header-text {
+      height: 1rem;
+      line-height: 1rem;
+      font-size: 0.6rem;
+      span:nth-child(1) {
+        color: #333333;
+      }
+      span:nth-child(3) {
+        color: #333333;
+      }
+      span:nth-child(2) {
+        padding: 0 .5rem;
+        font-size: .5rem;
+      }
+      span:nth-child(4) {
+        color: #666666;
+      }
+    }
+  }
+
+}
+
+.bottom-div {
+  height: 4rem;
+  line-height: 4rem;
+  border-top: 1px solid #DBDBDB;
+  span {
+    color: #333333;
+    font-size: 0.7rem;
+    margin-left: 1.5rem;
+    cursor: pointer;
+  }
+  span:hover {
+    color: #7a80fa;
+  }
+  button {
+    line-height: 1.6rem;
+    margin: 1.2rem 1.5rem;
+    float: right;
+  }
+}
+
+.un-click {
+  color: #999 !important;
+  cursor: not-allowed !important;
+}

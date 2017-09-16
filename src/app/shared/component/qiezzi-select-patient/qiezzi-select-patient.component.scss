@@ -1,0 +1,40 @@
+:host > div:first-child {
+  display: flex;
+  justify-content: space-between;
+}
+
+.name-input {
+  width: calc(100% - 90px)
+}
+
+.search-button {
+  width: 4rem;
+}
+
+.col1 {
+  width: 100%;
+}
+
+.col2 {
+  flex: 0 0 25%
+}
+
+.col3 {
+  flex: 0 0 25%
+}
+
+.list-table-item span {
+  width: 100%;
+  display: block;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.list-table-item span i {
+  margin-left: 6px;
+}
+
+.list-table-item span i:after {
+  color: #fea356;
+  content: "\e6bc";
+}

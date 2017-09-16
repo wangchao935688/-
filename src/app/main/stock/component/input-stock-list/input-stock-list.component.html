@@ -1,0 +1,83 @@
+<div [attr.status]="displayStatus" class="right-slider-container large">
+  <router-outlet></router-outlet>
+</div>
+<div id="app-center-container">
+  <!--<qiezzi-loading [attr.status]="mainShowLoading" class="loading6 purple"></qiezzi-loading>-->
+  <app-qiezzi-center-header [showSearch]="true"
+                            [showFilter]="true"
+                            [showAdd]="true"
+                            [showOptions]="true"
+                            [moduleName]="moduleName"
+                            [searchPlaceholder]="'单号'"
+                            [controlList]="['添加']"
+                            (onControl)="onControl($event)"
+                            (onSearch)="onSearch($event)"
+                            (onOptions)="onOptions($event)"
+                            (onShowFilter)="onShowFilter($event)"
+  ></app-qiezzi-center-header>
+    <div id="app-center-content">
+      <div id="appCenterContent"
+           [ngStyle]="{'display': true?'block':'none','border-top':isBorder?'1px solid #DBDBDB':''}"
+           class="app-center-content" malihu-scrollbar
+           [scrollbarOptions]="scrollbarOptions">
+        <!--配置筛选条件-->
+        <app-qiezzi-data-filter [filterConfig]="filterConfig"
+                                (onConditionChanged)="onConditionChanged($event)"></app-qiezzi-data-filter>
+        <div class="tab-ctrl-content" style="position: relative; min-height: 400px;">
+          <div class="tab-ctrl-head">
+            <button class="button4 search-right-icon"><i class="icon iconfont icon-daochu"></i>导出</button>
+          </div>
+          <div class="list-table">
+            <div class="list-table-head">
+              <div class="list-table-col0">入库日期</div>
+              <div class="list-table-col1">入库/单号</div>
+              <div class="list-table-col2">供应商</div>
+              <div class="mobile-hidden list-table-col3">入库数量</div>
+              <div class="mobile-hidden list-table-col4">总金额</div>
+              <div class="list-table-col5">库管员</div>
+              <div class="list-table-col6">状态</div>
+              <br clear="left">
+            </div>
+            <qiezzi-loading [attr.status]="dataLoading" class="loading6 purple transparent"></qiezzi-loading>
+            <div class="list-table-content">
+              <div class="list-table-item click-no-hide-detail"  *ngFor="let item of stockInListResponse.Items, let i = index"
+                   [ngClass]="{'selected': false}" (click)="clickFeeItem($event,item.Id,i)">
+                <div class="list-table-col0">
+                  <span>{{item?.StorageDate|date:'yyyy-MM-dd'}}</span>
+                </div>
+                <div class="mobile-hidden list-table-col1">
+                  <span>{{item?.StorageCode}}</span>
+                </div>
+                <div class="mobile-hidden list-table-col2">
+                  <span>{{item?.SupplierName}}</span>
+                </div>
+                <div class="list-table-col3">
+                  <span>{{item?.TotalQuantity}}</span>
+                </div>
+                <div class="list-table-col4">
+                  <span>{{item?.TotalAmount| qiezziMoeny:true}}</span>
+                </div>
+                <div class="list-table-col5">
+                  <span>{{item?.WorkerName}}</span>
+                </div>
+                <div class="list-table-col6">
+                  <span>{{item?.Enabled?'正常':'作废'}}</span>
+                </div>
+                <br clear="left">
+              </div>
+
+              <div class="data-empty" *ngIf="showEmptyState">
+                <app-data-empty [showEmpty]="!(stockInListResponse && stockInListResponse?.TotalItems>0)"></app-data-empty>
+              </div>
+            </div>
+            <qiezzi-paginator [ngStyle]="{display: (stockInListResponse && stockInListResponse?.TotalItems>20) ?'block' : 'none'}"
+                              [rows]="stockInListResponse?.ItemsPerPage" [totalRecords]="stockInListResponse?.TotalItems"
+                              [rowsPerPageOptions]="[10,20,30]"
+                              [style]="showOrHide" (onPageChange)="onPageChange($event)">
+            </qiezzi-paginator>
+
+          </div>
+        </div>
+      </div>
+    </div>
+</div>

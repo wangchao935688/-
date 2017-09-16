@@ -1,0 +1,666 @@
+<!--侧滑出口-->
+<div [attr.status]="displayStatus" class="right-slider-container large">
+  <router-outlet></router-outlet>
+</div>
+<div id="app-center-container">
+  <app-qiezzi-center-header [showSearch]="false"
+                            [showFilter]="false"
+                            [showAdd]="false"
+                            [showOptions]="false"
+                            [moduleName]="'消息中心'"
+  ></app-qiezzi-center-header>
+  <div class="sideslip-scroll" style="height: calc(100% - 4rem);" malihu-scrollbar
+       [scrollbarOptions]="scrollbarOptionsRight">
+    <div id="reply-sms-content">
+      <!--左侧-->
+      <div class="reply-sms-left">
+        <div class="writein" [formGroup]="formGroup">
+<app-search-friend [iconList]="[{icon: 'important', color: '#cccccc'}, {icon: 'contacts', color: '#cccccc'}]"  formControlName="PatientName" (onPatientSelected)="sendMessage($event)" [marginRight]="0"></app-search-friend>
+        </div>
+        <div>
+          <div class="tab-ctrl tab-ctrl1">
+            <span class="bit"><em class="a-bit"></em><i (click)="switchTab(1)" class="icon iconfont icon-zuijin"></i></span>
+            <span><i (click)="switchTab(2)" class="icon iconfont icon-tongshi"></i></span>
+            <span><i (click)="switchTab(3)" class="icon iconfont icon-gengduo1"></i></span>
+          </div>
+
+          <div class="reply-talkbox" style="height: 40.6rem;">
+            <div id="appCenterContent"
+                 class="app-center-content" malihu-scrollbar
+                 [scrollbarOptions]="scrollbarOptions">
+
+              <!--第一列显示隐藏-->
+              <div class='showhide' [ngStyle]="{display:im.switch.tabIndex==1?'block':'none'}">
+                <div class="reply-sms-talk">
+                  <div class="red-dot">
+                    <div class="cross" (click)='clickcross()'  [ngClass]="{'clickcross':!toggle,'delecross':toggle}"><i class='icon-jiaonangchahao'></i></div>
+                    <img src="../../../../../assets/imgs/logo.png"/>
+                    <span class="dot"></span>
+                  </div>
+                  <span>贝撒大声地姆123456789</span>
+                  <span>您好，我想咨询牙齿洁治的方法方法</span>
+                  <span>10:05</span>
+                </div>
+                <div class="reply-sms-talk">
+                  <div class="red-dot">
+                    <div class="cross"><i class='icon-jiaonangchahao'></i></div>
+                    <img src="../../../../../assets/imgs/logo.png"/>
+                    <span class="dot"></span>
+                  </div>
+                  <span>贝卡撒大声地姆123456789</span>
+                  <span>您好，我想咨询牙齿洁治的方法方法</span>
+                  <span>10:05</span>
+                </div>
+                <div class="reply-sms-talk">
+                  <div class="red-dot">
+                    <div class="cross"><i class='icon-jiaonangchahao'></i></div>
+                    <img src="../../../../../assets/imgs/logo.png"/>
+                    <span class="dot"></span>
+                  </div>
+                  <span>贝撒大声地姆123456789</span>
+                  <span>您好，我想咨询牙齿洁治的方法方法</span>
+                  <span>10:05</span>
+                </div>
+                <div class="reply-sms-talk">
+                  <div class="red-dot">
+                    <div class="cross"><i class='icon-jiaonangchahao'></i></div>
+                    <img src="../../../../../assets/imgs/logo.png"/>
+                    <span class="dot"></span>
+                  </div>
+                  <span>贝卡撒大声地姆123456789</span>
+                  <span>您好，我想咨询牙齿洁治的方法方法</span>
+                  <span>10:05</span>
+                </div>
+                <div class="reply-sms-talk">
+                  <div class="red-dot">
+                    <div class="cross"><i class='icon-jiaonangchahao'></i></div>
+                    <img src="../../../../../assets/imgs/logo.png"/>
+                    <span class="dot"></span>
+                  </div>
+                  <span>贝撒大声地姆123456789</span>
+                  <span>您好，我想咨询牙齿洁治的方法方法</span>
+                  <span>10:05</span>
+                </div>
+                <div class="reply-sms-talk">
+                  <div class="red-dot">
+                    <div class="cross"><i class='icon-jiaonangchahao'></i></div>
+                    <img src="../../../../../assets/imgs/logo.png"/>
+                    <span class="dot"></span>
+                  </div>
+                  <span>贝卡撒大声地姆123456789</span>
+                  <span>您好，我想咨询牙齿洁治的方法方法</span>
+                  <span>10:05</span>
+                </div>
+                <div class="reply-sms-talk">
+                  <div class="red-dot">
+                    <div class="cross"><i class='icon-jiaonangchahao'></i></div>
+                    <img src="../../../../../assets/imgs/logo.png"/>
+                    <span class="dot"></span>
+                  </div>
+                  <span>贝撒大声地姆123456789</span>
+                  <span>您好，我想咨询牙齿洁治的方法方法</span>
+                  <span>10:05</span>
+                </div>
+                <div class="reply-sms-talk">
+                  <div class="red-dot">
+                    <div class="cross"><i class='icon-jiaonangchahao'></i></div>
+                    <img src="../../../../../assets/imgs/logo.png"/>
+                    <span class="dot"></span>
+                  </div>
+                  <span>贝卡撒大声地姆123456789</span>
+                  <span>您好，我想咨询牙齿洁治的方法方法</span>
+                  <span>10:05</span>
+                </div>
+                <div class="reply-sms-talk">
+                  <div class="red-dot">
+                    <div class="cross"><i class='icon-jiaonangchahao'></i></div>
+                    <img src="../../../../../assets/imgs/logo.png"/>
+                    <span class="dot"></span>
+                  </div>
+                  <span>贝撒大声地姆123456789</span>
+                  <span>您好，我想咨询牙齿洁治的方法方法</span>
+                  <span>10:05</span>
+                </div>
+                <div class="reply-sms-talk">
+                  <div class="red-dot">
+                    <div class="cross"><i class='icon-jiaonangchahao'></i></div>
+                    <img src="../../../../../assets/imgs/logo.png"/>
+                    <span class="dot"></span>
+                  </div>
+                  <span>贝卡撒大声地姆123456789</span>
+                  <span>您好，我想咨询牙齿洁治的方法方法</span>
+                  <span>10:05</span>
+                </div>
+                <div class="reply-sms-talk">
+                  <div class="red-dot">
+                    <div class="cross"><i class='icon-jiaonangchahao'></i></div>
+                    <img src="../../../../../assets/imgs/logo.png"/>
+                    <span class="dot"></span>
+                  </div>
+                  <span>贝撒大声地姆123456789</span>
+                  <span>您好，我想咨询牙齿洁治的方法方法</span>
+                  <span>10:05</span>
+                </div>
+                <div class="reply-sms-talk">
+                  <div class="red-dot">
+                    <div class="cross"><i class='icon-jiaonangchahao'></i></div>
+                    <img src="../../../../../assets/imgs/logo.png"/>
+                    <span class="dot"></span>
+                  </div>
+                  <span>贝卡撒大声地姆123456789</span>
+                  <span>您好，我想咨询牙齿洁治的方法方法</span>
+                  <span>10:05</span>
+                </div>
+                <div class="reply-sms-talk">
+                  <div class="red-dot">
+                    <div class="cross"><i class='icon-jiaonangchahao'></i></div>
+                    <img src="../../../../../assets/imgs/logo.png"/>
+                    <span class="dot"></span>
+                  </div>
+                  <span>贝撒大声地姆123456789</span>
+                  <span>您好，我想咨询牙齿洁治的方法方法</span>
+                  <span>10:05</span>
+                </div>
+                <div class="reply-sms-talk">
+                  <div class="red-dot">
+                    <div class="cross"><i class='icon-jiaonangchahao'></i></div>
+                    <img src="../../../../../assets/imgs/logo.png"/>
+                    <span class="dot"></span>
+                  </div>
+                  <span>贝卡撒大声地姆123456789</span>
+                  <span>您好，我想咨询牙齿洁治的方法方法</span>
+                  <span>10:05</span>
+                </div>
+                <div class="reply-sms-talk">
+                  <div class="red-dot">
+                    <div class="cross"><i class='icon-jiaonangchahao'></i></div>
+                    <img src="../../../../../assets/imgs/logo.png"/>
+                    <span class="dot"></span>
+                  </div>
+                  <span>贝撒大声地姆123456789</span>
+                  <span>您好，我想咨询牙齿洁治的方法方法</span>
+                  <span>10:05</span>
+                </div>
+                <div class="reply-sms-talk">
+                  <div class="red-dot">
+                    <div class="cross"><i class='icon-jiaonangchahao'></i></div>
+                    <img src="../../../../../assets/imgs/logo.png"/>
+                    <span class="dot"></span>
+                  </div>
+                  <span>贝卡撒大声地姆123456789</span>
+                  <span>您好，我想咨询牙齿洁治的方法方法</span>
+                  <span>10:05</span>
+                </div>
+              </div>
+
+              <!--第二列显示隐藏-->
+              <div class='showhide reply-sms-tb' [ngStyle]="{display:im.switch.tabIndex==2?'block':'none'}">
+                <div class="reply-sms-talk">
+                  <img src="../../../../../assets/imgs/logo.png"/>
+                  <span class="reply-sms-name1">卡卡</span>
+                  <span class="reply-sms-contents1">您好，我想咨询牙齿洁治的方法方法</span>
+                </div>
+
+                <div class="reply-sms-talk">
+                  <i class="icon iconfont icon-xitongxiaoxi"></i>
+                  <span class="reply-sms-name1">森森</span>
+                  <span class="reply-sms-contents1">您好，我想咨询牙齿洁治的方法方法</span>
+                </div>
+
+                <div class="reply-sms-talk">
+                  <img src="../../../../../assets/imgs/logo.png"/>
+                  <span class="reply-sms-name1">森森</span>
+                  <span class="reply-sms-contents1">您好，我想咨询牙齿洁治的方法方法</span>
+                </div>
+              </div>
+
+              <!--第三列显示隐藏-->
+              <div class='showhide reply-sms-tbox' [ngStyle]="{display:im.switch.tabIndex==3?'block':'none'}">
+                <!-- 一 -->
+                <div class="reply-sms-talk" (click)="selectMore(1)">
+                  <i class="icon iconfont icon-weixin1"></i>
+                  <span class="reply-sms-name2">微信预约</span>
+                  <span class="reply-sms-contents2">您好，我想咨询牙齿洁治的方法方法</span>
+                  <span class="reply-sms-time2">10:05</span>
+                </div>
+
+                <!-- 二 -->
+                <div class="reply-sms-talk" (click)="selectMore(2)">
+                  <i class="icon iconfont icon-richenganpai"></i>
+                  <span class="reply-sms-name2">日程安排</span>
+                  <span class="reply-sms-contents2">您好，我想咨询牙齿洁治的方法方法</span>
+                  <span class="reply-sms-time2">10:05</span>
+                </div>
+
+                <!-- 三 -->
+                <div class="reply-sms-talk" (click)="selectMore(3)">
+                  <i class="icon iconfont icon-kucunguanli"></i>
+                  <span class="reply-sms-name2">库存预警</span>
+                  <span class="reply-sms-contents2">您好，我想咨询牙齿洁治的方法方法</span>
+                  <span class="reply-sms-time2">10:05</span>
+                </div>
+
+                <!--四-->
+                <div class="reply-sms-talk" (click)="selectMore(4)">
+                  <i class="icon iconfont icon-yuyuetixing"></i>
+                  <span class="reply-sms-name2">预约提醒</span>
+                  <span class="reply-sms-contents2">您好，我想咨询牙齿洁治的方法方法</span>
+                  <span class="reply-sms-time2">10:05</span>
+                </div>
+
+                <!--五-->
+                <div class="reply-sms-talk" (click)="selectMore(5)">
+                  <i class="icon iconfont icon-xitongxiaoxi"></i>
+                  <span class="reply-sms-name2">系统消息</span>
+                  <span class="reply-sms-contents2">您好，我想咨询牙齿洁治的方法方法</span>
+                  <span class="reply-sms-time2">10:05</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--右侧-->
+      <div>
+        <!--第一列右侧-->
+        <div [ngStyle]="{display:im.switch.tabIndex==1?'block':'none'}" class="sms-one-right">
+          <div class="reply-sms-right-top">
+            <div class="thisPeople">张医生</div>
+            <!--滚动条-->
+            <div id="appCenterContents"
+                 class="app-center-content" malihu-scrollbar
+                 [scrollbarOptions]="scrollbarOptions" style=" height: calc(100% - 2rem) !important;">
+              <!--第一列聊天记录-->
+              <div class="choose-sms1">
+                <!--对话左边的人-->
+                <div class="reply-sms-right-tops">
+                  <div class="talk-time">查看更多消息</div>
+                  <div>
+                    <img src="../../../../../assets/images/logo.png" alt="" (click)="changeTab(1)" class="logo">
+                    <!--三角-->
+                    <span></span>
+                    <div class="chat-content">
+                      <span><img src="../../../../../assets/imgs/loading-bg.png"></span>
+                    </div>
+                  </div>
+                </div>
+                <div class="talk-time">2017-06-05 10:05</div>
+
+                <!--对话左边的人-->
+                <div class="reply-sms-right-tops">
+                  <div>
+                    <img src="../../../../../assets/images/logo.png" alt="" (click)="changeTab(1)" class="logo">
+                    <!--三角-->
+                    <span></span>
+                    <div class="chat-content">
+                      <span>购买商品换课程的活动将于今晚购买商品换课程的活动将于今晚购买商品换课程的活动将于今晚购买商品换课程的活动将于今晚购买商品换课程的活动将商品换课程的活动将于今晚购买商品换课程的活动将于今晚购买商品换课程的活动将于今晚购买商品换课程的活动将于今晚购买商品换课程的活动商品换课程的活动将于今晚购买商品换课程的活动将于今晚购买商品换课程的活动将于今晚购买商品换课程的活动将于今晚购买商品换课程的活动于今晚</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="talk-time">2017-06-05 10:05</div>
+
+                <!--对话右边的人-->
+                <div class="reply-sms-right-tops">
+                  <img src="../../../../../assets/images/qiezzi.png" (click)="changeTab(1)" class="logo">
+                  <!--三角-->
+                  <span class="sanjiao"></span>
+                  <div class="chat-content">
+                    <span class="talk-content">品换课程的活动将于今晚购买商品买商品换课程的活动将商品换课程课程的活购</span>
+                  </div>
+                </div>
+                <div class="talk-time">2017-06-05 10:05</div>
+
+                <!--对话右边的人-->
+                <div class="reply-sms-right-tops">
+                  <img src="../../../../../assets/images/qiezzi.png" (click)="changeTab(1)" class="logo">
+                  <!--三角-->
+                  <span class="sanjiao"></span>
+                  <div class="chat-content">
+                    <span class="talk-content">品换课程的活动将于今晚购买商品买商品换课程的活动将商品换课程课程的活购</span>
+                  </div>
+                </div>
+                <div class="talk-time">2017-06-05 10:05</div>
+
+                <!--对话左边的人-->
+                <div class="reply-sms-right-tops">
+                  <div>
+                    <img src="../../../../../assets/images/logo.png" alt="" (click)="changeTab(1)" class="logo">
+                    <!--三角-->
+                    <span></span>
+                    <div class="chat-content">
+                      <span>购买商品换课程的活动将于今晚购买商品换课程的活动将于今晚购买商品换课程的活动将于今晚购买商品换课程的活动将于今晚购买商品换课程的活动将商品换课程的活动将于今晚购买商品换课程的活动将于今晚购买商品换课程的活动将于今晚购买商品换课程的活动将于今晚购买商品换课程的活动商品换课程的活动将于今晚购买商品换课程的活动将于今晚购买商品换课程的活动将于今晚购买商品换课程的活动将于今晚购买商品换课程的活动于今晚</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="talk-time">2017-06-05 10:05</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="reply-sms-right-bottom">
+            <!--气泡-->
+            <div class="biaoqing">
+              <div class="is-biaoqing">
+                <div class="brow"><i class="icon iconfont icon-biaoqing"></i></div>
+                <div class="bubble-expression">
+                  <div class="expression">
+                    <span><img src="../../../../../assets/imgs/logo.png"/></span>
+                    <span><img src="../../../../../assets/imgs/logo.png"/></span>
+                    <span><img src="../../../../../assets/imgs/logo.png"/></span>
+                    <span><img src="../../../../../assets/imgs/logo.png"/></span>
+                    <span><img src="../../../../../assets/imgs/logo.png"/></span>
+                    <span><img src="../../../../../assets/imgs/logo.png"/></span>
+                    <span><img src="../../../../../assets/imgs/logo.png"/></span>
+                  </div>
+                  <div class="sankaku"><i class="icon-xiajiantou"></i></div>
+                </div>
+              </div>
+              <div class="icon-image"><i class="icon iconfont icon-tupian"></i></div>
+            </div>
+            <textarea placeholder="请输入回复内容"></textarea>
+            <button class="button5">发送</button>
+          </div>
+        </div>
+        <!--第二列右侧-->
+        <div [ngStyle]="{display:im.switch.tabIndex == 2?'block':'none'}" class="sms-two-right">
+          <div class="thisPeople">同事</div>
+          <!--第二列聊天记录-->
+          <div class="choose-sms2">
+            <div class="choose-smstop">
+              <div><img src="../../../../../assets/images/logo.png"></div>
+              <div>张三丰</div>
+              <div>口内科</div>
+            </div>
+            <div class="tels"><span>手机号</span><span>17678112322</span></div>
+            <div class="emails"><span>邮&nbsp;&nbsp;&nbsp;&nbsp;箱</span><span>chenx@qiezzi.com</span></div>
+            <div class="appoints"><span>职&nbsp;&nbsp;&nbsp;&nbsp;位</span><span>医生</span></div>
+            <div class="sendmss">
+              <button class="button5" (click)="changeTab(0)">发消息</button>
+            </div>
+          </div>
+        </div>
+
+        <!--第三列右侧-->
+        <div [ngStyle]="{display:im.switch.tabIndex == 3?'block':'none'}" class='sms-three-right'>
+          <div class="thisPeople" [ngStyle]="{'display':'none'?'block':'none'}">微信预约</div>
+          <!--第三列聊天记录-->
+          <div class="choose-sms3">
+            <!--微信-->
+            <div [ngStyle]="{display:im.switch.tabChildIndex==31?'block':'none'}">
+              <div class='sms-box1'>
+                <!--<i class="icon iconfont icon-guanbi-chahao"></i>-->
+                <!--左边-->
+                <div class="choose-smsLeft">
+                  <i class="icon iconfont icon-weixin1"></i>
+                </div>
+                <!--右边-->
+                <div class="choose-smsRight">
+                  <div>
+                    <span class="more-delete"><i class="icon-jiaonangchahao"></i></span>
+                    <div>预约提醒</div>
+                  </div>
+                  <div><span>2017-06-05 </span><span>10:05</span></div>
+                  <div>您明天有1位微信预约申请信息，请及时查看。</div>
+                  <div class="applyer"><span>申请人 : </span><span>蒙达啦</span></div>
+                  <div class="telNum"><span>手机号 : </span><span>18698978968</span></div>
+                  <div class="tips"><span>备&nbsp;&nbsp;&nbsp;&nbsp;注 : </span><span>--</span></div>
+                  <div class="book"><span>预约</span><i class="icon iconfont icon-lirun-youqie"></i></div>
+                </div>
+              </div>
+              <div class='sms-box1'>
+                <!--左边-->
+                <div class="choose-smsLeft">
+                  <i class="icon iconfont icon-weixin1"></i>
+                </div>
+                <!--右边-->
+                <div class="choose-smsRight">
+                  <div>预约提醒</div>
+                  <div><span>2017-06-05 </span><span>10:05</span></div>
+                  <div>您明天有1位微信预约申请信息，请及时查看。</div>
+                  <div class="applyer"><span>申请人 : </span><span>蒙达啦</span></div>
+                  <div class="telNum"><span>手机号 : </span><span>18698978968</span></div>
+                  <div class="tips"><span>备&nbsp;&nbsp;&nbsp;&nbsp;注 : </span><span>诊疗连发是先进的科学技术所能预的患者进的科学技术所能预测的患者进的科学技术所能预科学技术所能预测的患者进的科学技术所能预科学技术所能预测的患者进的科学技术所能预科学技术所能预测的患者进的科学技术所能预科学技术所能预测的患者进的科学技术所能预科学技术所能预测的患者进的科学技术所能预测的患者进的科学技术所能预测的患者</span>
+                  </div>
+                  <div class="book"><span>预约</span><i class="icon iconfont icon-lirun-youqie"></i></div>
+                </div>
+              </div>
+              <div class='sms-box1'>
+                <!--左边-->
+                <div class="choose-smsLeft">
+                  <i class="icon iconfont icon-weixin1"></i>
+                </div>
+                <!--右边-->
+                <div class="choose-smsRight">
+                  <div>预约提醒</div>
+                  <div><span>2017-06-05 </span><span>10:05</span></div>
+                  <div>您明天有1位微信预约申请信息，请及时查看。</div>
+                  <div class="applyer"><span>申请人 : </span><span>蒙达啦</span></div>
+                  <div class="telNum"><span>手机号 : </span><span>18698978968</span></div>
+                  <div class="tips"><span>备&nbsp;&nbsp;&nbsp;&nbsp;注 : </span><span>诊疗连发是术所能预科学技术所能预测的患者进的科学技术所能预科学技术所能预测的患者进的科学技术所能预测的患者进的科学技术所能预测的患者</span>
+                  </div>
+                  <div class="book"><span>预约</span><i class="icon iconfont icon-lirun-youqie"></i></div>
+                </div>
+              </div>
+            </div>
+            <!--日程安排-->
+            <div [ngStyle]="{display:im.switch.tabChildIndex==32?'block':'none'}" class="daily-arrange">
+              <div class='sms-box1'>
+                <!--<i class="icon iconfont icon-guanbi-chahao"></i>-->
+                <!--左边-->
+                <div class="choose-smsLeft">
+                  <i class="icon iconfont icon-richenganpai"></i>
+                </div>
+                <!--右边-->
+                <div class="choose-smsRight">
+                  <div>日程安排</div>
+                  <div><span>2017-06-05 </span><span>10:05</span></div>
+                  <div>您明天有1位微信预约申请信息，请及时查看。</div>
+                  <div class="applyer"><span>申请人 : </span><span>蒙达啦</span></div>
+                  <div class="telNum"><span>手机号 : </span><span>18698978968</span></div>
+                  <div class="tips"><span>备&nbsp;&nbsp;&nbsp;&nbsp;注 : </span><span>--</span></div>
+                  <div class="book"><span>预约</span><i class="icon iconfont icon-lirun-youqie"></i></div>
+                </div>
+              </div>
+              <div class='sms-box1'>
+                <!--左边-->
+                <div class="choose-smsLeft">
+                  <i class="icon iconfont icon-richenganpai"></i>
+                </div>
+                <!--右边-->
+                <div class="choose-smsRight">
+                  <div>日程安排</div>
+                  <div><span>2017-06-05 </span><span>10:05</span></div>
+                  <div>您明天有1位微信预约申请信息，请及时查看。</div>
+                  <div class="applyer"><span>申请人 : </span><span>蒙达啦</span></div>
+                  <div class="telNum"><span>手机号 : </span><span>18698978968</span></div>
+                  <div class="tips"><span>备&nbsp;&nbsp;&nbsp;&nbsp;注 : </span><span>诊疗连发是先进的科学技术所能预的患者进的科学技术所能预测的患者进的科学技术所能预科学技术所能预测的患者进的科学技术所能预科学技术所能预测的患者进的科学技术所能预科学技术所能预测的患者进的科学技术所能预科学技术所能预测的患者进的科学技术所能预科学技术所能预测的患者进的科学技术所能预测的患者进的科学技术所能预测的患者</span>
+                  </div>
+                  <div class="book"><span>预约</span><i class="icon iconfont icon-lirun-youqie"></i></div>
+                </div>
+              </div>
+              <div class='sms-box1'>
+                <!--左边-->
+                <div class="choose-smsLeft">
+                  <i class="icon iconfont icon-richenganpai"></i>
+                </div>
+                <!--右边-->
+                <div class="choose-smsRight">
+                  <div>日程安排</div>
+                  <div><span>2017-06-05 </span><span>10:05</span></div>
+                  <div>您明天有1位微信预约申请信息，请及时查看。</div>
+                  <div class="applyer"><span>申请人 : </span><span>蒙达啦</span></div>
+                  <div class="telNum"><span>手机号 : </span><span>18698978968</span></div>
+                  <div class="tips"><span>备&nbsp;&nbsp;&nbsp;&nbsp;注 : </span><span>诊疗连发是术所能预科学技术所能预测的患者进的科学技术所能预科学技术所能预测的患者进的科学技术所能预测的患者进的科学技术所能预测的患者</span>
+                  </div>
+                  <div class="book"><span>预约</span><i class="icon iconfont icon-lirun-youqie"></i></div>
+                </div>
+              </div>
+            </div>
+            <!--库存预警-->
+            <div [ngStyle]="{display:im.switch.tabChildIndex==33?'block':'none'}" class="early-warning">
+              <div class='sms-box1'>
+                <!--<i class="icon iconfont icon-guanbi-chahao"></i>-->
+                <!--左边-->
+                <div class="choose-smsLeft">
+                  <i class="icon iconfont icon-kucunguanli"></i>
+                </div>
+                <!--右边-->
+                <div class="choose-smsRight">
+                  <div>库存预警</div>
+                  <div><span>2017-06-05 </span><span>10:05</span></div>
+                  <div>您明天有1位微信预约申请信息，请及时查看。</div>
+                  <div class="applyer"><span>申请人 : </span><span>蒙达啦</span></div>
+                  <div class="telNum"><span>手机号 : </span><span>18698978968</span></div>
+                  <div class="tips"><span>备&nbsp;&nbsp;&nbsp;&nbsp;注 : </span><span>--</span></div>
+                  <div class="book"><span>预约</span><i class="icon iconfont icon-lirun-youqie"></i></div>
+                </div>
+              </div>
+              <div class='sms-box1'>
+                <!--左边-->
+                <div class="choose-smsLeft">
+                  <i class="icon iconfont icon-kucunguanli"></i>
+                </div>
+                <!--右边-->
+                <div class="choose-smsRight">
+                  <div>库存预警</div>
+                  <div><span>2017-06-05 </span><span>10:05</span></div>
+                  <div>您明天有1位微信预约申请信息，请及时查看。</div>
+                  <div class="applyer"><span>申请人 : </span><span>蒙达啦</span></div>
+                  <div class="telNum"><span>手机号 : </span><span>18698978968</span></div>
+                  <div class="tips"><span>备&nbsp;&nbsp;&nbsp;&nbsp;注 : </span><span>诊疗连发是先进的科学技术所能预的患者进的科学技术所能预测的患者进的科学技术所能预科学技术所能预测的患者进的科学技术所能预科学技术所能预测的患者进的科学技术所能预科学技术所能预测的患者进的科学技术所能预科学技术所能预测的患者进的科学技术所能预科学技术所能预测的患者进的科学技术所能预测的患者进的科学技术所能预测的患者</span>
+                  </div>
+                  <div class="book"><span>预约</span><i class="icon iconfont icon-lirun-youqie"></i></div>
+                </div>
+              </div>
+              <div class='sms-box1'>
+                <!--左边-->
+                <div class="choose-smsLeft">
+                  <i class="icon iconfont icon-kucunguanli"></i>
+                </div>
+                <!--右边-->
+                <div class="choose-smsRight">
+                  <div>库存预警</div>
+                  <div><span>2017-06-05 </span><span>10:05</span></div>
+                  <div>您明天有1位微信预约申请信息，请及时查看。</div>
+                  <div class="applyer"><span>申请人 : </span><span>蒙达啦</span></div>
+                  <div class="telNum"><span>手机号 : </span><span>18698978968</span></div>
+                  <div class="tips"><span>备&nbsp;&nbsp;&nbsp;&nbsp;注 : </span><span>诊疗连发是术所能预科学技术所能预测的患者进的科学技术所能预科学技术所能预测的患者进的科学技术所能预测的患者进的科学技术所能预测的患者</span>
+                  </div>
+                  <div class="book"><span>预约</span><i class="icon iconfont icon-lirun-youqie"></i></div>
+                </div>
+              </div>
+            </div>
+            <!--预警提醒-->
+            <div [ngStyle]="{display:im.switch.tabChildIndex==34?'block':'none'}" class="WarningReminder">
+              <div class='sms-box1'>
+                <!--<i class="icon iconfont icon-guanbi-chahao"></i>-->
+                <!--左边-->
+                <div class="choose-smsLeft">
+                  <i class="icon iconfont icon-yuyuetixing"></i>
+                </div>
+                <!--右边-->
+                <div class="choose-smsRight">
+                  <div>预警提醒</div>
+                  <div><span>2017-06-05 </span><span>10:05</span></div>
+                  <div>您明天有1位微信预约申请信息，请及时查看。</div>
+                  <div class="applyer"><span>申请人 : </span><span>蒙达啦</span></div>
+                  <div class="telNum"><span>手机号 : </span><span>18698978968</span></div>
+                  <div class="tips"><span>备&nbsp;&nbsp;&nbsp;&nbsp;注 : </span><span>--</span></div>
+                  <div class="book"><span>预约</span><i class="icon iconfont icon-lirun-youqie"></i></div>
+                </div>
+              </div>
+              <div class='sms-box1'>
+                <!--左边-->
+                <div class="choose-smsLeft">
+                  <i class="icon iconfont icon-yuyuetixing"></i>
+                </div>
+                <!--右边-->
+                <div class="choose-smsRight">
+                  <div>预警提醒</div>
+                  <div><span>2017-06-05 </span><span>10:05</span></div>
+                  <div>您明天有1位微信预约申请信息，请及时查看。</div>
+                  <div class="applyer"><span>申请人 : </span><span>蒙达啦</span></div>
+                  <div class="telNum"><span>手机号 : </span><span>18698978968</span></div>
+                  <div class="tips"><span>备&nbsp;&nbsp;&nbsp;&nbsp;注 : </span><span>诊疗连发是先进的科学技术所能预的患者进的科学技术所能预测的患者进的科学技术所能预科学技术所能预测的患者进的科学技术所能预科学技术所能预测的患者进的科学技术所能预科学技术所能预测的患者进的科学技术所能预科学技术所能预测的患者进的科学技术所能预科学技术所能预测的患者进的科学技术所能预测的患者进的科学技术所能预测的患者</span>
+                  </div>
+                  <div class="book"><span>预约</span><i class="icon iconfont icon-lirun-youqie"></i></div>
+                </div>
+              </div>
+              <div class='sms-box1'>
+                <!--左边-->
+                <div class="choose-smsLeft">
+                  <i class="icon iconfont icon-yuyuetixing"></i>
+                </div>
+                <!--右边-->
+                <div class="choose-smsRight">
+                  <div>预警提醒</div>
+                  <div><span>2017-06-05 </span><span>10:05</span></div>
+                  <div>您明天有1位微信预约申请信息，请及时查看。</div>
+                  <div class="applyer"><span>申请人 : </span><span>蒙达啦</span></div>
+                  <div class="telNum"><span>手机号 : </span><span>18698978968</span></div>
+                  <div class="tips"><span>备&nbsp;&nbsp;&nbsp;&nbsp;注 : </span><span>诊疗连发是术所能预科学技术所能预测的患者进的科学技术所能预科学技术所能预测的患者进的科学技术所能预测的患者进的科学技术所能预测的患者</span>
+                  </div>
+                  <div class="book"><span>预约</span><i class="icon iconfont icon-lirun-youqie"></i></div>
+                </div>
+              </div>
+            </div>
+            <!--系统消息-->
+            <div [ngStyle]="{display:im.switch.tabChildIndex==35?'block':'none'}" class="sysMessage">
+              <div class='sms-box1'>
+                <!--<i class="icon iconfont icon-guanbi-chahao"></i>-->
+                <!--左边-->
+                <div class="choose-smsLeft">
+                  <i class="icon iconfont icon-xitongxiaoxi"></i>
+                </div>
+                <!--右边-->
+                <div class="choose-smsRight">
+                  <div>系统消息</div>
+                  <div><span>2017-06-05 </span><span>10:05</span></div>
+                  <div>您明天有1位微信预约申请信息，请及时查看。</div>
+                  <div class="applyer"><span>申请人 : </span><span>蒙达啦</span></div>
+                  <div class="telNum"><span>手机号 : </span><span>18698978968</span></div>
+                  <div class="tips"><span>备&nbsp;&nbsp;&nbsp;&nbsp;注 : </span><span>--</span></div>
+                  <div class="book"><span>预约</span><i class="icon iconfont icon-lirun-youqie"></i></div>
+                </div>
+              </div>
+              <div class='sms-box1'>
+                <!--左边-->
+                <div class="choose-smsLeft">
+                  <i class="icon iconfont icon-xitongxiaoxi"></i>
+                </div>
+                <!--右边-->
+                <div class="choose-smsRight">
+                  <div>系统消息</div>
+                  <div><span>2017-06-05 </span><span>10:05</span></div>
+                  <div>您明天有1位微信预约申请信息，请及时查看。</div>
+                  <div class="applyer"><span>申请人 : </span><span>蒙达啦</span></div>
+                  <div class="telNum"><span>手机号 : </span><span>18698978968</span></div>
+                  <div class="tips"><span>备&nbsp;&nbsp;&nbsp;&nbsp;注 : </span><span>诊疗连发是先进的科学技术所能预的患者进的科学技术所能预测的患者进的科学技术所能预科学技术所能预测的患者进的科学技术所能预科学技术所能预测的患者进的科学技术所能预科学技术所能预测的患者进的科学技术所能预科学技术所能预测的患者进的科学技术所能预科学技术所能预测的患者进的科学技术所能预测的患者进的科学技术所能预测的患者</span>
+                  </div>
+                  <div class="book"><span>预约</span><i class="icon iconfont icon-lirun-youqie"></i></div>
+                </div>
+              </div>
+              <div class='sms-box1'>
+                <!--左边-->
+                <div class="choose-smsLeft">
+                  <i class="icon iconfont icon-xitongxiaoxi"></i>
+                </div>
+                <!--右边-->
+                <div class="choose-smsRight">
+                  <div>系统消息</div>
+                  <div><span>2017-06-05 </span><span>10:05</span></div>
+                  <div>您明天有1位微信预约申请信息，请及时查看。</div>
+                  <div class="applyer"><span>申请人 : </span><span>蒙达啦</span></div>
+                  <div class="telNum"><span>手机号 : </span><span>18698978968</span></div>
+                  <div class="tips"><span>备&nbsp;&nbsp;&nbsp;&nbsp;注 : </span><span>诊疗连发是术所能预科学技术所能预测的患者进的科学技术所能预科学技术所能预测的患者进的科学技术所能预测的患者进的科学技术所能预测的患者</span>
+                  </div>
+                  <div class="book"><span>预约</span><i class="icon iconfont icon-lirun-youqie"></i></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

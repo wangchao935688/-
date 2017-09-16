@@ -1,0 +1,62 @@
+<div style="padding-top: 0.5rem;">
+  <div class="tab-record-list" *ngFor="let item of rateData.RecordList;let i = index">
+    <div class="tab-record-list-status" *ngIf="item.status != 3">
+      <div class="course" [ngStyle]="{'background-color':i==rateData.RecordList.length-1?'#7a80fa':'#dbdbdb'}"></div>
+      <div class="left-range">
+        <span>{{item.Status | qiezziDic:processStatus}}</span>
+        <span class="fr">{{item.CommonTime | date:'yyyy-MM-dd'}}</span>
+      </div>
+    </div>
+    <!-- 待派送 -->
+    <div class="tab-record-list-content" *ngIf="item.Status == 0">
+      <div>
+        加工单位:{{rateData.ProcessCompanyName}}
+      </div>
+      <div>
+        加工数量:{{rateData.ProcessNum}}
+      </div>
+      <div>
+        加工费:{{rateData.Price}}
+      </div>
+      <div>
+        备注:{{rateData.Note}}
+      </div>
+    </div>
+    <!-- 取件 -->
+    <div class="tab-record-list-content" *ngIf="item.Status == 1">
+      <div>
+        加工单位:{{rateData.ProcessCompanyName}}
+      </div>
+      <div>
+        取件人:{{item.ContactModel && item.ContactModel.ContacterName}}
+      </div>
+      <div>
+        联系电话:{{item.ContactModel && item.ContactModel.Tel}}
+      </div>
+      <div>
+        加工天数:{{item.DayNum}}
+      </div>
+    </div>
+    <!-- 回件 -->
+    <div class="tab-record-list-content" *ngIf="item.Status == 2">
+      <div style="height: 1rem;" *ngIf="i != rateData.RecordList.length-1"></div>
+    </div>
+    <!-- 试戴 -->
+    <div class="tab-record-list-content" style="height: 2.1rem;line-height: 2.1rem;" *ngIf="item.Status == 3">
+      <div class="try-in">
+        预约试戴 : {{item.CommonTime | date:'yyyy-MM-dd'}}
+      </div>
+    </div>
+    <!-- 返工 -->
+    <div class="tab-record-list-content" *ngIf="item.Status == 4">
+      <div>
+        备注:{{item.ReworkReason}}
+      </div>
+      <div style=""></div>
+    </div>
+    <div *ngIf="item.Status == 4" style="border-bottom: 1px solid #dbdbdb;padding: .2rem 0;"></div>
+    <!-- 已戴走 -->
+    <div class="tab-record-list-content" *ngIf="item.Status == 5">
+    </div>
+  </div>
+</div>

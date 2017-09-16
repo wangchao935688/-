@@ -1,0 +1,156 @@
+<!--<div [attr.status]="displayStatus" class="right-slider-container ">-->
+<div [attr.status]="displayStatus" class="right-slider-container">
+  <router-outlet></router-outlet>
+</div>
+<div id="app-center-container">
+  <qiezzi-loading [attr.status]="mainShowLoading" class="loading6 purple"></qiezzi-loading>
+  <app-qiezzi-center-header [showSearch]="true"
+                            [showFilter]="false"
+                            [showAdd]="true"
+                            [showOptions]="false"
+                            [moduleName]="moduleName"
+                            [searchPlaceholder]="'单号'"
+                            [controlList]="['添加']"
+                            (onControl)="onControl($event)"
+                            (onSearch)="onSearch($event)"
+                            (onOptions)="onOptions($event)"
+                            (onShowFilter)="onShowFilter($event)"
+  ></app-qiezzi-center-header>
+  <div id="app-center-content">
+    <div id="appCenterContent"
+         [ngStyle]="{'display': true?'block':'none','border-top':isBorder?'1px solid #DBDBDB':''}"
+         class="app-center-content" malihu-scrollbar
+         [scrollbarOptions]="scrollbarOptions">
+      <!--配置筛选条件-->
+      <app-qiezzi-data-filter [filterConfig]="filterConfig"
+                              (onConditionChanged)="onConditionChanged($event)"></app-qiezzi-data-filter>
+      <div class="tab-ctrl-content" style="position: relative; min-height: 400px;">
+        <qiezzi-loading [attr.status]="dataLoading" class="loading6 purple transparent"></qiezzi-loading>
+        <!--<div class="tab-ctrl-head">
+          <button class="button4 search-right-icon"><i class="icon iconfont icon-daochu"></i>导出</button>
+        </div>-->
+        <div class="list-table">
+          <div class="list-table-head">
+            <div class="list-table-col0">商家名称</div>
+            <div class="list-table-col1">联系人</div>
+            <div class="list-table-col2">联系人电话</div>
+            <div class="list-table-col3">所在地区</div>
+            <div class="list-table-col4">操作</div>
+            <br clear="left">
+          </div>
+          <app-data-empty [showEmpty]="showEmptyState"></app-data-empty>
+
+          <div class="list-table-content">
+            <div class="list-table-item click-no-hide-detail"
+                 [ngClass]="{'selected': false}" (click)="clickFeeItem($event,1,0)">
+              <div class="list-table-col0">
+                <span>北京红十字会</span>
+              </div>
+              <div class="list-table-col1">
+                <span>hongshizi@163.com</span>
+              </div>
+              <div class="list-table-col2">
+                <span>12345678901</span>
+              </div>
+              <div class="list-table-col3">
+                <span>北京市海淀区学院路768创意园5门</span>
+              </div>
+              <div class="list-table-col4">
+                <i class="icon icon-bianji edit" (click)="edit($event)"></i>
+                <i class="icon icon-shanchu delete" (click)="delete($event)"></i>
+              </div>
+              <br clear="left">
+            </div>
+
+            <div class="list-table-item click-no-hide-detail"
+                 [ngClass]="{'selected': false}" (click)="clickFeeItem($event,1,0)">
+              <div class="list-table-col0">
+                <span>北京红十字会</span>
+              </div>
+              <div class="list-table-col1">
+                <span>hongshizi@163.com</span>
+              </div>
+              <div class="list-table-col2">
+                <span>12345678901</span>
+              </div>
+              <div class="list-table-col3">
+                <span>北京市海淀区学院路768创意园5门</span>
+              </div>
+              <div class="list-table-col4">
+                <i class="icon icon-bianji edit" (click)="edit($event)"></i>
+                <i class="icon icon-shanchu delete" (click)="delete($event)"></i>
+              </div>
+              <br clear="left">
+            </div>
+
+            <div class="list-table-item click-no-hide-detail"
+                 [ngClass]="{'selected': false}" (click)="clickFeeItem($event,1,0)">
+              <div class="list-table-col0">
+                <span>北京红十字会</span>
+              </div>
+              <div class="list-table-col1">
+                <span>hongshizi@163.com</span>
+              </div>
+              <div class="list-table-col2">
+                <span>12345678901</span>
+              </div>
+              <div class="list-table-col3">
+                <span>北京市海淀区学院路768创意园5门</span>
+              </div>
+              <div class="list-table-col4">
+                <i class="icon icon-bianji edit" (click)="edit($event)"></i>
+                <i class="icon icon-shanchu delete" (click)="delete($event)"></i>
+              </div>
+              <br clear="left">
+            </div>
+
+            <div class="list-table-item click-no-hide-detail"
+                 [ngClass]="{'selected': false}" (click)="clickFeeItem($event,1,0)">
+              <div class="list-table-col0">
+                <span>北京红十字会</span>
+              </div>
+              <div class="list-table-col1">
+                <span>hongshizi@163.com</span>
+              </div>
+              <div class="list-table-col2">
+                <span>12345678901</span>
+              </div>
+              <div class="list-table-col3">
+                <span>北京市海淀区学院路768创意园5门</span>
+              </div>
+              <div class="list-table-col4">
+                <i class="icon icon-bianji edit" (click)="edit($event)"></i>
+                <i class="icon icon-shanchu delete" (click)="delete($event)"></i>
+              </div>
+              <br clear="left">
+            </div>
+
+            <div class="list-table-item click-no-hide-detail"
+                 [ngClass]="{'selected': false}" (click)="clickFeeItem($event,1,0)">
+              <div class="list-table-col0">
+                <span>北京红十字会</span>
+              </div>
+              <div class="list-table-col1">
+                <span>hongshizi@163.com</span>
+              </div>
+              <div class="list-table-col2">
+                <span>12345678901</span>
+              </div>
+              <div class="list-table-col3">
+                <span>北京市海淀区学院路768创意园5门</span>
+              </div>
+              <div class="list-table-col4">
+                <i class="icon icon-bianji edit" (click)="edit($event)"></i>
+                <i class="icon icon-shanchu delete" (click)="delete($event)"></i>
+              </div>
+              <br clear="left">
+            </div>
+
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

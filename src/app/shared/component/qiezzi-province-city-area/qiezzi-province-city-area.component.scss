@@ -1,0 +1,22 @@
+:host{
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.address-container{
+  width: 100%;
+}
+.addr{
+  display: inline-block;
+  width:29.7%;
+}
+.addr:not(:last-child){
+  margin-right: 5%;
+}
+.err-info{
+  height: 1rem;
+  font-size: 0.6rem;
+  line-height: 1rem;
+  color: #fe4e74;
+  text-indent: 0.5rem;
+}

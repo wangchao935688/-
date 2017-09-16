@@ -1,0 +1,79 @@
+<div [attr.status]="displayStatus" class="right-slider-container">
+  <router-outlet></router-outlet>
+</div>
+<div id="app-center-container">
+  <!--loading-->
+  <qiezzi-loading [attr.status]="mainShowLoading" class="loading6 purple" style="height:100%;"></qiezzi-loading>
+  <!--消毒管理-->
+  <app-qiezzi-center-header [showSearch]="false"
+                            [showFilter]="false"
+                            [showAdd]="true"
+                            [moduleName]="'消毒管理'"
+                            [searchPlaceholder]="false"
+                            [controlList]="['新增']"
+                            (onControl)="onControlClick($event)"
+                            (onOptions)="onOptions()"
+  ></app-qiezzi-center-header>
+  <div id="app-center-content">
+    <!--滚动条-->
+    <div malihu-scrollbar [scrollbarOptions]="scrollbarOptions">
+      <div class="search-bar">
+        <div class="search-left">
+          <!--全部人员   全部类型-->
+          <qiezzi-drop-down-list name="ProcessCompanyId" class="drop-down-select"
+                                 [placeholder]="'全部人员'"
+                                 [required]="false"
+                                 [selectIndex]="0"
+                                 [dataList]="doctorList"></qiezzi-drop-down-list>
+          <qiezzi-drop-down-list name="ProcessCompanyId" class="drop-down-select"
+                                 [placeholder]="'全部类型'"
+                                 [required]="false"
+                                 [selectIndex]="0"
+                                 [dataList]="doctorList"></qiezzi-drop-down-list>
+        </div>
+        <div class="search-right">
+          <qiezzi-double-date (onSelectLeft)="selectLeft($event)"
+                              (onSelectRight)="selectRight($event)"></qiezzi-double-date>
+          <button class="button4" (click)="searchProcessList()">查询</button>
+        </div>
+        <div class="button-group button-group-right">
+          <button class="button4">导出</button>
+        </div>
+    </div>
+      <!--列表头部-->
+      <div class="list-table">
+        <div class="list-table-head">
+          <div class="list-table-col-0 table-18">消毒日期</div>
+          <div class="mobile-hidden list-table-col-1">主题</div>
+          <div class="mobile-hidden list-table-col-2 table-18">消毒方式</div>
+          <div class="mobile-hidden list-table-col-3 table-18">类型</div>
+          <div class="list-table-col-4 table-18">消毒人员</div>
+        </div>
+        <!--列表内容-->
+        <div class="list-table-content single-line">
+          <!--[ngClass]="{'selected': i==selectIndex}"-->
+          <div class="list-table-item"  (click)="openDetail($event)">
+            <div class="list-table-col-0 table-18">
+              <span class="span-ellipsis">2017-5-18</span>
+            </div>
+            <div class="mobile-hidden list-table-col-1">
+              <span>4684513245674</span>
+            </div>
+            <div class="mobile-hidden list-table-col-2 table-18"><span
+              class="span-ellipsis">消毒浸泡液</span>
+            </div>
+            <div class="mobile-hidden list-table-col-3 table-18"><span>小型器械</span>
+            </div>
+            <div class="list-table-col-4 table-18"><span><b class="disinfection-personnel">我是我我是我我就是我我我我</b></span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--分页器-->
+    <div class="page">
+      <qiezzi-paginator [rows]="10"
+                        [totalRecords]="100" [rowsPerPageOptions]="[10,20,30]"
+                        [style]="showOrHide" (onPageChange)="onPageChange($event)"></qiezzi-paginator>
+    </div>
+</div>
+</div>

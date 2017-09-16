@@ -1,0 +1,100 @@
+<div id="appCenterContent">
+  <!-- 左侧 -->
+  <div class="capital-flow-content-left">
+    <div id="appCenterLeftContent"
+         [ngStyle]="{'display': true?'block':'none','border-top':false?'1px solid #DBDBDB':''}"
+         class="app-center-content" malihu-scrollbar
+         [scrollbarOptions]="scrollbarOptionsLeft">
+        <div class="search">
+          <app-icon-input [placeholder]="'搜索'" style="width:10rem;"></app-icon-input>
+        </div>
+        <div class="two-level">
+          <div class="two-level-title">
+            <div class="triangle-title">
+              <span><i class="icon-youjiantou"></i></span>
+              <span>标题一</span>
+            </div>
+          </div>
+          <div class="two-level-content">
+            <div class="two-level-item" (click)="cascade()" [ngClass]="{'add-background':toggle,'delete-background':!toggle}">
+              <div class="item-operation">
+          <span class="item-icon">
+            <span class="is-show">
+              <i class="icon-bianji"></i>
+              <i class="icon-shanchu"></i>
+            </span>
+            </span>
+              </div>
+              <div class="dot-content">
+                <span><i></i></span>
+                <span>中和</span>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+  <!--右侧-->
+  <div class="capital-flow-content-right">
+    <div id="appCenterRightContent"
+         [ngStyle]="{'display': true?'block':'none','border-top':false?'1px solid #DBDBDB':''}"
+         class="app-center-content" malihu-scrollbar
+         [scrollbarOptions]="scrollbarOptionsRight">
+      <!--组合名称-->
+      <form class="validate-form">
+        <div class="form-section">
+          <div class="form-title"><span class="red-point"><i></i></span>组合名称</div>
+          <div class="form-element">
+            <div class="err-message"></div>
+            <qiezzi-drop-down-list class="drop-down-select"
+                                   [placeholder]="'请选择类型'"
+                                   [required]="true"
+                                   [selectIndex]="0"
+                                   [dataList]="nameList">
+            </qiezzi-drop-down-list>
+          </div>
+        </div>
+      </form>
+      <!-- 列表 -->
+      <div class="list-table">
+        <div class="list-table-head">
+          <div class="list-table-col3">收费项</div>
+          <div class="list-table-col0">单位</div>
+          <div class="list-table-col1 ">数量</div>
+          <div class="list-table-col2">单价</div>
+          <div class="list-table-content-col-3">操作</div>
+        </div>
+        <div class="list-table-content single-line">
+
+          <div class="list-table-item click-no-hide-detail">
+            <div class="list-table-col3">
+              <span>物品名称</span>
+            </div>
+            <div class=" list-table-col0">
+              <span>个</span>
+            </div>
+            <div class="list-table-col1 input-content" >
+              <input type="text" value="1">
+            </div>
+            <div class="list-table-col2">
+              <span>&yen;7777.00</span>
+            </div>
+            <div class="list-table-content-col-3 col200">
+                  <span>
+                    <i class="iconfont icon-shanchu"></i>
+                  </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- 结束列表 -->
+    </div>
+  </div>
+</div>
+
+<div class="button-group button-group-right">
+  <button class="button5">确定</button>
+  <button class="button4">取消</button>
+</div>
+
+

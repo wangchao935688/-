@@ -1,0 +1,39 @@
+
+.province {
+  .addre:first-child{
+    width:29%;
+    display:inline-block;
+  }
+  .addre:nth-child(2){
+    width:29%;
+    display:inline-block;
+  }
+  .addre:nth-child(3){
+    width:30%;
+    display:inline-block;
+  }
+}
+.drop-down-select{
+  width:89.5%;
+}
+.chooselists{
+  margin-top: 1rem;
+}
+.textarea-beizhu{
+  border: 1px solid #dbdbdb;
+  border-radius: 2px;
+  width: 89.5%;
+  height:5rem;
+  resize:none;
+  color:#333;
+  font-size:0.7rem;
+}
+input::-webkit-input-placeholder{
+  color:#999;
+}
+.ages{
+  position: absolute;
+  top: 5px;
+  left: 79px;
+  font-size: 14px;
+}

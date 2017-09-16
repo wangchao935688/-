@@ -1,0 +1,57 @@
+
+<div class="list-table">
+  <div class="list-head">
+    <span class="list-head-item">采集时间</span>
+    <span class="list-head-item">图像</span>
+  </div>
+  <!-- 加载框 -->
+  <qiezzi-loading [attr.status]="dataLoading" class="loading6 purple transparent" style="margin-top: 10rem"></qiezzi-loading>
+  <div class="list-table-content">
+    <div id="appCenterContent" class="app-center-content" malihu-scrollbar
+         [scrollbarOptions]="scrollbarOptions">
+      <div class="list-table-contain">
+        <div class="list-table-item" *ngIf="IsShowToday">
+          <div class="item-left">
+            <p class="date">{{today | date:'MM-dd'}}</p>
+            <span class="year">{{today | date:'yyyy'}}</span>
+          </div>
+          <div class="item-right" (click)="addPic()">
+            <div class="add">
+              <div class="contain">
+                <i class="icon iconfont icon-tianjiazhaopian"></i>
+                <span>新增图像</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="list-table-item"  *ngFor="let item of patientImageListResponse?.Items; let i = index">
+          <div class="item-left">
+            <p class="date">{{item.AddDateTime | date:'MM-dd'}}</p>
+            <span class="year">{{item.AddDateTime | date:'yyyy'}}</span>
+          </div>
+          <div class="item-right">
+            <div class="add" *ngIf="i===0 && !IsShowToday" (click)="addPic()">
+              <div class="contain">
+                <i class="icon iconfont icon-tianjiazhaopian"></i>
+                <span>新增图像</span>
+              </div>
+            </div>
+            <div class="image" *ngFor="let img of item.ImageList;">
+              <!--<img [ngStyle]="{src: img.ImgPath}" alt="" title="img.ImgName">-->
+              <div [ngStyle]="{backgroundImage:'url('+ img.ImgPath+')'}" style="width: 100%;height:100%"></div>
+              <i class="icon iconfont icon-guanbi-chahao" (click)="delPatientImage(img.Id)"></i>
+            </div>
+          </div>
+        </div>
+        <div class="data-empty" >
+          <app-data-empty [showEmpty]="showEmpty" style="border: none"></app-data-empty>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="!IsShowToday || patientImageListResponse?.Items<10">
+    <qiezzi-paginator [rows]="10" [totalRecords]="13"
+                      [rowsPerPageOptions]="[10,20,30]"
+                      [style]="showOrHide" (onPageChange)="onPageChange($event)"></qiezzi-paginator>
+  </div>
+</div>

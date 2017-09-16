@@ -1,0 +1,197 @@
+.fr {
+  float: right;
+}
+
+.fl {
+  float: left;
+}
+
+//自己定义的样式
+.my-container {
+  //顶部
+  .my-container-head {
+    .header-top {
+      background-color: #fbfbfb;
+      margin-top: 1.5rem;
+      padding: 0.5rem;
+
+      .button-group-right {
+        float: right;
+        width: 5.3rem;
+
+        .button4 {
+          background-color: #fff;
+          border: 1px solid #DBDBDB;
+          font-size: 0.6rem;
+          line-height: 1.6rem;
+          color: #666;
+          .icon-daochu {
+            margin-right: 0.5rem;
+          }
+        }
+        .button4:hover {
+          color: #605bf5;
+          border: 1px solid #605bf5;
+        }
+
+      }
+      //日期
+      qiezzi-select-date-slot {
+
+      }
+    }
+    .header-text {
+      padding: 1.5rem 0;
+      text-align: center;
+      span {
+        font-size: 1rem;
+        line-height: 1rem;
+        color: #333;
+      }
+    }
+    .header-box {
+      border: 1px solid #e6e7f3;
+      .my-left-icon {
+        display: inline-block;
+        width: 5.2rem;
+        padding-left: 1.2rem;
+        padding-right: 1.5rem;
+        .icon.iconfont {
+          font-size: 2.5rem;
+          color: #7A80FA;
+        }
+      }
+      .my-right-content {
+        float: right;
+        display: inline-block;
+        width: calc(100% - 5.2rem);
+        .text-list {
+          width: 100%;
+          .text-list-item {
+            width: 100%;
+            line-height: 1.7rem;
+            .text-list-left {
+              display: inline-block;
+              font-size: 0.7rem;
+              color: #333;
+
+            }
+            .text-list-right {
+              display: inline-block;
+              font-size: 0.8rem;
+              color: #666
+            }
+          }
+        }
+      }
+      .list-box {
+        padding: 1rem 0 1rem 3rem;
+        width: 33.3%;
+        position: relative;
+        .my-content {
+
+          .num {
+            display: block;
+            width: 100%;
+            font-size: 1rem;
+            line-height: 1.7rem;
+            color: #333;
+          }
+          .my-list-name {
+            display: block;
+            width: 100%;
+            font-size: 0.6rem;
+            line-height: 1rem;
+            color:#999;
+          }
+        }
+        //间隔竖线
+        .my-line{
+          width: 0.05rem;
+          border:none;
+          height: 1.6rem;
+          background-color: #e6e7f3;
+          position: absolute;
+          right: 0;
+          top: 1.45rem;
+        }
+
+
+      }
+    }
+  }
+
+  .my-container-content {
+    .ec-header {
+      margin-top: 1.5rem;
+      margin-bottom: 1rem;
+      line-height: 1.6rem;
+      color: #333;
+      .my-right {
+        font-size: 0.6rem;
+        color: #666;
+        line-height: 1.6rem;
+      }
+      .my-ec-header-text {
+        font-size: 0.7rem;
+        color: #333;
+      }
+    }
+    //折线图
+    .ec-content {
+
+    }
+    //饼形图
+    .ec-content-pie {
+      //饼形图左侧
+      .ec-left {
+        width: 11.6rem;
+        height: 11.4rem;
+        border: 1px solid #f3f3f3;
+        .ec-list {
+          padding: 0 1rem;
+
+          .ec-header {
+            border-bottom: 1px solid #e6e7f3;
+            .ec-list-item {
+              padding: 0.2rem 0;
+              line-height: 1.8rem;
+              color: #999;
+              .ec-list-item-right{
+                text-align: right;
+                font-size: 0.6rem;
+              }
+            }
+          }
+          .ec-content {
+
+          }
+          .ec-list-item {
+            padding: 0.4rem 0;
+            font-size: 0.7rem;
+            line-height: 1rem;
+            color: #666;
+            .ec-list-item-left {
+              width: 5.6rem;
+            }
+            .ec-list-item-right {
+              width: 3.3rem;
+              text-align: right;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+.list-table-col0 {
+  width: 33%;
+}
+.list-table-col1 {
+  width: 33%;
+}
+.list-table-col2 {
+  width: 33%;
+}

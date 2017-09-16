@@ -1,0 +1,54 @@
+<qiezzi-loading [attr.status]="dataLoading" class="loading6 purple"></qiezzi-loading>
+<div id="myte-container">
+  <div class="myte-aside">
+    <div class="myte-aside-menu">
+      <span>模板类型</span>
+    </div>
+    <div class="myte-aside-list">
+      <ul>
+        <li class="temp-item" (click)="clickItem(-1)" [ngStyle] = "{ fontWeight:Indexs === -1 ?'bold' : ''}">全部模板</li>
+        <li class="temp-item" (click)="clickItem(item.TypeCode)"
+            [ngStyle] = "{ fontWeight:Indexs === i ? 'bold' : 'normal'}"
+            *ngFor="let item of getTemplateListResponse?.MyTemplateList; let i = index;" >{{item.TypeName}}</li>
+      </ul>
+    </div>
+  </div>
+  <!--右边内容-->
+  <div class="myte-content">
+    <div class="myte-content-top">口腔种植术后注意事项</div>
+    <div class="myte-content-bottom">
+      <div class="myte-content-input">
+        <input type="text" name="smsTe" value="" placeholder="短信内容/短信内容">
+        <button class="button5">查询</button>
+        <button class="button5" (click)="addTemp()">新增模板</button>
+      </div>
+      <div>
+        <div class="myte-content-bottom-co">
+          <div class="list-table-content">
+            <div class="list-table-item" id="list-not">
+              <div class="list-table-col-1">短信名称</div>
+              <div class="list-table-col-1">短信内容</div>
+              <div class="list-table-col-1">操作</div>
+            </div>
+
+            <div class="list-table-item" *ngFor="let item of templateList; let i = index;">
+              <div class="list-table-col-1">{{item.SMSName}}</div>
+              <div class="list-table-col-1">{{item.SMSContext}}</div>
+              <div class="list-table-col-1" >
+                <i class="iconfont icon-xiangshang" (click)="up(item.Id)"></i>
+                <span>|</span>
+                <i class="iconfont icon-xiangxia" (click)="down(item.Id)"></i>
+                <span>|</span>
+                <i class="iconfont icon-xiugai" (click)="update(data)"></i>
+                <span>|</span>
+                <i class="iconfont icon-shanchu" (click)="delete(item.Id)"></i>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

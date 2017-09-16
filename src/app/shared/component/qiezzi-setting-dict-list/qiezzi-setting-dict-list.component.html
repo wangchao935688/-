@@ -1,0 +1,39 @@
+<div class="tab-ctrl-content">
+  <qiezzi-loading [attr.status]="dataLoading" class="loading6 purple transparent"
+                  style="padding-top: 300px"></qiezzi-loading>
+  <div class="list-table single-line" style="padding: 0;">
+    <div class="list-table-search ">
+      <div class="list-table-search-div-1">
+      </div>
+      <div class="list-table-search-div-2">
+        <button class="button4" (click)="add()">{{addSheetName}}</button>
+      </div>
+    </div>
+    <div class="list-table-head">
+      <span class="list-table-header-col-1">名称</span>
+      <span class="list-table-header-col-2">操作</span>
+    </div>
+    <div class="list-table-content">
+      <div class="list-table-item no-hover" *ngFor="let item of response.Items">
+        <div class="list-table-content-col-1"><span>{{item.Name}}</span></div>
+        <div class="list-table-content-col-2">
+                  <span>
+                    <i class="iconfont icon-xiangshang" (click)="up(item.Code)"></i>
+                    <span>|</span>
+                    <i class="iconfont icon-xiangxia" (click)="down(item.Code)"></i>
+                    <span>|</span>
+                    <!--<i class="iconfont icon-zhiding" (click)="top()"></i>
+                    <span>|</span>
+                    <i class="iconfont icon-zhidi" (click)="bottom()"></i>
+                    <span>|</span>-->
+                    <i class="iconfont icon-xiugai" (click)="update(item)"></i>
+                    <span>|</span>
+                    <i class="iconfont icon-shanchu" (click)="delete(item.Id)"></i>
+                  </span>
+        </div>
+        <br clear="left">
+      </div>
+      </div>
+    <app-data-empty  [showEmpty]="showEmpty"></app-data-empty>
+    </div>
+  </div>

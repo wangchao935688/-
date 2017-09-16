@@ -1,0 +1,34 @@
+.col1 {
+  width: 100%;
+}
+
+.col2 {
+  flex: 0 0 25%
+}
+
+.col3 {
+  flex: 0 0 15%
+}
+
+.col4 {
+  flex: 0 0 15%
+}
+
+.col5 {
+  flex: 0 0 15%
+}
+
+@media only screen and (max-width: 999px) {
+  .col1 {
+    width: 100%;
+  }
+
+  .col3 {
+    flex: 0 0 30%;
+  }
+
+  .col5 {
+    flex: 0 0 20%;
+  }
+}
+.list-table{padding:0;}

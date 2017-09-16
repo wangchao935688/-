@@ -1,0 +1,91 @@
+<div id="appCenterContent" class="app-center-content" malihu-scrollbar
+     [scrollbarOptions]="scrollbarOptions">
+  <div class="popup-content-box">
+  <form class="validate-form" [formGroup]="formGroup">
+    <div class="form-section">
+      <div class="form-title">金额</div>
+      <div class="form-element">
+        <div class="err-message" [attr.error]="formErrors['Money']">{{formErrors['Money']}}</div>
+        <input class="input-text" placeholder="请输入金额" formControlName="Money" (blur)="onInputElementBlur('Money')">
+      </div>
+    </div>
+    <div class="form-section">
+      <div class="form-title">类别</div>
+      <div class="form-element">
+        <div class="err-message" [attr.error]="formErrors['Type']">{{formErrors['Type']}}</div>
+        &lt;!&ndash;<input class="input-text" placeholder="" formControlName="Type">&ndash;&gt;
+        <qiezzi-drop-down-list class="drop-down-select"
+                               [placeholder]="'请选择类型'"
+                               [required]="false"
+                               [selectIndex]="0"
+                               (onChange)="onTypeChange($event)"
+                               formControlName="Type"
+                               [dataList]="TypeList"></qiezzi-drop-down-list>
+      </div>
+    </div>
+    <div class="form-section">
+      <div class="form-title">账户</div>
+      <div class="form-element">
+        <div class="err-message" [attr.error]="formErrors['ID']">{{formErrors['ID']}}</div>
+        &lt;!&ndash;<input class="input-text" placeholder="" formControlName="ID">&ndash;&gt;
+        <qiezzi-drop-down-list class="drop-down-select"
+                               [placeholder]="'请选择账户'"
+                               [required]="false"
+                               [selectIndex]="0"
+                               (onChange)="onAccountChange($event)"
+                               formControlName="ID"
+                               [dataList]="AccountList"></qiezzi-drop-down-list>
+      </div>
+    </div>
+    <div class="form-section">
+      <div class="form-title">时间</div>
+      <div class="form-element">
+        <div class="err-message" [attr.error]=""></div>
+        <input class="input-text" value="time">
+      </div>
+    </div>
+
+    <div class="form-section">
+      <div class="form-title">经手人</div>
+      <div class="form-element">
+        <div class="err-message" [attr.error]="formErrors['HandlerID']">{{formErrors['HandlerID']}}</div>
+        &lt;!&ndash;<input class="input-text" placeholder="" formControlName="HandlerID">&ndash;&gt;
+        <qiezzi-drop-down-list class="drop-down-select"
+                               [placeholder]="'请选择经手人'"
+                               [required]="false"
+                               [selectIndex]="0"
+                               (onChange)="onHandlerChange($event)"
+                               formControlName="HandlerID"
+                               [dataList]="HandlerList"></qiezzi-drop-down-list>
+      </div>
+    </div>
+
+    <div class="form-section">
+      <div class="form-title">照片</div>
+      <div class="form-element">
+       <span>支持bmp、jpeg、jpg、gif、png，不可大于5M</span>
+        <div class="add">
+          <div class="contain">
+            <i class="icon iconfont icon-tianjiazhaopian"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-section">
+      <div class="form-title">备注</div>
+      <div class="form-element">
+        <div class="err-message" [attr.error]="formErrors['Note']">{{formErrors['Note']}}</div>
+        <input class="input-text" placeholder="请输入备注" formControlName="Note" (blur)="onInputElementBlur('Note')">
+      </div>
+    </div>
+
+  </form>
+</div>
+
+  <div class="button-group button-group-right" >
+    <button class="button4" (click)="saveExpenseList()" >保存</button>
+    <button class="button4" (click)="cancel()">取消</button>
+  </div>
+</div>
+

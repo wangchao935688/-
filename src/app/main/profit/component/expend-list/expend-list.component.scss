@@ -1,0 +1,82 @@
+:host {
+  display: block;
+  height: 100%;
+}
+
+.list-table-top {
+  line-height: 1rem;
+  height: 1rem;
+  margin-top: 1.6rem;
+  margin-bottom: 1rem;
+  font-size: 0.7rem;
+  display: flex;
+  div:nth-child(1) {
+    flex: 1 1 50%;
+  }
+  div:nth-child(2) {
+    float: right;
+  }
+  .span-text {
+    color: #999999;
+  }
+  .span-monry {
+    color: #7a80fa;
+  }
+}
+
+.list-table-head {
+  border: 1px solid #ccc;
+  border-bottom: 0;
+  margin-top: 1rem;
+  .col-1 {
+    width: calc(100% - 22% - 22% - 18%);
+  }
+  .col-22 {
+    width: 22%;
+  }
+  .col-18 {
+    width: 18%;
+  }
+}
+
+.list-table-item {
+  .col-1 {
+    width: calc(100% - 22% - 22% - 18%);
+  }
+  .col-22 {
+    width: 22%;
+  }
+  .col-18 {
+    width: 18%;
+  }
+}
+
+.gps {
+  font-size: .6rem;
+  padding: 0 2rem;
+  height: 2.8rem;
+  line-height: 2.8rem;
+  border-bottom: 1px solid #DBDBDB;
+  i {
+    font-size: .7rem;
+  }
+  .gps-span {
+    cursor: pointer;
+    padding-left: .5rem;
+  }
+  .gps-span:hover {
+    color: #7a80fa;
+  }
+}
+
+@media screen and (max-width: 999px) {
+  .col-1 {
+    width: calc(100% - 30% - 25%);
+  }
+  .col-22 {
+    width: 30%;
+  }
+  .col-18 {
+    width: 25%;
+  }
+}

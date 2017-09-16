@@ -1,0 +1,27 @@
+/*
+TODO 顶部信息
+*/
+app-qiezzi-center-header{
+  border-bottom:1px solid #DBDBDB;
+}
+.list-table-col-1{
+  width: 20%;
+}
+.list-table-col-15:nth-of-type(2){
+  width:20%;
+}
+.list-table-col-15:nth-of-type(3){
+  width:calc(100% - (20% * 2) - 15%);
+}
+.list-table-col-15:nth-of-type(4){
+  width:15%;
+}
+.search-bar{
+  margin-left: 2rem;
+  margin-top:2rem;
+}
+@media screen and (max-width: 999px) {
+  .search-bar{
+    margin-left: 1.5rem;
+  }
+}

@@ -1,0 +1,70 @@
+<div [attr.status]="displayStatus" class="right-slider-container">
+  <router-outlet></router-outlet>
+</div>
+<div id="app-center-container">
+  <qiezzi-loading [attr.status]="mainShowLoading" class="loading6 purple"></qiezzi-loading>
+  <app-qiezzi-center-header [showSearch]="false"
+                            [showFilter]="false"
+                            [showAdd]="false"
+                            [showOptions]="false"
+                            [moduleName]="'发送记录'"
+                            [searchPlaceholder]="''"
+                            [controlList]="['新增']"
+                            (onControl)="onControl($event)"
+                            (onOptions)="onOptions($event)"
+  ></app-qiezzi-center-header>
+  <div id="app-center-content">
+    <div id="appCenterContent" [style.border-top]="isBorder?'1px solid #DBDBDB':''"
+         class="app-center-content" malihu-scrollbar [scrollbarOptions]="scrollbarOptions">
+      <div class="search-bar">
+        <div class="search-left">
+          <app-icon-input [placeholder]="'收件人/手机号'" [(ngModel)]="keyword" style="width:10rem;float:left;"></app-icon-input>
+          <qiezzi-double-date (onSelectLeft)="selectLeft($event)"
+                              (onSelectRight)="selectRight($event)" style="float:left;margin-left: .5rem;"></qiezzi-double-date>
+          <button class="button5" (click)="search()">查询</button>
+        </div>
+      </div>
+
+      <div class="tab-ctrl tab-ctrl1">
+        <div class="tab-ctrl-content" style="position: relative; min-height: 400px;">
+          <qiezzi-loading [attr.status]="dataLoading" class="loading6 purple transparent"
+                          style="padding-top: 300px"></qiezzi-loading>
+          <div class="list-table">
+            <div class="list-table-head">
+              <span class="list-table-col-1">发送时间</span>
+              <span class="mobile-hidden list-table-col-15">收信人</span>
+              <span class="mobile-hidden list-table-col-15">短信内容</span>
+              <span class="mobile-hidden list-table-col-15">发信人</span>
+            </div>
+            <div class="list-table-content">
+              <div class="list-table-item" [ngClass]="{'selected': i==selectIndex}"
+                   *ngFor="let item of sendListResponse?.Items;let i=index;" (click)="openDetail($event,item.Id,i)">
+                <div class="list-table-col-1">
+                  <span>{{item.SendTime | date: 'yyyy-MM-dd'}}</span>
+                  <span>{{item.SendTime | date: 'hh:mm'}}</span>
+                </div>
+                <div class="mobile-hidden list-table-col-15">
+                  <span>{{item.Receiver}}</span>
+                </div>
+                <div class="mobile-hidden list-table-col-15"><span
+                  class="span-ellipsis">{{item.Content}}</span>
+                </div>
+                <div class="mobile-hidden list-table-col-15"><span>{{item.Sender}}</span>
+                </div>
+              </div>
+            </div>
+            <app-data-empty [showEmpty]="!(sendListResponse && sendListResponse?.TotalItems>0)"></app-data-empty>
+            <qiezzi-paginator [ngStyle]="{display: (sendListResponse && sendListResponse.TotalItems>10) ?'block' : 'none'}"
+                              [rows]="sendListResponse?.ItemsPerPage" [totalRecords]="sendListResponse?.TotalItems"
+                              [rowsPerPageOptions]="[10,20,30]"
+                              [style]="showOrHide" (onPageChange)="onPageChange($event)">
+            </qiezzi-paginator>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+

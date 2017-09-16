@@ -1,0 +1,152 @@
+.ui-paginator {
+  margin: 0;
+  text-align: right;
+  padding: 1.5rem 0;
+  color: #333;
+  font-size: 0.6rem;
+  height: 4rem;
+}
+
+.ui-paginator .ui-paginator-top {
+  border-bottom: 0 none;
+}
+
+.ui-paginator .ui-paginator-bottom {
+  border-top: 0 none;
+}
+
+.ui-paginator .ui-paginator-page,
+.ui-paginator .ui-paginator-pages,
+.ui-paginator .ui-paginator-next,
+.ui-paginator .ui-paginator-last,
+.ui-paginator .ui-paginator-first,
+.ui-paginator .ui-paginator-prev,
+.ui-paginator .ui-paginator-current {
+  display: inline-block;
+  padding: 0 .3rem;
+  height: 1rem;
+  zoom: 1;
+  text-decoration: none;
+  overflow: hidden;
+}
+
+.ui-paginator .ui-paginator-page,
+.ui-paginator .ui-paginator-next,
+.ui-paginator .ui-paginator-last,
+.ui-paginator .ui-paginator-first,
+.ui-paginator .ui-paginator-prev {
+  cursor: pointer;
+}
+
+.ui-paginator span.ui-paginator-pages {
+  margin: 0 !important;
+  padding: 0 !important;
+  line-height: 1rem;
+  height: 1rem;
+}
+.ui-paginator span.ui-paginator-pages .ui-paginator-page:last-child {margin-right: 0 !important;}
+.ui-paginator .ui-paginator-page {
+  display: inline-block;
+  padding: 0 .3rem;
+  height: 1rem;
+  margin: 0 !important;
+  min-width: 1rem;
+  text-align: center;
+  border-radius: 0.2rem 0.2rem;
+  line-height: 1rem;
+  margin-right: 0.5rem !important;
+}
+
+.ui-paginator span.ui-paginator-next {
+  margin: 0 0.5rem !important;
+}
+
+.ui-paginator span.ui-paginator-prev {
+  margin: 0 0.5rem !important;
+}
+
+.ui-paginator .ui-paginator-next,
+.ui-paginator .ui-paginator-last,
+.ui-paginator .ui-paginator-first,
+.ui-paginator .ui-paginator-prev {
+  height: 1rem;
+  width: 1rem;
+  text-align: center;
+  line-height: 1rem;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.ui-paginator .ui-paginator-current,
+.ui-paginator .ui-paginator-rpp-options {
+  margin-left: 1em;
+  margin-right: 1em;
+  background-image: none;
+}
+
+.ui-paginator .ui-paginator-jtp-select option,
+.ui-paginator .ui-paginator-rpp-options option {
+  background-image: none;
+  border: 0 none;
+  box-shadow: none;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+}
+
+.ui-paginator a.ui-state-disabled {
+  outline: 0 none;
+}
+
+.ui-paginator-cursor {
+  cursor: pointer;
+}
+
+button {
+  height: 1rem;
+  min-width: 2.3rem;
+  border-radius: 0.2rem 0.2rem;
+  background-color: #7a80fa;
+  padding: 0 0.6rem;
+  color: #fff;
+  line-height: 1rem;
+  font-size: 0.6rem;
+  border: none;
+  margin-left: 0.5rem;
+  display: inline-block;
+}
+
+button:hover {
+  background-color: #605bf5;
+}
+
+input[type="text"] {
+  width: 2.1rem;
+  border: solid 1px #e6e7f3;
+  border-radius: 0.2rem 0.2rem;
+  outline: none;
+  text-align: center;
+  margin: 0 0.25rem;
+  height: 1rem;
+}
+
+input[type="text"]:focus {
+  border: solid 1px #7a80fa;
+}
+
+.go-page {
+  display: inline-block;
+  margin-left: 1rem;
+  height: 1rem;
+  line-height: 1rem;
+  font-size: 0.6rem;
+  overflow: hidden;
+}
+
+.total {
+  display: inline-block;
+  height: 1rem;
+  line-height: 1rem;
+  font-size: 0.6rem;
+  overflow: hidden;
+  margin-left: 0.8rem;
+}

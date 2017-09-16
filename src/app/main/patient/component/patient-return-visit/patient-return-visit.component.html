@@ -1,0 +1,86 @@
+<div class="tab-ctrl tab-ctrl2">
+    <div class="tab-ctrl-content" style="position: relative; min-height: 400px;padding:0;border: none">
+      <qiezzi-loading [attr.status]="dataLoading" class="loading6 purple transparent"></qiezzi-loading>
+      <div class="list-table">
+        <div class="list-table-head">
+          <span class="list-table-col-1">回访时间</span>
+          <span class="mobile-hidden list-table-col-15">回访人</span>
+          <span class="mobile-hidden list-table-col-15">回访类型</span>
+          <span class="mobile-hidden list-table-col-15">主治医生</span>
+          <span class="list-table-col-15">回访内容</span>
+          <span class="list-table-col-12">状态</span>
+        </div>
+        <div class="list-table-content">
+          <div class="list-table-item">
+            <div class="list-table-col-1">
+              <span class="span-ellipsis">2016-10-23</span>
+            </div>
+            <div class="mobile-hidden list-table-col-15">
+              <span>小明</span>
+            </div>
+            <div class="mobile-hidden list-table-col-15"><span
+              class="span-ellipsis">预约回访</span>
+            </div>
+            <div class="mobile-hidden list-table-col-15"><span>张医生</span>
+            </div>
+            <div class="list-table-col-15"><span>111</span></div>
+            <div class="list-table-col-12"><span>进行中</span></div>
+          </div>
+          <div class="list-table-item">
+            <div class="list-table-col-1">
+              <span class="span-ellipsis">2016-10-23</span>
+            </div>
+            <div class="mobile-hidden list-table-col-15">
+              <span>小明</span>
+            </div>
+            <div class="mobile-hidden list-table-col-15"><span
+              class="span-ellipsis">预约回访</span>
+            </div>
+            <div class="mobile-hidden list-table-col-15"><span>张医生</span>
+            </div>
+            <div class="list-table-col-15"><span>111</span></div>
+            <div class="list-table-col-12"><span>进行中</span></div>
+          </div>
+          <div class="list-table-item">
+            <div class="list-table-col-1">
+              <span class="span-ellipsis">2016-10-23</span>
+            </div>
+            <div class="mobile-hidden list-table-col-15">
+              <span>小明</span>
+            </div>
+            <div class="mobile-hidden list-table-col-15"><span
+              class="span-ellipsis">预约回访</span>
+            </div>
+            <div class="mobile-hidden list-table-col-15"><span>张医生</span>
+            </div>
+            <div class="list-table-col-15"><span>111</span></div>
+            <div class="list-table-col-12"><span>进行中</span></div>
+          </div>
+          <div class="list-table-item">
+            <div class="list-table-col-1">
+              <span class="span-ellipsis">2016-10-23</span>
+            </div>
+            <div class="mobile-hidden list-table-col-15">
+              <span>小明</span>
+            </div>
+            <div class="mobile-hidden list-table-col-15"><span
+              class="span-ellipsis">预约回访</span>
+            </div>
+            <div class="mobile-hidden list-table-col-15"><span>张医生</span>
+            </div>
+            <div class="list-table-col-15"><span>111</span></div>
+            <div class="list-table-col-12"><span>进行中</span></div>
+          </div>
+        </div>
+        <app-data-empty *ngIf="(responseData )"
+                        [showEmpty]="showEmpty"></app-data-empty>
+        <div >
+          <qiezzi-paginator [rows]="12" [totalRecords]="8"
+                            [rowsPerPageOptions]="[10,20,30]"
+                            (onPageChange)="pageChange($event)"></qiezzi-paginator>
+        </div>
+      </div>
+    </div>
+</div>
+
+

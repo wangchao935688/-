@@ -1,0 +1,24 @@
+<div class="popup-content-container" malihu-scrollbar [scrollbarOptions]="scrollbarOptions">
+  <div class="popup-content-box">
+
+    <div>
+      <div>
+        <div>{{data?.PatientName}}</div>
+        <div>{{data?.Sex}},{{data?.Age}}</div>
+      </div>
+      <div>No.{{data.PatientCode}}</div>
+    </div>
+
+    <div class="form-section">
+      <div class="form-title">就诊医生</div>
+      <div class="form-element">
+        <qiezzi-drop-down-list class="drop-down-select" [required]="false" [dataList]="doctorListDataSource"
+                               (onChange)="onDoctorSelectChange($event)"></qiezzi-drop-down-list>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="button-group button-group-right">
+  <button (click)="save()" class="button5">保存</button>
+  <button (click)="close()" class="button4">取消</button>
+</div>

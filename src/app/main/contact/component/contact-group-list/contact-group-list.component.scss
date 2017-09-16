@@ -1,0 +1,43 @@
+
+.validate-form{
+  padding-top:1rem;
+}
+.form-section{
+  position: relative;
+}
+
+.sms-list-right{
+  position: absolute;
+  left:19.5rem;
+  i{
+    color:#d5d5d5;
+    font-size:0.8rem;
+    padding-left:0.3rem;
+    line-height:1.6rem;
+    cursor:pointer;
+    &:hover{
+      color:#7a80fa;
+    }
+  }
+}
+
+.addlists{
+  height:1.6rem;
+  border-top:1px solid #eeeeee;
+  line-height: 2rem;
+  margin: 0 1rem;
+  margin-bottom:0.5rem;
+  i{
+    font-size: 0.5rem;
+    color: #7a80fa;
+    font-weight: bold;
+  }
+  span{
+    color: #7a80fa;
+  }
+}
+.addli{
+  width:3.2rem;
+  height:1.6rem;
+  cursor:pointer;
+}

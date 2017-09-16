@@ -1,0 +1,180 @@
+.main-week {
+  padding: 0 0 1.5rem;
+}
+
+.main-week-control {
+  margin: 1.5rem 0 1rem 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.main-week-container {
+  width: 100%;
+}
+
+.main-week-header {
+  height: 3rem;
+  border: solid 1px #E6E7F3;
+}
+
+.weekly-list {
+  float: right;
+  width: calc(100% - 3rem);
+  height: 3rem;
+}
+
+.weekly-list-item {
+  width: calc(100% / 7);
+  font-size: 14px;
+  color: #666;
+  text-align: center;
+  line-height: 3rem;
+  float: left;
+  overflow: hidden;
+}
+
+.main-week-content {
+  overflow: hidden;
+  width: 100%;
+  height: 2880px;
+  position: relative;
+  margin-top: -1px;
+}
+
+.time-line {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  z-index: 2;
+  left: 0;
+}
+
+.time-line-box {
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+.time-col {
+  width: 3rem;
+  border: solid 1px #E6E7F3;
+  border-top: none;
+  height: 100%;
+  position: absolute;
+  left: 0;
+}
+
+.time-col > div {
+  height: 3rem;
+  text-align: center;
+  position: relative;
+}
+
+.time-col > div:first-child span {
+  top: 0;
+}
+
+.time-col > div > span {
+  height: 1rem;
+  line-height: 1rem;
+  top: -0.5rem;
+  position: absolute;
+  color: #666;
+  width: 3rem;
+  display: block;
+}
+
+.main-weekly-box {
+  width: calc(100% - 3rem);
+  position: absolute;
+  right: 0;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.weekly-col {
+  width: calc(100% / 7);
+  position: relative;
+  height: 100%;
+}
+
+.weekly-cell {
+  cursor: pointer;
+  height: 3rem;
+  border-bottom: solid 1px #E6E7F3;
+  border-right: solid 1px #E6E7F3;
+}
+
+.time-line .current {
+  color: #fe4e74;
+  position: absolute;
+  left: 1px;
+  bottom: -0.5rem;
+  width: 2.9rem;
+  height: 1rem;
+  line-height: 1rem;
+  text-align: center;
+  background-color: #fff;
+}
+
+.time-line .time-passed {
+  background-color: #fafafa;
+  opacity: 0.6;
+  width: 100%;
+  height: 100%;
+  right: 1px;
+  position: absolute;
+}
+
+.main-select {
+  display: flex;
+  width: 9.5rem;
+  height: 1.6rem;
+  justify-content: space-between;
+}
+
+.main-select qiezzi-drop-down-list {
+  width: 4.5rem;
+}
+
+.control-left {
+  height: 1.6rem;
+  display: flex;
+}
+
+.booking-schedule-item {
+}
+
+div.booking-schedule-item[bind-type='booking'] {
+  background-color: #605bf5;
+}
+
+div.booking-schedule-item[bind-type='schedule'] {
+  background-color: #fea356;
+}
+
+.booking-schedule-container {
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+  position: absolute;
+}
+
+.weekly-cell-grid {
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  position: absolute;
+  top: 0;
+}
+
+.point {
+  background-color: #FE4E74;
+  height: 3px;
+  width: 3px;
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  border-radius: 2px;
+}

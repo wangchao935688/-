@@ -1,0 +1,50 @@
+<div class="popup-content-container" malihu-scrollbar [scrollbarOptions]="scrollbarOptions">
+  <div class="popup-content-box">
+    <form class="validate-form"  [formGroup]="formGroup">
+    <div class="form-section">
+      <div class="form-title">金额</div>
+      <div class="form-element">
+        <div class="err-message" [attr.error]="formErrors['Money']">{{formErrors['Money']}}</div>
+        <input class="input-text" placeholder="请输入收金额" formControlName="Money" (blur)="onInputElementBlur('Money')">
+      </div>
+    </div>
+    <div class="form-section">
+      <div class="form-title">转出账户</div>
+      <div class="form-element">
+        <div class="err-message" [attr.error]="formErrors['AccountFrom']">{{formErrors['AccountFrom']}}</div>
+        <qiezzi-drop-down-list  class="drop-down-select"
+                               [placeholder]="''"
+                               [required]="false"
+                               [selectIndex]="0"
+                                formControlName="AccountFrom"
+                                (blur)="onInputElementBlur('AccountFrom')"
+                               [dataList]="typeList"></qiezzi-drop-down-list>
+      </div>
+    </div>
+    <div  class="form-section">
+      <div class="form-title">转入账户</div>
+      <div class="form-element">
+        <div class="err-message" [attr.error]="formErrors['AccountTo']">{{formErrors['AccountTo']}}</div>
+        <qiezzi-drop-down-list  class="drop-down-select"
+                               [placeholder]="''"
+                               [required]="false"
+                               [selectIndex]="0"
+                                formControlName="AccountTo"
+                                (blur)="onInputElementBlur('AccountTo')"
+                               [dataList]="typeList"></qiezzi-drop-down-list>
+      </div>
+    </div>
+    <div class="form-section">
+      <div class="form-title">日期</div>
+      <div class="form-element" style="line-height: 32px;height:100%;">
+        <div class="err-message" [attr.error]=""></div>
+        <span> {{Date | date : 'yyyy-MM-dd'}}</span>
+      </div>
+    </div>
+  </form>
+  </div>
+</div>
+<div style="float:right;padding-right: 1.5rem;height: 3rem;line-height: 3rem;">
+  <button class="button5" (click)="accountTransfer()" [disabled]="!formGroup.valid || isProcessing">保存</button>
+  <button class="button4" style="margin-left: .5rem;" (click)="cancel()">取消</button>
+</div>

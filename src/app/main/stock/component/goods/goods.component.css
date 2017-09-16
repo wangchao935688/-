@@ -1,0 +1,38 @@
+.fl {
+  float: left; }
+
+.fr {
+  float: right; }
+
+div.app-center-content {
+  height: 100%; }
+
+.goods-content {
+  height: 100%;
+  width: 24rem;
+  padding: 0 1.5rem;
+  font-size: 0.6rem;
+  line-height: 1rem;
+  color: #333; }
+  .goods-content .content-header {
+    margin-top: 1.1rem; }
+    .goods-content .content-header .header-text {
+      font-size: 0.7rem; }
+      .goods-content .content-header .header-text .iconfont {
+        margin-right: 0.3rem; }
+  .goods-content .list-content {
+    border: none;
+    padding-top: 0.6rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 1px dashed #DBDBDB; }
+    .goods-content .list-content .list-item {
+      border-bottom: none;
+      margin-bottom: 0.5rem; }
+      .goods-content .list-content .list-item .list-col0 {
+        display: inline-block;
+        width: 4rem;
+        color: #666; }
+      .goods-content .list-content .list-item .list-col1 {
+        display: inline-block; }
+
+/*# sourceMappingURL=goods.component.css.map */

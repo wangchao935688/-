@@ -1,0 +1,284 @@
+/*
+TODO 滚动条
+*/
+.app-center-content{
+  height: calc(100% - 4rem);
+}
+/*
+TODO 顶部头部
+*/
+.tab-ctrl-head{
+  font-size:0.8rem;
+  padding-left:0.8rem !important;
+  a{
+    color:#333;
+    &:hover{
+      color:#524ddb;
+    }
+  }
+}
+/*
+TODO 左侧
+*/
+.one-level-title,.one-level-content{
+  padding:0;
+}
+.tab-bar-box{
+  left:.8rem;
+}
+.tab-ctrl-content{
+  width:49rem;
+  margin-left:1.5rem;
+  margin-top:1.5rem;
+}
+.myte-content-bottom{
+  margin-left: 12rem;
+ }
+.myte-aside{
+  width:11rem;
+  padding-right:1.5rem;
+  float:left;
+  border-right:1px solid  #d3d3d4;
+}
+/*
+TODO 面包屑
+*/
+.sms-settings{
+  font-size:12px;
+  color:#333;
+  padding-top:.3rem;
+  padding-bottom:.7rem;
+  height:20px;
+  line-height:20px;
+  display:inline-block;
+  .icon-dingwei{
+    font-size:.7rem;
+    height:.7rem;
+    display:inline-block;
+  }
+  em{
+    padding:0 .5rem;
+  }
+  input {
+    width: 10rem;
+  }
+  qiezzi-drop-down-list {
+    width: 6rem;
+  }
+}
+.gps-span {
+  cursor: pointer;
+  padding-left: .5rem;
+}
+.gps-span:hover {
+  color: #7a80fa;
+}
+/*面包屑结束*/
+
+/*搜索开始*/
+.rt {
+  float: right;
+}
+.search-bar {
+  margin-top: 1.5rem;
+  display: flex;
+  padding: 0.3rem 0 1rem;
+  .search-left {
+    width: 10rem;
+    display: flex;
+    margin-right: 0.5rem;
+    input {
+      width: 10rem;
+    }
+    qiezzi-drop-down-list {
+      width: 6rem;
+    }
+  }
+  .search-right {
+    width: 16.5rem;
+    display: flex;
+
+    .search-right-button{
+      border-color: #DBDBDB;
+      color: #999;
+    }
+    .search-right-button:hover{
+      border-color: #605bf5;
+      color:#fff;
+    }
+    .begin-end-time {
+      height: 32px;
+      width: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-radius: 4px 4px;
+      border: solid 1px #e6e7f3;
+
+      margin-right: 0.5rem;
+      input {
+        width: 98px;
+        line-height: 30px;
+        margin: 0;
+        border: 0 !important;
+        text-indent: 10px;
+        background-color: transparent;
+      }
+      span {
+        display: block;
+        height: 20px;
+        width: 1px;
+        background-color: #DBDBDB;
+      }
+    }
+  }
+}
+.search-right-icon {
+  min-width: 5rem;
+  padding: 0;
+}
+.button-search-right-icon {
+  margin-right: 1.1rem;
+  margin-top: -2.6rem;
+  .search-right-icon {
+    min-width: 4rem;
+    padding: 0;
+    .iconfont{
+      font-size: 0.6rem;
+      margin-right: 0.5rem;
+    }
+  }
+  .search-right-icon:hover {
+    background-color: #fff;
+    color:#605BF5;
+  }
+}
+
+/*搜索结束*/
+
+/*列表*/
+.list-table {
+  padding:0;
+}
+.myte-content-bottom-co{
+  margin:0 !important;
+}
+.list-table-head{
+  border:1px solid #DBDBDB;
+  border-bottom:none;
+}
+.col{
+  width:100%;
+}
+.col20{
+  flex:0 0 20%;
+}
+.col30{
+  flex:0 0 30%;
+}
+/*.myte-aside-menu{
+  width:11rem;
+  height:2.4rem;
+  line-height:2.4rem;
+  border-bottom:1px solid #d3d3d4;
+  border-right:1px solid #d3d3d4;
+  font-size:0.6rem;
+  span:first-of-type{
+    padding-left:1rem;
+    color:#333;
+  }
+  span:nth-of-type(2){
+    padding-left:5rem;
+    color:#7a80fa;
+    cursor: pointer;
+  }
+}*/
+
+/*.myte-aside-list{
+  width:11rem;
+  height:2.1rem;
+  line-height:2.1rem;
+  color:#333;
+  font-size:0.6rem;
+}*/
+/*.myte-aside-list ul{
+  height:29.6rem;
+  border-right:1px solid #d3d3d4;
+  margin-top:0;
+}*/
+/*.myte-content{
+  float:right;
+  height:32rem;
+  width:37.8rem;
+  margin-left:1rem;
+}*/
+/*.myte-content-top{
+  width:37.9rem;
+  height:2.4rem;
+  line-height:2.4rem;
+  color:#333;
+  border-bottom:1px solid #d3d3d4;
+  padding-left:1rem;
+}*/
+/*.myte-content-input{
+  position: relative;
+  margin-top:0.7rem;
+  margin-left:1rem;
+  input{
+    width:11rem;
+    height:1.5rem;
+    border:1px solid #e6e7f3;
+    padding-left:0.2rem;
+  }
+  button:first-of-type{
+    margin-left:-4px;
+  }
+  button:nth-of-type(2){
+    position: absolute;
+    right:1rem;
+  }
+}*/
+.myte-content-bottom-co{
+  margin-left:1rem;
+  margin-top:0.7rem;
+}
+/*.list-table-col-1 {
+  span {
+    color: #DBDBDB;
+    span {
+      padding: 0 .5rem;
+      color: #e4e6fe;
+    }
+  }
+  i {
+    font-size: .9rem;
+    color:#dbdbdb;
+  }
+  i:hover {
+    color: #7a80fa;
+    cursor: pointer;
+  }
+}
+
+.temp-item{
+  cursor: pointer;
+}*/
+/*
+TODO 操作
+*/
+.list-table-content-col-2 {
+  span {
+    color: #DBDBDB;
+    span {
+      padding: 0 .5rem;
+      color: #e4e6fe;
+    }
+  }
+  i {
+    font-size: .9rem;
+  }
+  i:hover {
+    color: #7a80fa;
+    cursor: pointer;
+  }
+}

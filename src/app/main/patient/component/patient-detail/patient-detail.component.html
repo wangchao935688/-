@@ -1,0 +1,177 @@
+
+<div class="tab-ctrl tab-ctrl2">
+  <app-qiezzi-tab-control class="tab-ctrl-head" [tabData]="tabData.data"
+                          [defaultSelectedIndex]="tabData.defaultIndex"
+                          (onTabIndexChange)="changeTab($event)"></app-qiezzi-tab-control>
+  <div class="tab-content">
+    <!--<div id="appCenterContent" class="app-center-content" malihu-scrollbar
+           [scrollbarOptions]="scrollbarOptions">-->
+    <div class="container">
+      <i class="icon iconfont icon-huanzheguanli-youxiajiaojiahao more add"
+         *ngIf="selectIndex == 0"
+         (click)="addPatient()"></i>
+      <i class="icon iconfont icon-bianji more"
+         (click)="editPatientDetail()"></i>
+      <div class="tab-ctrl-content" *ngIf="selectIndex == 0">
+        <div class="content-list">
+          <div class="header">
+            <div class="header-name">
+              <i class="icon iconfont icon-gerenxinxi"></i>
+              <span class="title">个人信息</span>
+            </div>
+            <div class="show-detail">
+              <i class="icon iconfont icon-zhankai"></i>
+            </div>
+          </div>
+          <div class="content">
+            <div class="main-content">
+              <div class="content-name">病历号</div>
+              <div class="content-detail">{{GetPatientResponse?.PatientCode | qiezziTextNull}}</div>
+            </div>
+            <div class="main-content">
+              <div class="content-name">姓名</div>
+              <div class="content-detail">{{GetPatientResponse?.PatientName | qiezziTextNull}}</div>
+            </div>
+            <div class="main-content">
+              <div class="content-name">拼音码</div>
+              <div class="content-detail">{{GetPatientResponse?.PhoneticCode | qiezziTextNull}}</div>
+            </div>
+            <div class="main-content">
+              <div class="content-name">性别</div>
+              <div class="content-detail">{{GetPatientResponse?.Sex===0  ? '男' : GetPatientResponse?.Sex===1 ? '女' : '-&nbsp;&nbsp;-'}}</div>
+            </div>
+            <div class="main-content">
+              <div class="content-name">年龄</div>
+              <div class="content-detail">{{GetPatientResponse?.Age===0  | qiezziTextNull}}岁</div>
+            </div>
+            <div class="main-content">
+              <div class="content-name">出生日期</div>
+              <div class="content-detail">{{GetPatientResponse?.BirthDate | date : 'yyyy-MM-dd'}}</div>
+            </div>
+            <div class="main-content">
+              <div class="content-name">患者标签</div>
+              <div class="content-detail">{{GetPatientResponse?.RelationCode | qiezziTextNull}}</div>
+            </div>
+          </div>
+        </div>
+        <!--<div class="content-list">
+          <div class="header">
+            <div class="header-name">
+              <i></i>
+              <span class="title">联系方式</span>
+            </div>
+            <div class="show-detail">
+              <i class="icon iconfont icon-zhankai"></i>
+            </div>
+          </div>
+          <div class="content">
+            <div class="main-content">
+              <div class="content-name">手机号</div>
+              <div class="content-detail">{{GetPatientResponse?.Tel  | qiezziTextNull}}</div>
+            </div>
+            <div class="main-content">
+              <div class="content-name">座机号</div>
+              <div class="content-detail">{{GetPatientResponse?.Phone  | qiezziTextNull}}</div>
+            </div>
+            <div class="main-content">
+              <div class="content-name">其他联系方式</div>
+              <div class="content-detail">{{GetPatientResponse?.OtherContacts | qiezziTextNull}}</div>
+            </div>
+            <div class="main-content">
+              <div class="content-name">电子邮件</div>
+              <div class="content-detail" style="color: red;">后台未定义</div>
+            </div>
+            <div class="main-content">
+              <div class="content-name">家庭地址</div>
+              <div class="content-detail">{{GetPatientResponse?.Address | qiezziTextNull}}</div>
+            </div>
+          </div>
+        </div>
+        <div class="content-list">
+          <div class="header">
+            <div class="header-name">
+              <i class="icon iconfont icon-gengduo"></i>
+              <strong>其他信息</strong>
+            </div>
+            <div class="show-detail">
+              <i class="icon iconfont icon-zhankai"></i>
+            </div>
+          </div>
+          <div class="content-detail">
+            {{GetPatientResponse?.Note}}
+          </div>
+        </div>-->
+      </div>
+      <!-- Tab选项： 体格检查 -->
+      <div class="tab-ctrl-content" *ngIf="selectIndex == 1">
+        <div class="content-list">
+          <div class="content">
+            <span class="title">医生:</span>
+            <span class="main">张医生</span>
+            <span class="title">护士:</span>
+            <span class="main">艾美森</span>
+            <span class="title">就诊日期:</span>
+            <span class="main">2017-05-20</span>
+          </div>
+        </div>
+        <!-- 过敏史 -->
+        <!--<div class="content-list">
+          <div class="header">
+            <div class="header-name">
+              <i class="icon iconfont icon-guominshi"></i>
+              <strong>过敏史</strong>
+            </div>
+          </div>
+          <div class="content">
+            <div class="main-content">
+              <div class="content-name">{{GetPatientResponse?.  ?  GetPatientResponse. : '-&nbsp;&nbsp;-' }}</div>
+              <div class="content-detail">{{GetPatientResponse?.  ?  GetPatientResponse. : '-&nbsp;&nbsp;-' }}</div>
+            </div>
+            <div class="main-content">
+              <div class="content-name">{{GetPatientResponse?.  ?  GetPatientResponse. : '-&nbsp;&nbsp;-' }}</div>
+              <div class="content-detail">{{GetPatientResponse?.  ?  GetPatientResponse. : '-&nbsp;&nbsp;-' }}</div>
+            </div>
+            <div class="main-content">
+              <div class="content-name">{{GetPatientResponse?.  ?  GetPatientResponse. : '-&nbsp;&nbsp;-' }}</div>
+              <div class="content-detail">{{GetPatientResponse?.  ?  GetPatientResponse. : '-&nbsp;&nbsp;-' }}</div>
+            </div>
+          </div>
+        </div>-->
+        <!-- 病情信息 -->
+        <!--<div class="content-list">
+          <div class="header">
+            <div class="header-name">
+              <i class="icon iconfont icon-bingqingxinxi"></i>
+              <strong>病情信息</strong>
+            </div>
+          </div>
+          <div class="content">
+            <div class="main-content">
+              <div class="content-name">心脏病</div>
+              <div class="content-detail">{{GetPatientResponse?.  ?  GetPatientResponse. : '-&nbsp;&nbsp;-' }}</div>
+            </div>
+            <div class="main-content">
+              <div class="content-name">传染病</div>
+              <div class="content-detail">{{GetPatientResponse?.  ?  GetPatientResponse. : '-&nbsp;&nbsp;-' }}</div>
+            </div>
+            <div class="main-content">
+              <div class="content-name">口腔麻醉反应</div>
+              <div class="content-detail">{{GetPatientResponse?.  ?  GetPatientResponse. : '-&nbsp;&nbsp;-' }}</div>
+            </div>
+            <div class="main-content">
+              <div class="content-name">备注病</div>
+              <div class="content-detail">{{GetPatientResponse?.  ?  GetPatientResponse. : '-&nbsp;&nbsp;-' }}</div>
+            </div>
+            <div class="main-content">
+              <div class="content-name">其他</div>
+              <div class="content-detail">{{GetPatientResponse?.  ?  GetPatientResponse. : '-&nbsp;&nbsp;-' }}</div>
+            </div>
+          </div>
+          &lt;!&ndash; 病情信息 &ndash;&gt;
+        </div>-->
+      </div>
+    </div>
+    <!--</div>-->
+  </div>
+
+</div>

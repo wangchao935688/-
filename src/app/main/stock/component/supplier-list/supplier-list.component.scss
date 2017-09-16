@@ -1,0 +1,120 @@
+@media only screen and (min-width: 1601px) {
+  #app-center-container {
+    width: calc((100% - 960px - 481px) / 2 + 960px);
+    left: 0;
+    transition: width 0.2s;
+  }
+}
+
+#app-center-container {
+  height: 100%;
+  //width: 47rem;
+}
+
+#appCenterContent {
+  border: none;
+  height: 100%;
+}
+
+.tab-ctrl-head {
+  //margin-right: 0.5rem;
+  height: 4.1rem;
+  //padding:0 2rem;
+  //border: 1px solid #dbdbdb;
+  //border-top: 1px solid #dbdbdb;
+  //border-bottom: 1px solid #dbdbdb;
+  .search-right-icon {
+    border: none;
+    width: 2.6rem;
+    min-width: 2.6rem;
+    height: 1.6rem;
+    float: right;
+    margin-top: 1.5rem;
+    margin-right: 0.5rem;
+    padding: 0;
+    .iconfont {
+      font-size: 0.7rem;
+      margin-right: 0.5rem;
+    }
+  }
+  .search-right-icon:hover {
+    background-color: #fff;
+    color: #969AFC;
+  }
+}
+
+.tab-ctrl-content {
+  margin: 0 2rem;
+  //border: 1px solid #dbdbdb;
+}
+
+.list-table {
+  padding: 0;
+  .list-table-col0 {
+    width: 22%;
+  }
+  .list-table-col1 {
+    width: calc(100% - 22% - 20% - 20% - 10%);
+
+  }
+  .list-table-col2 {
+    width: 20%;
+  }
+  .list-table-col3 {
+    width: 20%;
+  }
+  .list-table-col4 {
+    width: 10%;
+    span {
+      display: inline-block;
+    }
+    .edit {
+
+    }
+    .delete {
+
+    }
+  }
+  .list-table-head {
+    color: #333;
+    border: 1px solid #dbdbdb;
+    border-bottom: none;
+  }
+
+  .list-table-content {
+    border: 1px solid #dbdbdb;
+    color: #666;
+    border-bottom: none;
+  }
+}
+
+//编辑和修改图标之间的短竖线
+.edit {
+  position: relative;
+  //float: left;
+  margin-right: 0.5rem;
+
+}
+
+.edit::after {
+  content: "";
+  height: 0.5rem;
+  position: absolute;
+  right: -0.3rem;
+  top: 0.3rem;
+  display: block;
+  border: 1px solid #DBDBDB;
+}
+
+.edit, .delete {
+  margin-top: 0.6rem;
+  display: inline-block;
+  //color: #7A80FA;
+  color: #ccc;
+  font-size: 0.8rem;
+}
+
+.edit:hover, .delete:hover {
+  //color: #7A80FA;
+  color: #524DDB;
+}

@@ -1,0 +1,161 @@
+<!--侧滑留坑-->
+<div [attr.status]="displayStatus" class="right-slider-container">
+  <router-outlet></router-outlet>
+</div>
+<div id="app-center-container">
+  <div class="my-center-header">
+    <!--顶部头-->
+    <app-qiezzi-center-header [moduleName]="'物品管理'" [showSearch]="false"
+                              [showFilter]="false"
+                              [showOptions]="true"
+                              [showAdd]="true"
+                              [controlList]="['添加']"
+                              (onOptions)="onOptions($event)"
+                              (onControl)="onControlClick($event)"></app-qiezzi-center-header>
+  </div>
+<!--物品管理主体-->
+  <div id="appCenterContent">
+    <qiezzi-loading [attr.status]="mainShowLoading" class="loading6 purple transparent" style="margin-top: 15rem"></qiezzi-loading>
+    <!-- 左侧 -->
+    <div class="capital-flow-content-left">
+      <div id="appCenterLeftContent"
+           [ngStyle]="{'display': centerLeftLoadReady?'block':'none','border-top':isBorderLeft?'1px solid #DBDBDB':''}"
+           class="app-center-content" malihu-scrollbar
+           [scrollbarOptions]="scrollbarOptionsLeft">
+        <div class="capital-flow-content-left-header">
+          <!--<strong class="lf">物品类别</strong>-->
+          <span class="lf">物品类别</span>
+        </div>
+        <qiezzi-loading [attr.status]="leftDataLoading" class="loading6 purple transparent"
+                        style="padding-top: 300px"></qiezzi-loading>
+        <ul class="list-table-content capital-flow-content-left-list">
+          <li>全部</li>
+          <li *ngFor="let item of dictDetailListResponse?.Items,let i = index ">{{item?.Name}}</li>
+        </ul>
+      </div>
+    </div>
+    <!--右侧-->
+    <div class="capital-flow-content-right">
+      <div id="appCenterRightContent"
+           [ngStyle]="{'display': centerRightLoadReady?'block':'none','border-top':isBorderRight?'1px solid #DBDBDB':''}"
+           class="app-center-content" malihu-scrollbar
+           [scrollbarOptions]="scrollbarOptionsRight">
+        <!--下面主体部分右侧顶端搜索条-->
+        <div class="app-center-content-top">
+          <div class="search-bar">
+            <div class="search-left">
+              <app-icon-input [placeholder]="'物品名称/拼音码'" [(ngModel)]="requestData.keyword" style="width:10rem;"></app-icon-input>
+              <!--<qiezzi-drop-down-list name="ProcessCompanyId" class="drop-down-select"
+                                     [placeholder]="'显示启用物品'"
+                                     [required]="false"
+                                     [selectIndex]="0"
+                                     [dataList]="[
+                                        {value: '0', label: '全部'},
+                                        {value: '1', label: '物品有库存'},
+                                        {value: '2', label: '物品无库存'}]"></qiezzi-drop-down-list>-->
+            </div>
+            <div class="search-right">
+              <button class="button4 search-right-button" (click)="search()">查询</button>
+            </div>
+          </div>
+          <div class="button-search-right-icon rt">
+            <button class="button4 search-right-icon"><i class="icon iconfont icon-daochu"></i>导出</button>
+          </div>
+          <div class="form-checkbox-group rt">
+            <label class="form-checkbox" (click)="showDisable()"><input type="checkbox" name="noname"/>
+              <span class="iconfont"></span><span>显示禁用物品</span>
+            </label>
+          </div>
+        </div>
+        <qiezzi-loading [attr.status]="rightDataLoading" class="loading6 purple transparent"
+                        style="padding-top: 300px"></qiezzi-loading>
+        <!-- 列表 -->
+        <div class="list-table">
+          <div class="list-table-head">
+            <div class="list-table-col4">
+              <span (click)="selecctAllCheckBox(true)" *ngIf="!IsChooseAll" class="icon iconfont icon-weixuanzhong"
+                    style="border-radius: 0px;color:#7a80fa;"></span>
+              <span (click)="selecctAllCheckBox(false)" *ngIf="IsChooseAll" class="icon iconfont icon-xuanzhong"
+                    style="background: #fff; color: #7a80fa;border-radius: 0px"></span>
+            </div>
+            <div class="list-table-col0" (click)="goodsNameSort()">物品名称
+              <span class="icon-sort">
+              <i class="icon top iconfont icon-qiehuanjiantouxiangxia"
+                 [ngClass]="{'active-color':currentClick===1&&goodsNameSortBoolean}"></i>
+              <i class="icon bottom iconfont icon-qiehuanjiantouxiangshang"
+                 [ngClass]="{'active-color':currentClick===1&&!goodsNameSortBoolean}"></i>
+            </span>
+            </div>
+            <div class="list-table-col1 " (click)="lowestStockSort()">最低库存
+              <span class="icon-sort">
+              <i class="icon top iconfont icon-qiehuanjiantouxiangxia"
+                 [ngClass]="{'active-color':currentClick===2&&lowestStockSortBoolean}"></i>
+              <i class="icon bottom iconfont icon-qiehuanjiantouxiangshang"
+                 [ngClass]="{'active-color':currentClick===2&&!lowestStockSortBoolean}"></i>
+            </span>
+            </div>
+            <div class="list-table-col2" (click)="inPriceSort()">入库价
+              <span class="icon-sort">
+              <i class="icon top iconfont icon-qiehuanjiantouxiangxia"
+                 [ngClass]="{'active-color':currentClick===3&&inPriceSortBoolean}"></i>
+              <i class="icon bottom iconfont icon-qiehuanjiantouxiangshang"
+                 [ngClass]="{'active-color':currentClick===3&&!inPriceSortBoolean}"></i>
+            </span>
+            </div>
+            <div class="list-table-col3" (click)="outPriceSort()">出库价
+              <span class="icon-sort">
+              <i class="icon top iconfont icon-qiehuanjiantouxiangxia"
+                 [ngClass]="{'active-color':currentClick===4&&outPriceSortBoolean}"></i>
+              <i class="icon bottom iconfont icon-qiehuanjiantouxiangshang"
+                 [ngClass]="{'active-color':currentClick===4&&!outPriceSortBoolean}"></i>
+            </span>
+            </div>
+            <div class="list-table-col5">状态</div>
+          </div>
+          <div class="list-table-content">
+
+            <div class="list-table-item click-no-hide-detail" *ngFor="let item of goodsListResponse.Items, let i = index"
+                 (click)="clickFeeItem($event,item.Id,i)">
+              <div class="list-table-col4">
+                <label class="form-checkbox checkBox"  name="noname" >
+                  <input class="checkBox" type="checkbox" name="noname" value="{{item.Id}}" [checked]="IsChooseAll" (click)="selectBox(item.Id)"/>
+                  <span class="iconfont checkBox"></span>
+                </label>
+              </div>
+              <div class=" list-table-col0">
+                <p>{{item?.GoodsName}}</p>
+                <div class="list-table-col0-text">
+                  <span class="list-table-col0-text-left" *ngIf="item?.Specifications">规格:{{item?.Specifications}}</span>
+                  <span class="list-table-col0-text-right" *ngIf="item?.Specifications">单位:{{item?.Unit}}</span>
+                </div>
+              </div>
+              <div class="list-table-col1" >
+                <span>{{item?.AlarmBase|qiezziTextNull}}</span>
+              </div>
+              <div class="list-table-col2">
+                <span>{{item?.InPrice| qiezziMoeny:true}}</span>
+              </div>
+              <div class="list-table-col3">
+                <span>{{item?.Price| qiezziMoeny:true}}</span>
+              </div>
+              <div class="list-table-col5">
+                <span>{{item?.MgtSwitch?'已启用':'禁用'}}</span>
+              </div>
+            </div>
+
+
+            <div class="data-empty" *ngIf="showEmptyState">
+              <app-data-empty [showEmpty]="!(goodsListResponse && goodsListResponse?.TotalItems>0)"></app-data-empty>
+            </div>
+          </div>
+          <qiezzi-paginator [ngStyle]="{display: (goodsListResponse && goodsListResponse?.TotalItems>20) ?'block' : 'none'}"
+                            [rows]="goodsListResponse?.ItemsPerPage" [totalRecords]="goodsListResponse?.TotalItems"
+                            [rowsPerPageOptions]="[10,20,30]"
+                            [style]="showOrHide" (onPageChange)="onPageChange($event)">
+          </qiezzi-paginator>
+        </div>
+        <!-- 结束列表 -->
+      </div>
+    </div>
+  </div>
+</div>

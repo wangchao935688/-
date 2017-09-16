@@ -1,0 +1,522 @@
+
+
+* {
+  box-sizing: border-box;
+}
+
+.fl {
+  float: left
+}
+
+.fr {
+  float: right
+}
+
+html {
+  height: 100%;
+  font-size: 20px;
+  background-color: #fff;
+
+}
+
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: "微软雅黑", Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  overflow: hidden;
+  min-width: 24rem;
+}
+
+body > div {
+  /*  height: 100%;
+    width: 100%;
+    display: block;
+    overflow: hidden;*/
+}
+
+div[app-root] {
+  height: 100%;
+  width: 100%;
+  display: block;
+  overflow: hidden;
+}
+
+.left-main {
+
+}
+
+#left-content {
+  left: 0;
+  top: 0;
+  bottom: 0;
+  position: absolute;
+  display: block;
+  background-color: #605bf5;
+}
+
+.left-nav-top {
+  top: 0;
+  left: 0;
+  width: 100%;
+  position: absolute;
+  height: 6.7rem;
+  padding: 1.5rem 0 0;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.hospital-logo {
+  width: 100%;
+  height: 2.5rem;
+  padding: 0 3.25rem;
+}
+
+.hospital-logo img {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50% 50%;
+}
+
+.hospital-name {
+  width: 50%;
+  margin: 0 auto;
+  overflow: hidden;
+  white-space: nowrap;
+  font-size: .7rem;
+  line-height: 1.7rem;
+  height: 2.7rem;
+  font-weight: bold;
+  color: #fff;
+  text-align: center;
+  text-overflow: ellipsis;
+  padding-bottom: 1rem;
+}
+
+.left-menu {
+  top: 6.7rem;
+  left: 0;
+  bottom: 4.2rem;
+  width: 100%;
+  position: absolute;
+  white-space: nowrap;
+}
+
+.main-menu {
+  cursor: pointer;
+}
+
+.main-menu-active {
+  background-color: #524DDB;
+}
+
+.main-menu-active > .main-menu-item {
+  border-left: solid 2px #fff;
+  padding-left: 1.9rem;
+}
+
+.main-menu-item i {
+  display: inline-block;
+  width: 1rem;
+  height: 2rem;
+  text-align: center;
+  line-height: 2rem;
+  margin-right: .5rem;
+}
+
+.main-menu-item {
+  height: 2rem;
+  line-height: 2rem;
+  font-size: .7rem;
+  color: #fff;
+  white-space: nowrap;
+  padding-left: 2rem;
+  overflow: hidden;
+  position: relative;
+}
+
+.main-menu-item .item-arrow {
+  position: absolute;
+  width: 1rem;
+  height: 2rem;
+  top: 0;
+  left: 7rem;
+  line-height: 2rem;
+  text-align: center;
+  text-indent: 0;
+}
+
+.main-menu-item .item-arrow.item-arrow-up {
+  -webkit-animation: upp 0.2s linear; /*鼠标hover时，i图标旋转,infinite表示动画无限循环*/
+  animation: upp 0.2s linear;
+}
+
+.main-menu-item .item-arrow.item-arrow-down {
+  -webkit-animation: downn 0.2s linear; /*鼠标hover时，i图标旋转,infinite表示动画无限循环*/
+  animation: downn 0.2s linear;
+}
+
+/*定义动画*/
+@-webkit-keyframes upp { /*兼容性写法。spin是关键帧的动画名称*/
+  from { /*动画起始状态*/
+    -webkit-transform: rotate(180deg);
+  }
+  to { /*动画结束状态*/
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes upp {
+  from {
+    transform: rotate(180deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/*定义动画*/
+@-webkit-keyframes downn { /*兼容性写法。spin是关键帧的动画名称*/
+  from { /*动画起始状态*/
+    -webkit-transform: rotate(180deg);
+  }
+  to { /*动画结束状态*/
+    -webkit-transform: rotate(0deg);
+  }
+}
+
+@keyframes downn {
+  from {
+    transform: rotate(180deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+.left-sub-menu {
+  overflow: hidden;
+}
+
+.left-sub-menu-full {
+  display: none;
+}
+
+.sub-menu-item {
+  font-size: .7rem;
+  line-height: 2rem;
+  cursor: pointer;
+  color: rgba(256, 256, 256, 0.6);
+  text-indent: 2.75rem;
+}
+
+.left-sub-menu-box {
+  overflow: hidden;
+  height: 0;
+}
+
+.sub-menu-item:hover {
+  color: #fff;
+}
+
+.sub-menu-item-active {
+  color: #fff;
+}
+
+.left-nav-bottom {
+  height: 4.2rem;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  padding: 1.5rem 1.5rem;
+  transition: padding .2s;
+}
+
+.left-nav-bottom .left-nav-box {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.hospital-user-logo {
+  width: 1.2rem;
+  height: 1.2rem;
+  position: absolute;
+  left: 0;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.hospital-user-logo img {
+  width: 1.2rem;
+  height: 1.2rem;
+  border-radius: 50% 50%;
+}
+
+.hospital-user-name {
+  overflow: hidden;
+  white-space: nowrap;
+  position: absolute;
+  left: 1.7rem;
+  right: 1.3rem;
+  height: 1.2rem;
+  line-height: 1.2rem;
+  color: #fff;
+  z-index: 2;
+  text-overflow: ellipsis;
+  cursor: pointer;
+}
+
+.hospital-user-exit {
+  position: absolute;
+  right: 0;
+  height: 1.2rem;
+  cursor: pointer;
+}
+
+.hospital-user-exit i {
+  width: .8rem;
+  height: 1.2rem;
+  line-height: 1.2rem;
+  color: #fff;
+  text-align: right;
+}
+
+#app-main-container {
+  height: 100%;
+  position: absolute;
+  right: 0;
+}
+
+#app-center-container {
+  left: 0;
+  top: 0;
+  bottom: 0;
+  position: absolute;
+  display: block;
+
+}
+
+#right-slider-container {
+  position: absolute;
+  height: 100%;
+  top: 0;
+  border-left: solid 1px #dbdbdb;
+}
+
+app-qiezzi-center-header {
+}
+
+app-qiezzi-center-header > div {
+  height: 100%;
+  position: relative;
+}
+
+app-qiezzi-center-header .center-title {
+  font-size: .8rem;
+  line-height: 1.6rem;
+  color: #333;
+  cursor: default;
+}
+
+.center-control {
+  min-width: 15rem;
+  height: 1.6rem;
+}
+
+.center-control .more-control {
+  position: absolute;
+  right: 0;
+  top: 1.6rem;
+  height: 0;
+  width: 7rem;
+  z-index: 11;
+  overflow: hidden;
+}
+
+.center-control .more-control .click-mask {
+  position: absolute;
+  left: -100rem;
+  top: -100rem;
+  right: -100rem;
+  bottom: -100rem;
+  z-index: 10;
+  opacity: 0.01;
+  background-color: #fff;
+}
+
+.more-control-arrow {
+  height: .4rem;
+  width: .4rem;
+  border-top: solid 1px #ccc;
+  border-left: solid 1px #ccc;
+  transform-origin: 50% 50%;
+  transform: rotateZ(45deg);
+  position: absolute;
+  top: 0;
+  right: .6rem;
+  background-color: #fff;
+  z-index: 12;
+}
+
+.more-control-list {
+  z-index: 11;
+  right: -0.6rem;
+  position: absolute;
+  top: 0.2rem;
+  width: auto;
+  background-color: #fff;
+  padding: .5rem 1.5rem;
+  border: solid 1px #ccc;
+  box-shadow: 0 0 10px rgba(170, 170, 170, 0.5);
+  border-radius: .3rem .3rem;
+}
+
+.center-control .more-control-item {
+  height: 1.6rem;
+  line-height: 1.6rem;
+  width: auto;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.center-control .more-control-item:hover {
+  color: #524ddb;
+}
+
+.center-control .more-control-item {
+  color: #666;
+}
+
+
+.filter-panel {
+  padding-left: 1rem;
+  height: 1.6rem;
+}
+
+.filter-panel i {
+  height: 1.6rem;
+  width: 1.6rem;
+  color: #7B81FA;
+  line-height: 1.6rem;
+  text-align: center;
+  cursor: pointer;
+}
+
+.more-panel {
+  height: 1.6rem;
+  padding-left: 1rem;
+}
+
+.more-panel i {
+  height: 1.6rem;
+  width: 1.6rem;
+  color: #7B81FA;
+  line-height: 1.6rem;
+  text-align: center;
+  cursor: pointer;
+}
+
+#left-roll-toggle {
+  color: #656BE8;
+  width: 1.4rem;
+  height: 1.6rem;
+  line-height: 1.6rem;
+  font-size: .9rem;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+#app-center-content {
+  height: 100%;
+}
+
+div.app-center-content {
+  width: 100%;
+  height: calc(100% - 4rem);
+  /*overflow-y: auto;*/
+}
+
+#right-slider-container {
+  background-color: #fbfbfe;
+}
+
+#app-right-detail {
+  top: 0;
+  bottom: 0;
+  position: absolute;
+  right: 0;
+  background-color: #fbfbfe;
+  animation-fill-mode: forwards;
+  border-left: solid 1px #dbdbdb;
+}
+
+#not-support {
+  display: none;
+  padding-top: 4rem;
+}
+
+#not-support p {
+  text-align: center;
+  line-height: 2rem;
+}
+
+app-front-layer {
+  width: 100%;
+  height: 100%;
+  left: 100%;
+  top: 100%;
+  display: block;
+  position: relative;
+  z-index: 10000005;
+}
+
+.popup-window {
+  position: absolute;
+}
+
+.popup-window .popup-content {
+  background-color: #ffffff;
+}
+
+.right-content {
+  padding: 0 1.5rem;
+  transition: padding .2s;
+  height: calc(100% - 81px);
+}
+
+.main-loading {
+  background-size: cover;
+  position: absolute;
+  background: url('/assets/imgs/loading-bg.png');
+  left: 50%;
+  top: 50%;
+  animation: loading-bg 1s linear infinite;
+  transform: translate(7.5rem, 7.5rem);
+}
+
+@keyframes loading-bg {
+  0% {
+    transform: rotateZ(0deg);
+    transform-origin: 50% 50%;
+  }
+  25% {
+    transform: rotateZ(91deg);
+    transform-origin: 50% 50%;
+  }
+  50% {
+    transform: rotateZ(181deg);
+    transform-origin: 50% 50%;
+  }
+  75% {
+    transform: rotateZ(271deg);
+    transform-origin: 50% 50%;
+  }
+  100% {
+    transform: rotateZ(360deg);
+    transform-origin: 50% 50%;
+  }
+}

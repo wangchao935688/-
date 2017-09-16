@@ -1,0 +1,458 @@
+*{
+  box-sizing:border-box;
+}
+.show{
+  display: block;
+}
+.hide{
+  display: none;
+}
+.icon-important{
+  content:"#xe6a2";
+}
+.drop-down-select-box{
+  width:15rem;
+  margin-left:1rem;
+  display:inline-block;
+}
+.add-from{
+  margin:0 1.5rem 0;
+}
+.validate-form{
+  padding-top:1.5rem;
+}
+.billTime{
+  float:right;
+}
+.nurse{
+  float:right;
+}
+span{
+  display: inline-block;
+  text-align:right;
+}
+.tab-content-box{
+  display:flex;
+  justify-content:space-between;
+}
+.original-price{
+  text-align:right;
+  margin-top:1rem;
+  font-size:12px;
+  color:#666666;
+  line-height: .6rem;
+  span{
+    padding-right:1rem;
+  }
+}
+.remarks{
+  margin-top:1rem;
+  text-align:center;
+  input{
+    border-radius:5px;
+    width:96%;
+    height:1.8rem;
+    display:inline-block;
+    border:1px solid #e6e7f3;
+    padding-left:5px;
+  }
+}
+.confirming-person{
+  text-align:right;
+  padding-right:1rem;
+  padding-bottom:1.5rem;
+  span{
+    line-height: 1.6rem;
+    height:1.6rem;
+    color:#999999;
+    display:inline-block;
+    &:first-child{
+      padding-right:1rem;
+    }
+  }
+}
+.checkout{
+  text-align:right;
+  margin-top:1rem;
+  margin-right:1rem;
+  .single-rate-discount{
+    margin-right:1rem;
+  }
+  .bill-amount{
+    margin-top:1rem;
+    label{
+      margin-right:1rem;
+    }
+    input{
+      font-size:16px;
+    }
+  }
+  input{
+    width:6.5rem;
+    height:1.6rem;
+    text-align:right;
+    font-size:14px;
+    color:#605BF5;
+    border:1px solid #e6e7f3;
+    padding-right: 5px;
+    border-radius:5px;
+  }
+}
+.charge{
+  border:1px solid #DBDBDB;
+  margin-top:1rem;
+  width:14.8rem;
+  height:22.3rem;
+  overflow: hidden;
+  .name-search{
+    text-align:center;
+    input{
+      width:12.7rem;
+      margin:1rem;
+      border:1px solid #e6e7f3;
+      display:block;
+      border-radius:5px;
+      padding-left:5px;
+      height:1.5rem;
+    }
+  }
+  .tab-ctrl2 {
+    padding: 0 1rem;
+  }
+}
+.form-checkbox-group{
+	position: relative;
+  height:0 !important;
+	.form-checkbox{
+		position: absolute;
+		top:1.1rem;
+    left:2rem;
+	}
+}
+.quick-charge{
+  border:1px solid #DBDBDB;
+  width:40rem;
+  margin-top:1rem;
+  .appCenterRightContent{
+    height:9.5rem;
+    border-bottom:1px solid #DBDBDB;
+  }
+  .quick-charge-cont{
+    &:last-child{
+      margin-bottom:1rem;
+    }
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    height:2rem;
+    div{
+      text-align:right;
+      margin-top:1rem;
+      margin-bottom:0;
+      width:12.6rem;
+      &:first-child{
+        padding-left:1rem;
+
+      }
+      &:last-child{
+        padding-right:1rem;
+      }
+      label{
+        padding-right:1rem;
+        display:inline-block;
+        padding-top:.3rem;
+        text-align:right;
+      }
+      input{
+        display:block;
+        padding-left:.5rem;
+        color:#999999;
+        width:6.6rem;
+        height:1.6rem;
+        float:right;
+        border:1px solid #e6e7f3;
+        border-radius:5px;
+      }
+    }
+  }
+}
+.c-bold{
+  color:#333333 !important;
+}
+i,b,em{
+  font-style: normal;
+}
+.tab-content-box{
+  display:flex;
+  justify-content:space-between;
+}
+.tab-box{
+  width:40rem;
+}
+.tab-border{
+  height:7.5rem;
+}
+.tab-scroll{
+  height: 16rem;
+}
+.tab-item{
+  width:23.8rem;
+  border:1px solid #DBDBDB;
+  height:22.3rem;
+  float:left;
+  overflow: hidden;
+  border-top:none;
+  margin-top:1rem;
+  .tab-cont{
+    border-bottom:1px solid #DBDBDB;
+    height:2.5rem;
+    line-height:2.5rem;
+    display:flex;
+    justify-content: space-between;
+    color:#666;
+    .project-name{
+      padding-left:1rem;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      width:5rem;
+      overflow:hidden;
+      display:inline-block;
+      text-align: left;
+    }
+    input{
+      margin-top:.45rem;
+      font-size:12px;
+      color:#666;
+      border:1px solid #e6e7f3;
+      padding-left: .25rem;
+      text-align:left;
+      border-radius:.25rem;
+    }
+    .tab-num{
+      width:2.5rem;
+      height:1.6rem;
+    }
+    .icon-shanchu{
+      font-style:normal;
+      padding-right:1rem;
+      font-size:1rem;
+    }
+  }
+
+}
+.list-table-head{
+  border-top:1px solid #DBDBDB;
+}
+.original-price{
+  text-align:right;
+  margin-top:1rem;
+  font-size:12px;
+  color:#666666;
+  line-height: .6rem;
+  span{
+    padding-right:1rem;
+  }
+}
+.remarks{
+  margin-top:1rem;
+  text-align:center;
+  input{
+    border-radius:5px;
+    width:96%;
+    height:1.8rem;
+    display:inline-block;
+    border:1px solid #e6e7f3;
+    padding-left:5px;
+  }
+}
+.confirming-person{
+  text-align:right;
+  padding-right:1rem;
+  padding-bottom:1.5rem;
+  span{
+    line-height: 1.6rem;
+    height:1.6rem;
+    color:#999999;
+    display:inline-block;
+    &:first-child{
+      padding-right:1rem;
+    }
+  }
+}
+.checkout{
+  text-align:right;
+  margin-top:1rem;
+  margin-right:1rem;
+  .single-rate-discount{
+    margin-right:1rem;
+  }
+  .bill-amount{
+    margin-top:1rem;
+    label{
+      margin-right:1rem;
+    }
+    input{
+      font-size:16px;
+    }
+  }
+  input{
+    width:6.5rem;
+    height:1.6rem;
+    text-align:right;
+    font-size:14px;
+    color:#605BF5;
+    border:1px solid #e6e7f3;
+    padding-right: 5px;
+    border-radius:5px;
+  }
+}
+.charge{
+  border:1px solid #DBDBDB;
+  width:14.8rem;
+  height:22.3rem;
+  overflow: hidden;
+  float:right;
+  .name-search{
+    text-align:center;
+    input{
+      width:12.7rem;
+      margin:1rem;
+      border:1px solid #e6e7f3;
+      display:block;
+      border-radius:5px;
+      padding-left:5px;
+      height:1.5rem;
+    }
+  }
+  .tab-ctrl2 {
+    padding: 0 1rem;
+  }
+
+}
+.mCustomScrollBox {
+  direction: ltr;
+}
+
+.tab-ctrl2 > .tab-ctrl-head > div.tab-ctrl-item{
+  min-width:0 !important;
+  padding:0;
+  font-size:12px;
+  color:#999999;
+}
+
+.ordinary-charges-content,.combination-charge{
+  padding-left:1rem;
+  padding-right:1rem;
+  i{
+    font-size:14px;
+    color:#999999;
+    padding-right:.2rem;
+    display:inline-block;
+  }
+}
+
+.diagnosis-treatment-category{
+  &:last-child{
+    margin-bottom:2rem;
+  }
+  border-bottom:1px dashed #DBDBDB;
+  padding-bottom:1rem;
+  .diagnosis-treatment{
+    display:flex;
+    justify-content: space-between;
+    padding-top:1rem;
+    span{
+      color:#333333;
+      height:.1rem;
+      line-height: .1rem;
+      display: inline-block;
+      font-size:14px;
+      padding-top:.3rem;
+    }
+  }
+  .charges-classification{
+    padding-top:.4rem;
+    >span{
+      padding-bottom:.4rem;
+      display :inline-block;
+    }
+    .son-classification{
+      padding-left:1rem;
+      display:flex;
+      justify-content: space-between;
+      padding-bottom:.1rem;
+      .son-text{
+        padding-left:.2rem;
+      }
+      span{
+        color:#666;
+        i{
+          width:2rem;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          font-size: 12px;
+        }
+        &:nth-child(2){
+          display:inline-block;
+          i{
+            padding-left:.2rem;
+          }
+        }
+      }
+    }
+    .son-classification:hover{
+      cursor: pointer;
+      span{
+        color:#6e69f6;
+      }
+      i{
+        color:#6e69f6;
+      }
+    }
+  }
+  .classification{
+    display:flex;
+    justify-content: space-between;
+  }
+}
+qiezzi-double-date{
+  width:15rem;
+}
+
+.list-table{
+  padding:0;
+}
+
+.list-table-content{
+  border-left:none;
+  border-right:none;
+}
+
+.list-table-col0{
+  width:100%;
+}
+
+.list-table-col1{
+  flex:0 0 15%;
+}
+
+.list-table-col2{
+  flex:0 0 19%;
+}
+
+.list-table-col3{
+  flex:0 0 25%;
+}
+
+.list-table-col4{
+  flex:0 0 12%;
+  text-align: right;
+}
+
+.list-table-item{
+  input{
+    height:1.6rem;
+    border-radius:.25rem;
+    border:1px solid #e6e7f3;
+  }
+}

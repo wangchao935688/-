@@ -1,0 +1,24 @@
+<div [attr.status]="displayStatus" class="right-slider-container large">
+  <router-outlet></router-outlet>
+</div>
+<div id="app-center-container">
+  <qiezzi-loading [attr.status]="mainShowLoading" class="loading6 purple" style="height:100%;"></qiezzi-loading>
+  <app-qiezzi-center-header [showSearch]="false"
+                            [showFilter]="false"
+                            [showAdd]="false"
+                            [moduleName]="'收费项目设置'"
+  ></app-qiezzi-center-header>
+  <div id="app-center-content single-line">
+    <div class="app-center-content" malihu-scrollbar [scrollbarOptions]="scrollbarOptions">
+      <div class="tab-ctrl tab-ctrl1">
+        <app-qiezzi-tab-control class="tab-ctrl-head" [tabData]="tabData.data"
+                                [defaultSelectedIndex]="tabData.defaultIndex"
+                                (onTabIndexChange)="changeTab($event)"></app-qiezzi-tab-control>
+        <div class="tab-ctrl-content single-line">
+          <div *ngIf="!isShow"><charge-item-list></charge-item-list></div>
+          <div *ngIf="isShow"><charge-group-list></charge-group-list></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

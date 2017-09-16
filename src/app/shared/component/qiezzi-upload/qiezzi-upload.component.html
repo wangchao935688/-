@@ -1,0 +1,6 @@
+<label><input [attr.multiple]="multiple" type="file" name="fileUpload" #fileUpload></label>
+
+<div (drop)="onImageDropIn($event)" id="drag-image" style="width:100px; height:100px; background-color: #ccc;">拖动图片到此处
+</div>
+
+<button (click)="onClickPost()"> click me！</button>

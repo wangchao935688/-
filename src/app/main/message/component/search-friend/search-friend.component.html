@@ -1,0 +1,20 @@
+<div class="input-container">
+  <div class="input-mask" (click)="onInputMaskClick()" [attr.status]="showPatientList"></div>
+  <input type="text"
+         placeholder="{{placeholder}}"
+         (focus)="onModelTouched()"
+         (click)="onInputClick()"
+         [formControl]="textInput" (keydown)="onInputKeyDown($event)"/>
+  <span *ngIf="iconList && iconList.length > 0" class="icon-list"
+        [ngStyle]="{'right':marginRight}"><i *ngFor="let item of iconList;let i = index;"
+                                             class="input-icon icon-{{item.icon}}"
+                                             [ngStyle]="{'color':item.color}"
+                                             (click)="onModelIconClick(i)" aria-hidden="true"></i></span>
+  <div class="list" [ngClass]="{mobile:isMobile}" [attr.status]="showPatientList">
+    <div class="list-box">
+      <div *ngFor="let item of patientList;let i = index;" (click)="onPatientClick(i)"
+           [ngClass]="{'selected':selected === i}">
+        <span>{{item.PatientName}}</span><span>{{item.PatientCode}}</span><span>{{item.Tel}}</span></div>
+    </div>
+  </div>
+</div>

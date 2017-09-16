@@ -1,0 +1,95 @@
+
+.popup-content-container {
+
+  .popup-content-box {
+
+    .create-process-form {
+
+      .validate-form {
+
+        .form-section {
+          display: block;
+
+          .form-title {
+            display: block;
+            width: 100%;
+            text-align: left;
+            font-size: 0.6rem;
+            line-height: 1rem;
+            color: #666;
+            .red-point{
+              display: inline-block;
+              margin-bottom: 0.1rem;
+            }
+            .no-red-point{
+              display: inline-block;
+              width: 0.5rem;
+            }
+          }
+
+          .form-element {
+            display: block;
+            width: 100%;
+
+            //地址三级联动
+            qiezzi-drop-down-list{
+              display: inline-block;
+              width: 29.4%;
+            }
+            .city{
+              margin-left: 5%;
+            }
+            .area{
+              margin-left: 5%;
+            }
+
+            input{
+              height: 1.6rem;
+              border-color: #e6e7f3;
+            }
+            span.hos-name{
+              display: block;
+              padding-left: 0.5rem;
+            }
+            .upload-pic{
+              width: 5rem;
+              height: 5rem;
+              padding: 1.75rem;
+              border:1px solid #e6e7f3;
+              border-radius: 0.2rem 0.2rem;
+              .icon-tianjiazhaopian{
+                //width: 1.5rem;
+                //height: 1.5rem;
+                font-size: 1.5rem;
+              }
+            }
+          }
+
+        }
+
+      }
+
+    }
+
+  }
+
+}
+//提示
+.hos-tips{
+  font-size: 0.6rem;
+  color: #999;
+  line-height: 1rem;
+}
+
+.button-group-right{
+  span{
+    margin-right: 8rem;
+  }
+  .icon-tishixinxi{
+    margin-right: 0.3rem;
+    color:#FA9C4C;
+  }
+
+}
+
+

@@ -1,0 +1,79 @@
+<!--新增消毒记录弹窗-->
+<div class="new-disinfection">
+  <div class="validate-form">
+  <div class="form-section">
+    <div class="form-title"><span class="red-point"><i></i></span>消毒方式</div>
+    <div class="form-element">
+      <div class="err-message"></div>
+      <div class="drop-down-select-box">
+        <qiezzi-drop-down-list name="ProcessCompanyId" class="drop-down-select"
+                               [required]="true"
+                               [selectIndex]="0"
+                               [dataList]="doctorList">
+        </qiezzi-drop-down-list>
+      </div>
+    </div>
+  </div>
+    <div class="form-section">
+      <div class="form-title"><span class="red-point"><i></i></span>消毒类型</div>
+      <div class="form-element">
+        <div class="err-message"></div>
+        <div class="drop-down-select-box">
+          <qiezzi-drop-down-list name="ProcessCompanyId" class="drop-down-select"
+                                 [required]="true"
+                                 [selectIndex]="0"
+                                 [dataList]="doctorList">
+          </qiezzi-drop-down-list>
+        </div>
+      </div>
+    </div>
+    <div class="form-section">
+      <div class="form-title"><span class="red-point"><i></i></span>消毒日期</div>
+      <div class="form-element">
+        <div class="err-message"></div>
+        <div class="drop-down-select-box">
+          <input qiezzi-air-datepicker [index]="0" [defaultDate]="defaultDate.leftDate" (click)="onSelectDate(0)"
+                 (onDate)="onDate($event)"
+                 [options]="options.leftOptions"
+                 (focus)="$event.target.parentNode.style.border = 'none'"
+                 (blur)="$event.target.parentNode.style.border = ''"/>
+        </div>
+      </div>
+    </div>
+    <div class="form-section">
+      <div class="form-title"><span class="red-point"><i></i></span>消毒人员</div>
+      <div class="form-element">
+        <div class="err-message"></div>
+        <div class="drop-down-select-box">
+          <qiezzi-drop-down-list name="ProcessCompanyId" class="drop-down-select"
+                                 [required]="true"
+                                 [selectIndex]="0"
+                                 [dataList]="doctorList">
+          </qiezzi-drop-down-list>
+        </div>
+      </div>
+    </div>
+    <div class="form-section">
+      <div class="form-title">消毒主题</div>
+      <div class="form-element">
+        <div class="err-message"></div>
+        <textarea rows="4" placeholder="主题" class="theme"></textarea>
+      </div>
+    </div>
+  </div>
+  <div class="common-theme">常用主题模板</div>
+  <div class="validate-form">
+    <div class="form-section">
+      <div class="form-title">备注</div>
+      <div class="form-element">
+        <div class="err-message"></div>
+        <textarea rows="4" placeholder="请输入备注" class="theme"></textarea>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div  class="button-group button-group-right" style="width:100%;">
+  <button  class="button4" (click)="accountTransfer()">保存</button>
+  <button  class="button4" (click)="cancel()">取消</button>
+</div>

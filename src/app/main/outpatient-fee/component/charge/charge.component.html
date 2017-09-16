@@ -1,0 +1,49 @@
+<div>
+  <div class="charge-page">
+    <div class="receivable">
+      <span>本次应收</span><i>￥{{chargeForm.shouldPay}}</i>
+    </div>
+    <div class="receivable patient">
+      <span>张大鹏 | 123454565 | No.154545</span><i>代收费</i>
+    </div>
+    <div class="payment-method">
+      <div class='checkout'>
+        <div class="form-checkbox-group">
+          <label class="form-checkbox"><input name="noname" type="checkbox">
+            <span class="iconfont"></span><span >使用预存款付款（￥0.00）</span>
+          </label>
+        </div>
+        <label></label><input (focus)="focusInput($event)" (click)="cancelSelect($event)"type="text" >
+        <div class="bill-amount">
+            <qiezzi-drop-down-list name="ProcessCompanyId" class="drop-down-select"
+                                        [required]="true"
+                                        [selectIndex]="0"
+                                        [dataList]="cashPayment">
+          </qiezzi-drop-down-list>
+          <input (focus)="focusInput($event)" (click)="cancelSelect($event)" type="text" >
+        </div>
+      </div>
+      <div class='original-price'>
+        <span><i class="icon-xinzeng"></i>添加支付方式</span>
+      </div>
+    </div>
+    <div class='original-price money'>
+      <span>本次收费：<i>￥13,545,132</i></span>
+      <span>欠费：<i>￥13,435,1</i></span>
+    </div>
+      <div>
+        <div class="remarks"><input type="text" placeholder="请输入备注~"></div>
+        <div class="confirming-person"><span>确认人：张丽丽</span><span>2017-07-12</span></div>
+      </div>
+
+  </div>
+  <div class="form-checkbox-group form-group">
+    <label class="form-checkbox"><input name="noname" type="checkbox">
+      <span class="iconfont"></span><span >打印</span>
+    </label>
+  </div>
+  <div class="button-group button-group-right" style="margin-top:.5rem;width:100%;">
+    <button class="button5">保存并收费</button>
+  </div>
+
+</div>

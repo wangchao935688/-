@@ -1,0 +1,33 @@
+<div class="process-tooth-edit"
+     [ngStyle]="{'border': isEdit?'1px solid #7a80fa':'1px solid #e7e6f3'}">
+  <div class="delete-icon" (click)="deleteProcessToothModel()" *ngIf="isEdit">
+    <i class="iconfont icon-jiaonangchahao"></i>
+  </div>
+  <div class="process-tooth-edit-left" (click)="openToothPic(teeth)" [ngStyle]="{'cursor': isEdit?'pointer':''}">
+    <qiezzi-tooth [teeth]="teeth"></qiezzi-tooth>
+  </div>
+  <div class="process-tooth-edit-center"></div>
+  <div class="process-tooth-edit-right">
+
+    <div class="div-top">
+      <span *ngIf="!isEdit">{{processToothFullModel.ProcessContentName}}</span>
+      <qiezzi-drop-down-list *ngIf="isEdit" name="ProcessCompanyId" class="drop-down-select"
+                             [(ngModel)]="processToothAddModel.ProcessContent"
+                             [placeholder]="'全部'"
+                             [required]="false"
+                             [selectIndex]="0"
+                             [dataList]="processContentList"></qiezzi-drop-down-list>
+    </div>
+    <div class="div-down" [ngStyle]="{'border-top': !isEdit?'1px solid #cccccc':''}">
+      <span *ngIf="!isEdit">{{processToothFullModel.ProcessTypeName}}</span>
+      <qiezzi-drop-down-list *ngIf="isEdit" name="ProcessCompanyId" class="drop-down-select"
+                             [(ngModel)]="processToothAddModel.ProcessType"
+                             [placeholder]="'全部'"
+                             [required]="false"
+                             [selectIndex]="0"
+                             [dataList]="colorNumberList"></qiezzi-drop-down-list>
+    </div>
+  </div>
+
+</div>
+

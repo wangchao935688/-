@@ -1,0 +1,80 @@
+<!--侧滑出口-->
+<div [attr.status]="displayStatus" class="right-slider-container"  style="height:100%;">
+  <router-outlet></router-outlet>
+</div>
+<div id="app-center-container"  style="height:100%;">
+  <!--顶级头部-->
+    <app-qiezzi-center-header [showSearch]="true"
+                              [showFilter]="true"
+                              [showAdd]="true"
+                              [showOptions]="true"
+                              [moduleName]="moduleName"
+                              [searchPlaceholder]="'患者/单号/手机号'"
+                              [controlList]="['新增']"
+                              (onControl)="onControlClick($event)"
+                              (onSearch)="onSearch($event)"
+                              (onOptions)="onOptions()"
+                              (onShowFilter)="onShowFilter($event)"
+    ></app-qiezzi-center-header>
+
+      <qiezzi-loading [attr.status]="mainShowLoading" class="loading6 purple transparent" style="margin-top: 15rem;"></qiezzi-loading>
+      <app-qiezzi-data-filter [filterConfig]="filterConfig"
+                              (onConditionChanged)="onConditionChanged($event)">
+      </app-qiezzi-data-filter>
+      <div class="tab-ctrl tab-ctrl1" style="height:100%;">
+      <app-qiezzi-tab-control class="tab-ctrl-head"
+                              [tabData]="tabData.data"
+                              [defaultSelectedIndex]="tabData.defaultIndex"
+                              (onTabIndexChange)="changeTab($event)"></app-qiezzi-tab-control>
+        <qiezzi-loading [attr.status]="dataLoading" class="loading6 purple transparent" style="margin-top: 15rem;"></qiezzi-loading>
+        <div id="appCenterContent" style="height:100%;" class="app-center-content" malihu-scrollbar [scrollbarOptions]="scrollbarOptions">
+        <div class="tab-ctrl-content">
+            <div class="list-table">
+              <div class="list-table-head">
+                <div class="list-table-col0">患者/病历号</div>
+                <div class="mobile-hidden list-table-col1 col14">手机号</div>
+                <div class="mobile-hidden list-table-col2 col14">回访日期</div>
+                <div class="list-table-col3 col14">医生</div>
+                <div class="list-table-col4 col14">回访人</div>
+                <div class="list-table-col5 col14">回访类型</div>
+                <div class="list-table-col6 col10" *ngIf="currentIdx == 0">操作</div>
+
+              </div>
+              <div class="list-table-content single-line">
+                  <div  class="list-table-item click-no-hide-detail"
+                        [ngClass]="{'selected': selectIndex === i}" (click)="clickFeeItem($event, item.Id, i )" *ngFor="let item of responseData?.Items;let i=index ">
+                    <div class="list-table-col0">
+                      <span class="span-ellipsis" style="font-weight: bold;color:#333">{{item.PatientModel?.PatientName}}</span><span>NO.{{item.PatientCode}}</span>
+                    </div>
+                    <div
+                      class="mobile-hidden list-table-col1 col14"><span>{{item.DoctorModel?.Tel | qiezziTextNull }}</span>
+                    </div>
+                    <div
+                      class="mobile-hidden list-table-col2 col14"><span>{{item.InterviewDate  | qiezziDateAuto: 1}}</span>
+                    </div>
+                    <div
+                      class="list-table-col3 col14"><span>{{item.DoctorModel?.WorkerName}}</span>
+                    </div>
+                    <div class="list-table-col4 col14">
+                      <span>{{item?.WorkerNames}}</span>
+                    </div>
+                    <div
+                      class="list-table-col5 col14"><span>{{item.InterviewTypeName}}</span>
+                    </div>
+                    <div class="list-table-col6 col10 stop-propagation" *ngIf="currentIdx == 0" (click)="onInteriver($event, item)">
+                      <span><i class="icon-huifang"></i></span>
+                    </div>
+                  </div>
+              </div>
+              <div *ngIf="!responseData || responseData?.Items.length == 0" class="data-empty">
+                <app-data-empty [showEmpty]="showEmptyState"></app-data-empty>
+              </div>
+              <qiezzi-paginator [ngStyle]="{display: (responseData && responseData?.TotalItems>10) ?'block' : 'none'}"
+                                [rows]="responseData?.ItemsPerPage" [totalRecords]="responseData?.TotalItems"
+                                [rowsPerPageOptions]="[10,20,30]"
+                                [style]="showOrHide" (onPageChange)="onPageChange($event)"></qiezzi-paginator>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>

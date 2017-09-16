@@ -1,0 +1,152 @@
+:host{
+  display: block;
+  width:100%;
+  height:100%;
+}
+/*
+p初始化
+*/
+p{
+  margin: 0;
+  padding: 0;
+}
+/*****变量定义*******************/
+$margin-left: 8rem;
+$time-line-height: 5rem;
+.container{
+  position: relative;
+  display: flex;
+  height: 100%;
+
+  .container-left{
+    width:$margin-left;
+    div .container-left-item{
+      position: relative;
+      height: $time-line-height;
+      padding-left: 1rem;
+      margin-left: 1rem;
+      cursor: pointer;
+      .item-date{
+        font-size: 1rem;
+      }
+      .time-line{
+        position: absolute;
+        top:0;
+        left: -1rem;
+        text-align: center;
+        background: #ffffff;
+        .year{
+          margin-bottom: .25rem;
+          position: absolute;
+          top:-0.9rem;
+          left:0;
+          //background: #FFFFFF;
+        }
+        .point{
+          display: block;
+          width: .25rem;
+          height: .25rem;
+          border-radius: 50%;
+          background: #dbdbdb;
+          margin: auto;
+         /* margin-top: .7rem;*/
+          margin-left: .5rem;
+        }
+      }
+    }
+    div .container-left-item:first-child{
+      margin-top: 1rem;
+    }
+    div :not(:last-child) .time-line:after{
+      content: '';
+      position: absolute;
+      bottom:-$time-line-height;
+      left: .6rem;
+      border-right:1px dashed #dddddd;
+      display: block;
+      height:6rem;
+      z-index:-1;
+    }
+    div .active{
+      color: #524DDB !important;
+    }
+    div .active .point{
+      background: #524DDB !important;
+    }
+  }
+  .container-right{
+    width:100%;
+    border: 1px solid #dddddd;
+    position: relative;
+    .more{ // 图标
+      position: fixed;
+      right: 0.7rem;
+      bottom: 3rem;
+      width: 1.5rem;
+      height: 1.5rem;
+      line-height: 1.5rem;
+      background: #7A80FA;
+      color: #ffffff;
+      font-size: .7rem;
+      border-radius: 50%;
+      text-align: center;
+      cursor: pointer;
+    }
+    .add{// 图标
+      bottom: 7.5rem;
+    }
+    .more-ctrl{
+      position: fixed;
+      right: 1rem;
+      bottom: 3rem;
+      i{
+        width: 1.5rem;
+        height: 1.5rem;
+        line-height: 1.5rem;
+        background: #7A80FA;
+        color: #ffffff;
+        font-size: .7rem;
+        border-radius: 50%;
+        text-align: center;
+        cursor: pointer;
+        padding: .4rem;
+      }
+      i:hover{
+        background: #605bf5;
+      }
+    }
+    .more:hover, .add:hover{// 图标
+      background: #605bf5;
+    }
+    .container-right-content{
+      height:100%;
+      padding: .5rem 1.5rem;
+      .container-right-list{
+        display: flex;
+        width:100%;
+        padding:1rem 0;
+        border-bottom: 1px dashed #dddddd;
+        .right-content-title{
+          height:100%;
+          width: 4.5rem;
+          line-height: 1rem;
+          text-align: left;
+          margin-right: 1rem;
+          font-weight: bold;
+        }
+        .right-content-item{
+          display: flex;
+          .tag-box{
+            border: none;
+          }
+          .item-pic{
+            width:50%;
+          }
+          .item-txt{
+            width:45%;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,44 @@
+.list-table-content-col-2 {
+  width: 10rem;
+  span {
+    color: #DBDBDB;
+    span {
+      padding: 0 .5rem;
+      color: #e4e6fe;
+    }
+  }
+  i {
+    font-size: .9rem;
+  }
+  i:hover {
+    color: #7a80fa;
+    cursor: pointer;
+  }
+}
+.list-table-item{
+  color:#666;
+}
+.list-table{
+  padding:0;
+}
+.list-table-col0{
+  width:100%;
+}
+.list-table-col1{
+  flex: 0 0 20%;
+}
+.list-table-col2{
+  flex: 0 0 20%;
+}
+.list-table-col6{
+  flex: 0 0 25%;
+}
+.operation{
+  text-align:right;
+}
+.color{
+  width:.9rem !important;
+  height: .9rem;
+  background:#aca6ff;
+  border-radius:50%;
+}

@@ -1,0 +1,32 @@
+<app-qiezzi-right-header
+  [rightComponentName]="rightComponentName"
+  [controlList]="controlList"
+  (onControl)="onControl($event)" ></app-qiezzi-right-header>
+<qiezzi-loading [attr.status]="dataLoading" class="loading6 purple" style="margin-bottom: 15rem;"></qiezzi-loading>
+<div class="sms-talk1">
+  <div class="sms-talk1-name">
+    <span>收件人</span>
+    <span>{{names}}</span>
+  </div>
+
+  <div class="sms-talk1-info">
+    <span>短信内容</span>
+    <span>{{sendDetailsResponse?.Content}}</span>
+  </div>
+
+  <div class="sms-talk1-list">
+    <span>短信字数 </span>
+    <span>&nbsp;{{wordCount}}&nbsp; </span>
+    <span> 字</span>
+    <span> &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; </span>
+    <span>计费条数</span>
+    <span>{{messCount}}</span>
+    <span>条</span>
+  </div>
+</div>
+
+<div class="sms-talk2">
+  <span>发信人</span>
+  <span>{{sendDetailsResponse?.Sender}}</span>
+  <span class="sms-nowtime">{{sendDetailsResponse?.SendTime | date : 'yyyy-MM-dd hh:mm'}}</span>
+</div>

@@ -1,0 +1,46 @@
+
+
+
+<div class="tab-ctrl">
+  <div id="fee-tab-item0" class="tab-ctrl-item" [ngClass]="{'tab-ctrl-item-hover': returnVisitState ==0}"
+       (click)="selectTabIndex(0)">进行中
+  </div>
+  <div id="fee-tab-item1" class="tab-ctrl-item" [ngClass]="{'tab-ctrl-item-hover': returnVisitState ==2}"
+       (click)="selectTabIndex(2)">已完成
+  </div>
+</div>
+<div class="list-table">
+  <div class="list-table-head">
+    <span class="">患者|病历号</span>
+    <span class="mobile-hidden">手机号</span>
+    <span class="">回访日期</span>
+    <span class="mobile-hidden">医生</span>
+    <span class="mobile-hidden">回访人员</span>
+    <span class="mobile-hidden">回访类型</span>
+    <span class="" *ngIf="returnVisitState == 0">操作</span>
+  </div>
+  <div class="list-table-content">
+    <div class="list-table-item" *ngFor="let item of returnVisitList.Items" (click)="openDetail(item.Id)">
+      <div class=""><span>{{item.PatientModel.PatientName}}</span></div>
+      <div class=""><span></span></div>
+      <div class=""><span></span></div>
+      <div class=""><span>{{item.InterviewDate}}</span></div>
+      <div class=""><span>{{item.DoctorName}}</span></div>
+      <div class=""><span>{{item.InterviewWorkerList}}</span></div>
+      <div class=""><span>{{item.InterviewTypeName}}</span></div>
+      <div class=""><span>回访</span></div>
+      <br clear="left">
+    </div>
+  </div>
+
+
+  <div *ngIf="!returnVisitList || !returnVisitList.TotalItems|| (returnVisitList && returnVisitList.TotalItems == 0)"
+       class="data-empty">
+    <app-data-empty [showEmpty]="showEmptyState"></app-data-empty>
+  </div>
+
+
+  <qiezzi-paginator rows="10" [totalRecords]="1000" [rowsPerPageOptions]="[10,20,30]"
+                    (onPageChange)="returnVisitPageChange($event)"></qiezzi-paginator>
+</div>
+

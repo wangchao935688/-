@@ -1,0 +1,14 @@
+label {
+  height: 100px;
+  width: 100px;
+  background-color: #2b669a;
+  display: block;
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: underline;
+  }
+  input {
+    display: none
+  }
+}

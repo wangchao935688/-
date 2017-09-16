@@ -1,0 +1,82 @@
+<div [attr.status]="displayStatus" class="right-slider-container">
+  <router-outlet></router-outlet>
+</div>
+<div id="app-center-container">
+  <div id="app-center-content">
+    <app-qiezzi-center-header [showSearch]="false"
+                              [showFilter]="false"
+                              [showOptions]="true"
+                              [showAdd]="true"
+                              [moduleName]="moduleName"
+                              [controlList]="['添加']"
+                              (onControl)="onControlClick($event)"
+                              (onOptions)="typelist()"
+    ></app-qiezzi-center-header>
+    <qiezzi-loading [attr.status]="mainDataLoading" class="loading6 purple transparent" style="margin-top: 15rem"></qiezzi-loading>
+    <!--<div id="appCenterContent" [style.border-top]="isBorder? '1px solid #DBDBDB': ''"
+         class="app-center-content" malihu-scrollbar
+         [scrollbarOptions]="scrollbarOptions">-->
+      <div class="tab-ctrl">
+        <app-qiezzi-tab-control class="tab-ctrl-head" [tabData]="tabData.data"
+                                [defaultSelectedIndex]="tabData.defaultIndex"
+                                (onTabIndexChange)="changeTab($event)"></app-qiezzi-tab-control>
+        <div class="tab-ctrl-content">
+          <div class="search-bar">
+            <div class="search-left">
+              <qiezzi-drop-down-list name="type" class="drop-down-select"
+                                     [(ngModel)]="expenseType"
+                                     [placeholder]=" '选择类别' "
+                                     [required]="false"
+                                     [selectIndex]="0"
+                                     (onChange)="onChange($event)"
+                                     [dataList]="getExpenseTypeListRes"></qiezzi-drop-down-list>
+            </div>
+            <div class="search-right">
+              <qiezzi-double-date (onSelectLeft)="selectLeft($event)"
+                                  (onSelectRight)="selectRight($event)"></qiezzi-double-date>
+              <button class="button4" (click)="searchProcessList()">查询</button>
+            </div>
+          </div>
+          <div class="title" >
+            <span>当前收入总额:</span>
+            <span class="money">{{(expenseList.TotalAmount == 0 ? '0' : expenseList.TotalAmount | qiezziMoeny : true) }}</span>
+          </div>
+          <div class="list-table" style="text-align: center;">
+            <div class="list-table-head table-head">
+              <span class="mobile-hidden list-table-col-1">单号</span>
+              <span class=" list-table-col-16">时间</span>
+              <span class="list-table-col-12">类别</span>
+              <span class=" list-table-col-16">金额</span>
+              <span class="mobile-hidden list-table-col-12">账户</span>
+              <span class="mobile-hidden list-table-col-12">经手人</span>
+              <span class="mobile-hidden list-table-col-12">状态</span>
+            </div>
+            <div class="list-table-content">
+            <!-- 加载框 -->
+            <qiezzi-loading [attr.status]="dataLoading" class="loading6 purple transparent" style="margin-top: 15rem"></qiezzi-loading>
+            <div class="list-table-item" *ngFor="let item of expenseList?.Items;let i = index"
+                 (click)="clickFeeItem($event,item.ID,i)">
+              <div class="mobile-hidden list-table-col-1"><span>{{item.Code}}</span></div>
+              <div class="list-table-col-16"><span>{{item.CreateTime | qiezziDateAuto:0}}</span></div>
+              <div class="list-table-col-12"><span>{{item.TypeName}}</span></div>
+              <div class="list-table-col-16" style=""><span style="text-decoration:line-through;">{{item.Amount}}</span></div>
+              <div class="mobile-hidden list-table-col-12"><span>{{item.AccountName}}</span></div>
+              <div class="mobile-hidden list-table-col-12"><span class="span-ellipsis ">{{item.HandlerModel.WorkerName}}</span></div>
+              <div class="mobile-hidden list-table-col-12"><span>{{item.Disabled}}</span></div>
+
+            </div>
+          </div>
+            <qiezzi-paginator rows="2" [totalRecords]="6" [rowsPerPageOptions]="[10,20,30]"
+                              (onPageChange)="DailyExpensePageChange($event)"></qiezzi-paginator>
+          </div>
+        </div>
+        <div *ngIf="!expenseList || !expenseList.TotalItems|| (expenseList && expenseList.TotalItems == 0)"
+             class="data-empty">
+          <app-data-empty [showEmpty]="showEmptyState"></app-data-empty>
+        </div>
+      </div>
+    <!--</div>-->
+  </div>
+</div>
+
+

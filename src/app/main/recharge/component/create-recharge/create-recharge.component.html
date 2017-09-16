@@ -1,0 +1,84 @@
+<div class="popup-content-container" malihu-scrollbar [scrollbarOptions]="scrollbarOptions">
+  <div class="popup-content-box">
+    <form class="validate-form">
+
+      <div class="form-section">
+        <div class="form-title"><span class="red-point"><i></i></span>姓名</div>
+        <div class="form-element">
+          <div class="err-message" [attr.error]="''">
+          </div>
+          <input class="input-text" placeholder="" >
+        </div>
+      </div>
+
+      <div class="form-section">
+        <div class="form-title">充值时间</div>
+        <div class="form-element">
+          <div class="err-message" [attr.error]="''">
+          </div>
+          <span style="height: 32px;line-height: 32px;">{{today}}</span>
+        </div>
+      </div>
+
+      <div class="form-section">
+        <div class="form-title"><span class="red-point"><i></i></span>充值账户</div>
+        <div class="form-element">
+          <div class="err-message" [attr.error]="''">
+          </div>
+          <!--<input class="input-text" placeholder=""  >-->
+          <qiezzi-drop-down-list class="drop-down-select"
+                                 [placeholder]=""
+                                 [required]="true"
+                                 [selectIndex]="0"
+                                 [dataList]="accountList"></qiezzi-drop-down-list>
+        </div>
+      </div>
+
+      <div class="form-section">
+        <div class="form-title"><span class="red-point"><i></i></span>充值金额</div>
+        <div class="form-element">
+          <div class="err-message" [attr.error]="''">
+          </div>
+          <input class="input-text" placeholder="">
+        </div>
+      </div>
+
+      <div class="form-section">
+        <div class="form-title">当前余额</div>
+        <div class="form-element">
+          <div class="err-message" [attr.error]="''">
+          </div>
+          <span style="height: 32px;line-height: 32px;">{{currMoney | qiezziMoeny : true}}</span>
+        </div>
+      </div>
+
+      <div class="form-section">
+        <div class="form-title">推荐人</div>
+        <div class="form-element">
+          <div class="err-message" [attr.error]="''">
+          </div>
+          <qiezzi-drop-down-list class="drop-down-select"
+                                 [placeholder]=""
+                                 [required]="true"
+                                 [selectIndex]="0"
+                                 (onChange)="onChange($event)"
+                                 [dataList]="accountList">
+          </qiezzi-drop-down-list>
+        </div>
+      </div>
+
+      <div class="form-section">
+        <div class="form-title">备注</div>
+        <div class="form-element">
+          <div class="err-message" [attr.error]="''">
+          </div>
+          <input class="input-text" placeholder="请输入备注"  >
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<div class="button-group button-group-right">
+  <button (click)="ok()" class="button5">保存</button>
+  <button (click)="cancel()" class="button4">取消</button>
+</div>

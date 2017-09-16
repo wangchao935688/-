@@ -1,0 +1,92 @@
+<app-qiezzi-right-header
+  [rightComponentName]="'病例详情'"
+  [controlList]="ctrlList"
+  (onControl)="onControlListClick($event)"></app-qiezzi-right-header>
+<qiezzi-loading [attr.status]="dataLoading" class="loading6 purple transparent" style="margin-top: 15rem;"></qiezzi-loading>
+<div id="appCenterContentRight" class="app-center-content" malihu-scrollbar
+     [scrollbarOptions]="scrollbarOptionsRight">
+  <div class="right-content" style="padding: 0 1.5rem">
+    <div class="info-head">
+      <span>患者：</span><span class="user-data">{{caseDetailsResponse?.PatientName | qiezziTextNull}}</span>
+      <span>医生：</span><span class="user-data">{{caseDetailsResponse?.DoctorName | qiezziTextNull}}</span>
+      <span>护士：</span><span class="user-data">{{caseDetailsResponse?.NurseName | qiezziTextNull}}</span>
+      <span>病例标签：</span><span class="user-data">{{caseDetailsResponse?.AimString | qiezziTextNull}}</span>
+      <span>就诊日期：</span><span class="user-data">{{caseDetailsResponse?.VisitingTime | qiezziDateAuto: 1}}</span>
+    </div>
+    <div class="case-right-content"  *ngIf="!caseDetailsResponse?.IsImageCase">
+      <div class="case-right-list" style="margin-bottom: 1rem;">
+        <div class="right-content-title">
+          <span >标签</span>
+        </div>
+        <div class="right-content-item">
+          <app-tag-box-group class="tag-box" #tagBox [(ngModel)]="tagList"></app-tag-box-group>
+        </div>
+      </div>
+
+      <div class="case-right-list" style="margin-bottom: 1rem;">
+        <div class="right-content-title">
+          <span>主诉</span>
+        </div>
+        <div class="right-content-item">
+          <span>{{caseDetailsResponse?.MainSuit |  qiezziTextNull}}</span>
+        </div>
+      </div>
+
+      <div class="case-right-list" style="margin-bottom: 1rem;">
+        <div class="right-content-title">
+          <span >现病史</span>
+        </div>
+        <div class="right-content-item">
+          <span>{{caseDetailsResponse?.MedicalHistory |  qiezziTextNull}}</span>
+        </div>
+      </div>
+      <div class="case-right-list" style="margin-bottom: 1rem;">
+        <div class="right-content-title">
+          <span >既往史</span>
+        </div>
+        <div class="right-content-item">
+          <span>{{caseDetailsResponse?.PastHistory | qiezziTextNull}}</span>
+        </div>
+      </div>
+      <div class="case-right-list" *ngFor=" let item of caseDetailsResponse?.CaseItemList">
+        <div class="right-content-title">
+          <span *ngIf="item.Type == 0">检查</span>
+          <span *ngIf="item.Type == 1">x光检查</span>
+          <span *ngIf="item.Type == 2">诊断</span>
+          <span *ngIf="item.Type == 3">治疗计划</span>
+          <span *ngIf="item.Type == 4">治疗</span>
+        </div>
+        <div class="right-content-item">
+          <div class="item-tooth">
+            <div class="item-pic">
+              <qiezzi-tooth [teeth]="item.ToothPlace"></qiezzi-tooth>
+              <span *ngIf="!item">-&nbsp;&nbsp;-</span>
+            </div>
+            <div class="item-txt">
+              <span>{{item.Content | qiezziTextNull}}</span>
+            </div>
+          </div>
+          <div class="item-img" *ngIf="item.Images">
+            <div class="img-list"
+                 *ngFor="let img of item['imgList']; let i = index;"
+                 style="width: 5rem;height: 5rem;"
+                 [ngStyle]="{backgroundImage:'url('+ img +')'}">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 图片列表 -->
+    <div class="img-right-content" *ngIf="caseDetailsResponse?.IsImageCase && !showEmpty">
+      <div class="img-style" *ngFor="let item of caseImageList; let i = index;">
+        <div style="width: 100%;height: 100%;margin: auto;overflow: hidden;" [ngStyle]="{backgroundImage:'url('+ item +')'}"></div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="data-empty">
+    <app-data-empty [showEmpty]="showEmpty" style="border: none"></app-data-empty>
+  </div>
+</div>
+

@@ -1,0 +1,148 @@
+<app-qiezzi-right-header
+  [rightComponentName]="patientName"
+  [controlList]="ctrlList"
+  (onControl)="onControlListClick($event)"></app-qiezzi-right-header>
+<qiezzi-loading [attr.status]="mainShowLoading" class="loading6 purple transparent"
+                style="height:100%;margin-top: 10rem;"></qiezzi-loading>
+
+
+<div class="right-content" *ngIf="true"
+     [ngStyle]="{'height': processState == 0 && responseData.Status != 5?'calc(100% - 162px)': ''}"
+     id="rightContentScroll"
+     malihu-scrollbar [scrollbarOptions]="scrollbarOptions">
+  <div class="content-header-text">
+    <div class="money">
+      <span class="money-text">总金额</span><span class="money-count">{{124 | qiezziMoeny:true}}
+</span>
+    </div>
+    <div class="top">
+      <span class="countId">单号:232854905</span><span>供应商:供应商名称</span>
+    </div>
+    <div class="bottom">
+      <span class="input-stock-date">入库日期:2016-01-23</span><span>库管员:马乐乐</span>
+    </div>
+  </div>
+
+
+
+  <!-- 列表 -->
+  <div class="list-table">
+    <div class="list-table-head">
+      <div class="list-table-col0">物品名称</div>
+      <div class="list-table-col1 ">批次号</div>
+      <div class="list-table-col1">退货数量</div>
+      <div class="list-table-col1">退货价</div>
+      <div class="list-table-col1">小计</div>
+      <div class="list-table-col1">备注</div>
+    </div>
+    <div class="list-table-content">
+      <div class="list-table-item click-no-hide-detail">
+        <div class="list-table-col0">
+          <p>测试物品</p>
+          <div class="list-table-col0-text">
+            <span class="list-table-col0-text-left">规格：0.1ml</span>&nbsp;<span class="list-table-col0-text-right">单位：个</span>
+          </div>
+        </div>
+        <div class="list-table-col1">
+          <span>16101003</span>
+        </div>
+        <div class="list-table-col1">
+          <span>2</span>
+        </div>
+        <div class="list-table-col1">
+          <span>35.00</span>
+        </div>
+        <div class="list-table-col1">
+          <span>21,235.300</span>
+        </div>
+        <div class="list-table-col1">
+          <span>这是备注</span>
+        </div>
+      </div>
+      <div class="list-table-item click-no-hide-detail">
+        <div class="list-table-col0">
+          <p>测试物品</p>
+          <div class="list-table-col0-text">
+            <span class="list-table-col0-text-left">规格：0.1ml</span>&nbsp;<span class="list-table-col0-text-right">单位：个</span>
+          </div>
+        </div>
+        <div class="list-table-col1">
+          <span>16101003</span>
+        </div>
+        <div class="list-table-col1">
+          <span>2</span>
+        </div>
+        <div class="list-table-col1">
+          <span>35.00</span>
+        </div>
+        <div class="list-table-col1">
+          <span>21,235.300</span>
+        </div>
+        <div class="list-table-col1">
+          <span>这是备注</span>
+        </div>
+      </div>
+      <div class="list-table-item click-no-hide-detail">
+        <div class="list-table-col0">
+          <p>测试物品</p>
+          <div class="list-table-col0-text">
+            <span class="list-table-col0-text-left">规格：0.1ml</span>&nbsp;<span class="list-table-col0-text-right">单位：个</span>
+          </div>
+        </div>
+        <div class="list-table-col1">
+          <span>16101003</span>
+        </div>
+        <div class="list-table-col1">
+          <span>2</span>
+        </div>
+        <div class="list-table-col1">
+          <span>35.00</span>
+        </div>
+        <div class="list-table-col1">
+          <span>21,235.300</span>
+        </div>
+        <div class="list-table-col1">
+          <span>这是备注</span>
+        </div>
+      </div>
+      <div class="list-table-item click-no-hide-detail">
+        <div class="list-table-col0">
+          <p>测试物品</p>
+          <div class="list-table-col0-text">
+            <span class="list-table-col0-text-left">规格：0.1ml</span>&nbsp;<span class="list-table-col0-text-right">单位：个</span>
+          </div>
+        </div>
+        <div class="list-table-col1">
+          <span>16101003</span>
+        </div>
+        <div class="list-table-col1">
+          <span>2</span>
+        </div>
+        <div class="list-table-col1">
+          <span>35.00</span>
+        </div>
+        <div class="list-table-col1">
+          <span>21,235.300</span>
+        </div>
+        <div class="list-table-col1">
+          <span>这是备注</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <!-- 结束列表 -->
+
+  <div class="remarks border-b">
+    <div class="remarks-header">
+      <i class="icon iconfont icon-beizhu"></i><span>备注</span>
+    </div>
+    <div class="remarks-content">
+      替硝锉注射液
+    </div>
+  </div>
+  <div class="stock-footer">
+    <span class="span-name">操作人:王晓明</span><span>账单日期:2017-01-23</span>
+  </div>
+
+</div>

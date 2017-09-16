@@ -1,0 +1,39 @@
+/*最外层盒子*/
+.add-patient{
+  margin:0 1.5rem .5rem;
+  padding-top:.5rem;
+  .form-section{
+    display:flex;
+  }
+}
+/*红点*/
+.red-point{
+  display:inline-block;
+  i{
+    margin-right:.5rem;
+  }
+}
+/*回访内容模块*/
+.common-theme{
+  padding-left:4rem;
+  padding-bottom:1rem;
+  color:#7A80FA;
+  .icon-huifang-huifangmoban{
+    font-size:.6rem;
+    padding-right:.4rem;
+    vertical-align: middle;
+  }
+}
+/*回访内容*/
+.content{
+  resize: none;
+  border-radius:.25rem;
+  border:1px solid #7A80FA;
+  font-size:.6rem;
+  padding:.5rem 0 0 .5rem;
+}
+
+/*下拉组件*/
+qiezzi-drop-down-list{
+  display:block;
+}

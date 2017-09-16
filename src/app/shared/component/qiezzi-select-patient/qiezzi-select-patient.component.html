@@ -1,0 +1,32 @@
+<div><input placeholder="姓名/手机号/病历号" [(ngModel)]="searchKey"/>
+  <button class="button4">查询</button>
+</div>
+
+<div class="tab-ctrl tab-ctrl1">
+  <app-qiezzi-tab-control class="tab-ctrl-head" [tabData]="tabData?.data"
+                          [defaultSelectedIndex]="tabData?.defaultIndex"
+                          (onTabIndexChange)="changeTab($event)"></app-qiezzi-tab-control>
+  <div class="tab-ctrl-content">
+    <div class="list-table">
+      <div class="list-table-head">
+        <span class="col1">患者</span>
+        <span class="col2">病历号</span>
+        <span class="col3">手机号</span>
+      </div>
+      <div class="list-table-content single-line">
+        <div class="list-table-item " *ngFor="let item of listData;" (click)="itemClick(item)">
+          <div class="col1"><span>{{item.PatientName | qiezziTextNull}}<i *ngIf="item.IsImportant"></i></span></div>
+          <div class="col2"><span>{{item.PatientName | qiezziTextNull}}</span></div>
+          <div class="col3"><span>{{item.Tel | qiezziTextNull}}</span></div>
+        </div>
+      </div>
+      <app-data-empty *ngIf="!(data?.TotalItems && data?.TotalItems > 0)"
+                      [showEmpty]="showEmpty"></app-data-empty>
+      <qiezzi-paginator [ngStyle]="{display: (data?.TotalItems && data?.TotalItems>10) ?'block' : 'none'}"
+                        [rows]="data?.ItemsPerPage" [totalRecords]="data?.TotalItems"
+                        (onPageChange)="pageChange($event)"></qiezzi-paginator>
+
+    </div>
+
+  </div>
+</div>

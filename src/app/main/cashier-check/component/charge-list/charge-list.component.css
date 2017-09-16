@@ -1,0 +1,73 @@
+p {
+  margin: 0; }
+
+.list-table-head {
+  border: 1px solid #ccc; }
+
+.list-table-center {
+  height: 3.6rem;
+  line-height: 3.6rem;
+  padding: 1rem 1.5rem;
+  width: 100%;
+  border-top: 1px solid #e6e7f3; }
+
+.list-table-center-state {
+  font-size: 12px;
+  color: #999;
+  width: 3rem;
+  height: 12px;
+  line-height: 1.5rem;
+  display: block;
+  float: left; }
+
+.drop-down-select {
+  width: 6rem;
+  height: 1.6rem;
+  line-height: 1.6rem;
+  float: left;
+  margin-left: 1rem; }
+
+.list-table-center-left {
+  width: 10rem;
+  height: 1.6rem;
+  line-height: 1.6rem;
+  float: left; }
+
+.list-table-center-right {
+  height: 1.6rem;
+  line-height: 1.6rem;
+  float: right;
+  font-size: .6rem; }
+  .list-table-center-right span {
+    font-size: 12px;
+    color: #999; }
+
+.list-table-center-total {
+  height: 0.8rem;
+  line-height: 0.8rem;
+  width: 4.45rem;
+  float: right;
+  font-size: 12px;
+  color: #999999;
+  border-right: 1px solid #D8D8D8;
+  margin-top: 0.3rem; }
+
+.list-table-center-more {
+  height: 0.8rem;
+  line-height: 0.8rem;
+  width: 0.8rem;
+  float: right;
+  color: #7A80FA;
+  display: block;
+  margin-left: 0.6rem;
+  margin-top: 0.3rem; }
+
+.list-table-col1 {
+  width: 20%;
+  text-align: center; }
+
+.list-table-col0 {
+  width: calc(100% - 10% - (20% * 2) - (12% * 2));
+  text-align: center; }
+
+/*# sourceMappingURL=charge-list.component.css.map */

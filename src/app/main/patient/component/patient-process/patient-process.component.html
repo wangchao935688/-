@@ -1,0 +1,51 @@
+<div [attr.status]="displayStatus" class="right-slider-container">
+  <router-outlet></router-outlet>
+</div>
+<div class="tab-ctrl tab-ctrl2">
+  <div class="tab-ctrl-content" style="position: relative; min-height: 400px;padding:0;border: none">
+    <qiezzi-loading [attr.status]="dataLoading" class="loading6 purple transparent"></qiezzi-loading>
+    <div class="list-table">
+      <div class="list-table-head">
+        <span class="list-table-col-1">就诊日期</span>
+        <span class="mobile-hidden list-table-col-15">医生</span>
+        <span class="mobile-hidden list-table-col-15">加工单位</span>
+        <span class="mobile-hidden list-table-col-15">加工费</span>
+        <span class="list-table-col-15">加工数量</span>
+        <span class="list-table-col-12">状态</span>
+      </div>
+      <div class="list-table-content">
+        <div class="list-table-item" *ngFor="let item of responseData;let i = index" (click)="getProcessDetail($event,item.Id,i)">
+          <div class="list-table-col-1">
+            <span class="span-ellipsis">{{item?.VisitingTime | date: 'yyyy-MM-dd'}}</span>
+          </div>
+          <div class="mobile-hidden list-table-col-15">
+            <span>{{item?.DoctorName | qiezziTextNull}}</span>
+          </div>
+          <div class="mobile-hidden list-table-col-15"><span
+            class="span-ellipsis">{{item?.ProcessCompanyName | qiezziTextNull}}</span>
+          </div>
+          <div class="mobile-hidden list-table-col-15"><span>{{item?.Price }}</span>
+          </div>
+          <div class="list-table-col-15"><span>{{item?.ProcessNum}}</span></div>
+          <div class="list-table-col-12">
+            <span *ngIf="item?.Status == 0">待派送</span>
+            <span *ngIf="item?.Status == 1">已派送</span>
+            <span *ngIf="item?.Status == 2">已回件</span>
+            <span *ngIf="item?.Status == 3">已试戴</span>
+            <span *ngIf="item?.Status == 4">返工</span>
+            <span *ngIf="item?.Status == 5">已带走</span>
+          </div>
+        </div>
+      </div>
+      <app-data-empty [showEmpty]="showEmpty"></app-data-empty>
+      <div *ngIf="false">
+        <qiezzi-paginator [rows]="12" [totalRecords]="8"
+                          [rowsPerPageOptions]="[10,20,30]"
+                          (onPageChange)="pageChange($event)"></qiezzi-paginator>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+

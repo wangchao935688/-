@@ -1,0 +1,80 @@
+<div [attr.status]="displayStatus" class="right-slider-container">
+  <router-outlet></router-outlet>
+</div>
+<div id="app-center-container">
+  <qiezzi-loading [attr.status]="centerRouterLoading" class="loading6 purple"></qiezzi-loading>
+  <app-qiezzi-center-header [showSearch]="false"
+                            [showFilter]="false"
+                            [showAdd]="false"
+                            [showOptions]="false"
+                            [moduleName]="moduleName"
+  ></app-qiezzi-center-header>
+  <div id="app-center-content" style="min-width: 47rem;">
+    <div id="appCenterContent" style="border-top: 1px solid #DBDBDB;">
+      <div class="profit-top">
+        <qiezzi-select-date-slot (onSelectDate)="selectDate($event)"></qiezzi-select-date-slot>
+      </div>
+      <div class="bottom">
+        <div class="left">
+          <div class="title">
+            <span (click)="navigate('income-list')">查看收入明细</span>
+            <span>|</span>
+            <span>收入</span>
+          </div>
+          <div class="money">
+            {{responseData.Inflow | qiezziMoeny:false}}元
+          </div>
+          <div class="left-line">
+            <div class="left-beeline">
+              <div class="main-income">
+                <div>
+                  主营收入
+                </div>
+                <div class="fr">
+                  {{responseData.Inflow_Main | qiezziMoeny:true}}
+                </div>
+              </div>
+              <div class="daily-income">
+                <div>
+                  日常收入
+                </div>
+                <div class="fr">
+                  {{responseData.Inflow_Other | qiezziMoeny:true}}
+                </div>
+              </div>
+            </div>
+            <div class="left-slant">
+              <canvas id="left-canvas"></canvas>
+            </div>
+          </div>
+        </div>
+        <div class="center">
+          <div class="circle">
+            <div></div>
+            <div>利润</div>
+            <div>{{responseData.Sum | qiezziMoeny:false}}元</div>
+            <div></div>
+          </div>
+        </div>
+        <div class="right">
+          <div class="title">
+            <span>支出</span>
+            <span>|</span>
+            <span (click)="navigate('expend-list')">查看支出明细</span>
+          </div>
+          <div class="money">
+            {{responseData.Outflow | qiezziMoeny:false}}元
+          </div>
+          <div class="right-line">
+            <div class="right-slant">
+              <canvas id="right-canvas"></canvas>
+            </div>
+            <div class="right-beeline">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

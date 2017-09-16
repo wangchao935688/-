@@ -1,0 +1,52 @@
+<qiezzi-loading [attr.status]="mainShowLoading" class="loading6 purple"></qiezzi-loading>
+<div class="popup-content-container" malihu-scrollbar [scrollbarOptions]="scrollbarOptions">
+  <div class="popup-content-box">
+	   <div class="popup-input">
+       <span style="float: right;cursor: pointer;color: #7A80FA;font-size: .7rem;" class="select-choose" (click)="onShowFilter()">高级筛选</span>
+       <app-icon-input [placeholder]="'姓名/手机号/病历号'" [iconList]="['icon-fangdajing']" style="width:10rem;"></app-icon-input>
+       <!--<i class="icon iconfont icon-fangdajing"></i>-->
+	   </div>
+    <app-qiezzi-data-filter [filterConfig]="filterConfig"
+                            style="margin-bottom: 1rem;"
+                            (onConditionChanged)="onConditionChanged($event)"></app-qiezzi-data-filter>
+      <div class="list-table">
+        <div class="list-table-head">
+          <div class="list-table-col-6 col1">
+              <span (click)="selecctAllCheckBox(true)" *ngIf="!IsChooseAll" class="icon iconfont icon-weixuanzhong"
+                    style="border-radius: 0px;color:#7a80fa;"></span>
+            <span (click)="selecctAllCheckBox(false)" *ngIf="IsChooseAll" class="icon iconfont icon-xuanzhong"
+                  style="background: #fff; color: #7a80fa;border-radius: 0px"></span>
+          </div>
+          <span class="col2"></span>
+          <span class="col3">姓名 | 病例号</span>
+          <span class="col5">性别</span>
+          <span class="col5">年龄</span>
+          <span class="col20">手机号</span>
+        </div>
+        <div class="list-table-content single-line">
+          <div class="list-table-item" *ngFor="let item of getPatientListResponse?.Items; let i = index;" (click)="selectBox(item.PatientName, item.Id, item.Tel, i)">
+            <div class="list-table-col-6 col1">
+              <label class="form-checkbox checkBox col-0" [ngStyle]="{disabled: !item.Tel}">
+                <input class="checkBox" type="checkbox" name="noname" value="{{item?.Id}}" [checked]="checkBoxList[i]"/>
+                <span class="iconfont checkBox"></span>
+              </label>
+            </div>
+            <div class="col2">
+              <span><img src="../../../../../assets/images/logo.png" alt="" style="width:20px;height:20px;border-radius:50%;"/></span>
+            </div>
+            <div class="col3"><span>{{item.PatientName | qiezziTextNull}} <span class="zhongyao"><i class="icon-zhongyao"></i></span></span></div>
+            <div class="col5"><span>{{item.Sex | qiezziTextNull}}</span></div>
+            <div class="col5"><span>{{item.Age | qiezziTextNull}}</span></div>
+            <div class="col20"><span>{{item.Tel | qiezziTextNull}}</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+<div>
+		<div class="button-group button-group-right">
+		  <button class="button5" (click)="ok()">发送选中</button>
+		  <button class="button4" (click)="ok()">发送全部</button>
+		  <button class="button4" (click)="cancel()">取消</button>
+		</div>
+</div>

@@ -1,0 +1,813 @@
+/*顶部头部下划线*/
+app-qiezzi-center-header{
+  border-bottom:1px solid #DBDBDB;
+}
+/*三列的右侧*/
+.sms-one-right, .sms-two-right ,.sms-three-right{
+  margin-left:15.5rem;
+}
+#reply-sms-content{
+  width:43rem;
+  height:42rem;
+  border:1px solid #dbdbdb;
+  margin-left:1.5rem;
+  margin-top:1.5rem;
+  bottom:2rem;
+}
+.reply-sms-left{
+  width:15.5rem;
+  height:42rem;
+  float: left;
+  border-right:1px solid #dbdbdb;
+}
+.reply-sms-right-top{
+  width:27.5rem;
+  height:34rem;
+  border-bottom:0.05rem solid #dbdbdb;
+}
+.thisPeople{
+  text-align:center;
+  margin:1rem 0;
+  color:#333;
+  line-height:1rem;
+  font-size:0.7rem;
+}
+.reply-sms-right-tops{
+  div{
+    .logo{
+      width:1.3rem;
+      height:1.3rem;
+      border-radius:50%;
+      margin-left:1rem;
+      margin-right:0.6rem;
+      position: relative;
+      top: 1.1rem;
+      cursor:pointer;
+    }
+  }
+}
+.reply-sms-right-tops div span:nth-child(2){
+  display:inline-block;
+  width:0;
+  height:0;
+  border-top:8px solid transparent;
+  border-right:8px solid #f3f3f3;
+  border-bottom:8px solid transparent;
+  padding-bottom:0.3rem;
+  position: relative;
+  left: 4px;
+  top: 7px;
+}
+.reply-sms-right-tops div .chat-content{
+  width:76%;
+  display: inline-block;
+  span{
+    vertical-align: top;
+    display:inline-block;
+    background:#f3f3f3;
+    width:auto;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    line-height:1rem;
+    color:#333;
+    font-size:0.6rem;
+  }
+
+}
+.reply-sms-right-bottom{
+  width:27.5rem;
+  height:7rem;
+  position: absolute;
+}
+.reply-sms-right-bottom textarea{
+  width:27.4rem;
+  height:3.4rem;
+  padding-left:0.95rem;
+  border:none;
+  overflow:hidden;
+  resize:none;
+  outline:none;
+  color:#333;
+  font-size:0.6rem;
+}
+.reply-sms-right-bottom textarea::-webkit-input-placeholder{
+  color:#999;
+  font-family:"微软雅黑";
+}
+.reply-sms-right-bottom button{
+  position: absolute;
+  right:1rem;
+  bottom:1rem;
+
+}
+.reply-sms-talk{
+  height:3.2rem;
+  width:15.5rem;
+  cursor:pointer;
+    &:hover{
+    background:#fbfbfe;
+  }
+}
+/*红点*/
+.red-dot{
+  position: relative;
+  .dot{
+    display: inline-block;
+    width: .3rem !important;
+    height: .3rem;
+    background: #fe4e74 !important;
+    position: absolute !important;
+    left: 2.5rem !important;
+    top: 0;
+    border-radius: 50%;
+  }
+}
+.writein{
+  position: relative;
+}
+.writein .input-container{
+  width:13.3rem;
+  height:1.6rem;
+  border-radius:4px;
+  padding-left:0.45rem;
+  margin:1rem 0 0 1rem;
+}
+.writein .input-container::-webkit-input-placeholder{
+  color:#999;
+}
+.icon-fangdajing{
+  position: absolute;
+  top:1.4rem;
+  right:1.8rem;
+  color:#aaa;
+  font-size:0.8rem;
+}
+.tab-ctrl1{
+  margin:0 1rem 0.5rem;
+}
+.tab-ctrl1 span{
+  display: inline-block;
+  padding: 0.3rem;
+  width:1.6rem;
+  height:1.6rem;
+  cursor: pointer;
+  margin-left:1.1rem;
+  margin-top:1rem;
+  color:#aaa;
+  &:hover{
+    color:#7a80fa;
+  }
+}
+/*
+TODO 左侧聊天导航点
+*/
+.bit{
+  position: relative;
+  .a-bit{
+    display: inline-block;
+    width: .3rem !important;
+    height: .3rem;
+    background: #fe4e74;
+    border-radius: 50%;
+    padding:0;
+    position: absolute;
+    left:1rem;
+  }
+}
+.tab-ctrl1 span:nth-child(2),
+.tab-ctrl1 span:nth-child(3){
+  display: inline-block;
+  margin-left:3.1rem;
+}
+.tab-ctrl1 span i{
+  font-size:1rem;
+}
+/*
+TODO 左侧数据
+*/
+/*叉号*/
+.cross{
+  float:left;
+  padding: .4rem 0 0 .3rem;
+  width:1rem;
+  i{
+    display: none;
+    font-size:.4rem;
+    width:1rem;
+    height:1rem;
+    color:#aaa;
+  }
+}
+/*
+TODO 滑过叉号
+*/
+.reply-sms-talk:hover{
+  .cross{
+    i{
+      display: block;
+      color:#7A80FA;
+    }
+  }
+}
+/*
+TODO 点击叉号样式
+*/
+.clickcross{
+  i{
+    color:#605BF5;
+  }
+}
+.delecross{
+  i{
+    color:#aaa;
+  }
+}
+.reply-sms-talk img{
+  width:1.7rem;
+  height:1.7rem;
+  border-radius: 50%;
+  position: absolute;
+  left: 20px;
+}
+.reply-sms-talk span:first-of-type{
+  font-size:0.7rem;
+  line-height: 1rem;
+  color:#333;
+  position: absolute;
+  left: 3.4rem;
+  width: 4rem;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.reply-sms-talk span:nth-of-type(2){
+  font-size:0.6rem;
+  line-height: 1rem;
+  color:#999;
+  position: relative;
+  left:2.4rem;
+  top:1rem;
+  display: inline-block;
+  width: 7rem;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.reply-sms-talk span:nth-of-type(3){
+  float:right;
+  padding-right:1.5rem;
+  font-size:0.6rem;
+  line-height:1rem;
+  color:#999;
+}
+.talk-time{
+  margin:1.2rem 0 1rem 0;
+  text-align:center;
+  color:#999;
+  font-size:0.6rem;
+  line-height:1rem;
+}
+
+//右边聊天人
+.reply-sms-right-tops .logo{
+  width:1.3rem;
+  height:1.3rem;
+  border-radius:50%;
+  margin-left:25.2rem;
+  margin-right:0.6rem;
+  position: relative;
+  top: 22px;
+  cursor:pointer;
+}
+.reply-sms-right-tops .sanjiao{
+  display:inline-block;
+  width:0;
+  height:0;
+  border-top:8px solid transparent;
+  border-left:8px solid #f3f3f3;
+  border-bottom:8px solid transparent;
+  padding-bottom:0.3rem;
+  position: relative;
+  left: 24rem;
+  top: -0.8rem;
+}
+.reply-sms-right-tops .talk-content{
+  vertical-align: top;
+  display:inline-block;
+  background:#f3f3f3;
+  width:76%;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  line-height:1rem;
+  color:#333;
+  font-size:0.6rem;
+  margin-top: -1.4rem;
+  margin-left: 2.6rem;
+}
+/*
+TODO 表情
+*/
+/*.brow{
+  position: relative;
+  .brow-box{
+    position: absolute;
+    top:1rem;
+    width:14rem;
+  }
+}
+
+.brow:hover{
+
+}*/
+//第二列内容
+.reply-sms-contents1{
+  visibility:hidden;
+}
+//第二列姓名
+.reply-sms-name1{
+  padding-top:0.4rem;
+}
+
+//第三列
+.reply-sms-tbox {
+  div{
+    .icon-weixin1{
+      display:inline-block;
+      font-size:1rem;
+      width:1.6rem;
+      height:1.6rem;
+      line-height:1.6rem;
+      border-radius:50%;
+      background:#7bca9e;
+      color:#fff;
+      text-align:center;
+      margin-left:1rem;
+    }
+    .icon-richenganpai{
+      display:inline-block;
+      font-size:1rem;
+      width:1.6rem;
+      height:1.6rem;
+      line-height:1.6rem;
+      border-radius:50%;
+      background:#8dc8ff;
+      color:#fff;
+      text-align:center;
+      margin-left:1rem;
+    }
+    .icon-kucunguanli{
+      display:inline-block;
+      font-size:1rem;
+      width:1.6rem;
+      height:1.6rem;
+      line-height:1.6rem;
+      border-radius:50%;
+      background:#f56060;
+      color:#fff;
+      text-align:center;
+      margin-left:1rem;
+    }
+    .icon-yuyuetixing{
+      display:inline-block;
+      font-size:1rem;
+      width:1.6rem;
+      height:1.6rem;
+      line-height:1.6rem;
+      border-radius:50%;
+      background:#ffbf79;
+      color:#fff;
+      text-align:center;
+      margin-left:1rem;
+    }
+    .icon-xitongxiaoxi{
+      display:inline-block;
+      font-size:1rem;
+      width:1.6rem;
+      height:1.6rem;
+      line-height:1.6rem;
+      border-radius:50%;
+      background:#aca6ff;
+      color:#fff;
+      text-align:center;
+      margin-left:1rem;
+    }
+  }
+}
+//日程安排
+.daily-arrange{
+   .icon-richenganpai{
+     display:inline-block;
+     font-size:1rem;
+     width:1.6rem;
+     height:1.6rem;
+     line-height:1.6rem;
+     border-radius:50%;
+     background:#8dc8ff;
+     color:#fff;
+     text-align:center;
+     //margin-left:1rem;
+   }
+ }
+//库存预警
+.early-warning{
+  .icon-kucunguanli{
+    display:inline-block;
+    font-size:1rem;
+    width:1.6rem;
+    height:1.6rem;
+    line-height:1.6rem;
+    border-radius:50%;
+    background:#f56060;
+    color:#fff;
+    text-align:center;
+    //margin-left:1rem;
+  }
+}
+//预警提醒
+.WarningReminder{
+  .icon-yuyuetixing{
+    display:inline-block;
+    font-size:1rem;
+    width:1.6rem;
+    height:1.6rem;
+    line-height:1.6rem;
+    border-radius:50%;
+    background:#ffbf79;
+    color:#fff;
+    text-align:center;
+  }
+}
+//系统消息
+.sysMessage{
+  .icon-xitongxiaoxi{
+    display:inline-block;
+    font-size:1rem;
+    width:1.6rem;
+    height:1.6rem;
+    line-height:1.6rem;
+    border-radius:50%;
+    background:#aca6ff;
+    color:#fff;
+    text-align:center;
+  }
+}
+.reply-sms-contents2{
+  visibility: hidden;
+}
+.reply-sms-name2{
+  padding-top:0.35rem;
+}
+.reply-sms-time2{
+  visibility:hidden;
+}
+.icon-yuyuetixing{
+  display:inline-block;
+  font-size:1rem;
+  width:1.6rem;
+  height:1.6rem;
+  line-height:1.6rem;
+  border-radius:50%;
+  background:#fea356;
+  color:#fff;
+  text-align:center;
+}
+.icon-xitongxiaoxi{
+  display:inline-block;
+  font-size:1rem;
+  width:1.6rem;
+  height:1.6rem;
+  line-height:1.6rem;
+  border-radius:50%;
+  background:#aca6ff;
+  color:#fff;
+  text-align:center;
+}
+.reply-sms-tb{
+  .icon-yuyuetixing{
+    margin-left:1rem;
+  }
+  .icon-xitongxiaoxi{
+    margin-left:1rem;
+  }
+}
+
+//第二列聊天内容
+.choose-sms2{
+  text-align:center;
+  .choose-smstop{
+    width:8rem;
+    border-bottom:1px solid #DBDBDB;
+    padding-bottom:1rem;
+    margin: 0 auto;
+    div:first-child img{
+      width:5rem;
+      height:5rem;
+      border-radius:50%;
+      margin-top:1rem;
+    }
+    div:nth-child(2){
+      line-height:1rem;
+      font-size:1rem;
+      color:#333;
+      margin-top:1rem;
+    }
+    div:nth-child(3){
+      line-height:1rem;
+      font-size:0.6rem;
+      color:#666;
+    }
+  }
+  .tels{
+    text-align:left;
+    margin-bottom:0.4rem;
+    margin-top:1.5rem;
+    span:first-child{
+      font-size:0.6rem;
+      color:#666;
+      line-height:1rem;
+      display: inline-block;
+      width: 12rem;
+      text-align: right;
+    }
+    span:nth-child(2){
+      font-size:0.6rem;
+      color:#333;
+      line-height:1rem;
+      margin-left:0.3rem;
+    }
+  }
+  .emails{
+    text-align:left;
+    margin-bottom:0.4rem;
+    span:first-child{
+      font-size:0.6rem;
+      color:#666;
+      line-height:1rem;
+      display: inline-block;
+      width: 12rem;
+      text-align: right;
+    }
+    span:nth-child(2){
+      font-size:0.6rem;
+      color:#333;
+      line-height:1rem;
+      margin-left:0.3rem;
+    }
+  }
+  .appoints{
+    text-align:left;
+    margin-bottom:0.4rem;
+    span:first-child{
+      font-size:0.6rem;
+      color:#666;
+      line-height:1rem;
+      display: inline-block;
+      width: 12rem;
+      text-align: right;
+    }
+    span:nth-child(2){
+      font-size:0.6rem;
+      color:#333;
+      line-height:1rem;
+      margin-left:0.3rem;
+    }
+  }
+  .sendmss{
+    text-align:center;
+    margin-bottom:0.4rem;
+    margin-top:1.5rem;
+   button{
+     width:8rem;
+     height:1.6rem;
+   }
+  }
+}
+
+.sms-box1{
+  border-bottom:1px solid #DBDBDB;
+  width: 90%;
+  margin-left: 5%;
+  padding-bottom: 1rem;
+  margin-bottom:1rem;
+  position: relative;
+  .choose-smsLeft{
+    display:inline-block;
+    position: relative;
+    .icon-weixin1{
+      display:inline-block;
+      font-size:1rem;
+      width:1.6rem;
+      height:1.6rem;
+      line-height:1.6rem;
+      border-radius:50%;
+      background:#7bca9e;
+      color:#fff;
+      text-align:center;
+      //margin-left:1rem;
+    }
+  }
+  .choose-smsRight{
+    display:inline-block;
+    margin-left: 3.6rem;
+    margin-top: -1.6rem;
+    position: relative;
+    right: 1rem;
+    div:first-child{
+      font-size:0.6rem;
+      line-height:1rem;
+      color:#666;
+    }
+    div:nth-child(2){
+      font-size:0.6rem;
+      line-height:1rem;
+      color:#999;
+      margin-bottom:0.5rem;
+    }
+    div:nth-child(3){
+      font-size:0.6rem;
+      line-height:1rem;
+      color:#333;
+    }
+  }
+}
+.applyer{
+  margin-top:0.5rem;
+}
+.applyer span:first-child{
+  font-size:0.6rem;
+  line-height:1rem;
+  color:#666;
+}
+.applyer span:nth-child(2){
+  font-size:0.6rem;
+  line-height:1rem;
+  color:#333;
+  margin-left:0.2rem;
+}
+.telNum span:first-child{
+  font-size:0.6rem;
+  line-height:1rem;
+  color:#666;
+}
+.telNum span:nth-child(2){
+  font-size:0.6rem;
+  line-height:1rem;
+  color:#333;
+  margin-left:0.2rem;
+}
+.tips{
+  position: relative;
+}
+.tips span:first-child{
+  font-size:0.6rem;
+  line-height:1rem;
+  color:#666;
+  position: absolute;
+
+}
+.tips span:nth-child(2){
+  font-size:0.6rem;
+  line-height:1rem;
+  color:#333;
+  width: 20.1rem;
+  display: inline-block;
+  margin-left:2.5rem;
+}
+.book{
+  width:2rem;
+  height:1rem;
+  cursor:pointer;
+  margin-top:0.5rem;
+  &:hover{
+    color:#605bf5;
+  }
+  span{
+    font-size:0.6rem;
+    line-height:1rem;
+    color:#7a80fa;
+    position: relative;
+    left: 20.9rem;
+    &:hover{
+      color:#605bf5;
+    }
+  }
+  i{
+    font-size:0.6rem;
+    line-height:1rem;
+    color:#7a80fa;
+    position: relative;
+    left: 20.9rem;
+    &:hover{
+    color:#605bf5;
+  }
+  }
+}
+/*
+TODO 表情
+*/
+.biaoqing{
+  padding-left: 1rem;
+  position: relative;
+  .brow, .icon-image{
+    display:inline-block;
+    width:1.6rem;
+    height:1.6rem;
+    text-align:center;
+    line-height:1.6rem;
+    cursor:pointer;
+    .icon-tupian{
+      font-size:1rem;
+      color:#aaa;
+    }
+    .icon-biaoqing{
+      font-size:1rem;
+      color:#aaa;
+    }
+  }
+  .sankaku{
+    position: absolute;
+    bottom:-.2rem;
+    display: none;
+    width:.5rem;
+    height:.3rem;
+    margin-left: 1rem;
+    z-index:10;
+    i{
+      display: inline-block;
+      color:#aaa;
+      font-size:.7rem;
+      opacity: .8;
+      width:.5rem;
+      height:.3rem;
+    }
+  }
+}
+/*
+TODO 表情滑过显示隐藏
+*/
+
+.is-biaoqing{
+  position: relative;
+  display: inline-block;
+}
+.is-biaoqing:hover{
+  .bubble-expression{
+    display: block;
+  }
+  .sankaku{
+    display: block;
+  }
+}
+/*
+TODO 表情气泡
+*/
+.bubble-expression{
+  display: none;
+  width: 14rem;
+  position: absolute;
+  bottom: 1.8rem;
+  left:-1rem;
+  background:#fff;
+  padding:0 .5rem .7rem;
+  border:1px solid #DBDBDB;
+  box-shadow: .1rem .1rem  #aaa;
+  opacity: .5;
+  border-radius: .2rem;
+  z-index: 100;
+  .expression{
+    &:last-child{
+      padding-bottom:0;
+    }
+  }
+  span{
+    margin-right:.4rem;
+    padding-top:.5rem;
+    display: inline-block;
+    img{
+      width:1.35rem;
+      height:1.3rem;
+      display: inline-block;
+      border-radius:50%;
+    }
+    &:last-child{
+      margin-right:0;
+    }
+  }
+}
+/*
+TODO 更多删除
+*/
+.more-delete{
+  font-size:.6rem;
+  width:1.3rem;
+  height:1.3rem;
+  display: none;
+  float: right;
+}
+// 滑过显示
+.choose-smsRight:hover{
+  .more-delete{
+    display: block;
+    color:#7A80FA;
+  }
+}

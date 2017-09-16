@@ -1,0 +1,40 @@
+<div class="popup-content-container">
+  <div class="popup-content-box" *ngIf="data.isShowInputName">
+    <form class="validate-form" [formGroup]="formGroup">
+      <div class="form-section">
+        <div class="form-title"><span *ngIf="data.required" class="red-point"><i></i></span>{{data.inputName}}</div>
+        <div *ngIf="!data.isTextarea" class="form-element">
+          <div class="err-message" [attr.error]="formErrors['field']">{{formErrors['field']}}</div>
+          <input placeholder="{{data.placeHolder?data.placeHolder: formPlaceholder['field']}}" formControlName="field"
+                 (blur)="onInputElementBlur('field')">
+        </div>
+        <div *ngIf="data.isTextarea" class="form-element">
+          <div class="err-message" [attr.error]="formErrors['field']">{{formErrors['field']}}</div>
+          <textarea [ngClass]="'ta-text'"  placeholder="{{data.placeHolder?data.placeHolder: formPlaceholder['field']}}" formControlName="field"
+                    (blur)="onInputElementBlur('field')"></textarea>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div class="popup-content-box" *ngIf="!data.isShowInputName">
+    <form class="validate-form" [formGroup]="formGroup">
+      <div class="form-section">
+        <div *ngIf="!data.isTextarea" class="form-element" style="width: 100%;">
+          <div class="err-message" [attr.error]="formErrors['field']">{{formErrors['field']}}</div>
+          <input placeholder="{{data.placeHolder?data.placeHolder: formPlaceholder['field']}}" formControlName="field"
+                 (blur)="onInputElementBlur('field')">
+        </div>
+        <div *ngIf="data.isTextarea" class="form-element" style="width: 100%;">
+          <div class="err-message" [attr.error]="formErrors['field']">{{formErrors['field']}}</div>
+          <textarea  [ngClass]="'ta-text'"  placeholder="{{data.placeHolder?data.placeHolder: formPlaceholder['field']}}" formControlName="field"
+                    (blur)="onInputElementBlur('field')"></textarea>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<div class="button-group button-group-right">
+  <button (click)="ok($event)" class="button5" [disabled]="!formGroup.valid || isProcessing">保存</button>
+  <button (click)="close($event)" class="button4">取消</button>
+</div>

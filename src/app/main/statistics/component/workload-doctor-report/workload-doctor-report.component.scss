@@ -1,0 +1,181 @@
+.fl {
+  float: left;
+}
+
+.fr {
+  float: right;
+}
+
+//内容主题
+#appCenterContent {
+  padding: 0 2rem;
+
+  .my-content {
+    //padding: 0 1rem;
+    //border: 1px solid #DBDBDB;
+
+    .content-body {
+      //border: 1px solid #DBDBDB;
+      //日期选择
+      .header-top {
+        background-color: #fbfbfb;
+        margin: 1.5rem 0;
+        padding: 0.5rem;
+
+        .button-group-right {
+          float: right;
+          width: 5.3rem;
+
+          .button4 {
+            background-color: #fff;
+            border: 1px solid #DBDBDB;
+            font-size: 0.6rem;
+            line-height: 1.6rem;
+            color: #666;
+            .icon-daochu {
+              margin-right: 0.5rem;
+            }
+          }
+          .button4:hover {
+            color: #605bf5;
+            border: 1px solid #605bf5;
+          }
+
+        }
+        //日期
+        qiezzi-select-date-slot {
+
+        }
+      }
+      .my-header {
+        margin: 1.5rem 0;
+        font-size: 1rem;
+        line-height: 1rem;
+        color: #333;
+        text-align: center;
+        .my-header-name {
+          display: inline-block;
+        }
+        .my-header-time {
+          font-size: 0.8rem;
+          display: inline-block;
+        }
+      }
+      //收入趋势图
+      .data-ec {
+        width: 100%;
+        //border: 1px solid #DBDBDB;
+        .data-ec-header {
+          padding: 1rem 0.5rem;
+          //border-bottom: 1px solid #DBDBDB;
+          font-size: 0.7rem;
+          .data-ec-header-left {
+            qiezzi-drop-down-list{
+              width: 5.9rem;
+              margin-right: 1.5rem;
+              display: inline-block;
+              vertical-align: middle;
+            }
+            //收费趋势
+            .charge-trend,.kinds-trend{
+              cursor: pointer;
+              line-height: 1.6rem;
+              font-size: 0.7rem;
+              color: #666;
+            }
+            .charge-trend:hover,.kinds-trend:hover{
+              color: #605bf5;
+            }
+            //类别趋势
+            .kinds-trend{
+              position: relative;
+              margin-left: 1rem;
+            }
+            .kinds-trend::after{
+              display: inline-block;
+              width: 1px;
+              height: 0.6rem;
+              background-color: #DBDBDB;
+              border:none;
+              position: absolute;
+              left: 0;
+              top: 0;
+            }
+          }
+          .data-ec-header-right {
+            span{
+              font-size: 0.6rem;
+              line-height: 1.6rem;
+              color:#666;
+            }
+            .money-count {
+              font-size: 1rem;
+              color: #333;
+              line-height: 1.6rem;
+              font-weight: 700;
+            }
+          }
+        }
+        .data-ec-container {
+          width: 100%;
+          height: 20rem;
+          #ec-main {
+            width: 100%;
+          }
+        }
+      }
+      /*//导出按钮
+      .export-btn {
+        height: 2rem;
+        margin-top: 1rem;
+      }*/
+      //收入列表
+      .data-list {
+        overflow: hidden;
+
+        .list-table {
+          padding: 0;
+          .list-table-head {
+            border: 1px solid #DBDBDB;
+            border-bottom: none;
+          }
+          .list-table-content {
+
+          }
+        }
+        .list-table-col0 {
+          width: 11%;
+        }
+        .list-table-col1 {
+          width: 11%;
+        }
+        .list-table-col2 {
+          width: 11%;
+        }
+        .list-table-col3 {
+          width: 11%;
+        }
+        .list-table-col4 {
+          width: 11%;
+        }
+        .list-table-col5 {
+          width: 11%;
+        }
+        .list-table-col6 {
+          width: 11%;
+        }
+        .list-table-col7 {
+          width: 11%;
+        }
+        .list-table-col8 {
+          width: 11%;
+        }
+        .list-table-col9 {
+          width: 11%;
+        }
+
+      }
+    }
+  }
+}
+

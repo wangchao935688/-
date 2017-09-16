@@ -1,0 +1,464 @@
+.border-t {
+  border-top: 1px solid #dbdbdb;
+}
+
+.border-b {
+  border-bottom: 1px solid #dbdbdb;
+}
+
+.no-border-t {
+  border-top: none;
+}
+
+.no-border-b {
+  border-bottom: none;
+}
+
+.list-table-head {
+  padding: 0 1rem;
+  margin: 0;
+  .list-table-col0 {
+    //margin-left: 1rem;
+  }
+}
+
+.list-table-col0 {
+  width: calc(100% - 13% - 13% - 13% - 13% - 13% - 13%);
+  overflow: hidden;
+  //margin-left: 1rem;
+  //margin-right: 0.5rem;
+  p {
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .list-table-col0-text {
+    .list-table-col0-text-left {
+      float: left;
+    }
+    .list-table-col0-text-right {
+      //float: right;
+      margin-left: 1rem;
+    }
+  }
+}
+
+.list-table-col1 {
+  width: 13%;
+  //text-align: center;
+  //margin-left: 0.5rem;
+}
+
+.list-table-col-last {
+  //margin-right: 1rem;
+}
+
+.time-to {
+  display: inline-block;
+  width: 3rem;
+  padding-top: 0.4rem;
+  color: #999;
+}
+
+.list-table-item {
+  overflow: hidden;
+}
+
+.list-table-head {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  border-bottom: none;
+}
+
+.row {
+  padding: 0 2rem;
+  transition: padding .2s;
+  margin: 1rem auto;
+}
+
+.app-center-content .list-table-item {
+  margin-left: 1px;
+  margin-right: 1px;
+}
+
+.app-center-content .list-table-item:first-child {
+  margin-top: 1px;
+}
+
+#appCenterRightContent {
+  padding-bottom: 3rem;
+}
+
+//copy from stackinfo
+/*初始化*/
+p, ul {
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+:host {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/********************************************************************************************自定义左侧列表样式*/
+#app-center-container {
+  height: 100%;
+}
+
+#appCenterContent {
+  height: 100%;
+  //width: 47rem;
+}
+
+app-qiezzi-center-header {
+  width: 47rem;
+}
+
+.capital-flow-content {
+  overflow: hidden;
+  //width: 100%;
+  width: 47rem;
+  height: 100%;
+  //border-top: 1px solid #dddddd;
+  color: #333;
+  font-size: .7rem;
+}
+
+.capital-flow-content-left {
+  float: left;
+  width: 14rem;
+  height: 100%;
+  //height:calc(100% -4rem);
+  border-right: 1px solid #dddddd;
+  //padding-top: 2rem;
+  padding-top: 1rem;
+}
+
+.capital-flow-content-left .capital-flow-content-left-header {
+  /*
+ 根据UI设计，修改滚动条位置，所以调整头部位置宽度
+ */
+  margin: 0 2rem;
+
+  padding-bottom: 1rem;
+  //border-bottom: 1px dotted #dddddd;
+  border-bottom: 1px dashed #dddddd;
+  line-height: 1.5rem;
+}
+
+.capital-flow-content-left-list-item .size-normal {
+  font-size: .6rem;
+  color: #666;
+}
+
+.capital-flow-content-right {
+  margin-left: 14rem;
+  height: 100%;
+  //height:calc(100% -4rem);
+  //height: 20rem;
+}
+
+.search-right-icon {
+  border: none;
+  color: #969AFC;
+}
+
+.rt {
+  float: right;
+}
+
+.capital-flow-content-left-list .capital-flow-content-left-list-item {
+  line-height: 2.1rem;
+  border: 1px solid transparent;
+  padding: 0 !important;
+  display: flex;
+  justify-content: space-between;
+}
+
+.capital-flow-content-left-list .capital-flow-content-left-list-item.selected {
+}
+
+/*.capital-flow-content-left-list  .capital-flow-content-left-list-item:last-child:hover{
+  border-bottom-color: #7A80FA;
+}*/
+/*.list-table-content .list-table-item:last-child.selected{
+  border-bottom-color: #7A80FA;
+}*/
+.list-table {
+  padding: 0;
+}
+
+.app-center-content .list-table-item {
+  margin-left: 1px;
+  margin-right: 1px;
+}
+
+.app-center-content .list-table-item:first-child {
+  margin-top: 1px;
+}
+
+.list-table-content {
+  margin-top: 0;
+
+}
+
+.list-table-content > li {
+  line-height: 2.1rem;
+}
+
+.capital-flow-content-left-list {
+  margin-left: 2.5rem;
+  margin-top: .5rem;
+  border: none;
+  padding-bottom: 3rem;
+}
+
+.capital-flow-content-right {
+  margin-bottom: 1rem;
+}
+
+/***********************************************************************************引用列表框架样式*/
+.list-table-head .list-table-col1, .list-table-head .list-table-col3 {
+  font-weight: normal;
+}
+
+.list-table-col0 {
+  //width: calc(100% - (16% * 5));
+  width: 36%;
+  min-width: 7rem;
+  color: #333;
+  .list-table-col0-text {
+    font-size: 0.6rem;
+    color: #999;
+    .list-table-col0-text-left {
+      position: relative;
+      float: left;
+      color: #999;
+    }
+    .list-table-col0-text-left::after {
+      content: "";
+      height: 0.5rem;
+      position: absolute;
+      right: -0.5rem;
+      top: 0.3rem;
+      display: block;
+      border: 1px solid #dddddd;
+    }
+    .list-table-col0-text-right {
+      //float: right;
+      margin-left: 0.6rem;
+      color: #999;
+    }
+  }
+}
+
+.list-table-col0 p {
+  //width: 5em;
+
+}
+
+.list-table-col0 span {
+  display: inline;
+  font-size: 0.6rem;
+  color: #333
+}
+
+.list-table-col1 {
+  width: 16%;
+  //min-width: 6rem;
+  //font-weight: bold;
+  color: #333;
+  //text-align: center;
+}
+
+.list-table-col2 {
+  width: 16%;
+  //min-width: 8rem;
+  color: #666;
+}
+
+.list-table-col3 {
+  width: 16%;
+  //min-width: 7rem;
+  //font-weight: bold;
+  color: #333;
+}
+
+.list-table-col4 {
+  width: 16%;
+  //min-width: 6rem;
+}
+
+.list-table-col5 {
+  width: 16%;
+  //min-width: 6rem;
+}
+
+@media screen and (max-width: 999px) {
+
+  .list-table-col0 {
+    width: calc(100% - 30% - 23%);
+  }
+
+  .list-table-col3 {
+    width: 30%;
+  }
+  .list-table-col4 {
+    width: 23%;
+  }
+  .search-bar {
+    flex-direction: column;
+    .search-left {
+      margin-bottom: 1rem;
+    }
+  }
+}
+
+//备注
+.remarks {
+  padding-bottom: 0.6rem;
+  .remarks-header {
+    margin-top: 1.1rem;
+    color: #333;
+    .icon {
+      font-size: 0.8rem;
+      margin-right: 0.3rem;
+    }
+    span {
+      font-size: 0.7rem;
+    }
+  }
+  .remarks-content {
+    margin-top: 0.6rem;
+    margin-bottom: 0.6rem;
+    font-size: 0.6rem;
+    color: #666;
+  }
+}
+
+.stock-footer {
+  text-align: right;
+  padding-top: 0.6rem;
+  color: #999;
+  font-size: 0.6rem;
+
+}
+
+.span-name {
+  margin-right: 1.5rem;
+}
+
+.right-content {
+  //width: 43rem;
+  padding: 0 1.5rem;
+
+  .content-header-text {
+    font-size: 0.6rem;
+    line-height: 1rem;
+    color: #999;
+    height: 4.7rem;
+    padding: 0.6rem 0;
+    padding-top: 1.1rem;
+
+    .money {
+      float: right;
+      .money-text{
+        margin-right: 1.2rem;
+
+      }
+      .money-count {
+        font-size: 1rem;
+        color: #605bf5;
+      }
+    }
+    .top {
+      //margin-top: 0.6rem;
+      margin-bottom: 0.5rem;
+      .countId {
+        position: relative;
+        margin-right: 1rem;
+      }
+      .countId::after {
+        position: absolute;
+        content: "";
+        height: 0.5rem;
+        position: absolute;
+        right: -0.5rem;
+        //top: 0.3rem;
+        top: 0;
+        display: block;
+        border: 1px solid #dddddd;
+      }
+    }
+    .bottom {
+      margin-top: 0.6rem;
+      margin-bottom: 0.5rem;
+      .input-stock-date {
+        position: relative;
+        margin-right: 1rem;
+
+      }
+      .input-stock-date::after {
+        position: absolute;
+        content: "";
+        height: 0.5rem;
+        position: absolute;
+        right: -0.5rem;
+        //top: 0.3rem;
+        top: 0;
+
+        display: block;
+        border: 1px solid #dddddd;
+      }
+    }
+  }
+  .table-list {
+    border: 1px solid #DBDBDB;
+    //padding: 0 1rem;
+
+    .table-list-col0 {
+      display: inline-block;
+      width: calc(100% - (16% * 5) - 15px);
+      //margin-left: 1rem;
+      padding: 0.9rem 0.5rem;
+    }
+    .table-list-col1, .table-list-col2, .table-list-col3, .table-list-col4, .table-list-col5 {
+      display: inline-block;
+      width: 16%;
+      padding: 0.9rem 0.5rem;
+    }
+    .table-list-col0, .table-list-col2, .table-list-col4 {
+      color: #333;
+    }
+    .table-list-col1, .table-list-col3, .table-list-col5 {
+      color: #666;
+    }
+
+    .table-list-header {
+      padding: 0 1rem;
+      height: 2.9rem;
+      div {
+        color: #333;
+
+      }
+
+    }
+    .table-list-content {
+      .table-list-item {
+        padding: 0 1rem;
+        border-bottom: 1px solid #DBDBDB;
+      }
+
+    }
+  }
+}
+
+

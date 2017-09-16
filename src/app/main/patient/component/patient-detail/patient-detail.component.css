@@ -1,0 +1,69 @@
+:host {
+  display: block;
+  width: 100%;
+  height: 100%; }
+
+.tab-content {
+  border: 1px solid #dddddd;
+  border-top: none;
+  position: relative;
+  height: 500px; }
+
+.container {
+  padding: 0 1.5rem; }
+  .container .more {
+    position: absolute;
+    right: -.8rem;
+    bottom: 3rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    line-height: 1.5rem;
+    background: #7A80FA;
+    color: #ffffff;
+    font-size: .7rem;
+    border-radius: 50%;
+    text-align: center;
+    cursor: pointer; }
+  .container .add {
+    bottom: 7.5rem; }
+  .container .more:hover, .container .add:hover {
+    background: #605bf5; }
+
+.container .content-list {
+  padding: 1.1rem 0;
+  border-bottom: 1px dashed #dddddd; }
+
+.container .header .header-name .title {
+  font-size: .7rem;
+  line-height: 1rem;
+  color: #333;
+  font-weight: bold; }
+.container .header .show-detail {
+  float: right; }
+
+.container .content {
+  line-height: 1rem;
+  font-size: .6rem;
+  color: #666; }
+
+.container .content .main-content {
+  margin-bottom: .5rem; }
+
+.container .content-name {
+  font-size: .6rem;
+  line-height: 1rem;
+  color: #666;
+  display: inline-block;
+  width: 13%; }
+
+.container .content-detail {
+  display: inline-block;
+  color: #333;
+  line-height: 1rem;
+  font-size: .6rem;
+  width: 60%; }
+
+.content-list .main {
+  margin-right: 1.5rem; }
+
+/*# sourceMappingURL=patient-detail.component.css.map */

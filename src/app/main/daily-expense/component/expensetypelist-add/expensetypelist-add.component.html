@@ -1,0 +1,40 @@
+<div class="popup-content-box">
+  <form class="validate-form" [formGroup]="formGroup">
+    <div class="form-section">
+      <div class="form-title">名称</div>
+      <div class="form-element">
+        <div class="err-message" [attr.error]="formErrors['TypeName']">{{formErrors['TypeName']}}</div>
+        <input class="input-text" placeholder="请输入名称" formControlName="TypeName" (blur)="onInputElementBlur('TypeName')">
+      </div>
+    </div>
+
+    <div class="form-section" style="margin-bottom: 2rem;">
+      <div class="form-title">图标</div>
+      <div class="form-element iconList">
+        <div class="icon-picker" (click)="showIconList()"  style="margin-bottom: 1rem;">
+          <i class="icon iconfont icon-tianjia" style="color:#7a80fa;"></i>
+        </div>
+        <div class="more-ctrl-list" *ngIf="IsCtrl">
+          <div class="right-ctrl-more">
+            <div class="right-more-item"
+                 *ngFor="let ctrlItem of controlList; let i = index"
+                 (click)="moreItemClick($event,i)"
+                 [ngClass]="{hover: selectedColorIndex === i}">
+              <div class="icon-style" [ngStyle]="{backgroundImage: ctrlItem}">
+
+              </div>
+            </div>
+          </div>
+          <div class="right-ctrl-arrow"></div>
+        </div>
+      </div>
+    </div>
+
+  </form>
+</div>
+
+<div class="button-group button-group-right" >
+  <button class="button4" (click)="addExpenseTypeList()" >保存</button>
+  <button class="button4" >取消</button>
+</div>
+

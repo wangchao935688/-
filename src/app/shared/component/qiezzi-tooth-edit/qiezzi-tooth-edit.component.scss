@@ -1,0 +1,41 @@
+.process-tooth-edit {
+  border-radius: 0.2rem;
+  height: 6.2rem;
+  margin-top: 1rem;
+  .delete-icon {
+    float: right;
+    width: 1.2rem;
+    height: 1.2rem;
+    cursor: pointer;
+    text-align: center;
+    line-height: 1.2rem;
+  }
+  .process-tooth-edit-left {
+    width: 52%;
+    height: 3.05rem;
+    margin: 1.5rem 0rem 0rem 1.5rem;
+    display: inline-block;
+  }
+  .process-tooth-edit-center {
+    width: 5%;
+    display: inline-block;
+  }
+  .process-tooth-edit-right {
+    width: calc(100% - 54% - 5% - 3rem);
+    display: inline-block;
+    line-height: 2.3rem;
+    div {
+      font-size: 0.6rem;
+    }
+    .div-top {
+      height: 1.2rem;
+      line-height: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+    .div-down {
+      height: 1.5rem;
+      line-height: 1.5rem;
+      padding-top: 0.5rem;
+    }
+  }
+}

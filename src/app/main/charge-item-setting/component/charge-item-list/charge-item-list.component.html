@@ -1,0 +1,115 @@
+<div class="charge-list">
+  <!------------------------------左侧------------------------------------------>
+  <div class="charge-left">
+    <div class="two-level">
+      <div class="two-level-title">
+        <div class="item-add" (click)="newadd()">
+          <span><i class="icon-xinzeng"></i></span>
+          <span>新增</span>
+        </div>
+        <div class="triangle-title">
+          <span><i class="icon-youjiantou"></i></span>
+          <span>标题一</span>
+        </div>
+      </div>
+      <div class="two-level-content">
+        <div class="two-level-item" (click)="cascade()" [ngClass]="{'add-background':blockedOut,'delete-background':!blockedOut}">
+          <div class="item-operation">
+        <span class="item-icon">
+          <span class="is-show">
+            <i class="icon-bianji"></i>
+            <i class="icon-shanchu"></i>
+          </span>
+          </span>
+          </div>
+          <div class="dot-content">
+            <span><i></i></span>
+            <span>中和</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--------------------------------右侧------------------------------------------------>
+    <div class="capital-flow-content-right">
+      <!--面包屑-->
+      <div class="crumbs">
+        <!--地址-->
+        <div class="capital-flow-settings"><i class="icon-dingwei"></i><span class="gps-span" (click)="jump()">类别明细</span><em class="icon-chakanxiangqing"></em><span>诊疗类</span><em class="icon-chakanxiangqing"></em><span>治疗药品类</span></div>
+        <!--新增-->
+        <div class="newly-increased">
+          <div (click)="diagnosis()">
+            <i class="icon-xinzeng"></i>
+            <span>诊疗类项目</span>
+          </div>
+          <div (click)='pharmaceuticals()'>
+            <i class="icon-xinzeng"></i>
+            <span>药品类项目</span>
+          </div>
+        </div>
+      </div>
+      <!--头部-->
+      <div class="capital-headers">
+        <div class="form-section">
+          <div class="form-element">
+            <div class="err-message" ></div>
+            <input class="input-text" placeholder="项目名/拼音码" style="border-color: #dbdbdb;box-shadow: none;outline: none !important;width:10rem;">
+          </div>
+          <button class='button4 button-search'>查询</button>
+          <div class="contact-news">
+            <div class="new-import">
+              <i class="icon iconfont icon-daoru"></i>
+              <span>导入</span>
+            </div>
+            <span> | </span>
+            <div class="new-export">
+              <i class="icon iconfont icon-daochu1"></i>
+              <span>导出</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--右表格-->
+        <div class="popup-content-box">
+          <div class="list-table">
+            <div class="list-table-head">
+              <div class="col6">
+                <label class="form-checkbox">
+                  <input type="checkbox"/>
+                    <span class="iconfont"></span><span></span>
+                  </label>
+              </div>
+              <div class="col3">项目名称/拼音码</div>
+              <div class="col50">价格</div>
+              <div class="col200">操作</div>
+            </div>
+            <div class="list-table-content single-line">
+              <div class="list-table-item">
+                <div class="col6">
+                  <label class="form-checkbox">
+                    <input type="checkbox"/>
+                    <span class="iconfont"></span><span></span>
+                  </label>
+                </div>
+                <div class="col3">
+                  <span>奇偶额覅</span>
+                  <span class="togging">拼音码：JIFJDF <em>|</em>单位：瓶</span>
+                </div>
+                <div class="col50"><span>￥20</span></div>
+                <div class="list-table-content-col-3 col200">
+                  <span>
+                    <i class="iconfont icon-xiangshang"></i>
+                    <span>|</span>
+                    <i class="iconfont icon-xiangxia"></i>
+                    <span>|</span>
+                    <i class="iconfont icon-shanchu"></i>
+                    <span>|</span>
+                    <i class="iconfont icon-xiugai"></i>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+</div>

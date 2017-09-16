@@ -1,0 +1,50 @@
+
+<!--<qiezzi-loading [attr.status]="dataLoading" class="loading6 purple" style="height:100%;"></qiezzi-loading>-->
+<div class="rechange-content" *ngIf="!isPaying">
+  <div class="rechange-buy">
+    <div class="choose-list">
+      <span>选择条数</span>
+      <div class="choose-list-num">
+        <div *ngFor="let item of sMSPackageList; let i = index;"
+             (click)="clickItem(item?.Num,item?.Money, i)"
+             [ngStyle] = "{ border:Indexs === i ?'1px solid #7a80fa' : ''}">
+          <span>{{item?.Num}}</span>
+          <span>条</span>
+        </div>
+      </div>
+    </div>
+    <div class="pay-num">
+      <span>支付金额</span>
+      <span style="color: #605bf5;">{{createRechargerRecordRequest.Money}}</span>
+      <span>元</span>
+    </div>
+  </div>
+  <div class="rechange-pay">
+    <div class="form-section">
+      <span>支付方式</span>
+      <div class="form-element">
+        <div class="form-radio-group">
+          <!--app241 支付宝   244 微信   web支付宝PC：242   支付宝移动：225  微信二维码：245-->
+          <label class="form-radio"><input type="radio" name="Sex" [(ngModel)]="paymethod" value="242"/>
+            <span class="iconfont"></span><i class="icon iconfont icon-zhifubao" style="color:#02A9F1;"></i><span>支付宝支付</span>
+          </label>
+          <label class="form-radio"><input type="radio" name="Sex" [(ngModel)]="paymethod" value="245"/>
+            <span class="iconfont"></span><i class="icon iconfont icon-weixin" style="color:#19AD19;"></i><span>微信支付</span>
+          </label>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+<div style="width: 100%;height: 100px;" *ngIf="isPaying && paymethod === 241">
+  支付宝
+</div>
+<div style="width: 100%;height: 100px;" *ngIf="isPaying && paymethod === 244">
+  <qr-code [value]="weichat || '橙奇'" [size]="150"></qr-code>
+</div>
+<div class="button-group button-group-right" >
+  <button class="button5" (click)="pay()">保存</button>
+  <button class="button4" (click)="cancel()">取消</button>
+</div>

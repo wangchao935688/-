@@ -1,0 +1,123 @@
+#myte-container{
+  width:49rem;
+  height:32rem;
+  border:1px solid #dbdbdb;
+  margin-left:1.5rem;
+}
+.myte-aside-menu{
+  width:11rem;
+  height:2.4rem;
+  line-height:2.4rem;
+  border-bottom:1px solid #d3d3d4;
+  border-right:1px solid #d3d3d4;
+  font-size:0.6rem;
+  span:first-of-type{
+    padding-left:1rem;
+    color:#333;
+  }
+  span:nth-of-type(2){
+    padding-left:5rem;
+    color:#7a80fa;
+    cursor: pointer;
+  }
+}
+.myte-aside{
+  width:11rem;
+  height:32rem;
+  float:left;
+}
+.myte-aside-list{
+  width:11rem;
+  height:2.1rem;
+  line-height:2.1rem;
+  color:#333;
+  font-size:0.6rem;
+}
+.myte-aside-list ul{
+  height:29.6rem;
+  border-right:1px solid #d3d3d4;
+  margin-top:0;
+}
+.myte-content{
+  float:right;
+  height:32rem;
+  width:37.8rem;
+}
+.myte-content-top{
+  width:37.9rem;
+  height:2.4rem;
+  line-height:2.4rem;
+  color:#333;
+  border-bottom:1px solid #d3d3d4;
+  padding-left:1rem;
+}
+.myte-content-input{
+  position: relative;
+  margin-top:0.7rem;
+  margin-left:1rem;
+  input{
+    width:11rem;
+    height:1.5rem;
+    border:1px solid #e6e7f3;
+    padding-left:0.2rem;
+  }
+  button:first-of-type{
+    margin-left:-4px;
+  }
+  button:nth-of-type(2){
+    position: absolute;
+    right:1rem;
+  }
+}
+.list-table-col-1:first-of-type{
+  width:20%;
+}
+.list-table-col-1:nth-of-type(2){
+  width:calc(100% - ( 20% * 2 ) );
+}
+.list-table-col-1:nth-of-type(3){
+  width:20%;
+  span{
+    display:inline-block;
+  }
+}
+#list-not>div{
+  color:#333;
+}
+.myte-content-bottom-co{
+  width:36rem;
+  height:25.5rem;
+  border:1px solid #e6e7f3;
+  margin-left:1rem;
+  margin-top:0.7rem;
+}
+.list-table-content{
+  border-left:none;
+  border-right:none;
+}
+.list-table-item:not(#list-not) .list-table-col-1{
+  color:#666;
+}
+.list-table-item:not(#list-not) .list-table-col-1:first-child{
+  line-height:3.6rem;
+}
+.list-table-item:not(#list-not) .list-table-col-1:last-child{
+  line-height:3.6rem;
+}
+.list-table-col-1 {
+  span {
+    color: #DBDBDB;
+    span {
+      padding: 0 .5rem;
+      color: #e4e6fe;
+    }
+  }
+  i {
+    font-size: .9rem;
+    color:#dbdbdb;
+  }
+  i:hover {
+    color: #7a80fa;
+    cursor: pointer;
+  }
+}

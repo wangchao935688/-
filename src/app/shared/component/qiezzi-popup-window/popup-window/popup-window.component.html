@@ -1,0 +1,12 @@
+<div class="popup-window" [ngClass]="{'popup-w480':w480,'popup-w680':w680,'popup-w860':w860}" #popupWindow>
+  <div class="popup-title">
+    <div class="popup-back" (click)="onBackClick()"><i class="fa fa-angle-left" aria-hidden="true"></i></div>
+    <div class="popup-name">{{popupWindowName}}</div>
+    <div class="popup-close" (click)="onCloseClick()"><i class="iconfont icon-jiaonangchahao"
+                                                         aria-hidden="true"></i></div>
+  </div>
+  <div class="popup-content" [ngStyle]="{height:contentHeight+'px'}">
+    <ng-template qiezziPopupWindow></ng-template>
+  </div>
+  <div class="popup-window-mask" [attr.status]="displayStatus"></div>
+</div>

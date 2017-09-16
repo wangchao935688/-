@@ -1,0 +1,157 @@
+.border-t {
+  border-top: 1px solid #dbdbdb;
+}
+
+.border-b {
+  border-bottom: 1px solid #dbdbdb;
+}
+
+.no-border-t {
+  border-top: none;
+}
+
+.no-border-b {
+  border-bottom: none;
+}
+
+app-qiezzi-right-header {
+  .right-header {
+    //width: 43rem;
+    margin: 0;
+    padding: 0 1.5rem;
+  }
+}
+
+.right-content {
+  //width: 43rem;
+  padding: 0 1.5rem;
+
+  .content-header-text {
+    font-size: 0.6rem;
+    line-height: 1rem;
+    color: #999;
+    height: 4.7rem;
+    padding: 0.6rem 0;
+
+    .money {
+      float: right;
+      .count {
+        font-size: 1rem;
+        color: #605bf5;
+      }
+    }
+    .top {
+      margin-top: 0.6rem;
+      margin-bottom: 0.5rem;
+      .countId {
+        position: relative;
+        margin-right: 1rem;
+      }
+      .countId::after {
+        position: absolute;
+        content: "";
+        height: 0.5rem;
+        position: absolute;
+        right: -0.5rem;
+        //top: 0.3rem;
+        top: 0;
+        display: block;
+        border: 1px solid #dddddd;
+      }
+    }
+    .bottom {
+      margin-top: 0.6rem;
+      margin-bottom: 0.5rem;
+      .input-stock-date {
+        position: relative;
+        margin-right: 1rem;
+
+      }
+      .input-stock-date::after {
+        position: absolute;
+        content: "";
+        height: 0.5rem;
+        position: absolute;
+        right: -0.5rem;
+        //top: 0.3rem;
+        top: 0;
+
+        display: block;
+        border: 1px solid #dddddd;
+      }
+    }
+  }
+  .table-list {
+    border: 1px solid #DBDBDB;
+
+    .table-list-col0 {
+      display: inline-block;
+      width: calc(100% - (16% * 5) - 15px);
+      //margin-left: 1rem;
+      padding: 0.9rem 0.5rem;
+    }
+    .table-list-col1, .table-list-col2, .table-list-col3, .table-list-col4, .table-list-col5 {
+      display: inline-block;
+      width: 16%;
+      padding: 0.9rem 0.5rem;
+    }
+    .table-list-col0, .table-list-col2, .table-list-col4 {
+      color: #333;
+    }
+    .table-list-col1, .table-list-col3, .table-list-col5 {
+      color: #666;
+    }
+
+    .table-list-header {
+      padding: 0 1rem;
+      height: 2.9rem;
+      div {
+        color: #333;
+
+      }
+
+    }
+    .table-list-content {
+      .table-list-item {
+        padding: 0 1rem;
+        border-bottom: 1px solid #DBDBDB;
+      }
+
+    }
+  }
+}
+
+//备注
+.remarks {
+  padding-bottom: 0.6rem;
+  .remarks-header {
+    margin-top: 1.1rem;
+    color: #333;
+    .icon {
+      font-size: 0.8rem;
+      margin-right: 0.3rem;
+    }
+    span {
+      font-size: 0.7rem;
+    }
+  }
+  .remarks-content {
+    margin-top: 0.6rem;
+    margin-bottom: 0.6rem;
+    font-size: 0.6rem;
+    color: #666;
+  }
+}
+
+.stock-footer {
+  text-align: right;
+  padding-top: 0.6rem;
+  color: #999;
+  font-size: 0.6rem;
+
+}
+
+
+.span-name{
+  margin-right: 1.5rem;
+}

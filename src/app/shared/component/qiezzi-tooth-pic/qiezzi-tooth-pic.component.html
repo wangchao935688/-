@@ -1,0 +1,423 @@
+<div class="popup-content-container">
+  <div class="popup-content-box">
+    <div class="process-tooth-pic">
+      <div class="toggle-button">
+        <div [ngClass]="{'toggle-selected':toothState}" (click)="selectToothState(true)">恒牙</div>
+        <div [ngClass]="{'toggle-selected':!toothState}" (click)="selectToothState(false)">乳牙</div>
+      </div>
+      <div class="process-tooth-pic-checkbox">
+        <div class="form-checkbox-group">
+          <label class="form-checkbox"><input type="checkbox" [(ngModel)]="isAll" name="noname" (click)="selectAll()"/>
+            <span class="iconfont"></span><span>全口</span>
+          </label>
+          <label class="form-checkbox"><input type="checkbox" [(ngModel)]="isUp" name="noname" (click)="selectUp()"/>
+            <span class="iconfont"></span><span>上颚</span>
+          </label>
+          <label class="form-checkbox"><input type="checkbox" [(ngModel)]="isDown" name="noname" (click)="selectDown()"/>
+            <span class="iconfont"></span>
+            <span>下颚</span>
+          </label>
+        </div>
+
+      </div>
+      <div class="process-tooth-pic-list">
+        <div class="process-tooth-pic-list-1">
+          <div *ngIf="toothState">
+            <div class="list-1-div" (click)="selectTooth(18)" [ngClass]="{'background-div': teeth.indexOf(18)>-1}">
+              <div class="tooth-left-up-8">
+              </div>
+              <div class="num" [ngClass]="{'background-num':  teeth.indexOf(18)>-1}">
+                8
+              </div>
+            </div>
+            <div class="list-1-div" (click)="selectTooth(17)" [ngClass]="{'background-div': teeth.indexOf(17)>-1}">
+              <div class="tooth-left-up-7">
+              </div>
+              <div class="num" [ngClass]="{'background-num':  teeth.indexOf(17)>-1}">
+                7
+              </div>
+            </div>
+            <div class="list-1-div" (click)="selectTooth(16)" [ngClass]="{'background-div': teeth.indexOf(16)>-1}">
+              <div class="tooth-left-up-6">
+              </div>
+              <div class="num" [ngClass]="{'background-num':  teeth.indexOf(16)>-1}">
+                6
+              </div>
+            </div>
+            <div class="list-1-div" (click)="selectTooth(15)" [ngClass]="{'background-div': teeth.indexOf(15)>-1}">
+              <div class="tooth-left-up-5">
+              </div>
+              <div class="num" [ngClass]="{'background-num':  teeth.indexOf(15)>-1}">
+                5
+              </div>
+            </div>
+            <div class="list-1-div" (click)="selectTooth(14)" [ngClass]="{'background-div': teeth.indexOf(14)>-1}">
+              <div class="tooth-left-up-4">
+              </div>
+              <div class="num" [ngClass]="{'background-num':  teeth.indexOf(14)>-1}">
+                4
+              </div>
+            </div>
+            <div class="list-1-div" (click)="selectTooth(13)" [ngClass]="{'background-div': teeth.indexOf(13)>-1}">
+              <div class="tooth-left-up-3">
+              </div>
+              <div class="num" [ngClass]="{'background-num':  teeth.indexOf(13)>-1}">
+                3
+              </div>
+            </div>
+            <div class="list-1-div" (click)="selectTooth(12)" [ngClass]="{'background-div': teeth.indexOf(12)>-1}">
+              <div class="tooth-left-up-2">
+              </div>
+              <div class="num" [ngClass]="{'background-num':  teeth.indexOf(12)>-1}">
+                2
+              </div>
+            </div>
+            <div class="list-1-div" (click)="selectTooth(11)" [ngClass]="{'background-div': teeth.indexOf(11)>-1}">
+              <div class="tooth-left-up-1">
+              </div>
+              <div class="num" [ngClass]="{'background-num':  teeth.indexOf(11)>-1}">
+                1
+              </div>
+            </div>
+          </div>
+          <div *ngIf="!toothState" class="fr" style="margin-right: .75rem">
+            <div class="list-1-div" (click)="selectTooth(55)" [ngClass]="{'background-div': teeth.indexOf(55)>-1}">
+              <div class="tooth-left-up-5">
+              </div>
+              <div class="num" [ngClass]="{'background-num':  teeth.indexOf(55)>-1}">
+                Ⅴ
+              </div>
+            </div>
+            <div class="list-1-div" (click)="selectTooth(54)" [ngClass]="{'background-div': teeth.indexOf(54)>-1}">
+              <div class="tooth-left-up-4">
+              </div>
+              <div class="num" [ngClass]="{'background-num':  teeth.indexOf(54)>-1}">
+                Ⅳ
+              </div>
+            </div>
+            <div class="list-1-div" (click)="selectTooth(53)" [ngClass]="{'background-div': teeth.indexOf(53)>-1}">
+              <div class="tooth-left-up-3">
+              </div>
+              <div class="num" [ngClass]="{'background-num':  teeth.indexOf(53)>-1}">
+                Ⅲ
+              </div>
+            </div>
+            <div class="list-1-div" (click)="selectTooth(52)" [ngClass]="{'background-div': teeth.indexOf(52)>-1}">
+              <div class="tooth-left-up-2">
+              </div>
+              <div class="num" [ngClass]="{'background-num':  teeth.indexOf(52)>-1}">
+                Ⅱ
+              </div>
+            </div>
+            <div class="list-1-div" (click)="selectTooth(51)" [ngClass]="{'background-div': teeth.indexOf(51)>-1}">
+              <div class="tooth-left-up-1">
+              </div>
+              <div class="num" [ngClass]="{'background-num':  teeth.indexOf(51)>-1}">
+                Ⅰ
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="process-tooth-pic-list-2">
+          <div *ngIf="toothState">
+            <div class="list-2-div" (click)="selectTooth(21)" [ngClass]="{'background-div': teeth.indexOf(21)>-1}">
+              <div class="tooth-right-up-1">
+              </div>
+              <div class="num" [ngClass]="{'background-num':  teeth.indexOf(21)>-1}">
+                1
+              </div>
+            </div>
+            <div class="list-2-div" (click)="selectTooth(22)" [ngClass]="{'background-div': teeth.indexOf(22)>-1}">
+              <div class="tooth-right-up-2">
+              </div>
+              <div class="num" [ngClass]="{'background-num':  teeth.indexOf(22)>-1}">
+                2
+              </div>
+            </div>
+            <div class="list-2-div" (click)="selectTooth(23)" [ngClass]="{'background-div': teeth.indexOf(23)>-1}">
+              <div class="tooth-right-up-3">
+              </div>
+              <div class="num" [ngClass]="{'background-num':  teeth.indexOf(23)>-1}">
+                3
+              </div>
+            </div>
+            <div class="list-2-div" (click)="selectTooth(24)" [ngClass]="{'background-div': teeth.indexOf(24)>-1}">
+              <div class="tooth-right-up-4">
+              </div>
+              <div class="num" [ngClass]="{'background-num':  teeth.indexOf(24)>-1}">
+                4
+              </div>
+            </div>
+            <div class="list-2-div" (click)="selectTooth(25)" [ngClass]="{'background-div': teeth.indexOf(25)>-1}">
+              <div class="tooth-right-up-5">
+              </div>
+              <div class="num" [ngClass]="{'background-num':  teeth.indexOf(25)>-1}">
+                5
+              </div>
+            </div>
+            <div class="list-2-div" (click)="selectTooth(26)" [ngClass]="{'background-div': teeth.indexOf(26)>-1}">
+              <div class="tooth-right-up-6">
+              </div>
+              <div class="num" [ngClass]="{'background-num':  teeth.indexOf(26)>-1}">
+                6
+              </div>
+            </div>
+            <div class="list-2-div" (click)="selectTooth(27)" [ngClass]="{'background-div': teeth.indexOf(27)>-1}">
+              <div class="tooth-right-up-7">
+              </div>
+              <div class="num" [ngClass]="{'background-num':  teeth.indexOf(27)>-1}">
+                7
+              </div>
+            </div>
+            <div class="list-2-div" (click)="selectTooth(28)" [ngClass]="{'background-div': teeth.indexOf(28)>-1}">
+              <div class="tooth-right-up-8">
+              </div>
+              <div class="num" [ngClass]="{'background-num':  teeth.indexOf(28)>-1}">
+                8
+              </div>
+            </div>
+          </div>
+          <div *ngIf="!toothState" class="fl" style="margin-left: .75rem">
+            <div class="list-2-div" (click)="selectTooth(61)" [ngClass]="{'background-div': teeth.indexOf(61)>-1}">
+              <div class="tooth-right-up-1">
+              </div>
+              <div class="num" [ngClass]="{'background-num':  teeth.indexOf(61)>-1}">
+                Ⅰ
+              </div>
+            </div>
+            <div class="list-2-div" (click)="selectTooth(62)" [ngClass]="{'background-div': teeth.indexOf(62)>-1}">
+              <div class="tooth-right-up-2">
+              </div>
+              <div class="num" [ngClass]="{'background-num':  teeth.indexOf(62)>-1}">
+                Ⅱ
+              </div>
+            </div>
+            <div class="list-2-div" (click)="selectTooth(63)" [ngClass]="{'background-div': teeth.indexOf(63)>-1}">
+              <div class="tooth-right-up-3">
+              </div>
+              <div class="num" [ngClass]="{'background-num':  teeth.indexOf(63)>-1}">
+                Ⅲ
+              </div>
+            </div>
+            <div class="list-2-div" (click)="selectTooth(64)" [ngClass]="{'background-div': teeth.indexOf(64)>-1}">
+              <div class="tooth-right-up-4">
+              </div>
+              <div class="num" [ngClass]="{'background-num':  teeth.indexOf(64)>-1}">
+                Ⅳ
+              </div>
+            </div>
+            <div class="list-2-div" (click)="selectTooth(65)" [ngClass]="{'background-div': teeth.indexOf(65)>-1}">
+              <div class="tooth-right-up-5">
+              </div>
+              <div class="num" [ngClass]="{'background-num':  teeth.indexOf(65)>-1}">
+                Ⅴ
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="process-tooth-pic-list-3">
+          <div *ngIf="toothState">
+            <div class="list-3-div" (click)="selectTooth(38)" [ngClass]="{'background-div': teeth.indexOf(38)>-1}">
+              <div class="tooth-left-down-8">
+              </div>
+              <div class="num" [ngClass]="{'background-num':  teeth.indexOf(38)>-1}">
+                8
+              </div>
+            </div>
+            <div class="list-3-div" (click)="selectTooth(37)" [ngClass]="{'background-div': teeth.indexOf(37)>-1}">
+              <div class="tooth-left-down-7">
+              </div>
+              <div class="num" [ngClass]="{'background-num':  teeth.indexOf(37)>-1}">
+                7
+              </div>
+            </div>
+            <div class="list-3-div" (click)="selectTooth(36)" [ngClass]="{'background-div': teeth.indexOf(36)>-1}">
+              <div class="tooth-left-down-6">
+              </div>
+              <div class="num" [ngClass]="{'background-num':  teeth.indexOf(36)>-1}">
+                6
+              </div>
+            </div>
+            <div class="list-3-div" (click)="selectTooth(35)" [ngClass]="{'background-div': teeth.indexOf(35)>-1}">
+              <div class="tooth-left-down-5">
+              </div>
+              <div class="num" [ngClass]="{'background-num':  teeth.indexOf(35)>-1}">
+                5
+              </div>
+            </div>
+            <div class="list-3-div" (click)="selectTooth(34)" [ngClass]="{'background-div': teeth.indexOf(34)>-1}">
+              <div class="tooth-left-down-4">
+              </div>
+              <div class="num" [ngClass]="{'background-num':  teeth.indexOf(34)>-1}">
+                4
+              </div>
+            </div>
+            <div class="list-3-div" (click)="selectTooth(33)" [ngClass]="{'background-div': teeth.indexOf(33)>-1}">
+              <div class="tooth-left-down-3">
+              </div>
+              <div class="num" [ngClass]="{'background-num':  teeth.indexOf(33)>-1}">
+                3
+              </div>
+            </div>
+            <div class="list-3-div" (click)="selectTooth(32)" [ngClass]="{'background-div': teeth.indexOf(32)>-1}">
+              <div class="tooth-left-down-2">
+              </div>
+              <div class="num" [ngClass]="{'background-num':  teeth.indexOf(32)>-1}">
+                2
+              </div>
+            </div>
+            <div class="list-3-div" (click)="selectTooth(31)" [ngClass]="{'background-div': teeth.indexOf(31)>-1}">
+              <div class="tooth-left-down-1">
+              </div>
+              <div class="num" [ngClass]="{'background-num':  teeth.indexOf(31)>-1}">
+                1
+              </div>
+            </div>
+          </div>
+          <div *ngIf="!toothState" class="fr" style="margin-right: .75rem">
+            <div class="list-3-div" (click)="selectTooth(75)" [ngClass]="{'background-div': teeth.indexOf(75)>-1}">
+              <div class="tooth-left-down-5">
+              </div>
+              <div class="num" [ngClass]="{'background-num':  teeth.indexOf(75)>-1}">
+                Ⅴ
+              </div>
+            </div>
+            <div class="list-3-div" (click)="selectTooth(74)" [ngClass]="{'background-div': teeth.indexOf(74)>-1}">
+              <div class="tooth-left-down-4">
+              </div>
+              <div class="num" [ngClass]="{'background-num':  teeth.indexOf(74)>-1}">
+                Ⅳ
+              </div>
+            </div>
+            <div class="list-3-div" (click)="selectTooth(73)" [ngClass]="{'background-div': teeth.indexOf(73)>-1}">
+              <div class="tooth-left-down-3">
+              </div>
+              <div class="num" [ngClass]="{'background-num':  teeth.indexOf(73)>-1}">
+                Ⅲ
+              </div>
+            </div>
+            <div class="list-3-div" (click)="selectTooth(72)" [ngClass]="{'background-div': teeth.indexOf(72)>-1}">
+              <div class="tooth-left-down-2">
+              </div>
+              <div class="num" [ngClass]="{'background-num':  teeth.indexOf(72)>-1}">
+                Ⅱ
+              </div>
+            </div>
+            <div class="list-3-div" (click)="selectTooth(71)" [ngClass]="{'background-div': teeth.indexOf(71)>-1}">
+              <div class="tooth-left-down-1">
+              </div>
+              <div class="num" [ngClass]="{'background-num':  teeth.indexOf(71)>-1}">
+                Ⅰ
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="process-tooth-pic-list-4">
+          <div *ngIf="toothState">
+            <div class="list-4-div" (click)="selectTooth(41)" [ngClass]="{'background-div': teeth.indexOf(41)>-1}">
+              <div class="tooth-right-down-1">
+              </div>
+              <div class="num" [ngClass]="{'background-num':  teeth.indexOf(41)>-1}">
+                1
+              </div>
+            </div>
+            <div class="list-4-div" (click)="selectTooth(42)" [ngClass]="{'background-div': teeth.indexOf(42)>-1}">
+              <div class="tooth-right-down-2">
+              </div>
+              <div class="num" [ngClass]="{'background-num':  teeth.indexOf(42)>-1}">
+                2
+              </div>
+            </div>
+            <div class="list-4-div" (click)="selectTooth(43)" [ngClass]="{'background-div': teeth.indexOf(43)>-1}">
+              <div class="tooth-right-down-3">
+              </div>
+              <div class="num" [ngClass]="{'background-num':  teeth.indexOf(43)>-1}">
+                3
+              </div>
+            </div>
+            <div class="list-4-div" (click)="selectTooth(44)" [ngClass]="{'background-div': teeth.indexOf(44)>-1}">
+              <div class="tooth-right-down-4">
+              </div>
+              <div class="num" [ngClass]="{'background-num':  teeth.indexOf(44)>-1}">
+                4
+              </div>
+            </div>
+            <div class="list-4-div" (click)="selectTooth(45)" [ngClass]="{'background-div': teeth.indexOf(45)>-1}">
+              <div class="tooth-right-down-5">
+              </div>
+              <div class="num" [ngClass]="{'background-num':  teeth.indexOf(45)>-1}">
+                5
+              </div>
+            </div>
+            <div class="list-4-div" (click)="selectTooth(46)" [ngClass]="{'background-div': teeth.indexOf(46)>-1}">
+              <div class="tooth-right-down-6">
+              </div>
+              <div class="num" [ngClass]="{'background-num':  teeth.indexOf(46)>-1}">
+                6
+              </div>
+            </div>
+            <div class="list-4-div" (click)="selectTooth(47)" [ngClass]="{'background-div': teeth.indexOf(47)>-1}">
+              <div class="tooth-right-down-7">
+              </div>
+              <div class="num" [ngClass]="{'background-num':  teeth.indexOf(47)>-1}">
+                7
+              </div>
+            </div>
+            <div class="list-4-div" (click)="selectTooth(48)" [ngClass]="{'background-div': teeth.indexOf(48)>-1}">
+              <div class="tooth-right-down-8">
+              </div>
+              <div class="num" [ngClass]="{'background-num':  teeth.indexOf(48)>-1}">
+                8
+              </div>
+            </div>
+          </div>
+          <div *ngIf="!toothState" class="fl" style="margin-left: .75rem">
+            <div class="list-4-div" (click)="selectTooth(81)" [ngClass]="{'background-div': teeth.indexOf(81)>-1}">
+              <div class="tooth-right-down-1">
+              </div>
+              <div class="num" [ngClass]="{'background-num':  teeth.indexOf(81)>-1}">
+                Ⅰ
+              </div>
+            </div>
+            <div class="list-4-div" (click)="selectTooth(82)" [ngClass]="{'background-div': teeth.indexOf(82)>-1}">
+              <div class="tooth-right-down-2">
+              </div>
+              <div class="num" [ngClass]="{'background-num':  teeth.indexOf(82)>-1}">
+                Ⅱ
+              </div>
+            </div>
+            <div class="list-4-div" (click)="selectTooth(83)" [ngClass]="{'background-div': teeth.indexOf(83)>-1}">
+              <div class="tooth-right-down-3">
+              </div>
+              <div class="num" [ngClass]="{'background-num':  teeth.indexOf(83)>-1}">
+                Ⅲ
+              </div>
+            </div>
+            <div class="list-4-div" (click)="selectTooth(84)" [ngClass]="{'background-div': teeth.indexOf(84)>-1}">
+              <div class="tooth-right-down-4">
+              </div>
+              <div class="num" [ngClass]="{'background-num':  teeth.indexOf(84)>-1}">
+                Ⅳ
+              </div>
+            </div>
+            <div class="list-4-div" (click)="selectTooth(85)" [ngClass]="{'background-div': teeth.indexOf(85)>-1}">
+              <div class="tooth-right-down-5">
+              </div>
+              <div class="num" [ngClass]="{'background-num':  teeth.indexOf(85)>-1}">
+                Ⅴ
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+</div>
+
+
+<div class="button-group button-group-right">
+  <button class="button5" (click)="ok()">保存</button>
+  <button class="button4" (click)="close()">取消</button>
+</div>

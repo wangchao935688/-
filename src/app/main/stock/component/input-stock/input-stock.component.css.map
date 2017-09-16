@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAQI,2CAAgB;EACd,KAAK,EAAC,SAAS",
+"sources": ["input-stock.component.scss"],
+"names": [],
+"file": "input-stock.component.css"
+}

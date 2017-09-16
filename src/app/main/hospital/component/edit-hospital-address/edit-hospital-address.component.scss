@@ -1,0 +1,36 @@
+//诊所地址
+.address{
+
+  .address-select{
+
+
+    qiezzi-drop-down-list{
+      //width: 30%;
+      width: 29%;
+      display: inline-block;
+    }
+    //省
+    .province{
+      //margin-right: 5%;
+      margin-right: 6%;
+    }
+    //市
+    .city{
+      margin-right: 5%;
+    }
+    //区
+    .area{
+
+    }
+  }
+
+  //具体地址
+  .address-info{
+    width: 100%;
+    margin-top: 1rem;
+
+    input{
+      width: 100%;
+    }
+  }
+}

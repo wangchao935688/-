@@ -1,0 +1,69 @@
+<div [attr.status]="displayStatus" class="right-slider-container large">
+  <router-outlet></router-outlet>
+</div>
+<div id="app-center-container">
+  <div id="app-center-content">
+    <app-qiezzi-center-header [showSearch]="false"
+                              [showFilter]="false"
+                              [showOptions]="true"
+                              [showAdd]="false"
+                              [moduleName]="moduleName"
+                              [controlList]="['添加']"
+                              (onOptions)="typelist()"
+    ></app-qiezzi-center-header>
+    <qiezzi-loading [attr.status]="dataLoading" class="loading6 purple transparent"
+                    style="padding-top: 15rem"></qiezzi-loading>
+    <div id="appCenterContent" [style.border-top]="isBorder?'1px solid #DBDBDB':''"
+         class="app-center-content" malihu-scrollbar [scrollbarOptions]="scrollbarOptions">
+      <div class="tab-ctrl">
+        <app-qiezzi-tab-control class="tab-ctrl-head" style="padding-left: 2rem!important;border-bottom: solid 1px #DBDBDB  " [tabData]="tabData.data"
+                                [defaultSelectedIndex]="tabData.defaultIndex"
+                                (onTabIndexChange)="changeTab($event)"></app-qiezzi-tab-control>
+        <div class="tab-ctrl-content" style="position: relative; min-height: 400px;">
+          <div class="row" style="margin: 1.5rem 2rem 1rem">
+            <button class="button3"  style="float: left;" (click)="getCurrWeek()">本周</button>
+            <div class="step-buttons" style="float: left; margin-left: 1rem;">
+              <button class="left-button" (click)="getCurrWeek()"></button>
+              <button class="right-button" (click)="getCurrWeek()"></button>
+            </div>
+            <input type="text" style=" margin-left: 1rem;width:auto;" class="input-text"
+            [(ngModel)]="getAllShiftListRequest.beginTime">
+          </div>
+          <div class="button-group button-group-left button-group-set">
+            <button class="button4" *ngFor="let typeItem of getShiftTypeListResponse; let i = index;"
+                    (click)="setShiftType(typeItem.ID)">{{typeItem.Name}}</button>
+          </div>
+          <div class="list-table" *ngIf="getAllShiftListResponse && getAllShiftListResponse.length>0">
+            <div class="list-table-head">
+              <div class="head-item">
+                <span>员工姓名</span>
+              </div>
+              <div class="head-item" *ngFor="let item of dateList; let i = index;">
+                <div class="contain">
+                  <span class="week">{{weekList[ i%7 ]}}</span>
+                  <span class="date">{{item | date: 'MM-dd'}}</span>
+                </div>
+              </div>
+            </div>
+            <div class="list-table-content">
+              <div class="list-table-item" *ngFor="let item of getAllShiftListResponse;let i = index">
+                <div class="content-item"><span>{{item?.WorkerName}}</span></div>
+                <div class="content-item" *ngFor="let key of item.ShiftList;">
+                  <div *ngIf="key.TypeModel && key.TypeModel.Name"
+                       class="shift-name"
+                       [ngStyle]="{color: key.TypeModel && key.TypeModel.Color}"
+                       (click)="makeShift(key.Date,key.ID)">
+                    {{key.TypeModel ? key.TypeModel.Name : ''}}
+                    <span class="icon iconfont icon-guanbi-chahao delIcon" (click)="delShiftItem($event,key.ID)"></span>
+                  </div>
+                </div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

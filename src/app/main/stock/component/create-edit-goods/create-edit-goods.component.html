@@ -1,0 +1,160 @@
+<div class="popup-content-container" malihu-scrollbar [scrollbarOptions]="scrollbarOptions">
+  <div class="popup-content-box">
+    <div class="create-process">
+      <div class="create-process-form">
+        <form class="validate-form"  [formGroup]="formGroup">
+
+            <div class="form-section w100">
+              <div class="form-title"><span class="red-point"><i></i></span>物品名称</div>
+              <div class="form-element">
+                <div class="err-message" [attr.error]="formErrors['GoodsName']">{{formErrors['GoodsName']}}</div>
+                <input class="input-goods-name" formControlName="WorkerName" placeholder=""  (blur)="onInputElementBlur('GoodsName')">
+              </div>
+            </div>
+
+            <div class="form-section fr w50">
+              <div class="form-title">拼音码</div>
+              <div class="form-element">
+                <div class="err-message" [attr.error]="formErrors['PhoneticCode']">{{formErrors['PhoneticCode']}}</div>
+                <input class="input-text" formControlName="PhoneticCode" placeholder="" (blur)="onInputElementBlur('PhoneticCode')">
+              </div>
+            </div>
+            <div class="form-section w50">
+              <div class="form-title"><span class="red-point"><i></i></span>物品类别</div>
+              <div class="form-element">
+                <div class="err-message" [attr.error]="formErrors['GoodsType']">{{formErrors['GoodsType']}}</div>
+                <input class="input-text" formControlName="GoodsType" placeholder="" (blur)="onInputElementBlur('GoodsType')">
+              </div>
+            </div>
+
+            <div class="form-section fr w50">
+              <div class="form-title">型号</div>
+              <div class="form-element">
+                <div class="err-message" [attr.error]="formErrors['CateNum']">{{formErrors['CateNum']}}</div>
+                <input class="input-text" formControlName="CateNum" placeholder="" (blur)="onInputElementBlur('CateNum')">
+              </div>
+            </div>
+            <div class="form-section w50">
+              <div class="form-title">规格</div>
+              <div class="form-element">
+                <div class="err-message" [attr.error]="formErrors['Specifications']">{{formErrors['Specifications']}}</div>
+                <input class="input-text" formControlName="Specifications" placeholder="" (blur)="onInputElementBlur('Specifications')">
+              </div>
+            </div>
+
+            <div class="form-section fr w50">
+              <div class="form-title">单位</div>
+              <div class="form-element">
+                <div class="err-message" [attr.error]="formErrors['Unit']">{{formErrors['Unit']}}</div>
+                <input class="input-text" formControlName="Unit" placeholder="" (blur)="onInputElementBlur('Unit')">
+              </div>
+            </div>
+            <div class="form-section w50">
+              <div class="form-title">品牌</div>
+              <div class="form-element">
+                <div class="err-message" [attr.error]="formErrors['Brand']">{{formErrors['Brand']}}</div>
+                <input class="input-text" formControlName="Brand" placeholder="" (blur)="onInputElementBlur('Brand')">
+              </div>
+            </div>
+
+            <div class="form-section w100">
+              <div class="form-title">管理启用</div>
+              <div class="form-element">
+                <!--<div class="err-message" ></div>
+                <input class="input-text" placeholder=""  >-->
+                <div class="toggle-button">
+                  <div [ngClass]="{'toggle-selected':MgtSwitch}" (click)="selectState(1,true)">开</div>
+                  <div [ngClass]="{'toggle-selected':!MgtSwitch}" (click)="selectState(1,false)">关</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-section w100">
+              <div class="form-title">备注</div>
+              <div class="form-element">
+                <div class="err-message" [attr.error]="formErrors['Note']">{{formErrors['Note']}}</div>
+                <input class="input-text" formControlName="Note" placeholder=""   (blur)="onInputElementBlur('Note')">
+              </div>
+            </div>
+
+
+            <div class="form-section fr w50">
+              <div class="form-title">出库价</div>
+              <div class="form-element">
+                <div class="err-message" [attr.error]="formErrors['Price']">{{formErrors['Price']}}</div>
+                <input class="input-text" formControlName="Price" placeholder=""  (blur)="onInputElementBlur('Price')">
+              </div>
+            </div>
+            <div class="form-section w50">
+              <div class="form-title">入库价</div>
+              <div class="form-element">
+                <div class="err-message" [attr.error]="formErrors['InPrice']">{{formErrors['InPrice']}}</div>
+                <input class="input-text" formControlName="InPrice" placeholder=""  (blur)="onInputElementBlur('InPrice')">
+              </div>
+            </div>
+
+            <div class="form-section fr w50">
+              <div class="form-title">期初成本</div>
+              <div class="form-element">
+                <div class="err-message" [attr.error]="formErrors['InitCost']">{{formErrors['InitCost']}}</div>
+                <input class="input-text" formControlName="InitCost" placeholder=""  (blur)="onInputElementBlur('InitCost')">
+              </div>
+            </div>
+            <div class="form-section w50">
+              <div class="form-title">期初数量</div>
+              <div class="form-element">
+                <div class="err-message" [attr.error]="formErrors['InitNum']">{{formErrors['InitNum']}}</div>
+                <input class="input-text" formControlName="InitNum" placeholder=""  (blur)="onInputElementBlur('InitNum')">
+              </div>
+            </div>
+
+
+            <div class="form-section w100">
+              <div class="form-title">最低库存</div>
+              <div class="form-element">
+                <div class="err-message" [attr.error]="formErrors['AlarmBase']">{{formErrors['AlarmBase']}}</div>
+                <input class="input-text" formControlName="AlarmBase" placeholder=""   (blur)="onInputElementBlur('AlarmBase')">
+              </div>
+            </div>
+
+
+            <div class="form-section w100">
+              <div class="form-title">保质期/批号</div>
+              <div class="form-element">
+                <!--<div class="err-message" ></div>
+                <input class="input-text" placeholder=""  >-->
+                <div class="toggle-button">
+                  <div [ngClass]="{'toggle-selected':BatchSwitch}" (click)="selectState(2,true)">开</div>
+                  <div [ngClass]="{'toggle-selected':!BatchSwitch}" (click)="selectState(2,false)">关</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-section fr w50">
+              <div class="form-title"><span class="red-point"><i></i></span>报警天数</div>
+              <div class="form-element">
+                <div class="err-message" [attr.error]="formErrors['BatchAlarmDayNum']">{{formErrors['BatchAlarmDayNum']}}</div>
+                <input class="input-text" formControlName="BatchAlarmDayNum" placeholder=""  (blur)="onInputElementBlur('BatchAlarmDayNum')">
+              </div>
+            </div>
+            <div class="form-section w50">
+              <div class="form-title"><span class="red-point"><i></i></span>保质期(天)</div>
+              <div class="form-element">
+                <div class="err-message" [attr.error]="formErrors['BatchExpireDayNum']">{{formErrors['BatchExpireDayNum']}}</div>
+                <input class="input-text" formControlName="BatchExpireDayNum" placeholder=""  (blur)="onInputElementBlur('BatchExpireDayNum')">
+              </div>
+            </div>
+
+
+
+
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+<div class="button-group button-group-right">
+  <button class="button5" [disabled]="!formGroup.valid || isProcessing" (click)="save()">保存</button>
+  <button class="button4" (click)="cancel()">取消</button>
+</div>

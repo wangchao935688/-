@@ -1,0 +1,46 @@
+<div>
+  <!--新增就诊事项开始-->
+  <form class="validate-form">
+    <div class="form-section">
+      <div class="form-title"><span class="red-point"><i></i></span>名称</div>
+      <div class="form-element">
+        <div class="err-message"></div>
+        <div class="form-input"><input class="input-text" placeholder="请输入名称"></div>
+      </div>
+    </div>
+    <div class="form-section">
+      <div class="form-title"><span class="red-point"><i></i></span>颜色</div>
+      <div class="form-element colorList">
+        <div class="err-message"></div>
+        <div (click)="showColorList()"class="form-input">
+          <app-icon-input [marginRight]="'4px'" [iconList]="[{icon: 'tianjia', color: '#7A80FA'}]"></app-icon-input>
+        </div>
+        <div class="more-ctrl-list" *ngIf="IsCtrl">
+          <div class="right-ctrl-more">
+            <div class="right-more-item"
+                 *ngFor="let ctrlItem of controlList; let i = index"
+                 (click)="moreItemClick($event,i)"
+                 [ngClass]="{hover: selectedColorIndex === i}">
+              <div class="inner-circle" [ngStyle]="{background: ctrlItem}">
+              </div>
+            </div>
+          </div>
+          <div class="right-ctrl-arrow"></div>
+        </div>
+      </div>
+    </div>
+    <div class="form-section">
+      <div class="form-title"><span class="red-point"><i></i></span>时长</div>
+      <div class="form-element">
+        <div class="err-message"></div>
+        <div class="form-input"><input class="input-text " placeholder="请输入时长"></div>
+      </div>
+    </div>
+  </form>
+  <!--新增就诊事项结束-->
+  <div class="button-group button-group-right">
+    <button class="button5" (click)="accountTransfer()">保存</button>
+    <button class="button4" (click)="cancel()">取消</button>
+  </div>
+</div>
+

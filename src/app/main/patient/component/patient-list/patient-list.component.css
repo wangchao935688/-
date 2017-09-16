@@ -1,0 +1,93 @@
+p {
+  margin: 0;
+}
+
+.list-table-head {
+  border: 1px solid #ccc;
+}
+
+.list-table-center {
+  height: 4.2rem;
+  line-height: 4.2rem;
+  padding: 1.25rem 1.5rem;
+  width: 100%;
+  border-top: 1px solid #e6e7f3;
+}
+
+.list-table-center-state {
+  font-size: 12px;
+  color: #333333;
+  width: 1.2rem;
+  height: 0.8rem;
+  line-height: 0.8rem;
+  display: block;
+  float: left;
+  margin-top: 0.3rem;
+}
+
+.drop-down-select {
+  width: 6rem;
+  height: 1.6rem;
+  line-height: 1.6rem;
+  float: left;
+  margin-left: 1rem;
+}
+
+.list-table-center-left {
+  width: 10rem;
+  height: 1.6rem;
+  line-height: 1.6rem;
+  float: left;
+}
+
+.list-table-center-right {
+  height: 1.6rem;
+  line-height: 1.6rem;
+  float: right;
+  font-size: .6rem;
+}
+
+.list-table-center-right span:nth-child(2) {
+  font-size: 0.4rem;
+}
+
+.list-table-center-total {
+  height: 0.8rem;
+  line-height: 0.8rem;
+  font-size: 12px;
+  color: #999999;
+  margin-top: 0.3rem;
+}
+
+.list-table-center-more {
+  height: 0.8rem;
+  line-height: 0.8rem;
+  width: 0.8rem;
+  float: right;
+  color: #7A80FA;
+  display: block;
+  margin-left: 0.6rem;
+  margin-top: 0.4rem;
+}
+
+.list-table-col1 {
+  width: 10%;
+  float: left;
+}
+
+.list-table-col2 {
+  width: 20%;
+  float: left;
+}
+
+.list-table-col4 {
+  width: 12%;
+  float: left;
+}
+
+.list-table-col0 {
+  width: calc(100% - 10% - (20% * 2) - (12% * 2));
+  float: left;
+}
+
+/*# sourceMappingURL=patient-list.component.css.map */

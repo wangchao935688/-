@@ -1,0 +1,36 @@
+
+<!--消毒设置-->
+<div [attr.status]="displayStatus" class="right-slider-container">
+  <router-outlet></router-outlet>
+</div>
+<div id="app-center-container">
+  <qiezzi-loading [attr.status]="mainShowLoading" class="loading6 purple" style="height:100%;"></qiezzi-loading>
+  <app-qiezzi-center-header [showSearch]="false"
+                            [showFilter]="false"
+                            [moduleName]="'消毒管理'"
+                            [controlList]="['新增']"
+                            [searchPlaceholder]="false"
+                            [showAdd]="true"
+                            [showOptions]="true"
+  ></app-qiezzi-center-header>
+  <div id="app-center-content">
+    <div malihu-scrollbar [scrollbarOptions]="scrollbarOptions">
+      <div class="search-bar">
+      </div>
+      <div class="disinfection-content">
+        <span class="disinfection-settings"><i class="icon-dingwei"></i><span class="gps-span" (click)="jump()">消毒管理</span> <em class="icon-chakanxiangqing"></em> 消毒设置</span>
+        <div class="content-header">
+          <div class="tab-ctrl tab-ctrl1">
+            <app-qiezzi-tab-control class="tab-ctrl-head" [tabData]="tabData.data"
+                                    [defaultSelectedIndex]="tabData.defaultIndex"
+                                    (onTabIndexChange)="changeTab($event)"></app-qiezzi-tab-control>
+            <common-theme></common-theme>
+          </div>
+          <div class="button-group button-group-right">
+            <button class="button5" (click)="onControlClick($event)">新增常用主题</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

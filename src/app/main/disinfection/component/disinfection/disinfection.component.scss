@@ -1,0 +1,44 @@
+.disinfection-details{
+  padding:0 1.5rem;
+  h3{
+    padding-top:.5rem;
+    font-size:.7rem;
+    color:#333;
+  }
+}
+/*内容*/
+.information{
+  border-bottom:1px solid #DBDBDB;
+  .infomation-info{
+    display:flex;
+    div{
+      padding-bottom:1rem;
+      font-size:12px;
+    }
+    .infomation-left{
+      text-align:right;
+      color:#666;
+      padding-right:1rem;
+      width:4rem;
+    }
+    .infomation-right{
+      color:#333;
+      .theme{
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow:hidden;
+        width:10rem;
+      }
+    }
+  }
+}
+/*备注*/
+.remarks{
+  p{
+    color:#666;
+    width:15rem;
+    text-overflow:ellipsis;
+    overflow:hidden;
+    white-space: nowrap;
+  }
+}

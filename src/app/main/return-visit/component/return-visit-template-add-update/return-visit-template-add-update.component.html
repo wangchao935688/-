@@ -1,0 +1,24 @@
+<div class="popup-content-container" malihu-scrollbar [scrollbarOptions]="scrollbarOptions">
+  <div class="popup-content-box">
+    <form class="validate-form">
+    <div class="form-section">
+      <div class="form-title "><span class="red-point"><i></i></span>名称</div>
+      <div class="form-element ">
+        <div class="err-message"[attr.error]="formErrors['Money']">{{formErrors['Money']}}</div>
+        <input class="input-text" placeholder="'请输入名称'" formControlName="Money" (blur)="onInputElementBlur('Money')">
+      </div>
+    </div>
+    <div class="form-section">
+      <div class="form-title "><span class="red-point"><i></i></span>内容</div>
+      <div class="form-element ">
+        <div class="err-message" [attr.error]="formErrors['Money']">{{formErrors['Money']}}</div>
+        <textarea [placeholder]="'请输入内容'" formControlName="Money" (blur)="onInputElementBlur('Money')"></textarea>
+      </div>
+    </div>
+  </form>
+  </div>
+</div>
+<div class="button-group button-group-right">
+  <button class="button5" (click)="accountTransfer()">保存</button>
+  <button class="button4" (click)="cancel()">取消</button>
+</div>

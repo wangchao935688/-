@@ -1,0 +1,128 @@
+<!--侧滑留坑-->
+<div [attr.status]="displayStatus" class="right-slider-container">
+  <router-outlet></router-outlet>
+</div>
+
+
+<div id="app-center-container">
+  <div class="app-center-header">
+    <!--顶部头-->
+    <app-qiezzi-center-header [moduleName]="'诊所信息'" [showSearch]="false"
+                              [showFilter]="false"
+                              [showOptions]="false"
+                              [showAdd]="false"
+                              [controlList]="['添加']"
+                              (onOptions)="onOptions($event)"
+                              (onControl)="onControlClick($event)"></app-qiezzi-center-header>
+  </div>
+  <!--诊所信息主体-->
+  <div id="app-center-content">
+    <div id="appCenterContent" [style.border-top]="isBorder?'1px solid #DBDBDB':''"
+         class="app-center-content" malihu-scrollbar [scrollbarOptions]="scrollbarOptions">
+      <div class="list-table">
+        <div class="list-table-head">
+          <div class="list-table-item-left">
+            诊所LOGO
+          </div>
+          <div class="list-table-item-right">
+
+          </div>
+        </div>
+
+        <div class="list-table-content">
+          <div class="list-table-item">
+            <div class="list-table-item-left">
+              诊所名称
+            </div>
+            <div class="list-table-item-right">
+              北京一合口腔诊所
+            </div>
+            <div class="list-table-item-edit">
+              <i class="icon iconfont icon-xiugai" (click)="demo_input_pop($event,'设置诊所名称','诊所名称')"></i>
+            </div>
+          </div>
+          <div class="list-table-item">
+            <div class="list-table-item-left">
+              介绍
+            </div>
+            <div class="list-table-item-right">
+              这里是口腔诊所介绍信息
+            </div>
+            <div class="list-table-item-edit">
+              <i class="icon iconfont icon-xiugai" (click)="openTextInput($event,'诊所介绍')"></i>
+            </div>
+          </div>
+          <div class="list-table-item">
+            <div class="list-table-item-left">
+              认证情况
+            </div>
+            <div class="list-table-item-right autherticate-info">
+              <span class="autherticate-result">未认证</span><span class="autherticate-tips">(认证后每天赠送50条短信)</span>
+            </div>
+            <div class="list-table-item-edit" (click)="toAutherticate()">
+              <span class="autherticate-btn">认证</span>
+            </div>
+          </div>
+          <div class="list-table-item">
+            <div class="list-table-item-left">
+              诊所地址
+            </div>
+            <div class="list-table-item-right">
+              北京市海淀区学院路12号
+            </div>
+            <div class="list-table-item-edit">
+              <i class="icon iconfont icon-xiugai" (click)="editAddress()"></i>
+            </div>
+          </div>
+          <div class="list-table-item">
+            <div class="list-table-item-left">
+              联系人
+            </div>
+            <div class="list-table-item-right">
+              李宝宝
+            </div>
+            <div class="list-table-item-edit">
+              <i class="icon iconfont icon-xiugai" (click)="demo_input_pop($event,'设置联系人','姓名')"></i>
+            </div>
+          </div>
+          <div class="list-table-item">
+            <div class="list-table-item-left">
+              联系人手机
+            </div>
+            <div class="list-table-item-right">
+              13525699854
+            </div>
+            <div class="list-table-item-edit">
+              <i class="icon iconfont icon-xiugai" (click)="demo_input_pop($event,'设置联系人电话','电话')"></i>
+            </div>
+          </div>
+          <div class="list-table-item">
+            <div class="list-table-item-left">
+              邮箱
+            </div>
+            <div class="list-table-item-right">
+              --libaobao@qq.com
+            </div>
+            <div class="list-table-item-edit">
+              <i class="icon iconfont icon-xiugai" (click)="demo_input_pop($event,'设置邮箱','邮箱')"></i>
+            </div>
+          </div>
+          <div class="list-table-item">
+            <div class="list-table-item-left">
+              预约电话
+            </div>
+            <div class="list-table-item-right">
+              --
+            </div>
+            <div class="list-table-item-edit">
+              <i class="icon iconfont icon-xiugai" (click)="editBookingPhone()"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+
+</div>

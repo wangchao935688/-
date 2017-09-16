@@ -1,0 +1,71 @@
+<div id="app-center-container ">
+  <div id="app-center-content">
+    <app-qiezzi-center-header [showSearch]="false"
+                              [showFilter]="false"
+                              [showAdd]="false"
+                              [showOptions]="false"
+                              [moduleName]="moduleName"
+                              [searchPlaceholder]="'患者/单号'"
+                              [controlList]="['新增']"
+                              (onControl)="onControlClick($event)"
+    ></app-qiezzi-center-header>
+    <!--<div id="appCenterContent" style="border-top: 1px solid #DBDBDB; display:block;"
+         class="app-center-content" malihu-scrollbar
+         [scrollbarOptions]="scrollbarOptions">-->
+      <!-- 面包屑导航 -->
+      <div style="padding:0.5rem 2rem;line-height: 2.4rem;width: 100%; font-size: .6rem; color: #333;">
+        <span style="margin-right: .2rem;cursor:pointer;"  (click)="jump()">患者管理</span>
+        <span class="icon iconfont icon-jinru" style="margin-right: .5rem;"></span>
+        <span>设置</span>
+      </div>
+
+      <div class="tab-ctrl tab-ctrl1">
+        <app-qiezzi-tab-control class="tab-ctrl-head" style="margin: 0 2rem;" [tabData]="tabData.data"
+                                [defaultSelectedIndex]="tabData.defaultIndex"
+                                (onTabIndexChange)="tabData.changeTab($event)"></app-qiezzi-tab-control>
+        <div class="tab-ctrl-content">
+          <div class="list-table single-line">
+            <div class="list-table-search">
+              <div class="list-table-search-div-1">
+
+              </div>
+              <div class="list-table-search-div-2">
+                <button class="button4" (click)="add()">{{buttonName}}</button>
+              </div>
+            </div>
+            <div class="list-table-head"
+                 *ngIf=" contentList && contentList.length>0">
+              <span class="list-table-header-col-1">名称</span>
+              <span class="list-table-header-col-2">操作</span>
+            </div>
+            <qiezzi-loading [attr.status]="mainShowLoading" class="loading6 purple transparent top"></qiezzi-loading>
+            <div class="list-table-content" *ngIf="contentList && contentList.length>0">
+              <div class="list-table-item no-hover" *ngFor="let item of contentList">
+                <div class="list-table-content-col-1"><span>{{item.Value}}</span></div>
+                <div class="list-table-content-col-2">
+                  <span>
+                    <i class="iconfont icon-xiangshang" (click)="up(item.Key)"></i>
+                    <span>|</span>
+                    <i class="iconfont icon-xiangxia" (click)="down(item.Key)"></i>
+                    <span>|</span>
+                    <!--<i class="iconfont icon-zhiding" (click)="top()"></i>
+                    <span>|</span>
+                    <i class="iconfont icon-zhidi" (click)="bottom()"></i>
+                    <span>|</span>-->
+                    <i class="iconfont icon-xiugai" (click)="update(item.Key,item.Value)"></i>
+                    <span>|</span>
+                    <i class="iconfont icon-shanchu" (click)="delete(item.Key)"></i>
+                  </span>
+                </div>
+                <br clear="left">
+              </div>
+              <div class="data-empty">
+                <app-data-empty [showEmpty]="!(contentList && contentList.length>0)"></app-data-empty>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <!--</div>-->
+  </div>
+</div>

@@ -1,0 +1,112 @@
+<!--侧滑出口-->
+<div [attr.status]="displayStatus" class="right-slider-container">
+  <router-outlet></router-outlet>
+</div>
+<div id="app-center-container">
+  <div id="app-center-content">
+    <!-- 页头 -->
+    <app-qiezzi-center-header [showSearch]="false"
+                              [showFilter]="false"
+                              [showAdd]="true"
+                              [showOptions]="false"
+                              [moduleName]="'充值查询'"
+                              [controlList]="['新增']"
+                              (onControl)="onControl($event)"
+    ></app-qiezzi-center-header>
+    <qiezzi-loading
+      [attr.status]="dataLoading" class="loading6 purple transparent" style="margin-top: 15rem">
+    </qiezzi-loading>
+    <div class="app-center-content"
+         malihu-scrollbar [scrollbarOptions]="scrollbarOptions">
+      <div class="search-bar">
+        <div class="list-table">
+          <div class="search-bar">
+            <div class="search-left" style="margin-bottom: 1rem;">
+              <!--<app-icon-input [placeholder]="'输入患者姓名'" style="width:10rem;"></app-icon-input>-->
+              <qiezzi-drop-down-list class="drop-down-select"
+                                     [placeholder]="'后台缺少字段'"
+                                     [required]="false"
+                                     [selectIndex]="0"
+                                     (onChange)='onChange($event)'
+                                     [dataList]="[{value: 1, label: '已支付'}, {value: 2, label: '未支付'}]"
+                                     style="width:6rem;float:left;margin-left:1rem;">
+              </qiezzi-drop-down-list>
+              <qiezzi-double-date (onSelectLeft)="selectLeft($event)"
+                                  (onSelectRight)="selectRight($event)"
+                                  style="float:left;background:#fff;margin-left: .5rem;"></qiezzi-double-date>
+              <button class="button4" (click)="searchProcessList()">查询</button>
+            </div>
+          </div>
+          <div class="total">
+            <span>当前剩余<i>200条</i></span>
+            <span>共花费<i>￥200</i></span>
+          </div>
+          <div class="list-table">
+            <div class="list-table-head">
+              <div class="list-table-col-1">
+                <span>订单号</span>
+              </div>
+              <div class="list-table-col-1">
+                <span>条数</span>
+              </div>
+              <div class="list-table-col-1">
+                <span>支付方式</span>
+              </div>
+              <div class="list-table-col-1">
+                <span>金额</span>
+              </div>
+              <div class="list-table-col-1">
+                <span>购买时间</span>
+              </div>
+              <div class="list-table-col-1">
+                <span>订单状态</span>
+              </div>
+              <div class="list-table-col-1">
+                <span>操作</span>
+              </div>
+            </div>
+
+            <div class="list-table-content single-line">
+              <div class="list-table-item"
+                   *ngFor="let item of getRechargerListResponse?.Items; let i = index;">
+                <div class="list-table-col-1">
+                  <span>{{item.RechargerCode}}</span>
+                </div>
+                <div class="list-table-col-1">
+                  <span>{{item.RechargerSMSNum}}</span>
+                </div>
+                <div class="list-table-col-1">
+                  <span>{{item.Paymethod === '1' ? '支付宝' : '微信'}}</span>
+                </div>
+                <div class="list-table-col-1">
+                  <span>{{item.RechargerBalance | qiezziMoeny:true}}</span>
+                </div>
+                <div class="list-table-col-1">
+                  <span>{{item.CreateTime | date : 'yyyy-MM-dd'}}</span>
+                  <span>{{item.CreateTime | date : 'hh:mm'}}</span>
+                </div>
+                <div class="list-table-col-1">
+                  <span>{{item.Status === 0 ? '未支付' : '已支付'}}</span>
+                </div>
+                <div class="list-table-col-1" (click)="buySmsbag()">
+                  <span class="pay" [ngStyle]="{color: item.Status === 0 ? '#fe4e74' : '#7a80fa'}">{{item.Status === 0 ? '重新支付' : '再次购买'}}</span>
+                </div>
+              </div>
+            </div>
+            <!-- 结束列表 -->
+            <div class="data-empty" *ngIf="showEmptyState">
+              <app-data-empty
+                [showEmpty]="!(getRechargerListResponse && getRechargerListResponse?.TotalItems>0)"></app-data-empty>
+            </div>
+            <qiezzi-paginator
+              [ngStyle]="{display: (getRechargerListResponse && getRechargerListResponse.TotalItems>10) ?'block' : 'none'}"
+              [rows]="getRechargerListResponse?.ItemsPerPage" [totalRecords]="getRechargerListResponse?.TotalItems"
+              [rowsPerPageOptions]="[10,20,30]"
+              [style]="showOrHide" (onPageChange)="onPageChange($event)">
+            </qiezzi-paginator>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

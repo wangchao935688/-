@@ -1,0 +1,355 @@
+<div [attr.status]="displayStatus" class="right-slider-container">
+  <router-outlet></router-outlet>
+</div>
+<div id="app-center-container">
+  <div id="app-center-content">
+    <!-- 页头 -->
+    <qiezzi-loading [attr.status]="dataLoading" class="loading6 purple transparent"
+                    style="padding-top: 300px"></qiezzi-loading>
+  <app-qiezzi-center-header [showSearch]="false"
+                            [showFilter]="false"
+                            [showAdd]="false"
+                            [showOptions]="false"
+                            [moduleName]="'通讯录'"
+                            [searchPlaceholder]="''"
+                            [controlList]="['新增']"
+  ></app-qiezzi-center-header>
+<!--主体-->
+    <div class="capital-flow-content">
+      <!--左侧-->
+      <div class="capital-flow-content-left" >
+
+
+        <div class="tab-ctrl tab-ctrl1">
+          <app-qiezzi-tab-control class="tab-ctrl-head" [tabData]="tabData.data"
+                                  [defaultSelectedIndex]="tabData.defaultIndex"
+                                  (onTabIndexChange)="changeTab($event)"></app-qiezzi-tab-control>
+        </div>
+        <div class="reply-talkbox" style="height: 28.4rem;">
+              <!--滚动条-->
+              <div id="appCenterContent"
+                   [ngStyle]="{'display': centerLoadReady?'block':'none','border-top':isBorder?'1px solid #DBDBDB':''}"
+                   class="app-center-content" malihu-scrollbar
+                   [scrollbarOptions]="scrollbarOptions">
+
+                  <!--第一列显示隐藏-->
+                  <div class= 'showhide' *ngIf = 'isShows === 0'>
+                    <div class="reply-sms-talk">
+                      <span>全部患者</span>
+                      <span>15</span>
+                    </div>
+
+                    <div class="reply-sms-talk">
+                      <span>重要患者</span>
+                      <span>15</span>
+                    </div>
+
+                    <hr size=1 color=#dbdbdb/>
+
+                    <div class="reply-sms-talk">
+                      <span>小伙伴儿</span>
+                      <span>15</span>
+                    </div>
+
+                    <div class="reply-sms-talk">
+                      <span>好朋友们</span>
+                      <span>15</span>
+                    </div>
+                    <div class="reply-sms-talk">
+                      <span>周边合作</span>
+                      <span>15</span>
+                    </div>
+                  </div>
+
+                  <!--第二列显示隐藏-->
+                  <div class= 'showhide' *ngIf = 'isShows === 1'>
+                    <!--<div class="reply-sms-talk">-->
+                      <!--<span>全部患者</span>-->
+                      <!--<span>15</span>-->
+                    <!--</div>-->
+
+                    <div class="reply-sms-talk">
+                      <span>重要患者</span>
+                      <span>15</span>
+                    </div>
+
+                    <hr size=1 color=#dbdbdb />
+
+                    <div class="reply-sms-talk">
+                      <span>小伙伴儿</span>
+                      <span>15</span>
+                    </div>
+
+                    <div class="reply-sms-talk">
+                      <span>好朋友们</span>
+                      <span>15</span>
+                    </div>
+                    <div class="reply-sms-talk">
+                      <span>周边合作</span>
+                      <span>15</span>
+                    </div>
+                  </div>
+
+                  <!--第三列显示隐藏-->
+                  <div class= 'showhide3' *ngIf = 'isShows === 2'>
+                <div class="reply-sms-talk3">
+                  <span>全部</span>
+                  <span>15</span>
+                </div>
+                <button (click)= "adminteam()">管理组</button>
+                <div class="reply-sms-talk5">
+                  <span>小伙伴儿</span>
+                  <span>15</span>
+                </div>
+                <div class="reply-sms-talk5">
+                  <span>好朋友们</span>
+                  <span>15</span>
+                </div>
+                <div class="reply-sms-talk5">
+                  <span>周边合作</span>
+                  <span>15</span>
+                </div>
+                <div class="reply-sms-talk5">
+                  <span>周边合作周边合作周边合作合作周边合作</span>
+                  <span>15</span>
+                </div>
+
+              </div>
+
+             </div>
+        </div>
+      </div>
+
+      <!-- 右侧（患者） -->
+      <div class="capital-flow-content-right" *ngIf = 'isShows === 0'>
+      <!--头部-->
+        <div class="capital-headers">
+          <div class="form-section">
+            <!--<div class="form-title">名称</div>-->
+            <div class="form-element">
+              <div class="err-message" ></div>
+              <input class="input-text" placeholder="姓名/手机号/病例号" id="PatientNames"  style="border-color: #dbdbdb;box-shadow: none;outline: none !important;width:15.3rem;">
+            </div>
+           <button class='button4'>查询</button>
+          </div>
+        </div>
+
+        <!--下部分表格-->
+        <div class="contact-lists">
+          <div class="list-table" style="padding-right: 2rem;padding-left:0;height:37.1rem;">
+            <!--滚动条-->
+            <div [ngStyle]="{'display': centerLoadReady?'block':'none','border-top':isBorder?'1px solid #DBDBDB':''}"
+                 class="app-center-content" malihu-scrollbar
+                 [scrollbarOptions]="scrollbarOptions" style=" height: calc(100% - 3rem) !important;">
+            <div class="list-table-content">
+              <div class="list-table-item" >
+                 <div class="list-table-col-1">
+                   <span>姓名 | 病例号</span>
+                 </div>
+                 <div class="list-table-col-1">
+                    <span>性别</span>
+                 </div>
+                 <div class="list-table-col-1">
+                    <span>年龄</span>
+                 </div>
+                 <div class="list-table-col-1">
+                    <span>手机号</span>
+                 </div>
+            </div>
+              <div class="list-table-item" *ngFor = 'let i of getPatientListResponse?.Items'>
+                  <div class="list-table-col-1">
+                      <span>{{i.PatientName | qiezziTextNull}}</span>
+                      <i class="icon iconfont icon-zhongdianhuanzhehoubiaoqian"></i>
+                      <span>{{i.PatientCode | qiezziTextNull}}</span>
+                    </div>
+                  <div class="list-table-col-1">
+                    <span>{{i.Sex == null ? '-&nbsp;&nbsp;-' : i.Sex === 0 ? '男' : '女'}}</span>
+                  </div>
+                  <div class="list-table-col-1">
+                    <span>{{i.Age | qiezziTextNull}}</span>
+                  </div>
+                  <div class="list-table-col-1">
+                    <span>{{i.Tel | qiezziTextNull}}</span>
+                  </div>
+              </div>
+            </div>
+           </div>
+          </div>
+        </div>
+        <!--跳转页面-->
+        <div class="page">
+          <qiezzi-paginator [rows]="10"
+                            [totalRecords]="100" [rowsPerPageOptions]="[10,20,30]"
+                            [style]="showOrHide" (onPageChange)="onPageChange($event)"></qiezzi-paginator>
+        </div>
+      </div>
+
+      <!--右侧（同事）-->
+      <div class="capital-flow-content-right" *ngIf = 'isShows === 1'>
+        <!--头部-->
+        <div class="capital-headers">
+          <div class="form-section">
+            <!--<div class="form-title">名称</div>-->
+            <div class="form-element">
+              <div class="err-message" ></div>
+              <input class="input-text" placeholder="姓名/手机号/病例号" id="PatientName"  style="border-color: #dbdbdb;box-shadow: none;outline: none !important;width:15.3rem;">
+            </div>
+            <button class='button4'>查询</button>
+          </div>
+        </div>
+
+        <!--下部分表格-->
+        <div class="contact-lists">
+          <div class="list-table" style="padding-right: 2rem;padding-left:0;height:37.1rem;">
+            <!--滚动条-->
+            <div id="appCenterContentsss"
+                 [ngStyle]="{'display': centerLoadReady?'block':'none','border-top':isBorder?'1px solid #DBDBDB':''}"
+                 class="app-center-content" malihu-scrollbar
+                 [scrollbarOptions]="scrollbarOptions" style=" height: calc(100% - 3rem) !important;">
+            <div class="list-table-content">
+              <div class="list-table-item" >
+                <div class="list-table-col-1">
+                  <span>姓名 | 病例号</span>
+                </div>
+                <div class="list-table-col-1">
+                  <span>性别</span>
+                </div>
+                <div class="list-table-col-1">
+                  <span>年龄</span>
+                </div>
+                <div class="list-table-col-1">
+                  <span>手机号</span>
+                </div>
+              </div>
+              <div class="list-table-item" *ngFor = 'let i of getPatientListResponse?.Items'>
+                <div class="list-table-col-1">
+                  <span>{{i.PatientName | qiezziTextNull}}</span>
+                  <i class="icon iconfont icon-zhongdianhuanzhehoubiaoqian"></i>
+                  <span>{{i.PatientCode | qiezziTextNull}}</span>
+                </div>
+                <div class="list-table-col-1">
+                  <span>{{i.Sex == null ? '-&nbsp;&nbsp;-' : i.Sex === 0 ? '男' : '女'}}</span>
+                </div>
+                <div class="list-table-col-1">
+                  <span>{{i.Age | qiezziTextNull}}</span>
+                </div>
+                <div class="list-table-col-1">
+                  <span>{{i.Tel | qiezziTextNull}}</span>
+                </div>
+              </div>
+            </div>
+           </div>
+          </div>
+        </div>
+        <!--跳转页面-->
+        <div class="page">
+          <qiezzi-paginator [rows]="10"
+                            [totalRecords]="100" [rowsPerPageOptions]="[10,20,30]"
+                            [style]="showOrHide" (onPageChange)="onPageChange($event)"></qiezzi-paginator>
+        </div>
+      </div>
+
+      <!--右侧（其他）-->
+      <div class="capital-flow-content-right" *ngIf = 'isShows === 2'>
+        <!--头部-->
+        <div class="capital-headers">
+          <div class="form-section">
+            <!--<div class="form-title">名称</div>-->
+            <div class="form-element">
+              <div class="err-message" ></div>
+              <input class="input-text" placeholder="姓名/手机号/病例号" id="PatientNamess"  style="border-color: #dbdbdb;box-shadow: none;outline: none !important;width:15.3rem;">
+            </div>
+            <button class='button4'>查询</button>
+            <div class="contact-news">
+              <div class="new-add" (click)= "cCreate()">
+                <i class="icon iconfont icon-xinzeng"></i>
+                <span>新增</span>
+              </div>
+              <span> | </span>
+              <div class="new-import" (click)= "cImport()">
+                <i class="icon iconfont icon-daoru"></i>
+                <span>导入</span>
+              </div>
+              <span> | </span>
+              <div class="new-export">
+                <i class="icon iconfont icon-daochu1"></i>
+                <span>导出</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!--下部分表格-->
+        <div class="contact-lists">
+
+          <div class="list-table" style="padding-right: 2rem;padding-left:0;height:37.1rem;">
+            <!--滚动条-->
+            <div id="appCenterContents"
+                 [ngStyle]="{'display': centerLoadReady?'block':'none','border-top':isBorder?'1px solid #DBDBDB':''}"
+                 class="app-center-content" malihu-scrollbar
+                 [scrollbarOptions]="scrollbarOptions" style=" height: calc(100% - 3rem) !important;">
+            <div class="list-table-content">
+              <div class="list-table-item">
+                <div class="list-table-col-1">
+                  <span>姓名 | 病例号</span>
+                </div>
+                <div class="list-table-col-1">
+                  <span>性别</span>
+                </div>
+                <div class="list-table-col-1">
+                  <span>年龄</span>
+                </div>
+                <div class="list-table-col-1">
+                  <span>手机号</span>
+                </div>
+              </div >
+              <div class="list-table-item" (click)="listDatail($event)" *ngFor = 'let i of getPatientListResponse?.Items'>
+                <div class="list-table-col-1"  >
+                  <span>{{i.PatientName | qiezziTextNull}}</span>
+                  <i class="icon iconfont icon-zhongdianhuanzhehoubiaoqian" ></i>
+                  <span>{{i.PatientCode | qiezziTextNull}}</span>
+                </div>
+                <div class="list-table-col-1">
+                  <span>{{i.Sex == null ? '-&nbsp;&nbsp;-' : i.Sex === 0 ? '男' : '女'}}</span>
+                </div>
+                <div class="list-table-col-1">
+                  <span>{{i.Age | qiezziTextNull}}</span>
+                </div>
+                <div class="list-table-col-1">
+                  <span>{{i.Tel | qiezziTextNull}}</span>
+                </div>
+              </div>
+
+              <!--<div class="list-table-item" (click)="listDatail($event)">-->
+                <!--<div class="list-table-col-1">-->
+                  <!--<span>贝卡姆卡姆...</span>-->
+                  <!--<i class="icon iconfont icon-zhongdianhuanzhehoubiaoqian"></i>-->
+                  <!--<span>No.20562312553</span>-->
+                <!--</div>-->
+                <!--<div class="list-table-col-1">-->
+                  <!--<span>女</span>-->
+                <!--</div>-->
+                <!--<div class="list-table-col-1">-->
+                  <!--<span>26</span>-->
+                <!--</div>-->
+                <!--<div class="list-table-col-1">-->
+                  <!--<span>13603256985</span>-->
+                <!--</div>-->
+              <!--</div>-->
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--跳转页面-->
+        <div class="page">
+          <qiezzi-paginator [rows]="getPatientListResponse?.ItemsPerPage" [ngStyle]="{display: (getPatientListResponse && getPatientListResponse.TotalItems>10) ?'block' : 'none'}"
+                            [totalRecords]="getPatientListResponse?.TotalItems" [rowsPerPageOptions]="[10,20,30]"
+                            [style]="showOrHide" (onPageChange)="onPageChange($event)"></qiezzi-paginator>
+        </div>
+      </div>
+
+      </div>
+    </div>
+  </div>
+
+

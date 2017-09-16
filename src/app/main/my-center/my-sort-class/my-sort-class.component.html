@@ -1,0 +1,133 @@
+<div [attr.status]="displayStatus" class="right-slider-container large">
+  <router-outlet></router-outlet>
+</div>
+<div id="app-center-container">
+  <qiezzi-loading [attr.status]="dataLoading" class="loading6 purple transparent"
+                  style="padding-top: 300px"></qiezzi-loading>
+  <app-qiezzi-center-header [showSearch]="false"
+                            [showFilter]="false"
+                            [showAdd]="false"
+                            [showOptions]="false"
+                            [moduleName]="'我的排班'"
+  ></app-qiezzi-center-header>
+  <div id="appCenterContent" class="app-center-content">
+    <div class="tab-ctrl">
+      <div class="tab-ctrl-content" malihu-scrollbar [scrollbarOptions]="scrollbarOptions">
+        <div class="toggle-button" style="margin-bottom: 1rem;">
+          <div [ngClass]="{'toggle-selected':isChooseMonth}" (click)="selectToothState(true)">月</div>
+          <div class="week" [ngClass]="{'toggle-selected':!isChooseMonth}" (click)="selectToothState(false)">周</div>
+          <div class="step-buttons" style="width: 2rem;margin-left: .5rem;border: none;">
+            <button class="left-button" (click)="setCurrent(-1)"></button>
+            <button class="right-button" (click)="setCurrent(1)"></button>
+          </div>
+          <!--<input *ngIf="isChooseMonth" class="input-text" style="width: 4rem;margin-left: .5rem;" >
+          <input *ngIf="!isChooseMonth" class="input-text" style="width: 6rem;margin-left: .5rem; border: none;outline: none;">-->
+          <span class="input-text" *ngIf="isChooseMonth" style="width: 4rem;margin-left: .5rem;" >{{valueText}}</span>
+          <span class="input-text" *ngIf="!isChooseMonth" style="width: 8rem;margin-left: .5rem; border: none;" >{{valueText}}</span>
+        </div>
+
+        <div class="main-container">
+          <div class="main-month-container" *ngIf="isChooseMonth">
+            <!-- 月 头部 -->
+            <div class="main-month-header">
+              <div class="month-item">周一</div>
+              <div class="month-item">周二</div>
+              <div class="month-item">周三</div>
+              <div class="month-item">周四</div>
+              <div class="month-item">周五</div>
+              <div class="month-item">周六</div>
+              <div class="month-item">周日</div>
+            </div>
+            <!-- 月 主体 -->
+            <table class="main-month-content" cellpadding="0" cellspacing="0">
+              <tr *ngFor="let week of dateSpan;let i = index">
+                <td *ngFor="let day of week;let j = index">
+                  <div class="day-cell" (click)="onCellClick($event,day,i,j)"
+                       [ngClass]="{'passed':checkTimePassed(day), 'today':day === today,'no-current-month':day === ''}">
+                    <div class="day-cell-txt">{{validDate[i][j]}}</div>
+                    <span class="class-name span-ellipsis">{{classSpan[i][j]}}</span>
+                    <!--<span class="class-name span-ellipsis">上午班</span>-->
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </div>
+          <div class="main-week-container" *ngIf="!isChooseMonth">
+            <!-- 周  头部 -->
+            <div class="main-week-header">
+              <div class="weekly-list">
+                <div class="week-item">
+                  <span style="padding:0.5rem 0;">班次</span>
+                </div>
+                <div class="week-item" *ngFor="let week of weekHead; let i = index">
+                  <span>{{week.label}}</span>
+                  <span class="date">{{week.date}}</span>
+                </div>
+              </div>
+            </div>
+            <!-- 周  主体 -->
+            <table class="main-week-content" cellpadding="0" cellspacing="0">
+              <!--<tr *ngFor="let class of sortClassList; let i = index;"></tr>-->
+              <tr>
+                <td>
+                  <div  class="day-cell">全天</div>
+                </td>
+                <td>
+                  <div  class="day-cell">
+                    <i class="icon iconfont icon-duigou" style="font-size: 2rem;" [ngStyle]="{color: '#605bf5'}"></i>
+                  </div>
+                </td>
+                <td>
+                  <div  class="day-cell"></div>
+                </td>
+                <td>
+                  <div  class="day-cell"></div>
+                </td>
+                <td>
+                  <div  class="day-cell"></div>
+                </td>
+                <td>
+                  <div  class="day-cell"></div>
+                </td>
+                <td>
+                  <div  class="day-cell"></div>
+                </td>
+                <td>
+                  <div  class="day-cell"></div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div  class="day-cell">早班</div>
+                </td>
+                <td>
+                  <div  class="day-cell"></div>
+                </td>
+                <td>
+                  <div  class="day-cell"></div>
+                </td>
+                <td>
+                  <div  class="day-cell"></div>
+                </td>
+                <td>
+                  <div  class="day-cell"></div>
+                </td>
+                <td>
+                  <div  class="day-cell"></div>
+                </td>
+                <td>
+                  <div  class="day-cell">
+                    <i class="icon iconfont icon-duigou" style="font-size: 2rem;" [ngStyle]="{color: '#605bf5'}"></i>
+                  </div>
+                </td>
+                <td>
+                  <div  class="day-cell"></div>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

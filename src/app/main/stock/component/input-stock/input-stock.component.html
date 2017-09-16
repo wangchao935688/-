@@ -1,0 +1,59 @@
+<app-qiezzi-right-header
+  [rightComponentName]="patientName"
+  [controlList]="ctrlList"
+  (onControl)="onControlListClick($event)"></app-qiezzi-right-header>
+<qiezzi-loading [attr.status]="mainShowLoading" class="loading6 purple transparent"
+                style="height:100%;margin-top: 10rem;"></qiezzi-loading>
+
+
+<div class="right-content" *ngIf="true"
+     [ngStyle]="{'height': processState == 0 && responseData.Status != 5?'calc(100% - 162px)': ''}"
+     id="rightContentScroll"
+     malihu-scrollbar [scrollbarOptions]="scrollbarOptions">
+  <div class="content-header-text">
+    <div class="money">
+      <span>总金额:</span><span class="count">{{getStockInResponse?.TotalAmount| qiezziMoeny:true}}</span>
+    </div>
+    <div class="top">
+      <span class="countId">单号:{{getStockInResponse?.StorageCode}}</span><span>供应商:{{getStockInResponse?.SupplierName}}</span>
+    </div>
+    <div class="bottom">
+      <span class="input-stock-date">入库日期:{{getStockInResponse?.StorageDate|date:'yyyy-MM-dd'}}</span><span>库管员:{{getStockInResponse?.WorkerName}}</span>
+    </div>
+  </div>
+  <div class="table-list no-border-b">
+    <div class="table-list-header border-b">
+      <div class="table-list-col0">物品名称</div>
+      <div class="table-list-col1">批次号</div>
+      <div class="table-list-col2">入库数量</div>
+      <div class="table-list-col3">入库价</div>
+      <div class="table-list-col4">小计</div>
+      <div class="table-list-col5">备注</div>
+    </div>
+
+    <div class="table-list-content ">
+      <div class="table-list-item" *ngFor="let item of getStockInResponse.StockInItemList, let i = index">
+        <div class="table-list-col0"><span>{{item?.GoodsName}}</span></div>
+        <div class="table-list-col1"><span></span></div>
+        <div class="table-list-col2"><span>{{item?.Number}}</span></div>
+        <div class="table-list-col3"><span>{{item?.RetailPrice| qiezziMoeny:true}}</span></div>
+        <div class="table-list-col4"><span>{{item?.TotalAmount| qiezziMoeny:true}}</span></div>
+        <div class="table-list-col5"><span>{{item?.Remarks}}</span></div>
+      </div>
+
+
+    </div>
+  </div>
+  <div class="remarks border-b">
+    <div class="remarks-header">
+      <i class="icon iconfont icon-beizhu"></i><span>备注</span>
+    </div>
+    <div class="remarks-content">
+      {{getStockInResponse?.StorageDate}}
+    </div>
+  </div>
+  <div class="stock-footer">
+    <span class="span-name">确认人:王晓明</span><span>确认时间:2017-01-23</span>
+  </div>
+
+</div>

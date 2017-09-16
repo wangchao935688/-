@@ -1,0 +1,121 @@
+@charset "UTF-8";
+#reply-sms-content {
+  width: 43rem;
+  height: 30rem;
+  border: 1px solid #dbdbdb;
+  margin-left: 1.5rem;
+  margin-top: 1.5rem;
+  position: relative; }
+
+.reply-sms-left {
+  width: 15.5rem;
+  height: 30rem;
+  border-right: 1px solid #dbdbdb; }
+
+.reply-sms-right-top {
+  width: 27.5rem;
+  height: 23rem;
+  position: absolute;
+  right: 0;
+  top: 0;
+  border-bottom: 0.05rem solid #dbdbdb; }
+
+.reply-sms-right-bottom {
+  width: 27.5rem;
+  height: 7rem;
+  top: 23rem;
+  right: 0;
+  position: absolute; }
+
+.reply-sms-right-bottom textarea {
+  width: 27.4rem;
+  height: 6.9rem;
+  margin-left: 0.1rem;
+  padding-left: 0.95rem;
+  padding-top: 0.6rem;
+  padding-right: 0.6rem;
+  border: none;
+  overflow: hidden;
+  resize: none;
+  outline: none;
+  color: #333;
+  font-size: 0.6rem; }
+
+.reply-sms-right-bottom textarea::-webkit-input-placeholder {
+  color: #999;
+  font-family: "微软雅黑"; }
+
+.reply-sms-right-bottom button {
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem; }
+
+.reply-sms-talk {
+  height: 3.2rem;
+  width: 15.5rem;
+  margin: 1rem 0; }
+
+.writein {
+  position: relative; }
+
+.writein input {
+  width: 13.3rem;
+  height: 1.6rem;
+  border: 1px solid #dbdbdb;
+  border-radius: 4px;
+  padding-left: 0.45rem;
+  margin: 1rem 0 0 1rem; }
+
+.writein input::-webkit-input-placeholder {
+  color: #999; }
+
+.icon-fangdajing {
+  position: absolute;
+  top: 1.4rem;
+  right: 1.8rem;
+  color: #aaa;
+  font-size: 0.8rem; }
+
+.tab-ctrl1 {
+  margin-left: 1rem;
+  margin-right: 1rem; }
+
+.reply-sms-talk img {
+  width: 1.7rem;
+  height: 1.7rem;
+  border-radius: 50%;
+  position: absolute;
+  left: 20px; }
+
+.reply-sms-talk span:first-of-type {
+  font-size: 0.7rem;
+  line-height: 1rem;
+  color: #333;
+  position: absolute;
+  left: 3.4rem;
+  width: 4rem;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis; }
+
+.reply-sms-talk span:nth-of-type(2) {
+  font-size: 0.6rem;
+  line-height: 1rem;
+  color: #999;
+  position: relative;
+  left: 3.4rem;
+  top: 1rem;
+  display: inline-block;
+  width: 7rem;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis; }
+
+.reply-sms-talk span:nth-of-type(3) {
+  float: right;
+  padding-right: 1.5rem;
+  font-size: 0.6rem;
+  line-height: 1rem;
+  color: #999; }
+
+/*# sourceMappingURL=reply-sms.component.css.map */

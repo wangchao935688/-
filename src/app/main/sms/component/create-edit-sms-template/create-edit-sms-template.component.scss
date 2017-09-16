@@ -1,0 +1,21 @@
+
+.form-section:first-child{
+  padding-top:1rem;
+}
+.form-element textarea{
+  margin-left:1rem;
+  border-color: #dbdbdb;
+  width:17rem;
+  height:6rem;
+  resize:none;
+  padding-left:0.5rem;
+}
+.form-element textarea::-webkit-input-placeholder{
+  color:#999;
+  font-family:"微软雅黑";
+}
+.icon-xialasanjiao{
+  position: relative;
+  right:3.25rem;
+  top:0.4rem;
+}

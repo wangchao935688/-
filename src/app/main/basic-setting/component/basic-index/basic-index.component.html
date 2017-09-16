@@ -1,0 +1,32 @@
+<div [attr.status]="displayStatus" class="right-slider-container large">
+  <router-outlet></router-outlet>
+</div>
+<div id="app-center-container">
+  <qiezzi-loading [attr.status]="mainShowLoading" class="loading6 purple" style="height:100%;"></qiezzi-loading>
+  <app-qiezzi-center-header [showSearch]="false"
+                            [showFilter]="false"
+                            [showAdd]="true"
+                            [showOptions]="false"
+                            [moduleName]="'基础设置'"
+                            [searchPlaceholder]="false"
+                            [controlList]="['新增收款账户','新增就诊事项']"
+                            (onControl)="onControl($event)"
+  ></app-qiezzi-center-header>
+  <div malihu-scrollbar [scrollbarOptions]="scrollbarOptions" style="height:38rem;">
+  <div class="tab-ctrl">
+  <app-qiezzi-tab-control class="tab-ctrl-head" [tabData]="tabData.data"
+                          [defaultSelectedIndex]="tabData.defaultIndex"
+                          (onTabIndexChange)="changeTab($event)"></app-qiezzi-tab-control>
+  <div class="tab-ctrl-content single-line">
+    <!--病历规则设置-->
+    <div *ngIf="currentIdx==0"><case-rule></case-rule></div>
+    <!--短信发送设置-->
+    <div *ngIf="currentIdx==1"><sms-send-rule></sms-send-rule></div>
+    <!--收款账户设置-->
+    <div *ngIf="currentIdx==2"><hostpial-account-list></hostpial-account-list></div>
+    <!--就诊事项设置-->
+    <div *ngIf="currentIdx==3"><medical-list></medical-list></div>
+    </div>
+  </div>
+  </div>
+</div>

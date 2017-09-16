@@ -1,0 +1,243 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+ul,li{
+  list-style: none;
+}
+i{
+  margin-left: .3rem;
+  font-style: normal;
+  border-radius: 50%;
+  background: #FFFFFF;
+  width: .6rem;
+  height: .6rem;
+  line-height: .6rem;
+  text-align: center;
+}
+.picture{
+  height: 3.5rem;
+  width: 3.5rem;
+  background: #CCCCCC;
+  border-radius: 50%;
+  float: left;
+}
+.header{
+  overflow: hidden;
+  padding-top: 1.1rem;
+}
+.header .infor{
+  margin-left: 5rem;
+  width: 80%;
+  div .name{
+    font-size: .7rem;
+    font-weight: bold;
+    line-height: 1rem;
+    color: #333;
+  }
+  .row .infor-content{
+    font-size: .6rem;
+    line-height: 1rem;
+    color: #666;
+  }
+}
+.header .infor-name{
+  float: left;
+  margin: 1.1rem 0 0.4rem 0.9rem;
+}
+.header .infor-name .name{
+  height: 1rem;
+  line-height: 1rem;
+  width: 2.35rem;
+  font-size: 0.7rem;
+  color: #ccc;
+}
+.infor-detail{
+  float: left;
+  margin: 0 0 0.6rem 1.35rem;
+}
+.infor-detail li{
+  float: left;
+}
+.infor-detail .sex{
+  width: 0.6rem;
+  height:1rem;
+  line-height: 1rem;
+  color: #666;
+  font-size: 0.6rem;
+}
+.infor-detail .age{
+  width: 1.35rem;
+  height:1rem;
+  line-height: 1rem;
+  color: #666;
+  font-size: 0.6rem;
+}
+.infor-detail .tel{
+  width: 3.85rem;
+  height:1rem;
+  line-height: 1rem;
+  color: #666;
+  font-size: 0.6rem;
+}
+.infor-detail .no{
+  width: 4.2rem;
+  height:1rem;
+  line-height: 1rem;
+  color: #666;
+  font-size: 0.6rem;
+}
+.header .tip{
+  float: left;
+  margin-left:1.25rem;
+}
+.tab-ctrl,.tab-ctrl1{
+  margin-top: 1.4rem ;
+}
+.statistics-line{
+  width: 100%;
+  height: 7rem;
+  line-height: 7rem;
+  border-bottom: 1px dashed #DBDBDB;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.statistics-line div{
+  float: left;
+  height: 2rem;
+  line-height: 2rem;
+  text-align: center;
+}
+.statistics-line div span{
+  height: 1rem;
+  line-height: 1rem;
+  display: block;
+}
+.statistics-line div span.explain{
+  color: #999;
+  font-size: 0.6rem;
+}
+.statistics-line div span.num{
+  font-size: 0.9rem;
+}
+.statistics{
+  padding: 0 2rem;
+}
+.statistics-content .one{
+  font-size: 0.6rem;
+  color: #999;
+  float: left;
+}
+.statistics-content .two{
+  font-size: 0.6rem;
+  color: #151515;
+  float: left;
+}
+.statistics-content .degree, .statistics-content .time{
+  float: left;
+}
+.data{
+  position: relative;
+  span:nth-child(2){
+    float: left;
+  }
+}
+.Pseudo:after{
+  content: "";
+  height: 1rem;
+  position: absolute;
+  right: -3rem;
+  top: 0.5rem;
+  display: block;
+  border-right: 1px solid #333333;
+}
+.statistics-content{
+  height: 3rem;
+  line-height: 3rem;
+}
+.time{
+  margin-left: 1.5rem;
+}
+
+.row{
+  height: 1rem;
+  line-height:1rem;
+  margin-bottom: .5rem;
+  .tag-box{
+    border: none;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.right-content {
+  .right-content-header {
+    min-height: 4rem;
+    border-bottom: 1px dashed #DBDBDB;
+    padding: 1rem 0rem;
+    .right-content-header-text {
+      height: 1rem;
+      line-height: 1rem;
+      font-size: 0.6rem;
+      span:nth-child(1) {
+        color: #333333;
+      }
+      span:nth-child(3) {
+        color: #333333;
+      }
+      span:nth-child(2) {
+        padding: 0 .5rem;
+        font-size: .5rem;
+      }
+      span:nth-child(4) {
+        color: #666666;
+      }
+    }
+  }
+
+}
+.bottom-div {
+  height: 4rem;
+  line-height: 4rem;
+  border-top: 1px solid #DBDBDB;
+  span {
+    color: #333333;
+    font-size: 0.7rem;
+    margin-left: 1.5rem;
+    cursor: pointer;
+  }
+  span:hover {
+    color: #7a80fa;
+  }
+  button {
+    line-height: 1.6rem;
+    margin: 1.2rem 1.5rem;
+    float: right;
+  }
+}
+.un-click {
+  color: #999 !important;
+  cursor: not-allowed !important;
+}
+

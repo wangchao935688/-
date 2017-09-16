@@ -1,0 +1,197 @@
+<div [attr.status]="displayStatus" class="right-slider-container">
+  <router-outlet></router-outlet>
+</div>
+<div id="app-center-container">
+  <qiezzi-loading [attr.status]="mainShowLoading" class="loading6 purple"></qiezzi-loading>
+  <app-qiezzi-center-header [showSearch]="true"
+                            [showFilter]="true"
+                            [showAdd]="true"
+                            [showOptions]="false"
+                            [moduleName]="moduleName"
+                            [searchPlaceholder]="'患者/收费单号'"
+                            [controlList]="['添加']"
+                            (onControl)="onControl($event)"
+                            (onSearch)="onSearch($event)"
+                            (onOptions)="onOptions($event)"
+                            (onShowFilter)="onShowFilter($event)"
+  ></app-qiezzi-center-header>
+  <div id="app-center-content">
+    <div class="app-center-content" malihu-scrollbar [scrollbarOptions]="scrollbarOptions">
+      <app-qiezzi-data-filter [filterConfig]="filterConfig"
+                              (onConditionChanged)="onConditionChanged($event)">
+
+      </app-qiezzi-data-filter>
+
+      <div class="tab-ctrl tab-ctrl1">
+        <app-qiezzi-tab-control class="tab-ctrl-head" style="padding:0 2rem !important;" [tabData]="['待收费','已付清','已退费','欠费','全部']"
+                                [defaultSelectedIndex]="0"
+                                (onTabIndexChange)="selectTabIndex($event)"></app-qiezzi-tab-control>
+        <div class="tab-ctrl-content single-line" style="position: relative; min-height: 400px;">
+          <qiezzi-loading [attr.status]="dataLoading" class="loading6 purple transparent"></qiezzi-loading>
+          <div class="list-table">
+            <div class="list-table-head" *ngIf="currentIdx==0">
+              <div class="list-table-col0" style="width: 100%;">患者/单号</div>
+              <div class="mobile-hidden list-table-col1" style="flex:0 0 20%">医生</div>
+              <div class="mobile-hidden list-table-col2" style="flex:0 0 20%">账单时间</div>
+              <div class="list-table-col3" style="flex:0 0 20%">账单金额</div>
+              <div class="list-table-col4" style="flex:0 0 15%">操作</div>
+
+            </div>
+            <div class="list-table-head" *ngIf="currentIdx==1">
+              <div class="list-table-col0" style="width: 100%;">患者/单号</div>
+              <div class="mobile-hidden list-table-col1" style="flex:0 0 20%">医生</div>
+              <div class="mobile-hidden list-table-col2" style="flex:0 0 15%">收费时间</div>
+              <div class="list-table-col3" style="flex:0 0 20%">账单金额</div>
+            </div>
+            <div class="list-table-head" *ngIf="currentIdx==3">
+              <div class="list-table-col0" style="width:100%">患者/单号</div>
+              <div class="mobile-hidden list-table-col1" style="flex:0 0 20%">医生</div>
+              <div class="mobile-hidden list-table-col2" style="flex:0 0 15%">退费时间</div>
+              <div class="list-table-col3" style="flex:0 0 20%">退费金额</div>
+            </div>
+            <div class="list-table-head" *ngIf="currentIdx==2">
+              <div class="list-table-col0" style="width:100%">患者/单号</div>
+              <div class="mobile-hidden list-table-col1" style="flex:0 0 20%">医生</div>
+              <div class="mobile-hidden list-table-col2" style="flex:0 0 15%">欠费时间</div>
+              <div class="list-table-col3" style="flex:0 0 15%">欠费金额</div>
+              <div class="list-table-col4" style="flex:0 0 20%">操作</div>
+            </div>
+            <div class="list-table-head" *ngIf="currentIdx==-1">
+              <div class="list-table-col0" style="width:100%;">患者/单号</div>
+              <div class="mobile-hidden list-table-col1" style="flex:0 0 10%;">医生</div>
+              <div class="mobile-hidden list-table-col2" style="flex:0 0 10%;">账单时间</div>
+              <div style="flex:0 0 13%;">账单金额</div>
+              <div style="flex:0 0 13%;">已收</div>
+              <div style="flex:0 0 13%;">欠费</div>
+              <div style="flex:0 0 10%;">状态</div>
+              <div style="flex:0 0 10%;">操作</div>
+
+            </div>
+              <app-data-empty [showEmpty]="showEmptyState"></app-data-empty>
+              <div class="list-table-content">
+                <div *ngIf="currentIdx===0">
+                <div *ngFor="let feeItem of listData;let i = index;" class="list-table-item click-no-hide-detail"
+                     [ngClass]="{'selected': i==selectIndex}" (click)="clickFeeItem($event,feeItem.Bill,i)">
+                  <div class="list-table-col0" style="width:100%"><span
+                    style="font-weight: bold;">{{feeItem.Patient.PatientName}}</span><span>{{feeItem.Bill.BillCode}}</span>
+                  </div>
+                  <div
+                    class="mobile-hidden list-table-col1" style="flex:0 0 20%"><span>{{feeItem.Bill.DoctorName}}</span>
+                  </div>
+                  <div
+                    class="mobile-hidden list-table-col2" style="flex:0 0 20%"><span>{{feeItem.Bill.BillTime|qiezziDateAuto:1}}</span>
+                  </div>
+                  <div
+                    class="list-table-col3" style="flex:0 0 20%"><span>{{feeItem.Bill.ReducedPrice | qiezziMoeny:true}}</span>
+                  </div>
+                  <div class="list-table-col4" style="flex:0 0 15%">
+                    <div class="table-control"><i
+                      class="fa fa-pencil-square-o" aria-hidden="true" (click)="onFeeEdit(feeItem.Bill,$event)"></i>
+                      <span></span><i class="fa fa-trash-o" aria-hidden="true" (click)="goCharge(feeItem.Bill,$event)"></i></div>
+                  </div>
+                </div>
+                </div>
+                <div *ngIf="currentIdx===1">
+                <div *ngFor="let feeItem of listData;let i = index;" class="list-table-item click-no-hide-detail"
+                     [ngClass]="{'selected': i==selectIndex}" (click)="clickFeeItem($event,feeItem.Bill,i)">
+                  <div class="list-table-col0" style="width: 100%;"><span
+                    style="font-weight: bold;">{{feeItem.Patient.PatientName}}</span><span>{{feeItem.Bill.BillCode}}</span>
+                  </div>
+                  <div
+                    class="mobile-hidden list-table-col1" style="flex:0 0 20%"><span>{{feeItem.Bill.DoctorName}}</span>
+                  </div>
+                  <div
+                    class="mobile-hidden list-table-col2" style="flex:0 0 15%"><span>{{feeItem.Bill.BillTime|qiezziDateAuto:1}}</span>
+                  </div>
+                  <div
+                    class="list-table-col3" style="flex:0 0 20%"><span>{{feeItem.Bill.ReducedPrice| qiezziMoeny:true}}</span>
+                  </div>
+                </div>
+                </div>
+                <div *ngIf="currentIdx===3">
+                <div *ngFor="let feeItem of listData;let i = index;" class="list-table-item click-no-hide-detail"
+                     [ngClass]="{'selected': i==selectIndex}" (click)="clickFeeItem($event,feeItem.Bill,i)">
+                  <div class="list-table-col0" style="width: 100%;"><span
+                    style="font-weight: bold;">{{feeItem.Patient.PatientName}}</span><span>{{feeItem.Bill.BillCode}}</span>
+                  </div>
+                  <div
+                    class="mobile-hidden list-table-col1" style="flex:0 0 20%"><span>{{feeItem.Bill.DoctorName}}</span>
+                  </div>
+                  <div
+                    class="mobile-hidden list-table-col2" style="flex:0 0 15%"><span>{{feeItem.Bill.BillTime|qiezziDateAuto:1}}</span>
+                  </div>
+                  <div
+                    class="list-table-col3" style="flex:0 0 20%"><span>{{feeItem.Bill.ReducedPrice| qiezziMoeny:true}}</span>
+                  </div>
+
+                </div>
+                </div>
+                <div *ngIf="currentIdx===2">
+                <div *ngFor="let feeItem of listData;let i = index;" class="list-table-item click-no-hide-detail"
+                     [ngClass]="{'selected': i==selectIndex}" (click)="clickFeeItem($event,feeItem.Bill,i)">
+                  <div class="list-table-col0" style="width: 100%;"><span
+                    style="font-weight: bold;">{{feeItem.Patient.PatientName}}</span><span>{{feeItem.Bill.BillCode}}</span>
+                  </div>
+                  <div
+                    class="mobile-hidden list-table-col1" style="flex:0 0 20%"><span>{{feeItem.Bill.DoctorName}}</span>
+                  </div>
+                  <div
+                    class="mobile-hidden list-table-col2" style="flex:0 0 15%"><span>{{feeItem.Bill.BillTime|qiezziDateAuto:1}}</span>
+                  </div>
+                  <div
+                    class="list-table-col3" style="flex:0 0 15%"><span>{{feeItem.Bill.ReducedPrice| qiezziMoeny:true}}</span>
+                  </div>
+                  <div class="list-table-col4" style="flex:0 0 20%">
+                    <div class="table-control"><i
+                      class="fa fa-pencil-square-o" aria-hidden="true" (click)="onFeeEdit(feeItem.Bill,$event)"></i>
+                      <span></span><i class="fa fa-trash-o" aria-hidden="true" (click)="goCharge(feeItem.Bill,$event)"></i></div>
+                  </div>
+
+                </div>
+                </div>
+                <div *ngIf="currentIdx===-1">
+                <div *ngFor="let feeItem of listData;let i = index;" class="list-table-item click-no-hide-detail"
+                     [ngClass]="{'selected': i==selectIndex}" (click)="clickFeeItem($event,feeItem.Bill,i)">
+                  <div class="list-table-col0" style="width:100%;"><span
+                    style="font-weight: bold;">{{feeItem.Patient.PatientName}}</span><span>{{feeItem.Bill.BillCode}}</span>
+                  </div>
+                  <div
+                    class="mobile-hidden list-table-col1" style="flex:0 0 10%;"><span>{{feeItem.Bill.DoctorName}}</span>
+                  </div>
+                  <div
+                    class="mobile-hidden list-table-col2" style="flex:0 0 10%;"><span>{{feeItem.Bill.BillTime|qiezziDateAuto:1}}</span>
+                  </div>
+                  <div style="flex:0 0 13%">
+                    <span>{{feeItem.Bill.ReducedPrice| qiezziMoeny:true}}</span>
+                  </div>
+                  <div style="flex:0 0 13%">
+                    <span>{{feeItem.Bill.PaidAmount| qiezziMoeny:true}}</span>
+                  </div>
+                  <div style="flex:0 0 13%">
+                    <span>{{feeItem.Bill.ArrearagePrice| qiezziMoeny:true}}</span>
+                  </div>
+                  <div style="flex:0 0 10%">
+                    <span>{{feeItem.Bill.BillStatus | qiezziDic:billStatusDic}}</span>
+                  </div>
+                  <div style="flex:0 0 10%">
+                    <div class="table-control"><i class="fa fa-pencil-square-o" aria-hidden="true" (click)="onFeeEdit(feeItem.Bill,$event)"></i>
+                      <span *ngIf="!(feeItem.billstatus==0||feeItem.billstatus===2)"></span>
+                      <i *ngIf="!(feeItem.billstatus===0||feeItem.billstatus===2)" class="fa fa-trash-o" aria-hidden="true" (click)="goCharge(feeItem.Bill,$event)"></i>
+                    </div>
+                  </div>
+
+                </div>
+                </div>
+              </div>
+            <div>
+            <qiezzi-paginator [rows]="!request ? 0 : request.PageSize"
+                              [totalRecords]="!response ? 0 : response.TotalItems" [rowsPerPageOptions]="[10,20,30]"
+                              [style]="showOrHide" (onPageChange)="onPageChange($event)"></qiezzi-paginator>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

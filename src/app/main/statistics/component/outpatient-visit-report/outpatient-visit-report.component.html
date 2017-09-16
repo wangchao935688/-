@@ -1,0 +1,75 @@
+
+<div class="list-table my-container">
+  <!--顶部-->
+  <div class="my-container-head">
+    <div class="header-top">
+      <div class="button-group button-group-right">
+        <button class="button4"><i class="icon iconfont icon-daochu"></i>导出</button>
+      </div>
+      <qiezzi-select-date-slot (onSelectDate)="selectDate($event)"></qiezzi-select-date-slot>
+    </div>
+    <div class="header-text">
+      <span>年月门诊统计报表</span>
+    </div>
+    <div class="header-box">
+      <div class="list-box fl">
+        <div class="my-content">
+          <span class="num">{{clinicResponse?.SeeDoctorNumber}}</span>
+          <span class="my-list-name">总就诊人次</span>
+        </div>
+        <span class="my-line"></span>
+      </div>
+      <div class="list-box fl">
+        <div class="my-content">
+          <span class="num">{{clinicResponse?.BookingNumber}}</span>
+          <span class="my-list-name">预约挂号</span>
+        </div>
+        <span class="my-line"></span>
+      </div>
+      <div class="list-box fl">
+        <div class="my-content">
+          <span class="num">{{clinicResponse?.PatlogNumber}}</span>
+          <span class="my-list-name">门诊挂号</span>
+        </div>
+        <span class="my-line"></span>
+      </div>
+      <div class="list-box fl">
+        <div class="my-content">
+          <span class="num">{{clinicResponse?.BookingRatio}}</span>
+          <span class="my-list-name">预约占比</span>
+        </div>
+        <!--<span class="my-line"></span>-->
+      </div>
+      <br clear="both">
+    </div>
+  </div>
+  <!--下边内容部分-->
+  <div class="my-container-content">
+    <div class="ec-header all-visit-header">
+      <span class="my-right fr">单位:人次</span>
+      <span class="my-ec-header-text">
+        总就诊趋势
+      </span>
+    </div>
+    <div class="ec-content all-visit" style="height: 346px;" id="allVisit">
+    </div>
+    <!--预约趋势-->
+    <div class="ec-header booking-report-header">
+      <span class="my-right fr">单位:人次</span>
+      <span class="my-ec-header-text">
+        预约趋势
+      </span>
+    </div>
+    <div class="ec-content booking-report" style="height: 346px;" id="bookingReport">
+    </div>
+    <!--挂号趋势-->
+    <div class="ec-header regist-report-header">
+      <span class="my-right fr">单位:人次</span>
+      <span class="my-ec-header-text">
+        挂号趋势
+      </span>
+    </div>
+    <div class="ec-content regist-report" style="height: 346px;" id="registReport">
+    </div>
+  </div>
+</div>

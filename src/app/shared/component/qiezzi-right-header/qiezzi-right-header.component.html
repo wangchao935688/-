@@ -1,0 +1,13 @@
+<div class="right-header">
+  {{rightComponentName}}
+  <div class="right-back icon" (click)="onRightContainerClose($event)"></div>
+  <div class="right-control">
+    <div class="right-close icon fr" (click)="onRightContainerClose($event)"></div>
+    <div class="right-more icon fr single" *ngIf="mobileControlList && mobileControlList?.length === 1"
+         (click)="clickRightOne()" [innerHTML]="mobileControlList[0]" title="删除"></div>
+    <div class="right-more icon fr" *ngIf="mobileControlList && mobileControlList?.length > 1"
+         qiezzi-popup-bubble [listData]="mobileControlList" [options]="{type:'LIST',position:'TOP_RIGHT_FIXED'}"
+         (onListClick)="moreItemClick($event)">
+    </div>
+  </div>
+</div>

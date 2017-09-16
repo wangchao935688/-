@@ -1,0 +1,60 @@
+<app-qiezzi-right-header
+  [rightComponentName]="rightComponentName"
+  [controlList]="controlList"
+  (onControl)="onControl($event)"></app-qiezzi-right-header>
+<qiezzi-loading [attr.status]="mainShowLoading" class="loading6 purple transparent" style="margin-top:15rem;"></qiezzi-loading>
+<div class="sideslip-scroll" style="height:calc(100% - 4rem);" malihu-scrollbar [scrollbarOptions]="scrollbarOptionsRight">
+  <div style="padding: 0 1.5rem 1.5rem 1.5rem;margin-bottom:2rem;">
+    <div class="information-name padding-top-20" style="color: #666;">
+      <div>{{responseData.PatientModel?.PatientName}} <em>|</em>  No.{{responseData.PatientModel?.PatientCode}} <em>|</em> {{responseData.PatientModel?.Tel}} </div>
+      <div>{{responseData.InterviewDate | qiezziDateAuto:1}}</div>
+    </div>
+    <div class="infomation">
+      <div class="information-header">
+        <strong><i class="icon-shoufeijilu"></i>回访信息</strong>
+      </div>
+      <div class="infomations-info">
+        <div class="infomation-info">
+          <div>回访日期</div>
+          <div>医生</div>
+          <div>回访类型</div>
+          <div>回访状态</div>
+          <div>回访人员</div>
+          <div>回访内容</div>
+        </div>
+        <div class="infomation-info">
+          <div>{{responseData.InterviewDate | qiezziDateAuto : 1 | qiezziTextNull}}</div>
+          <div>{{responseData.DoctorModel?.WorkerName | qiezziTextNull}}</div>
+          <div>{{responseData.InterviewTypeName | qiezziTextNull}}</div>
+          <div>
+            <!--{{responseData.State}}-->
+            <span *ngIf="responseData.State == 0">进行中</span>
+            <span *ngIf="responseData.State == 1">已完成</span>
+          </div>
+          <div>{{ Worker | qiezziTextNull}}</div>
+          <div>{{responseData?.Content | qiezziTextNull}}</div>
+        </div>
+      </div>
+    </div>
+    <div class="infomation">
+      <div class="information-header">
+        <strong><i class="icon-huifang-huifangjieguo"></i>回访结果</strong>
+      </div>
+      <div class="infomation-content">
+        <div class="content-bottom">
+        <div class="infomation-right">
+          <div class="right-header">
+            <span class="time" >{{responseData.InterviewDate | qiezziDateAuto :0}}</span>
+            <span><span class="garden"></span>{{responseData.DoctorModel?.WorkerName}}</span>
+          </div>
+          <div class="left-border"><div class="paragraph">{{responseData.Content}}</div></div>
+        </div>
+      </div>
+      </div>
+    </div>
+    <div class="footer">
+      <span>确认人：<em>{{responseData.CreatorName}}</em></span>
+      <span>确认日期：<em>{{responseData.CreateTime | qiezziDateAuto : 1}}</em></span>
+    </div>
+  </div>
+</div>

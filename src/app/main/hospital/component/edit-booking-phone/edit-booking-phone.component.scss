@@ -1,0 +1,121 @@
+
+.popup-content-container {
+
+  .popup-content-box {
+
+    .create-process {
+
+      .create-process-form {
+
+        form.validate-form {
+
+          .form-section {
+            display: block;
+
+            .form-title {
+              //display: inline-block;
+              width: 5rem;
+              margin-right: 1.5rem;
+              text-align: left;
+              position: relative;
+              justify-content: flex-start;
+              qiezzi-drop-down-list {
+                width: 100%;
+                text-align: left;
+              }
+            }
+            .form-element {
+              //width: 100%;
+              width: calc(100% - 5rem - 1.5rem - 1.8rem);
+              display: inline-block;
+              float: left;
+            }
+            //右侧删除
+            .form-icon {
+              visibility: hidden;
+              width: 32px;
+              height: 32px;
+              float: right;
+              margin-right: -0.4rem;
+              padding: 8px;
+              text-align: right;
+              /* margin-left: 12px; */
+              //删除图标按钮
+              .icon {
+                //position: absolute;
+                font-size: 0.8rem;
+                color: #7A80FA;
+              }
+            }
+          }
+          //划过显示
+          .form-section:hover .form-icon {
+            visibility: visible;
+          }
+
+          //座机
+          .landline {
+
+            .form-element {
+              .landline-num {
+                width: 100%;
+                //position: relative;
+                .num1 {
+                  //width: 31%;
+                  //margin-right: 11%;
+                  width: 31%;
+                  margin-right: 9%;
+                  position: relative;
+                }
+                //中间横线
+                span::after {
+                  content: "";
+                  height: 0.05rem;
+                  width: 0.7rem;
+                  position: absolute;
+                  left: 4.25rem;
+                  top: 0.8rem;
+                  display: block;
+                  background-color: #999;
+                  border: none;
+                  //border: 1px solid #999;
+                }
+                .num2 {
+                  width: 58%;
+                }
+              }
+            }
+          }
+          //手机
+          .cellphone {
+            .form-element {
+              .cellphone-num {
+                width: 100%;
+              }
+            }
+          }
+          //400客服
+          .service400 {
+            .form-element {
+              .service400-num {
+                width: 100%;
+              }
+            }
+          }
+          //添加预约电话
+          .add-phone-num {
+            .form-title {
+              font-size: 0.6rem;
+              color: #7A80FA;
+              line-height: 1.6rem;
+            }
+          }
+        }
+
+      }
+
+    }
+
+  }
+
+}

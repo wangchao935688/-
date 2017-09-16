@@ -1,0 +1,134 @@
+<div [attr.status]="displayStatus" class="right-slider-container">
+  <router-outlet></router-outlet>
+</div>
+<div id="app-center-container">
+  <div id="app-center-content">
+    <!-- 页头 -->
+    <app-qiezzi-center-header [showSearch]="false"
+                              [showFilter]="false"
+                              [showOptions]="false"
+                              [showAdd]="false"
+                              [moduleName]="moduleName"
+                              [searchPlaceholder]="'姓名'"
+                              [controlList]="['添加','修改']"
+                              (onControl)="onControlClick($event)"
+                              (onSearch)="onSearch($event)"
+                              (onOptions)="onOptions($event)"
+                              (onShowFilter)="onShowFilter($event)"
+    ></app-qiezzi-center-header>
+
+    <!-- 页面主体 -->
+    <div class="capital-flow-content">
+      <!-- 左侧 -->
+      <div class="capital-flow-content-left" >
+        <div class="capital-flow-content-left-header">
+          <strong class="lf">资金账户</strong>
+          <!--<button class="rt button3" >转账</button>-->
+          <!--<button class=" button3">转账</button>-->
+          <div class="rt" (click)="openPopupWindow($event)" style="color: #605BF5;cursor:pointer;">
+            <i class="icon iconfont icon-zhuanzhang"></i>
+            <span style="margin-left: .3rem;">转账</span>
+          </div>
+        </div>
+        <div id="appCenterContent"
+             style="height: 100%!important;"
+             [ngStyle]="{'display': centerLoadReady?'block':'none','border-top':isBorder?'1px solid #DBDBDB':''}"
+             class="app-center-content" malihu-scrollbar
+             [scrollbarOptions]="scrollbarOptions">
+          <div *ngIf="!AccountList || AccountList.length === 0" class="">
+            <app-data-empty [showEmpty]="showEmptyStateAccount"></app-data-empty>
+          </div>
+          <qiezzi-loading [attr.status]="mainShowLoadingLift" class="loading6 purple transparent" style="margin-top: 15rem"></qiezzi-loading>
+          <div class="list-table">
+            <ul class="list-table-content capital-flow-content-left-list">
+              <li  style="width: 100%;border-bottom: 1px dashed #dddddd;color: #333;"
+                  class="list-table-item click-no-hide-detail capital-flow-content-left-list-item"
+                  [ngClass]="{'selected': selectIndex === -1}"
+                  (click)="clickAccountItem($event,null,-1)">
+                <span style="float: left;" class="size-normal"><span style="width: 4.2rem;color: #333;">总资产</span></span>
+                <span class="rt"><span style="color: #333;width: 4.9rem;">{{totalBalance | qiezziMoeny:true}}</span></span>
+              </li>
+              <li *ngFor="let accountItem of AccountList;let i = index;" style="width: 100%;"
+                  class="list-table-item click-no-hide-detail capital-flow-content-left-list-item"
+                  [ngClass]="{'selected': i === selectIndex}"
+                  (click)="clickAccountItem($event,accountItem?.ID,i)">
+                <span style="float: left;" class="size-normal"><span style="width: 4.2rem">{{accountItem?.AccountName}}</span></span>
+                <span class="rt"><span style="color: #333;width: 4.9rem;">{{accountItem?.Balance | qiezziMoeny:true}}</span></span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!-- 右侧 -->
+      <div class="capital-flow-content-right">
+        <div id="appCenterRightContent"
+             style="height: 100%!important;"
+             [ngStyle]="{'display': centerRightLoadReady?'block':'none','border-top':isBorderRight?'1px solid #DBDBDB':''}"
+             class="app-center-content" malihu-scrollbar
+             [scrollbarOptions]="scrollbarOptionsRight">
+          <qiezzi-loading [attr.status]="mainShowLoadingRight" class="loading6 purple transparent" style="margin-top: 15rem"></qiezzi-loading>
+                <!-- 日历插件 -->
+                <div class="row">
+                  <div class="component">
+                    <qiezzi-select-date-slot (onSelectDate)="selectDate($event)"></qiezzi-select-date-slot>
+                  </div>
+                </div>
+                <!-- 结束日历插件 -->
+                <!-- 流入流出、期初期末 -->
+                <div class="row">
+                  <div class="rt">
+                    <span style="color: #999;">期初：</span><span style="color: #605bf5;margin-right: .5rem;">{{Count?.BeginningBalance | qiezziMoeny:true}}</span>
+                    <span style="color: #999;">期末：</span><span style="color: #605bf5;">{{Count?.EndingBalance | qiezziMoeny:true}}</span>
+                  </div>
+                  <div>
+                   <span style="color: #999;">流入：</span><span style="margin-right: .5rem;color: #333;">{{Count?.Inflow | qiezziMoeny:true}}</span>
+                    <span style="color: #999;">流出：</span><span style="color: #333;">{{Count?.Outflow | qiezziMoeny:true}}</span>
+                  </div>
+                </div>
+                <!-- 结束流入流出 -->
+                <!-- 列表 -->
+                <div class="list-table">
+                    <div class="list-table-head">
+                      <div class="list-table-col0">时间</div>
+                      <div class="list-table-col0 ">项目</div>
+                      <div class="list-table-col0">收支</div>
+                    </div>
+
+                    <div class="list-table-content">
+                      <div  *ngFor="let flowItem of FlowList?.Items;let i = index;"
+                            class="list-table-item click-no-hide-detail"
+                            [ngClass]="{'selected': i === flowIndex}"
+                            (click)="clickFlowItem($event,flowItem?.ID,i)">
+                        <div class=" list-table-col0" style="width: 35%">
+                          <span>{{flowItem?.PayTime | date:'yyyy-MM-dd'}}</span>
+                          <span>{{flowItem?.PayTime | date : 'hh:mm'}}</span>
+                        </div>
+                        <div class="list-table-col0" style="width: 35%">
+                          <!--<span>查尔斯医生</span>-->
+                          <span>{{flowItem?.TypeDescription}}</span>
+                        </div>
+                        <div class="list-table-col0" style="width: 30%">
+                          <!--<strong>￥1123456.00</strong>-->
+                          <strong>{{flowItem?.Money | qiezziMoeny : true}}</strong>
+                        </div>
+                    </div>
+                  </div>
+                <!-- 结束列表 -->
+                  <div *ngIf="!FlowList || FlowList?.Items.length == 0" class="data-empty">
+                    <app-data-empty [showEmpty]="showEmptyState"></app-data-empty>
+                  </div>
+                <!-- 分页 -->
+                <!--<div class="row">-->
+                <qiezzi-paginator [ngStyle]="{display: (FlowList && FlowList?.TotalItems>10) ?'block' : 'none'}"
+                                  [rows]="FlowList?.ItemsPerPage" [totalRecords]="FlowList?.TotalItems"
+                                  [rowsPerPageOptions]="[10,20,30]"
+                                  [style]="showOrHide" (onPageChange)="onPageChange($event)"></qiezzi-paginator>
+                <!--</div>-->
+                <!-- 结束分页 -->
+             </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

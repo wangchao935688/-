@@ -1,0 +1,37 @@
+<div [attr.status]="displayStatus" class="right-slider-container">
+  <router-outlet></router-outlet>
+</div>
+<div id="app-center-container">
+  <app-qiezzi-center-header [showSearch]="true"
+                            [showFilter]="true"
+                            [showAdd]="true"
+                            [showOptions]="false"
+                            [moduleName]="'接诊台'"
+                            [searchPlaceholder]="'患者/单号'"
+                            [controlList]="['新增预约','新增日程','qgdfv']"
+                            (onControl)="onControl($event)"
+
+  ></app-qiezzi-center-header>
+  <div id="appCenterContent" class="app-center-content">
+    <div class="reception-tab">
+      <div class="reception-tab-list" #tabListContainer>
+        <div class="tab-item" (click)="onTabClick(0)">今日挂号</div>
+        <div class="tab-icon tab-icon1" [ngClass]="{selected: currentDisplayState === 0}"
+             (click)="changeDisplayState(0)"></div>
+        <div class="tab-icon tab-icon2" [ngClass]="{selected: currentDisplayState === 1}"
+             (click)="changeDisplayState(1)"></div>
+        <div class="tab-item" (click)="onTabClick(1)">未分诊（{{noSelectDoctorCount || 0}}）</div>
+        <div class="tab-item" (click)="onTabClick(2)">全部挂号</div>
+      </div>
+      <div class="reception-tab-bar">
+        <div class="tab-bar" [ngStyle]="barStyleObject"></div>
+      </div>
+    </div>
+    <div class="tab-content">
+      <app-tile-today *ngIf="currentTabIndex === 0 && currentDisplayState === 0"></app-tile-today>
+      <app-list-today *ngIf="currentTabIndex === 0 && currentDisplayState === 1"></app-list-today>
+      <app-no-doctor-list *ngIf="currentTabIndex === 1"></app-no-doctor-list>
+      <app-all-list *ngIf="currentTabIndex === 2"></app-all-list>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,90 @@
+<div [attr.status]="displayStatus" class="right-slider-container">
+  <router-outlet></router-outlet>
+</div>
+<app-qiezzi-right-header
+  [rightComponentName]="compName"
+  [controlList]=""
+  (onClose)="onClose($event)"
+  (onControl)="onControlListClick($event)"></app-qiezzi-right-header>
+<qiezzi-loading [attr.status]='detailLoading' class="loading6 purple"></qiezzi-loading>
+<div class="right-content" *ngIf="ExpenseDetail"
+     id="rightContentScroll">
+  <div class="right-content-header">
+    <div class="right-content-header-text">
+      <span>流水号</span>
+      <span>{{ExpenseDetail.SerialNumber}}</span>
+    </div>
+    <div class="right-content-header-text">
+      <span>类别</span>
+      <span>{{ExpenseDetail.AccountName}}</span>
+    </div>
+    <div class="right-content-header-text">
+      <span>金额</span>
+      <span>{{ExpenseDetail.Money}}</span>
+    </div>
+    <div class="right-content-header-text">
+      <span>账户</span>
+      <span>{{ExpenseDetail.CreatorName}}</span>
+    </div>
+    <div class="right-content-header-text">
+      <span>时间</span>
+      <span>{{ExpenseDetail.PayTime | date:'yyyy-MM-dd hh:mm:ss'}}</span>
+    </div>
+  </div>
+  <div class="right-content-header" style="border:none">
+    <div class="right-content-header-title">{{ExpenseDetail.TradeType | qiezziDic:Type}}</div>
+    <div *ngIf="ExpenseDetail.TradeType ===3 && response">
+    <div class="right-content-header-text">
+      <span>单号</span>
+      <span class="bill" (click)="clickSecondRouter($event,response.Bill.ID,i)">{{response.Bill.BillCode}}</span>
+    </div>
+    <div class="right-content-header-text">
+      <span>患者</span>
+      <span >{{response.Patient.PatientName}}</span>
+    </div>
+    <div class="right-content-header-text">
+      <span>账单金额</span>
+      <span>{{response.Bill.PaidAmount}}</span>
+    </div>
+    <div class="right-content-header-text">
+      <span>医生</span>
+      <span>{{response.Bill.DoctorName}}</span>
+    </div>
+    <div class="right-content-header-text">
+      <span>账单时间</span>
+      <span>{{response.Bill.CreateTime}}</span>
+    </div>
+      <div class="right-content-header-text" >
+        <span>备注</span>
+        <span>{{response.Bill.Note}}</span>
+    </div>
+    </div>
+  </div>
+    <div *ngIf="ExpenseDetail.TradeType ===4">
+      <div class="right-content-header-text">
+        <span>单号</span>
+        <span>{{ExpenseDetail.TypeName}}</span>
+      </div>
+      <div class="right-content-header-text">
+        <span>类别</span>
+        <span>{{ExpenseDetail.TypeName}}</span>
+      </div>
+      <div class="right-content-header-text">
+        <span>经手人</span>
+        <span>{{ExpenseDetail.TypeName}}</span>
+      </div>
+      <div class="right-content-header-text">
+        <span>时间</span>
+        <span>{{ExpenseDetail.TypeName}}</span>
+      </div>
+      <div class="right-content-header-text">
+        <span>备注</span>
+        <span>{{ExpenseDetail.TypeName}}</span>
+        </div>
+      </div>
+
+
+  </div>
+
+
+

@@ -1,0 +1,41 @@
+<div class="tab-ctrl">
+  <div id="fee-tab-item0" class="tab-ctrl-item" [ngClass]="{'tab-ctrl-item-hover': returnVisitState ==0}"
+       (click)="selectTabIndex(0)">回访内容
+  </div>
+  <div id="fee-tab-item1" class="tab-ctrl-item" [ngClass]="{'tab-ctrl-item-hover': returnVisitState ==2}"
+       (click)="selectTabIndex(2)">回访结果
+  </div>
+</div>
+
+<div>
+  <div>
+    <span><input type="text" [(ngModel)]="templateName"></span>
+    <span><button  (click)="addTemplate()"></button></span>
+  </div>
+  <div class="list-table">
+    <div class="list-table-head">
+      <span class="">名称</span>
+      <span class="">内容</span>
+      <span class="">操作</span>
+    </div>
+    <div class="list-table-content">
+      <div class="list-table-item" *ngFor="let item of templateList.Items">
+        <div>
+          <span>{{item.Name}}</span>
+        </div>
+        <div>
+          <span>{{item.Content}}</span>
+        </div>
+        <div>
+          <span>
+            <button (click)="up(item.Id)">上移</button>
+            <button (click)="down(item.Id)">下移</button>
+            <button (click)="updTemplate(item.Id)">修改</button>
+            <button (click)="delTemplate(item.Id)">删除</button>
+          </span>
+        </div>
+        <br clear="left">
+      </div>
+    </div>
+  </div>
+</div>

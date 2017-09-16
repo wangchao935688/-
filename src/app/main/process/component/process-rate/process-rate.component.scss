@@ -1,0 +1,44 @@
+.tab-record-list {
+  margin-top: 0.5rem;
+  .tab-record-list-status {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 1.7rem;
+    line-height: 1.7rem;
+    .course {
+      width: 0.7rem;
+      height: 0.7rem;
+      border-radius: 0.7rem;
+    }
+    .left-range {
+      padding-left: 0.5rem;
+      font-size: 0.7rem;
+      color: #333333;
+      width: calc(100% - 0.7rem);
+      span:nth-child(2) {
+        color: #999999;
+        font-size: 0.6rem;
+      }
+    }
+  }
+  .tab-record-list-content {
+    border-left: 1px solid #dbdbdb;
+    padding-left: 15px;
+    margin-left: 0.35rem;
+    font-size: 0.6rem;
+    div {
+      line-height: 1rem;
+      color: #666666;
+      margin: 0.5rem 0;
+    }
+    .try-in {
+      height: 2.1rem;
+      line-height: 2.1rem;
+      font-size: .7rem;
+      color: #333;
+      padding-left: 0.5rem;
+      background: rgba(122, 128, 250, 0.04);
+    }
+  }
+}

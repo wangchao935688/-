@@ -1,0 +1,51 @@
+<div class="popup-content-container">
+  <div class="popup-content-box">
+    <div class="upload-box f14">
+      <span class="pc-upload"><label for="headSelector"><i aria-hidden="true"></i><span>本地上传</span></label></span><span
+      class="mobile-upload"><i aria-hidden="true"></i><span>手机上传</span></span>
+    </div>
+    <div>
+      <div class="head-show fl">
+        <div class="head-box">
+          <div class="pre-upload" [ngStyle]="{zIndex:!isReady?3:-2}">
+            <label>
+            <span class="pre-message"><i></i>
+              <span class="message-text">仅支持jpg、gif、png格式，<br>大小不超过5M</span>
+            </span>
+              <input type="file" id="headSelector" (change)="onFileSelect($event)" #fileSelector>
+            </label>
+          </div>
+          <canvas #drawImage [attr.width]="250"
+                  [attr.height]="250"></canvas>
+          <canvas #drawClipCanvas style="display:none;" [attr.width]="resizeHolderSize"
+                  [attr.height]="resizeHolderSize"></canvas>
+          <canvas #tempClipCanvas style="display:none;" [attr.width]="100"
+                  [attr.height]="100"></canvas>
+          <div class="head-cover" [style.top]="moveHolderTop + 'px'" [style.left]="moveHolderLeft + 'px'"
+               [style.width]="resizeHolderSize + 'px'"
+               [style.height]="resizeHolderSize + 'px'">
+            <div #moveHolder (mousedown)="onMoveHolderDown($event)" [style.width]="resizeHolderSize + 'px'"
+                 [style.height]="resizeHolderSize + 'px'">
+              <div class="left-top"></div>
+              <div class="left-bottom"></div>
+              <div class="right-top"></div>
+              <div class="right-bottom" #resizeHolder (mousedown)="onResizeHolderDown($event)"></div>
+            </div>
+          </div>
+        </div>
+        <div class="rotate-panel">
+          <span (click)="imageRotateLeft()"><i aria-hidden="true"></i>左转90°</span><span (click)="imageRotateRight()">右转90°<i
+          aria-hidden="true"></i></span>
+        </div>
+      </div>
+      <div class="head-view fl"><i aria-hidden="true" *ngIf="!isReady"></i><img [src]="viewImgDataURL">
+        <div class="head-delete" (click)="deleteUserHead()">删除</div>
+      </div>
+      <div class="c-left"></div>
+    </div>
+  </div>
+</div>
+<div class="button-group button-group-right">
+  <button (click)="onSaveClick()" class="button5">保存</button>
+  <button (click)="close()" class="button4">取消</button>
+</div>

@@ -1,0 +1,21 @@
+.form-title {
+  float: left; }
+
+.form-element input {
+  text-indent: .25rem;
+  font-size: 12px;
+  display: inline-block; }
+.form-element textarea {
+  text-indent: .25rem;
+  font-size: 12px;
+  padding-top: .3rem;
+  resize: none;
+  display: inline-block; }
+
+.validate-form > .form-section > .form-element {
+  padding-left: 1rem; }
+
+.form-section:first-child {
+  padding-top: 1rem; }
+
+/*# sourceMappingURL=create-edit-common-theme.component.css.map */

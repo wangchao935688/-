@@ -1,0 +1,48 @@
+<div id="app-center-container">
+  <div id="app-center-content">
+
+    <app-qiezzi-center-header [showSearch]="false"
+                              [showFilter]="false"
+                              [showOptions]="true"
+                              [showAdd]="false"
+                              [moduleName]="moduleName"
+                              [controlList]="['添加']"
+    ></app-qiezzi-center-header>
+    <div class="gps">
+      <i class="iconfont icon-dingwei"></i><span class="gps-span" (click)="back()">排班</span><span>>班次设置</span>
+    </div>
+    <div class="button-group button-group-left add"  (click)="addExpenseType()">
+      <button class="button5" >新增班次</button>
+    </div>
+    <div class="tab-ctrl-content">
+      <div class="list-table">
+        <div class="list-table-head " style="border: solid 1px #dbdbdb ">
+          <span class="">班次</span>
+          <span class="">上班时间</span>
+          <span class="">下班时间</span>
+          <span class="">颜色</span>
+          <span class="">操作</span>
+        </div>
+      </div>
+      <div class="list-table">
+        <div class="list-table-head " style="border: solid 1px #dbdbdb;border-top: none;" *ngFor="let item of GetShiftTypeListResponse; let i = index;">
+          <span class="">{{item.Name}}</span>
+          <span class="">{{item.StartTime.Hour}}:{{item.StartTime.Minute}}</span>
+          <span class="">{{item.StopTime.Hour}}:{{item.StopTime.Minute}}</span>
+          <span class="circle">
+            <div class="class-color"></div>
+          </span>
+          <span class="">
+            <i class="iconfont icon-xiugai" (click)="update(item.ID)"></i>
+                    <span>|</span>
+                    <i class="iconfont icon-shanchu" (click)="delete(item.ID)"></i>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+

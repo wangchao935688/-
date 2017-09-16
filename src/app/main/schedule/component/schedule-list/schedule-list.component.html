@@ -1,0 +1,26 @@
+<div class="list-table">
+  <div class="list-table-head">
+    <span class="col1">名称</span>
+    <span class="mobile-hidden col2">时间</span>
+    <span class="col3">发起人</span>
+    <span class="mobile-hidden col4">参与人</span>
+    <span class="col5">提醒</span>
+  </div>
+  <div class="list-table-content">
+    <div class="list-table-item single" [ngClass]="{'selected': i==selectIndex}"
+         *ngFor="let item of data?.Items;let i=index;" (click)="openDetail($event,item.Id,i)">
+      <div class="col1"><span>{{item.Name | qiezziTextNull}}</span></div>
+      <div class="mobile-hidden col2"><span>{{item.StartTime}}</span></div>
+      <div class="col3"><span>{{item.DoctorName | qiezziTextNull}}</span></div>
+      <div class="mobile-hidden col4"><span>{{item.Worker | qiezziArrayString:['WorkerName',',']}}</span></div>
+      <div class="col5"><span>{{item.TimeType === 0 ? '不提醒' :  item.Time +'' + (item.TimeType | qiezziDic:'bookingScheduleTimeType')}}</span>
+      </div>
+    </div>
+  </div>
+  <app-data-empty *ngIf="data?.TotalItems == 0" [showEmpty]="showEmpty"></app-data-empty>
+  <qiezzi-paginator [ngStyle]="{display: (data?.TotalItems>10) ?'block' : 'none'}" [rows]="data?.ItemsPerPage"
+                    [totalRecords]="data?.TotalItems"
+                    [rowsPerPageOptions]="[10,20,30]"
+                    (onPageChange)="pageChange($event)"></qiezzi-paginator>
+
+</div>

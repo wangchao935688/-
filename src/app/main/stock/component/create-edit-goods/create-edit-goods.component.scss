@@ -1,0 +1,219 @@
+.fr{
+  float: right;
+}
+.fl{
+  float: left;
+}
+.w50{
+  width: 50%;
+}
+.w100{
+  width: 100%;
+}
+
+.popup-window .popup-content .popup-content-container{
+  height: 100%;
+}
+
+.popup-content-container{
+  width: 34rem;
+  height: 100%;
+}
+
+.create-process {
+  font-size: 0.6rem;
+  //height: 100%;
+  .create-process-patient {
+    height: 2.1rem;
+    border-bottom: 1px dashed #DBDBDB;
+    .create-process-patient-text {
+      color: #666666;
+      height: 1rem;
+      line-height: 1rem;
+    }
+    span {
+      padding: 0 .5rem;
+    }
+  }
+  .create-process-tooth {
+    min-height: 3.2rem;
+    .create-process-tooth-bar {
+      height: 2.2rem;
+      line-height: 3.2rem;
+      font-size: .7rem;
+      button {
+        float: right;
+        margin-top: .8rem;
+      }
+      div {
+        display: inline-block;
+      }
+    }
+    .create-process-tooth-bottom {
+      padding-top: 1rem;
+      border-bottom: 1px dashed #DBDBDB;
+    }
+  }
+  .create-process-form {
+    margin-top: 0.2rem;
+    height: 100%;
+    .validate-form{
+      height: 100%;
+    }
+
+    input{
+      border: 1px solid #e6e7f3;
+      box-shadow: none;
+      height: 1.6rem;
+      width: 100%;
+
+    }
+    input:focus{
+      border: 1px solid #7A80FA;
+    }
+  }
+  .create-process-button {
+    margin-top: 1.5rem;
+  }
+}
+
+.form-element .input-text{
+  //width: 13rem;
+  //height: 1.65rem;
+}
+
+.form-title{
+  font-size: 0.6rem;
+  //color: #ccc;
+  color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 2.9rem;
+  height: 1.6rem;
+}
+
+
+//引入演示demo的按钮
+.input-group span.help-message {
+  width: 0.8rem;
+  height: 0.8rem;
+  background-color: #fea356;
+  border-radius: 50% 50%;
+  display: block;
+  float: left;
+  line-height: 0.8rem;
+  text-align: center;
+  font-size: 0.6rem;
+  padding: 0;
+  color: #fff;
+  cursor: pointer;
+  overflow: hidden;
+  margin-top: 0.4rem;
+}
+
+:host {
+  display: block;
+  height:100%
+}
+
+.detail{
+  margin-left: 15%;
+  margin-top: 1rem;
+  width: 100%;
+}
+.bottomline{
+  border-bottom:1px dashed #DBDBDB ;
+  padding-bottom: 0.5rem;
+}
+.doctorfirst{
+  margin-top: 1.5rem;
+}
+.form-section{
+  height: 100%;
+}
+.form-section .form-element .note{
+  width: 100%;
+}
+.create-process-form{
+  position: relative;
+}
+input{
+  font-size: 0.6rem;
+}
+.button4{
+  float: right;
+  margin-left: 0.7rem;
+}
+.button5{
+  float: right;
+}
+.bottom-button{
+  margin-bottom: 0.7rem;
+  height: 1.6rem;
+}
+
+.form-section .name-important{
+  width: 13rem;
+  height: 1.65rem;
+  position: relative;
+}
+.form-element .import-patient{
+  width:0.8rem;
+  height: 0.8rem;
+  background: #ccc;
+  position: absolute;
+  right: 0.45rem;
+  top: 0.45rem;
+}
+.detailAddr{
+  width: 100%;
+}
+i{
+  font-style: normal;
+  background: #ffffff;
+}
+.normal{
+  color: #dddddd;
+}
+.normal:hover{
+  color: #FEA356;
+}
+.important{
+  color: #FEA356;
+}
+.popup-content-box{
+  height:100%;
+  overflow: auto;
+}
+.tag-box{
+  width:100%;
+  overflow: auto;
+  height: 3rem;
+}
+.sign{
+  width:100%;
+  line-height: 1.6rem;
+  height:1.65rem;
+  border: 1px solid #e6e7f3;
+  border-radius: .2rem .2rem;
+  color: #333;
+  text-align: right;
+  cursor: pointer;
+  i{
+    margin-right: .5rem;
+  }
+}
+
+.line{
+  border-bottom:1px dashed #dddddd;
+  padding-bottom: 1.5rem;
+}
+//错误提示
+.err-message {
+  height: 1rem;
+  font-size: 0.6rem;
+  line-height: 1rem;
+  color: #fe4e74;
+  text-indent: 0.5rem;
+}

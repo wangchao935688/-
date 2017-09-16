@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script>
+    var nav = window.navigator;
+    var ua = window.navigator.userAgent;
+
+    if (!!window.ActiveXObject || "ActiveXObject" in window)
+      alert('IE');
+    if (/Edge/.exec(window.navigator.userAgent, 'i'))
+      alert('EDGE');
+    if (/Firefox/.exec(window.navigator.userAgent, 'i'))
+      alert('火狐');
+    if (/Chrome/.exec(window.navigator.userAgent, 'i'))
+      alert('Chrome');
+
+    function loginClick() {
+
+      var xhr2 = new XMLHttpRequest();
+      xhr2.onreadystatechange = function () {
+        if (xhr2.readyState === 4 && xhr2.status === 200) {
+          var result = JSON.parse(xhr2.response);
+          var date = new Date();
+          var dateNumber = date.getTime();
+          var expireDate = new Date(dateNumber + 1000 * 60 * 60 * 24);
+          document.cookie = 'globals_user=' + result.Web.UserCookie.Value + '; path=/; expires=' + expireDate.toLocaleString();
+          document.cookie = 'globals=' + result.Web.Cookie.Value + '; path=/; expires=' + expireDate.toLocaleString();
+          document.cookie = 'currentWorker=' + encodeURIComponent(JSON.stringify(result.Workers[0])) + '; path=/; expires=' + expireDate.toLocaleString();
+          location.href = '/';
+        }
+      };
+      xhr2.open("POST", "http://tclinicapi.qiezzi.com/api/User/Login");
+
+      var form = new FormData();
+      form.append('UserName', '13546480403');
+      form.append('Password', '670b14728ad9902aecba32e22fa4f6bd');
+
+      xhr2.send(form);
+    }
+  </script>
+  <link rel="stylesheet" href="login.scss">
+</head>
+<body>
+<div class="qz-signin-container">
+  <div class="signin-container">
+    <div class="signin-box">
+
+      <form class="form-signin pull-right">
+        <h2 class="form-signin-heading">登录</h2>
+        <div class="form-group">
+          <div class="input-group">
+            <span class="input-group-addon border-radius"><i class="fa fa-user icon-size"></i></span>
+            <input class="form-control" type="text" id="UserName">
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="input-group">
+              <span class="input-group-addon border-radius">
+                <i class="fa fa-lock icon-size"></i>
+             </span>
+            <input class="form-control" type="password" id="Password">
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="ui-grid-row">
+            <div class="ui-grid-col-6">
+              <label><input type="checkbox"/>自动登录</label>
+            </div>
+            <div class="ui-grid-col-6 txt-right">
+              <a href="http://www.qiezzi.com/user/resetpassword">找回密码</a>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <button class="btn btn-lg bt-signin btn-block dlu" type="button" onclick="loginClick()">立即登录</button>
+          <a href="http://www.qiezzi.com/user/signup" class="newsign" target="_blank">没有账号？立即注册</a>
+        </div>
+      </form>
+      <div class="app-descrip pull-right">
+        <p></p>
+        <h1>茄子云诊所管理系统4.0</h1>
+        <p>茄子云诊所</p>
+        <p>做您最贴心的口腔诊所管家</p>
+      </div>
+    </div>
+    <div class="everybrowser">
+      推荐使用<a href="http://rj.baidu.com/soft/detail/14744.html?ald" target="_blank">谷歌</a>、
+      <a href="http://rj.baidu.com/soft/detail/11843.html" target="_blank">火狐</a>、
+      <a href="http://rj.baidu.com/soft/detail/17451.html" target="_blank">360</a>、
+      <a href="http://rj.baidu.com/soft/detail/14917.html" target="_blank">ie10</a>及以上浏览器 |
+      推荐屏幕分辨率1280*768及以上，您也可以直接点击<a href="http://d.qiezzi.com/qiezikouqiangyun3.0.0.8.exe">下载</a>茄子云专属客户端，客服电话：010-57725760
+      客服QQ：2427944484
+    </div>
+  </div>
+</div>
+
+
+</body>
+</html>

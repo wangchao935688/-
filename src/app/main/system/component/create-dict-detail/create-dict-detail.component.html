@@ -1,0 +1,18 @@
+<div id="app-center-container">
+
+
+  <!--字典code：<input type="text" [(ngModel)]="formModel.dictSheetCode" >-->
+  <!--字典名称：<input type="text"  [(ngModel)]="formModel.dictDetailName" >-->
+
+  <!--<input type="button" value="提交" (click)="submit()">-->
+
+
+  <div style="margin-top: 50px;">
+    用户名：<input type="text" name="username" [(ngModel)]="loginForm.username">
+    密码：<input type="text" name="password" [(ngModel)]="loginForm.password">
+    记住：<input type="checkbox" name="autoSign" [(ngModel)]="loginForm.autosign">
+
+    <input type="button" value="登录" (click)="login()">
+    <div>{{errorTip}}</div>
+  </div>
+</div>

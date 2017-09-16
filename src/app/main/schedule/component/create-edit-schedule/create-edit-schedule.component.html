@@ -1,0 +1,81 @@
+<div class="popup-content-container" malihu-scrollbar [scrollbarOptions]="scrollbarOptions">
+  <div class="popup-content-box">
+    <form class="validate-form" [formGroup]="formGroup">
+      <div class="form-section">
+        <div class="form-title"><span class="red-point"><i></i></span>日程名称</div>
+        <div class="form-element">
+          <div class="err-message" [attr.error]="formErrors['Name']">{{formErrors['Name']}}</div>
+          <input placeholder="{{formPlaceholder['Name']}}" formControlName="Name"
+                 (blur)="onInputElementBlur('Name')">
+        </div>
+      </div>
+      <div class="form-section">
+        <div class="form-title"><span class="red-point"><i></i></span>开始时间</div>
+        <div class="form-element">
+          <div class="double-element">
+            <div class="form-element">
+              <div class="err-message" [attr.error]="formErrors['StartDate']">{{formErrors['StartDate']}}</div>
+              <input qiezzi-date-picker class="input-text" placeholder="{{formPlaceholder['StartDate']}}"
+                     formControlName="StartDate">
+              <div class="form-element-icon">&#xe6aa;</div>
+            </div>
+            <div class="form-element">
+              <div class="err-message" [attr.error]="formErrors['StartTime']">{{formErrors['StartTime']}}</div>
+              <qiezzi-drop-down-list class="drop-down-select" [required]="true" [selectIndex]="startTimeSelectedIndex"
+                                     [dataList]="startTimeRow" formControlName="StartTime"
+                                     (onChange)="onStartTimeChange($event)"></qiezzi-drop-down-list>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-section">
+        <div class="form-title"><span class="red-point"><i></i></span>结束时间</div>
+        <div class="form-element">
+          <div class="double-element">
+            <div class="form-element">
+              <div class="err-message" [attr.error]="formErrors['EndDate']">{{formErrors['EndDate']}}</div>
+              <input qiezzi-date-picker class="input-text" placeholder="{{formPlaceholder['EndDate']}}"
+                     formControlName="EndDate">
+              <div class="form-element-icon">&#xe6aa;</div>
+            </div>
+            <div class="form-element">
+              <div class="err-message" [attr.error]="formErrors['EndTime']">{{formErrors['EndTime']}}</div>
+              <qiezzi-drop-down-list class="drop-down-select" [required]="true" [selectIndex]="endTimeSelectedIndex"
+                                     [dataList]="timeRows" formControlName="EndTime"
+                                     (onChange)="onEndTimeChange($event)"></qiezzi-drop-down-list>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-section">
+        <div class="form-title"><i></i>参与人</div>
+        <div class="form-element">
+          <div class="err-message" [attr.error]="formErrors['Players']">{{formErrors['Players']}}</div>
+          <app-tag-box-group formControlName="Players"></app-tag-box-group>
+          <div class="form-element-icon" (click)="onAddPartakerClick()">&#xe6ac;</div>
+        </div>
+      </div>
+      <div class="form-section">
+        <div class="form-title"><span class="red-point"><i></i></span>提醒</div>
+        <div class="form-element">
+          <div class="err-message" [attr.error]="formErrors['TimeType']">{{formErrors['TimeType']}}</div>
+          <app-qiezzi-rel-select [dataList]="timeAlertData" [placeholder]="'- -'" formControlName="TimeAlert"></app-qiezzi-rel-select>
+        </div>
+      </div>
+      <div class="form-section">
+        <div class="form-title"><span class="red-point"><i></i></span>备注</div>
+        <div class="form-element">
+          <div class="err-message" [attr.error]="formErrors['Note']">{{formErrors['Note']}}</div>
+          <textarea class="ta-text" placeholder="{{formPlaceholder['Note']}}" formControlName="Note"
+                    (blur)="onInputElementBlur('Note')">
+
+          </textarea>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<div class="button-group button-group-right">
+  <button (click)="save()" class="button5" [disabled]="!formGroup.valid">保存</button>
+  <button (click)="close()" class="button4">取消</button>
+</div>

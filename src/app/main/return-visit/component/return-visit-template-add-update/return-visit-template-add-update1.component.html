@@ -1,0 +1,12 @@
+<div>
+  <span>名称</span>
+  <span><input type="text" [(ngModel)]="template.Name"/></span>
+</div>
+<div>
+  <span>内容</span>
+  <span><input type="text" [(ngModel)]="template.Content"/></span>
+</div>
+<div>
+  <button pButton label="确定" (click)="ok()"></button>
+  <button pButton label="取消" (click)="cancel()"></button>
+</div>

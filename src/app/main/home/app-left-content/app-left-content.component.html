@@ -1,0 +1,51 @@
+<qiezzi-loading [attr.status]="leftShowLoading" class="loading6 white transparent"></qiezzi-loading>
+<div class="left-main">
+  <div class="left-nav-top">
+    <div class="hospital-logo"><img src="../../../../assets/images/logo.png"></div>
+    <div class="hospital-name">{{hospitalName}}</div>
+  </div>
+  <div class="left-menu" id="malihu" malihu-scrollbar [scrollbarOptions]="scrollbarOptions">
+    <div id="left-menu">
+      <div *ngFor="let subList of navData;let i = index;" class="main-menu"
+           [ngClass]="{'main-menu-active': i==currOpenIndex && isCollapsed}"
+           (click)="onMainMenuClick($event,i,subList.name)">
+        <div class="main-menu-item main-menu-item{{i}}">
+          <i class="iconfont {{subList.iconName}}" aria-hidden="true"></i>{{subList.name}}
+          <div *ngIf="subList.twoLevel.length > 0" class="item-arrow">
+            <i class="fa fa-chevron-down"
+               [ngClass]="{'fa-flip-vertical': i==currOpenIndex && isCollapsed,'fa-flip-horizontal':i==currOpenIndex && !isCollapsed}"></i>
+          </div>
+        </div>
+        <div *ngIf="subList.twoLevel.length > 0" class="left-sub-menu-arrow"></div>
+        <div *ngIf="subList.twoLevel.length > 0" class="left-sub-menu-mask"></div>
+        <div *ngIf="subList.twoLevel.length > 0" class="left-sub-menu-full" (click)="return;"></div>
+        <div class="left-sub-menu-box" *ngIf="i==currOpenIndex && isCollapsed" @heightFadeIn
+             [ngStyle]="{'height': (subList.twoLevel.length * 2)+'rem'}">
+          <div *ngIf="subList.twoLevel.length > 0" class="left-sub-menu">
+            <div *ngFor="let subItem of subList.twoLevel" class="sub-menu-item"
+                 (click)="onSubMenuClick($event,subItem.linkActive,i)">
+              {{subItem.name}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="left-nav-bottom">
+    <div *ngIf="isUserOptions" class="left-name-options-box" [ngStyle]="{'height': (userOptions.length * 2)+'rem'}"
+         @fadeIn>
+      <div *ngFor="let user of userOptions" class="name-menu-item">
+        <span @fadeIn>{{user.name}}</span>
+      </div>
+    </div>
+    <div class="name-sub-menu-mask" *ngIf="isUserOptions"></div>
+    <div class="name-sub-menu-arrow" *ngIf="isUserOptions"></div>
+    <div class="left-nav-box">
+      <div class="hospital-user-logo" (click)="onUserHeadClick()"><img src="../../../../assets/images/logo.png"></div>
+      <div class="hospital-user-name" (click)="onUserNameClick()">{{patientName}}</div>
+      <div class="hospital-user-exit" (click)="onUserExitClick()"><i class="fa fa-sign-out" aria-hidden="true"></i>
+      </div>
+    </div>
+  </div>
+</div>
+

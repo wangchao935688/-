@@ -1,0 +1,15 @@
+<div class="click-mask" [ngStyle]="{'display':maskState}" (click)="changeStatus()"></div>
+<div [ngStyle]="{color:displayText === '' ? '#999':'#333' }" (click)="changeStatus()" [attr.title]="text">{{displayText || placeholder}}</div>
+<div [ngClass]="{'arrow-down':true,'arrow-up':false}" (click)="changeStatus()"><i class="fa fa-caret-down"
+                                                                                  aria-hidden="true"></i><i
+  class="fa fa-caret-up"
+  aria-hidden="true"></i></div>
+<div [@heightFadeIn]="status">
+  <div>
+    <div class="drop-down-list">
+      <div *ngFor="let item of itemList;let i = index;" class="drop-down-list-item"
+           [ngClass]="{'selected':item.value ===modelValue }" (click)="onItemClick(item.label,i,item.value)" [attr.title]="item.label">{{item.label}}
+      </div>
+    </div>
+  </div>
+</div>

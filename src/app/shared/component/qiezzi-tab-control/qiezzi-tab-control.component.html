@@ -1,0 +1,9 @@
+<div class="tab-ctrl-list" #tabCtrlList>
+  <div *ngFor="let tabItem of tabData;let i = index;"
+       [ngClass]="{'tab-ctrl-item-hover':currentSelectedIndex === i}" class="tab-ctrl-item"
+       (click)="selectTabIndex(i)">{{tabItem}}
+  </div>
+</div>
+<div class="tab-bar-box">
+  <div class="tab-ctrl-bar" [ngStyle]="barStyleObject"></div>
+</div>

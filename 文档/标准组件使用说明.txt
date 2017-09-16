@@ -1,0 +1,253 @@
+﻿新框架模型
+	新的框架不使用旧的左中右三栏模式，虽然视觉上三栏，实际技术上分为左、右左、右右。左侧仍是导航菜单，右侧是一整块工作模块加载区域，头部不再属于框架，而是放到具体模块中，减少了工作模块与主框架的交互，简化了系统复杂度
+	右侧工作区域属于一个主路由出口，导航到工作模块的根组件，根组件担负起承载弹窗的职责。工作模块根组件的路由出口会导航到具体的业务子组件，每个业务子组件会自带一个主路由出口，用来加载详情侧滑组件。
+
+
+app-front-layer
+	弹窗系统详解：
+	目前弹窗只支持3个尺寸的窗口，分别是：480、680、860
+	要使用弹窗需要4个步骤
+	1、设置路由
+		每个大模块的根路由组件是 QiezziMainRootComponent，弹窗依赖的app-front-layer标签已经内置在QiezziMainRootComponent中，所以我们需要在路由文件里设置大模块的根路由，根路由会自动把弹窗接口对接到服务中。
+	2、注入服务
+		在需要使用弹窗的组件里注入服务 application:ApplicationService
+	3、设置组件允许动态创建
+		在模块定义里添加 entryComponents。将需要弹出的组件放进entryComponents数组中
+	4、调用弹窗
+		在需要弹窗的组件里执行
+		this.application.frontLayer.openPopupWindow(DemoNoticeComponent, '弹窗测试', PopupWindowSize.LARGE, 480, null, false).subscribe(t => {
+			console.log(t);
+		})
+
+	参数列表：
+		component		Type				无默认值	弹窗类型，切记是要弹出的组件的类名，不是字符串，也不是对象
+		componentName	string				无默认值	弹窗标题
+		width			PopupWindowSize		无默认值	窗口宽度
+		height			number				无默认值	窗口高度
+		data			any					null		传递给弹窗的数据，可空
+		clearPrevious	boolean				false		打开当前窗口，是否关闭前一个窗口
+
+		DemoNoticeComponent是弹窗组件类型，这里需要注意的是，弹窗组件需要继承PopupWindowBaseComponent，父类里封装了事件调用，可以在组件内很方便的调用close等方法，而不需要自己在组件内实现。
+		PopupWindowSize.LARGE是弹窗尺寸的枚举值，PopupWindowSize.SMALL：480，PopupWindowSize.MIDDLE：680，PopupWindowSize.LARGE：860
+
+	弹出Confirm确认窗口：
+	确认窗口尺寸唯一，调用方式与弹窗类似，比弹窗少了第三步，QiezziPopupConfirmComponent已经写入到shared模块中，可以随时调用，不需要在自己的模块里添加进entryComponents数组中
+	1、同弹窗
+	2、同弹窗
+	3、调用
+		this.application.frontLayer.openConfirmDialog('确认删除吗').subscribe(t => {});
+		调用弹出信息窗口时，app-front-layer会返回一个可观察对象给调用者，其中会包含一个参数，类型是布尔，true是点击确定，false是点击取消，空则是主动关闭了窗口，不返回任何信息
+
+
+	弹窗还有一个比较特殊的情况是弹出提示信息，比如添加成功，3秒后自动消失
+		示例：
+		this.application.main.openPromptMessage('登记取件成功！');
+
+侧滑系统
+	侧滑使用规范
+	1、在需要使用侧滑的组件ts里（工作模块列表页或侧滑组件）注入服务 slider: CustomizeSliderService
+	2、在需要使用侧滑的组件html里添加如下代码：
+		<div [attr.status]="displayStatus" class="right-slider-container">
+			<router-outlet></router-outlet>
+		</div>
+		侧滑必须在中栏容器<div id="app-center-container"><div>的前面，侧滑目前有两个尺寸：
+		a、480宽，平铺于最右侧的时候，侧滑无效果，始终展示，并且宽度会大于480，
+		b、860宽，这个宽度的侧滑会始终浮在上层，而且侧滑div的class必须添加一个large类
+	3、在需要弹出侧滑的具体代码出添加  this.slider.show(this, evt);
+	4、侧滑里的组件是依赖路由加载的，需要配置路由参数，因为多级侧滑会各自携带不同的参数，使用queryParameter会导致前一级侧滑的参数丢失，所以，我们需要使用/:param1/:param2这种静态路由的模式来传递参数
+
+表单验证
+	我们使用的验证规则是存在数据库中的，需要使用验证规则的时候，我们从后端获取到。在使用验证之前我们需要对表单进行设置
+	1、添加ICustomizeFormValidate接口，并自动添加该接口的6个属性的实现
+	2、注入服务 form: CustomizeFormValidateService
+	3、在ngOnInit里添加两行代码：
+			this.formName = 'FormName';
+			buildForm(component: any,serverFormName=null): serverFormName 不填默认serverFormName和formName一致 ,这样的话服务端的表单配置和前台的表单是一对多的关系
+		formName属性是继承自ICustomizeFormValidate接口，在使用服务创建表单验证规则之前，我们需要先给formName属性赋值，值必须跟服务器完全一致。this.form.buildForm()是验证服务的公开方法，需要把this当成参数传入到service里。
+	4、在FormKeyDictionaryService里添加表单元数据，作为表单验证项的依据，formName是页面上表单的名称， 前面的是formModel中属性名称，后面的为验证规则中的名称
+	   表单里凡是用响应式表单的（formControlName指定的）必须在字典中配置,其它不能放里面写，如果不需要验证，验证规则名称为空就行
+
+	5、需要验证的htl文件里需要严格遵循html的格式，不但涉及到表单验证，也跟表单样式有关，html格式如下：
+		<form class="validate-form" [formGroup]="formGroup">
+			<div class="form-section">
+				<div class="form-title"><span class="red-point"><i></i></span>返工日期</div>
+				<div class="form-element">
+					<div class="err-message" [attr.error]="formErrors['CommonTime']">{{formErrors['CommonTime']}}</div>
+					<input qiezzi-air-datepicker placeholder="{{formPlaceholder['CommonTime']}}" formControlName="CommonTime">
+				</div>
+			</div>
+			<div class="form-section">
+				<div class="form-title"><i></i>备注</div>
+				<div class="form-element">
+					<div class="err-message" [attr.error]="''"></div>
+					<input class="input-text" placeholder="" formControlName="ReworkReason">
+				</div>
+			</div>
+		</form>
+
+		formGroup是固定的属性，不可更改。<span class="red-point"><i></i></span>是必填项的红点，不是必填项不需要此段。返工日期在这里是表单项的标题，具体视业务而定。
+		[attr.error]="formErrors['CommonTime']"是错误提示信息，CommonTime是配置的具体表单项。[attr.error]是固定写法，少了此段，当有表单验证错误的时候，文本框的错误效果不能呈现。
+
+	6、最后我们需要添加一个保存按钮  <button (click)="ok()" class="button5" [disabled]="!formGroup.valid">保存</button>，当验证规则都通过，表单按钮会自动亮起，不满足验证规则，按钮是禁用状态。
+
+  7、表单模型中有些字段依然可以使用双向绑定，但不参与自动验证（不推荐）    <input type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="formModel.Test">
+
+app-qiezzi-center-header
+	中栏头部
+	用法：
+		<app-qiezzi-center-header	[showSearch]="true"
+									[showFilter]="true"
+									[showAdd]="true"
+									[moduleName]="moduleName"
+									[searchPlaceholder]="'患者/单号'"
+									[controlList]="['添加','删除']"
+									(onControl)="onControlClick($event)"
+									(onSearch)="onSearch($event)"
+									(onOptions)="onOptions($event)"
+									(onShowFilter)="onShowFilter($event)"></app-qiezzi-center-header>
+	属性：
+		showSearch：是否显示搜索
+		showFilter：是否显示筛选
+		showAdd：是否显示新增
+		moduleName：业务子模块名
+		searchPlaceholder：搜索框显示提示信息
+		controlList：弹出菜单选项列表，类型是字符串数组
+
+	事件：
+		onControl：点击弹出菜单选项，参数类型为数字，返回点击的选项的索引
+		onSearch：返回搜索框里输入的文字
+		onOptions
+		onShowFilter：修改筛选框状态时派发事件，事件参数类型为字符串，值为 'none' 或者 'block'
+
+app-qiezzi-right-header
+	右栏头部
+	用法：
+		<app-qiezzi-right-header	[rightComponentName]="compName"
+									[controlList]="ctrlList"
+									(onClose)="onClose($event)"
+									(onBack)="onBack($event)"
+									(onControl)="onControlListClick($event)"></app-qiezzi-right-header>
+	属性：
+		rightComponentName：右栏标题
+		controlList：弹出菜单选项列表，类型是字符串数组
+	事件：
+		onClose：关闭，仅仅在小于1600，大于999时显示关闭按钮，小于1000，右栏变成全屏，左侧显示返回按钮，大于等于1600时，右栏详情始终显示
+		onBack：返回，仅仅在小于1000时显示，模拟移动端的返回
+		onControl：点击弹出菜单选项，参数类型为数字，返回点击的选项的索引
+
+app-qiezzi-tab-control
+	用法：
+		<app-tab [tabData]="['选项卡1','选项卡2','选项卡3测试','选项卡4测试超长']" [defaultSelectedIndex]="2" (onTabIndexChange)="changeTab($event)"></app-tab>
+		<app-tab [tabData]="['选项卡1','选项卡2','选项卡3测试','选项卡4测试超长']" [defaultSelectedIndex]="2" (onTabIndexChange)="changeTab($event)" [theme]="2"></app-tab>
+	属性：
+		tabData：选项卡列表
+		defaultSelectedIndex：默认选中的选项卡索引
+		theme：两种风格，theme=1：有下划线，字号是16像素，theme=2：无下划线，字号是14像素，如不设置theme的值，默认是1
+	事件：
+		onTabIndexChange：页签修改时派发事件通知，通知内容为{index: 选项卡索引值, title: 选项卡标题}
+
+
+app-qiezzi-data-filter
+	筛选组件
+	用法：
+		<app-qiezzi-data-filter [filterConfig]="filterConfig" (onConditionChanged)="onConditionChanged($event)"></app-qiezzi-data-filter>
+	属性：
+		filterConfig：筛选配置信息，与上一版本的配置方式有很大不同
+						filterConfig: any = {
+												'doctorList': {title: '医生', type: 'list', data: ['庄恕', '陆晨曦', '扬帆', '陈绍聪']},
+												'nurseList': {title: '护士', type: 'list', data: ['杨羽']},
+												'patientAddress': {title: '患者地址', type: 'text', placeholder: '地址'},
+												'visitTime': {title: '就诊日期', type: 'time'}
+											};
+						筛选条件只有3类，1是列表、2是日期、3是纯文本框，type分别是list time text，必须对应，title是左侧的标题，data只有type是list的情况下才会展示
+						placeholder是纯文本输入的时候文本框提示信息
+						doctorList、nurseList、patientAddress、visitTime每一节配置的名字与筛选输出的最终条件有关
+
+
+表格
+
+	mobile-hidden：在手机版要隐藏的列，需要加上此类
+	list-table：表格样式
+	list-table-head：表头样式，表头元素要求是div，表头结束位置需要清除左浮动<br clear="left">，每一列的宽度单独在业务代码里控制，通用样式不做宽度控制
+	data-empty：查询不到数据的时候
+
+	list-table-content：数据列表正文父类别，无实际样式控制，必须
+	list-table-item：数据行，内部单元格需要严格的分层，第一层是div 第二层是span
+	click-no-hide-detail：点击列表项不关闭右侧侧滑的标志，无样式修饰
+	table-control：表格有操作的话，需要
+
+app-tag-box
+	用法：
+		<app-tag-box [tagList]="tagListData"></app-tag-box>
+		tagListData = ['测试标签','测试标签','测试标签','测试标签']
+	属性：
+		tagList：字符串数组，点击标签右侧的X可以单独删除某一个
+	方法：
+		addTag，调用实例的方法添加一个标签，支持多个同时添加，自动去重，相同标签不会添加第二次
+			示例：addTag('value1','value1','value1')
+
+	目前只支持一行标签，过多会自动缩小
+
+app-select-button-group
+	用法：
+		<app-select-button-group [list]="buttonGroupData"></app-select-button-group>
+		buttonGroupData = [{title: '根管治疗', selected: false}, {title: '根管治疗2', selected: false}, {title: '根管治疗3', selected: false}];
+		点击会修改外部数据的值
+	属性：
+		list：SelectButtonGroupStatus数组，设置标题跟是否选中
+
+	点击后修改对应项的selected属性
+
+app-rel-select
+	用法：
+		<app-rel-select [placeholder]="'请选择提醒'" [dataList]="relSelectData" [selectIndex]="2"></app-rel-select>
+		relSelectData = {'测试000':['测试02','测试13','测试41'],'测试1':['测试2','测试3','测试4'],'测试5':['测试6','测试7','测试8'],'测试9':['测试10','测试11','测试12'],'测试13':['测试3','测试4'],'测试14':['测试2','测试3','测试4']}
+	属性：
+		placeholder：默认提示文字
+		dataList：关联数据，左侧第一维数据为字符串key，右侧第二维数据为字符串数组 ｛key : values:string[]｝
+		selectIndex：左侧默认选中的项
+
+app-icon-input
+	用法：
+		<app-icon-input [iconList]="iconListData" [marginRight]="'0.2rem'"></app-icon-input>
+		iconListData = [{'iconName':'address-book-o', 'color':'#524ddb'},{'iconName':'envelope-open', 'color':'#524ddb'},{'iconName':'cutlery', 'color':'#524ddb'}]
+	属性：
+		iconList：文本框右侧图标数据，类型为InputIconHolder数组，属性列表：iconName、color、iconClickHandler，iconName对应fontawesome的class，前缀 fa- 省略；color图标颜色；iconClickHandler是点击图标的回调函数，用于触发前置事件。
+		marginRight：最右侧图标距离输入框右侧距离，需要输入有效的CSS距离字符串，格式不做任何检测
+
+qiezzi-drop-down-list
+	用法：
+		<qiezzi-drop-down-list [placeholder]="'请选择医生'" [dataList]="dropDataList" [selectIndex]="2"></app-drop-down>
+		dropDataList = [{key:'测试标题1',value:'1'},{key:'测试标题2',value:'2'},{key:'测试标题3',value:'3'},{key:'测试标题4',value:'4'},{key:'测试标题5',value:'5'}]
+	属性：
+		placeholder：默认提示文字,不设置默认为'--'
+		dataList：包含key、value两个属性的对象数组，key是标题，value对应值
+		selectIndex：默认选中的项（删掉）
+		required：是不是必选项，与表单验证无关，只影响数据展示，如果不是必选，会自动生成一个与placeholder相同的选项，如果是必选，不会生成默认提示待选项
+
+qiezzi-popup-bubble [directive]
+  用法：
+    <i qiezzi-popup-bubble [listData]="list" [options]="{type:'LIST',position:'TOP_RIGHT_FIXED'}" (onListClick)="moreItemClick($event)">
+    不仅限于i，div span都可以
+  属性：
+    options：设置气泡的类型与尖角的位置，{type:'LIST',position:'TOP_RIGHT_FIXED'}，type支持两种，LIST 、HTML，position支持3种，TOP_RIGHT_FIXED，BOTTOM_CENTER，BOTTOM_LEFT_FIXED
+             LIST是气泡菜单，HTML是普通文本或者附带样式的html，TOP_RIGHT_FIXED右上角固定位置 BOTTOM_CENTER下方中间 BOTTOM_LEFT_FIXED下方左侧固定
+    listData：类型为list时，展示的数据
+    htmlText：类型为html时，展示的数据(未实现)
+  事件：
+    onListClick: 点击的选项的索引
+
+
+选择患者弹窗
+QiezziSelectPatientComponent
+宽度480，点击任何一名患者列表中的数据，返回该患者的简略信息，并且关闭窗口，选择患者支持在弹窗内进行条件分别查询与排序、分页等
+
+
+选择员工（选择参与者）
+QiezziSelectPartakerComponent
+宽度480，一次性展示出所有诊所员工，每个员工前有一个复选框，选中并点击确定后，会返回员工名与员工ID的键值对象的集合
+let selected = [{title:'zhangsan',value:'zhangsan_id'},{title:'lisi',value:'lisi_id'},{title:'wangwu',value:'wangwu_id'}]
+this.application.frontLayer.openPopupWindow(QiezziSelectPartakerComponent, '选择员工', PopupWindowSize.SMALL, 515, selected).subscribe(t => {})
+弹窗时，可以传入数据，数据内容是已经选中的员工名与员工ID的键值对象的集合，传入后再弹窗内会默认选中这些员工，任意取消这些员工的选中与未选中状态，保存时会回传到主页面
+
+

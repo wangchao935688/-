@@ -1,0 +1,105 @@
+<app-qiezzi-right-header
+  [rightComponentName]="rightComponentName">
+</app-qiezzi-right-header>
+<div class='select-template'>
+  <div class="tab-ctrl tab-ctrl1">
+    <app-qiezzi-tab-control class="tab-ctrl-head" [tabData]="tabData.data"
+                            [defaultSelectedIndex]="tabData.defaultIndex"
+                            (onTabIndexChange)="changeTab($event)"></app-qiezzi-tab-control>
+    <div class="tab-ctrl-content">
+      <!--左侧-->
+      <div>
+        <!--病历模板-->
+        <div class='medical-record-template' *ngIf="currentIdx == 0">
+          <app-icon-input [placeholder]="'模板关键字'" style="width:10rem;"></app-icon-input>
+          <div class="two-level">
+            <div class="two-level-title">
+              <div class="triangle-title">
+                <span><i class="icon-youjiantou"></i></span>
+                <span>标题一</span>
+              </div>
+            </div>
+            <div class="two-level-title three-level-title">
+              <div class="triangle-title">
+                <span><i class="icon-youjiantou"></i></span>
+                <span>标题一</span>
+              </div>
+            </div>
+            <div class="two-level-content three-level-content">
+              <div class="two-level-item" (click)="cascade()"
+                   [ngClass]="{'add-background':toggle,'delete-background':!toggle}">
+                <div class="item-operation">
+                  <span class="item-icon">
+                      <span class="is-show">
+                        <i class="icon-bianji"></i>
+                        <i class="icon-shanchu"></i>
+                      </span>
+                  </span>
+                </div>
+                <div class="dot-content">
+                  <span><i></i></span>
+                  <span>中和</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--医嘱模板-->
+        <div>
+            <div class="doctor-module" *ngIf="currentIdx == 1">
+              <div>
+                <div class="doctor-title">
+                  <span>标题模板名称</span>
+                  <div class="button-group button-group-right">
+                    <button class="button4 doctor-button4">使用模板</button>
+                  </div>
+                </div>
+                <div class="doctor-content"><p>绝地反击节打飞机地府分解分解世界第三附近的打飞机地府ID的女出纳处女的可怜见覅哦哦二鹏点击服饰搭配符文欧</p></div>
+              </div>
+            </div>
+        </div>
+        <!--历史病历-->
+        <div class='history-records' *ngIf="currentIdx == 2">
+          <div class="one-level">
+            <div class="one-level-content">
+              <div class="one-level-item" (click)="treecascade()"
+                   [ngClass]="{'add-background':istoggle,'delete-background':!toggle}">
+                <div class="item-operation">
+                  <span class="item-icon">
+                    <span class='amount'>初诊</span>
+                  </span>
+                </div>
+                <span class="one-level-cont">2017-01-02 医生名</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--右侧-->
+      <div class='add-template' *ngIf="currentIdx == 0 || currentIdx == 2">
+        <header class='template-title'>
+          <div class='template-title-title'>模板详情</div>
+          <div class="button-group button-group-right">
+            <button class="button4">使用模板</button>
+          </div>
+        </header>
+        <section class='template-section'>
+          <div class='template-content-title'>
+            <div>主诉</div>
+            <div>X光检查</div>
+            <div>治疗计划</div>
+            <div>诊断</div>
+            <div>医嘱</div>
+          </div>
+          <div class='template-content-content'>
+            <div>牙齿断裂</div>
+            <div>牙位牙位牙位牙位牙位牙位牙位</div>
+            <div>牙位牙位牙位牙位牙位牙位牙位牙位牙位牙位牙位牙位牙位牙位牙位牙位牙位牙位牙位牙位牙位</div>
+            <div>牙位牙位牙位牙牙位牙位牙位牙位牙位牙位牙位位牙位牙位牙位牙位牙位牙位牙位牙位牙位牙位牙位牙位牙位牙位牙位牙位牙位</div>
+            <div>牙位牙位牙位牙位牙位牙位牙位牙位牙位牙位牙位牙位牙位牙位牙位牙位牙位牙位牙位牙位牙位牙位牙位牙位牙位牙位牙位牙位牙位牙位牙位牙位牙位牙位牙位</div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,269 @@
+<div class="handler-visit">
+  <!--左侧-->
+  <div style="float: left;" class="sideslip-scroll" malihu-scrollbar [scrollbarOptions]="scrollbarOptionsLeft">
+    <div class="scroll">
+      <div class="handler-visit-left">
+        <div class="patients-info">
+          <div class="head-portrait">
+            <div class="head-portraits"
+                 [ngStyle]="{backgroundImage:'url('+ responseData?.PatientModel?.Image +')'}"></div>
+            <div class="head-content">
+              <div>
+                <span>{{responseData?.PatientModel?.PatientName}}</span>
+                <i class="icon-zhongdianhuanzhehoubiaoqian icon"></i>
+                <i class="icon-qianfeihuanzhehoubiaoqian icon"></i>
+              </div>
+              <div>
+                <span>{{responseData?.PatientModel?.Tel}}</span>
+                <span class="info-small">{{responseData?.InterviewTypeName}}</span>
+                <span *ngIf="responseData?.State == 0">进行中</span>
+                <span *ngIf="responseData?.State == 1">已完成</span>
+              </div>
+            </div>
+            <button class="button4" (click)="booking()">预约复诊</button>
+          </div>
+          <div class="return-content">
+            <div style="color:#666">回访内容</div>
+              <div class="validate-form">
+                <div class="form-section">
+                  <div class="form-element">
+                    <div class="err-message"></div>
+                      <div class="return-cont">{{returnVisitContent}}</div>
+                    </div>
+                  </div>
+              </div>
+            <div class="info">
+              <span class="person">回访人：{{responseData?.PatientModel?.PatientName}}</span>
+              <span>回访日期：{{responseData?.InterviewDate | qiezziDateAuto : 1}}</span>
+            </div>
+          </div>
+        </div>
+        <div class="fill-return-visit">
+          <div class="fill-visit">
+            <div>填写回访</div>
+            <div><i class="icon-bingli-danxiangmoban"></i><span>结果模板</span></div>
+          </div>
+          <form class="validate-form">
+            <div class="form-section">
+              <div class="form-element">
+                <div class="err-message"></div>
+                <textarea class="return-cont" cols="30" rows="3" style="margin-left:.5rem;" placeholder="请输入回访内容"
+                          [(ngModel)]="result" (ngModelChange)="sendResult()"  [ngModelOptions]="{standalone: true}"></textarea>
+              </div>
+            </div>
+          </form>
+          <div class="fill-footer"><span></span>
+            <button class="button1" (click)="saveReturnVisitResult()">提交</button>
+          </div>
+        </div>
+        <div class="return-record">
+          <div class="return-record-header">
+            <strong>回访记录</strong>
+          </div>
+          <div class="infomation-content">
+            <div class="content-bottom">
+              <div class="infomation-right">
+                <div class="right-header">
+                  <span><span class="garden"></span>{{responseData?.DoctorModel?.WorkerName}}</span>
+                  <span class="time">{{responseData?.InterviewDate | qiezziDateAuto : 0}}</span>
+                </div>
+                <div class="left-border">
+                  <div class="paragraph">{{responseData?.Content}}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--右侧-->
+  <div class="sideslip-scroll" style="margin-left: 21.1rem;" malihu-scrollbar [scrollbarOptions]="scrollbarOptions">
+    <div class="handler-visit-right">
+      <div class="tab-ctrl tab-ctrl2">
+        <app-qiezzi-tab-control class="tab-ctrl-head" [tabData]="tabData.data"
+                                [defaultSelectedIndex]="tabData.defaultIndex"
+                                (onTabIndexChange)="changeTab($event)"></app-qiezzi-tab-control>
+        <div class="tab-ctrl-content">
+          <qiezzi-loading [attr.status]="dataLoading" class="loading6 purple transparent" style="height: 100%;margin-top: 4rem"></qiezzi-loading>
+          <div class="list-table">
+            <div class="list-table-head" *ngIf="currentIdx==0">
+              <div class="list-table-col0">就诊时间</div>
+              <div class="mobile-hidden list-table-col1 col20">医生</div>
+              <div class="mobile-hidden list-table-col2 col15">初/复诊</div>
+              <div class="list-table-col3 col20">就诊事项</div>
+              <div class="list-table-col5 col10">操作</div>
+              <br clear="left">
+            </div>
+            <div class="list-table-head" *ngIf="currentIdx==1">
+              <div class="list-table-col0">账单日期</div>
+              <div class="mobile-hidden list-table-col1 col18">账单金额</div>
+              <div class="mobile-hidden list-table-col2 col18">已收</div>
+              <div class="list-table-col3 col18">欠款</div>
+              <div class="list-table-col3 col15">状态</div>
+              <div class="list-table-col5 col10">操作</div>
+            </div>
+            <div class="list-table-head" *ngIf="currentIdx==2">
+              <div class="list-table-col2 col17">回访时间</div>
+              <div class="mobile-hidden list-table-col1 col15">回访人员</div>
+              <div class="mobile-hidden list-table-col0">回访内容</div>
+              <div class="list-table-col3 col15">医生</div>
+              <div class="list-table-col3 col15">状态</div>
+              <div class="list-table-col5 col10">操作</div>
+              <br clear="left">
+            </div>
+            <div *ngIf="currentIdx==0">
+              <div class="list-table-content single-line">
+                <div *ngFor="let item of caseListResponse; let i = index;" (click)="getCaseDetails(item?.Id, i)">
+                  <div class="list-table-item click-no-hide-detail">
+                    <div class="list-table-col0"><span>{{item?.VisitingTime | qiezziDateAuto:1}}</span></div>
+                    <div class="mobile-hidden list-table-col1 col20"><span>{{item?.WorkerModel?.WorkerName}}</span>
+                    </div>
+                    <div class="mobile-hidden list-table-col2 col15">
+                      <span *ngIf="item?.CaseType == 0">初诊</span>
+                      <span *ngIf="item?.CaseType == 1">复诊</span>
+                    </div>
+                    <div class="list-table-col3 col20"><span>{{item?.AimString}}</span></div>
+                    <div class="list-table-col4 col10"><span><i class="icon-huifang-shouqi" [ngClass]="{'icon-huifang-shouqi': toggle && (isShow === i),'icon-huifang-zhankai': !toggle || !(isShow === i)}"></i></span>
+                    </div>
+                  </div>
+                  <div *ngIf="isShow === i && currentInd[i]" style="border-bottom:1px solid #DBDBDB;">
+                    <div class="tab-ctrl-footer">
+                      <div class="tab-ctrl-left">
+                        <div>主诉</div>
+                        <div>现病史</div>
+                        <div>既往史</div>
+                        <div>检查</div>
+                      </div>
+                      <div class="tab-ctrl-right">
+                        <div>{{caseDetailsResponse?.MainSuit | qiezziTextNull}}</div>
+                        <div>{{caseDetailsResponse?.MedicalHistory | qiezziTextNull}}</div>
+                        <div>{{caseDetailsResponse?.PastHistory | qiezziTextNull}}</div>
+                        <div class="inspect">
+                          <div class="teeth">
+                            <qiezzi-tooth [teeth]="teethList"></qiezzi-tooth>
+                          </div>
+                          <div class="inspect-content">
+                            <div>左/右上/下牙齿因蛀牙逐渐残缺，影响咀嚼，无疼痛等不适。</div>
+                          </div>
+                        </div>
+                        <div class="inspect">
+                          <div class="teeth">
+                            <qiezzi-tooth [teeth]="teethList"></qiezzi-tooth>
+                          </div>
+                          <div class="inspect-content">
+                            <div>左/右上/下牙齿因蛀牙逐渐残缺，影响咀嚼，无疼痛等不适。</div>
+                          </div>
+                        </div>
+                        <div class="inspect">
+                          <div class="teeth">
+                            <qiezzi-tooth [teeth]="teethList"></qiezzi-tooth>
+                          </div>
+                          <div class="inspect-content">
+                            <div>左/右上/下牙齿因蛀牙逐渐残缺，影响咀嚼，无疼痛等不适。</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div *ngIf="!caseListResponse || caseListResponse.length == 0" class="data-empty">
+                  <app-data-empty style="border: none;" [showEmpty]="showCaseEmptyState"></app-data-empty>
+                </div>
+              </div>
+            </div>
+            <div *ngIf="currentIdx==1">
+              <div class="list-table-content single-line">
+                <div *ngFor="let item of response;let i = index;">
+                  <div class="list-table-item click-no-hide-detail" (click)="getBill(item.Id,i)">
+                    <div class="list-table-col0"><span>{{item.VisitingTime | qiezziDateAuto:1}}</span></div>
+                    <div class="mobile-hidden list-table-col1 col18"><span>{{item.Price | qiezziMoeny}}</span></div>
+                    <div class="mobile-hidden list-table-col2 col18"><span></span></div>
+                    <div class="list-table-col3 col18"><span></span></div>
+                    <div class="list-table-col3 col15">
+                      <span *ngIf="item?.BillStatus == 0">待收费</span>
+                      <span *ngIf="item?.BillStatus == 1">已付清</span>
+                      <span *ngIf="item?.BillStatus == 2">欠费</span>
+                      <span *ngIf="item?.BillStatus == 3">退费</span>
+                      <span *ngIf="item?.BillStatus == 4">作废</span>
+                      <span *ngIf="item?.BillStatus == 5">已关闭</span>
+                      <span *ngIf="item?.BillStatus == 6">已作废</span>
+                    </div>
+                    <div class="list-table-col5 col10"><span><i class="icon-huifang-zhankai" [ngClass]="{'icon-huifang-shouqi': toggle && (isCharge === i),'icon-huifang-zhankai': !toggle || !(isCharge === i)}"></i></span>
+                    </div>
+                  </div>
+                  <div class="tab-ctrl-footer-right" *ngIf="isCharge===i && currentIndx[i]">
+                    <div class="tab-ctrl-info-right">
+                      <div>账单金额: <i>￥{{detailsResponse?.Bill?.PaidAmount}}</i></div>
+                      <div><span class="discount">总折扣率: <i>{{detailsResponse?.Bill?.TotalDiscount}}</i></span> <span>优惠金额: <i>￥{{detailsResponse?.Bill?.TotalReducedMoney}}</i></span></div>
+                    </div>
+                    <div style="border-bottom:1px solid #DBDBDB;width: 15rem;float:right"></div>
+                    <div class="tab-ctrl-info-right">
+                      <div>{{detailsResponse?.Bill?.BillTime | qiezziDateAuto :1}}</div>
+                      <div>共支付: <i>￥{{detailsResponse?.Bill?.ReducedPrice}}</i></div>
+                      <div class="person">收费员:{{detailsResponse?.Bill?.Creater}}</div>
+                    </div>
+                  </div>
+                </div>
+                <div *ngIf="!response || response.length == 0" class="data-empty">
+                  <app-data-empty style="border: none;" [showEmpty]="showPayEmptyState"></app-data-empty>
+                </div>
+              </div>
+            </div>
+            <div *ngIf="currentIdx==2">
+              <div class="list-table-content single-line">
+                <div *ngFor="let item of FollowUpGetListpatientIDResponse; let i = index">
+                  <div class="list-table-item click-no-hide-detail" (click)="getListpatient(i)" >
+                    <div class="list-table-col2 col17"><span>{{item?.InterviewDate | qiezziDateAuto :1}}</span>
+                    </div>
+                    <div class="mobile-hidden list-table-col1 col15">
+                      <span>{{item?.PatientModel?.PatientName}}</span></div>
+                    <div class="mobile-hidden list-table-col0"><span>{{item?.Content}}</span></div>
+                    <div class="list-table-col3 col15"><span>{{item?.DoctorModel?.WorkerName}}</span></div>
+                    <div class="list-table-col4 col15">
+                      <span *ngIf="item?.State==0">进行中</span>
+                      <span *ngIf="item?.State==1">已完成</span>
+                    </div>
+                    <div class="list-table-col6 col10"><span><i class="icon-huifang-zhankai" [ngClass]="{'icon-huifang-shouqi': toggle && (isInterview === i),'icon-huifang-zhankai': !toggle || !(isInterview === i)}"></i></span></div>
+                  </div>
+                  <div style="border-bottom:1px solid #DBDBDB;" *ngIf="isInterview === i && currentIndex[i]">
+                    <div class="tab-ctrl-footer">
+                      <div class="tab-ctrl-left">
+                        <div>回访类型</div>
+                        <div>回访内容</div>
+                        <div>回访结果</div>
+                      </div>
+                      <div class="tab-ctrl-right">
+                        <div style="color:#333">{{responseData?.InterviewTypeName | qiezziTextNull}}</div>
+                        <div style="color:#333">{{responseData?.Content}}</div>
+                        <div class="content-bottom">
+                          <div class="infomation-right">
+                            <div class="right-header">
+                              <span style="float:right;color:#999">{{responseData?.CreateTime | qiezziDateAuto:1}}</span>
+                              <span><span class="garden"></span><span style="color:#333">{{responseData?.DoctorModel?.WorkerName}}</span></span>
+                            </div>
+                            <div class="left-border">
+                              <div class="paragraph">{{responseData?.Content}}</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div *ngIf="!FollowUpGetListpatientIDResponse || FollowUpGetListpatientIDResponse.length == 0" class="data-empty">
+                  <app-data-empty style="border: none;" [showEmpty]="showVisitEmptyState"></app-data-empty>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="button-group button-group-right">
+  <button class="button5" (click)="successVisit()">完成回访</button>
+  <button class="button4" (click)="cancel()">取消回访</button>
+</div>
+

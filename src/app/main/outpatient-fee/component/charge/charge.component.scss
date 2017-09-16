@@ -1,0 +1,164 @@
+*{
+  box-sizing: border-box;
+}
+i{
+  font-style:normal;
+}
+.charge-page{
+  padding:0 1.5rem;
+}
+/*
+TODO 头部
+*/
+.receivable{
+  height:3.3rem;
+  line-height:3.3rem;
+  border-bottom:1px dashed #DBDBDB;
+  display:flex;
+  justify-content: space-between;
+  span{
+    color:#333;
+    font-size:14px;
+    display:block;
+  }
+  i{
+    font-weight: bold;
+    color:#615cf6;
+    font-size:16px;
+  }
+}
+/*
+TODO 信息
+*/
+.patient{
+  span{
+    color:#999;
+    font-size:12px;
+    display:block;
+  }
+  i{
+    color:#999;
+    font-weight: normal;
+    font-size:12px;
+  }
+}
+/*
+TODO 支付信息
+*/
+.payment-method{
+  height:7.4rem;
+  border-bottom:1px dashed #DBDBDB;
+}
+.checkout{
+  text-align:right;
+  margin-top:1rem;
+  .single-rate-discount{
+    margin-right:1rem;
+  }
+  .bill-amount{
+    margin-top:1rem;
+    label{
+      margin-right:1rem;
+    }
+    input{
+      font-size:16px;
+    }
+  }
+  input{
+    width:6.5rem;
+    height:1.6rem;
+    text-align:right;
+    font-size:14px;
+    color:#605BF5;
+    border:1px solid #e6e7f3;
+    padding-right: 5px;
+    border-radius:5px;
+  }
+}
+/*
+TODO 收费信息
+*/
+.original-price{
+  text-align:right;
+  font-size:12px;
+  color:#666666;
+  span{
+    display:block;
+    padding-top:1.2rem;
+  }
+}
+.money{
+  span{
+    display:block;
+    padding-top:.6rem;
+    &:first-child{
+      color: #dbdbdb;
+      font-size:12px;
+      i{
+        color:#333;
+      }
+    }
+    &:last-child{
+      color:#ff3561;
+    }
+  }
+}
+/*
+TODO 备注
+*/
+.remarks{
+  margin-top:1rem;
+  text-align:center;
+  input{
+    border-radius:5px;
+    width:96%;
+    height:1.8rem;
+    display:inline-block;
+    border:1px solid #e6e7f3;
+    padding-left:5px;
+  }
+}
+/*
+TODO 确认信息
+*/
+.confirming-person{
+  text-align:right;
+  padding-right:1rem;
+  span{
+    line-height: 1.6rem;
+    height:1.6rem;
+    color:#999999;
+    display:inline-block;
+    &:first-child{
+      padding-right:1rem;
+    }
+  }
+}
+
+
+/*
+TODO 页脚打印
+*/
+.form-checkbox-group{
+  display:inline-block;
+  justify-content: flex-end;
+  span{
+    color:#333;
+  }
+}
+
+.form-group{
+  position: relative;
+  height:0 !important;
+  display:block;
+  .form-checkbox{
+    position: absolute;
+    top:1.2rem;
+    left:2rem;
+  }
+}
+
+.drop-down-select{
+  width:15%;
+  display:inline-block;
+}

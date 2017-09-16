@@ -1,0 +1,25 @@
+<div class="relative-select">
+  <div class="click-mask" [ngStyle]="{'display':maskState}" (click)="changeStatus()"></div>
+  <div [ngStyle]="{color:text === '' ? '#999':'#333' }" (click)="changeStatus()">{{text || placeholder}}</div>
+  <div [ngClass]="{'arrow-down':true,'arrow-up':false}" (click)="changeStatus()"><i class="fa fa-caret-down"
+                                                                                    aria-hidden="true"></i><i
+    class="fa fa-caret-up"
+    aria-hidden="true"></i></div>
+  <div [@heightFadeIn]="status">
+    <div>
+      <div class="left-list">
+        <div *ngFor="let title of leftList;let i = index;" class="relative-list-item"
+             [ngClass]="{'selected':selectIndex === i}" (click)="onLeftClick(title,i)">{{title}}
+        </div>
+      </div>
+      <div class="relative-right-content">
+        <div class="right-list">
+          <div *ngFor="let title of rightList;let i = index;" class="relative-list-item"
+               [ngClass]="{selected:rightIndex === i}" (click)="onRightClick(i)">{{title}}
+          </div>
+        </div>
+      </div>
+      <br clear="both">
+    </div>
+  </div>
+</div>

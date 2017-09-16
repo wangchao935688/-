@@ -1,0 +1,131 @@
+<div [attr.status]="displayStatus" class="right-slider-container">
+  <router-outlet></router-outlet>
+</div>
+<div id="app-center-container">
+  <qiezzi-loading [attr.status]="mainShowLoading" class="loading6 purple transparent" style="margin-top: 15rem"></qiezzi-loading>
+  <app-qiezzi-center-header [showSearch]="false"
+                            [showFilter]="false"
+                            [showAdd]="true"
+                            [showOptions]="false"
+                            [moduleName]="moduleName"
+                            [controlList]="['添加']"
+                            (onControl)="onControlClick($event)"
+  ></app-qiezzi-center-header>
+  <div id="app-center-content">
+    <div id="appCenterContent" [style.border-top]="isBorder?'1px solid #DBDBDB':''"
+         class="app-center-content" malihu-scrollbar
+         [scrollbarOptions]="scrollbarOptions">
+      <div class="search-bar" style="padding:0 2rem 1rem">
+        <div class="search-left">
+          <app-icon-input [placeholder]="'患者/病历号/手机号'"
+                          [(ngModel)]="rechargeGetListRequest.keyword"
+                          style="width:10rem;float: left;margin-right: .5rem;"
+          ></app-icon-input>
+          <qiezzi-drop-down-list class="drop-down-select" style="float: left;margin-right: .5rem;width: 6rem;"
+                                 [placeholder]="'推荐人'"
+                                 [required]="false"
+                                 [selectIndex]="0"
+                                 [(ngModel)]="rechargeGetListRequest.accountIDArray"
+                                 [dataList]="supperList"
+                                 (onChange) = 'getSupperList($event)'>
+
+          </qiezzi-drop-down-list>
+        </div>
+        <div class="search-right" style="float: left;margin-right: .5rem;">
+          <button class="button4" (click)="searchRechargeCordList()" style="float: left;">查询</button>
+        </div>
+        <br style="clear: left;">
+      </div>
+      <qiezzi-loading [attr.status]="dataLoading" class="loading6 purple transparent"
+                      style="padding-top: 300px"></qiezzi-loading>
+      <div class="list-table" style="margin-top: .5rem;">
+        <div class="list-table-head" style="border: 1px solid #dddddd; border-bottom:none;">
+          <span class="list-table-col-0">患者/单号</span>
+          <span class="mobile-hidden list-table-col-1">充值时间</span>
+          <span class="list-table-col-2">充值金额</span>
+          <span class="mobile-hidden list-table-col-3">充值账户</span>
+          <span class="mobile-hidden list-table-col-3">推荐人</span>
+          <span class="list-table-col-4">状态</span>
+        </div>
+        <div class="list-table-content">
+          <div class="list-table-item" *ngFor="let item of rechargeCordList?.Items; let i = index;"
+               [ngClass]="{'selected': i === selectIndex}"
+               [ngStyle]="{ color: item?.Disabled ? '#999': null}"
+               (click)="openDetail($event, item?.ID, i)">
+            <div class="list-table-col-0">
+              <span class="span-ellipsis">{{item?.PatientModel?.PatientName |qiezziTextNull}}</span>
+              <i *ngIf="item?.PatientModel.IsImportant" class="icon iconfont icon-zhongyao" style="background: #ffffff;color:#FEA356;"></i>
+              <i *ngIf="item?.PatientModel.IsArrearage" class="icon iconfont icon-qianfeihuanzhehoubiaoqian" style="color: #fe4e74;"></i>
+              <span style="display: block;">{{item?.RechargeCode |qiezziTextNull}}</span>
+            </div>
+            <div class="mobile-hidden list-table-col-1">
+              <span>{{item?.RechargeTime | qiezziDateAuto:1 |qiezziTextNull}}</span>
+              <span style="display: block;">{{item?.RechargeTime | date: 'hh:mm' |qiezziTextNull}}</span>
+            </div>
+            <div class="list-table-col-2">
+              <span  [ngStyle]="{textDecoration: item?.Disabled ? 'line-through' : null}">{{item?.Money | qiezziMoeny : true |qiezziTextNull}}</span>
+            </div>
+            <div class="mobile-hidden list-table-col-3"><span>{{item?.AccountName |qiezziTextNull}}</span></div>
+            <div class="mobile-hidden list-table-col-3"><span>{{item?.ReferrerModel?.WorkerName |qiezziTextNull}}</span></div>
+            <div class="list-table-col-4">
+              <span>{{item?.Disabled ? '已作废' : '正常' }}</span>
+            </div>
+            <br clear="left">
+          </div>
+        </div>
+        <div *ngIf="!rechargeCordList || !rechargeCordList.TotalItems || rechargeCordList.TotalItems == 0" class="data-empty">
+          <app-data-empty [showEmpty]="showEmptyState"></app-data-empty>
+        </div>
+        <qiezzi-paginator
+          [ngStyle]="{display: (rechargeCordList && rechargeCordList?.TotalItems>10) ? 'block' : 'none'}"
+          [rows] ="rechargeCordList?.ItemsPerPage"
+          [totalRecords] ="rechargeCordList?.TotalItems"
+          [rowsPerPageOptions]="[10,20,30]"
+          (onPageChange)="onPageChange($event)"
+        ></qiezzi-paginator>
+        </div>
+      </div>
+    </div>
+</div>
+
+<!--<div>
+  <input [(ngModel)]="rechargeGetListRequest.keyword" type="text" placeholder="患者/病历号/手机号/单据号"/>
+  <span>推荐人<select [(ngModel)]="rechargeGetListRequest.accountIDArray"><option
+    *ngFor="let item of referee.Items"
+    [value]='item.WorkerId'>{{item.WorkerName}}</option></select></span>
+  <span>充值时间
+    <input [(ngModel)]="rechargeGetListRequest.beginTime"/>-
+    <input [(ngModel)]="rechargeGetListRequest.endTime"/></span>
+  <button pButton label="查询" (click)="searchRechargeCordList()"></button>
+</div>-->
+
+<!--<div class="list-table">
+  <div class="list-table-head">
+    <span class="">患者|单号</span>
+    <span class="mobile-hidden">充值时间</span>
+    <span class="">充值金额</span>
+    <span class="mobile-hidden">支付账户</span>
+    <span class="mobile-hidden">推荐人</span>
+    <span class="mobile-hidden">状态</span>
+  </div>
+  <div class="list-table-content">
+    <div class="list-table-item" *ngFor="let item of rechargeCordList?.Items"
+         (click)="openDetail(item?.Id,item.Disabled)">
+      <div class=""><span>{{item?.PatientModel.PatientName}}</span></div>
+      <div class=""><span>{{item?.RechargeTime | qiezziDateAuto:0}}</span></div>
+      <div class=""><span>{{item?.Money}}</span></div>
+      <div class=""><span>{{item?.AccountName}}</span></div>
+      <div class=""><span>{{item?.ReferrerModel.WorkerName}}</span></div>
+      <div class=""><span>{{item?.Disabled | qiezziDic:invalid}}</span></div>
+      <br clear="left">
+    </div>
+  </div>
+  <div
+    *ngIf="!rechargeCordList || !rechargeCordList.TotalItems|| (rechargeCordList && rechargeCordList.TotalItems == 0)"
+    class="data-empty">
+    <app-data-empty [showEmpty]="showEmptyState"></app-data-empty>
+  </div>
+  <qiezzi-paginator rows="10" totalRecords="1000" [rowsPerPageOptions]="[10,20,30]"
+                    (onPageChange)="onPageChange($event)"
+  ></qiezzi-paginator>
+</div>-->

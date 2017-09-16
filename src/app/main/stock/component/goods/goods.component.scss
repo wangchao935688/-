@@ -1,0 +1,73 @@
+.fl{
+  float: left;
+}
+.fr{
+  float: right;
+}
+//侧滑滚动条底部
+div.app-center-content{
+  height: 100%;
+}
+
+//物品详情下面主体
+.goods-content{
+  height: 100%;
+  //width: 24rem;
+  width: 100%;
+  padding: 0 1.5rem ;
+  font-size: 0.6rem;
+  line-height: 1rem;
+  color: #333;
+
+  .content-header{
+    //margin-top: 1.1rem;
+    padding-top: 1.1rem;
+    border-top: 1px dashed #DBDBDB;
+    margin-bottom: 0.6rem;
+    .header-text{
+      font-size: 0.7rem;
+      .iconfont{
+        margin-right: 0.3rem;
+      }
+    }
+  }
+
+  .list-content{
+    border: none;
+    //padding-top: 0.6rem;
+    padding-bottom: 0.6rem;
+    //border-bottom: 1px dashed #DBDBDB;
+    .list-item{
+      border-bottom: none;
+      margin-bottom: 0.5rem;
+
+      .list-col0{
+        display: inline-block;
+        width: 4rem;
+        color: #666;
+      }
+      .list-col1{
+        display: inline-block;
+
+      }
+    }
+  }
+  div.no-top-line{
+    border-top:none;
+  }
+
+  //物品信息
+  .goods-info{
+
+  }
+
+  //备注
+  .remarks{
+
+  }
+
+  //库存及价格
+  .stock-price{
+
+  }
+}

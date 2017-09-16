@@ -1,0 +1,33 @@
+<app-qiezzi-right-header
+  [rightComponentName]="compName"
+  [controlList]="ctrlList"
+  (onControl)="onControlListClick($event)"></app-qiezzi-right-header>
+<div class="right-content" id="rightContentScroll" malihu-scrollbar [scrollbarOptions]="scrollbarOptions">
+  <div class="right-content-header">
+    <div class="detail-section">
+      <div class="section-title"><i class="info"></i><span>日程信息</span></div>
+      <dl>
+        <dt>日程名称</dt>
+        <dd>{{data?.Name}}</dd>
+      </dl>
+      <dl>
+        <dt>时间</dt>
+        <dd>{{convertDateFormat(data?.StartTime) | qiezziTextNull}} 至 {{convertDateFormat(data?.EndTime) |
+          qiezziTextNull}}
+        </dd>
+      </dl>
+      <dl>
+        <dt>参与人</dt>
+        <dd>{{data?.Players | qiezziArrayString:'WorkerName'}}</dd>
+      </dl>
+      <dl>
+        <dt>提醒</dt>
+        <dd>{{data?.TimeType === 0 ? '不提醒' : data?.Time + timeType[data?.TimeType]}}</dd>
+      </dl>
+    </div>
+    <div class="detail-section">
+      <div class="section-title"><i class="note"></i><span>备注</span></div>
+      <p class="wrap">{{data?.Note}}</p>
+    </div>
+  </div>
+</div>

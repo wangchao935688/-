@@ -1,0 +1,57 @@
+<div class="main-day">
+  <div class="main-day-control">
+    <app-qiezzi-day-week-month-step [type]="'day'" (onChange)="onDateChange($event)"></app-qiezzi-day-week-month-step>
+    <qiezzi-drop-down-list class="drop-down-select" [required]="true" [selectIndex]="0"
+                           [dataList]="bookingScheduleType"
+                           (onChange)="onTypeChange($event)"></qiezzi-drop-down-list>
+  </div>
+  <div class="main-day-container">
+    <div class="main-day-header">
+      <div class="scroll-left" [ngClass]="{'has-left':hasLeft}" (click)="onScrollLeft()"></div>
+      <div class="doctor-list">
+        <div class="doctor-list-container" #doctorListContainer>
+          <div class="scroll-list" [ngStyle]="scrollWidth" #doctorScrollList>
+            <div *ngFor="let doc of doctorList;" class="c-666 f14" [ngStyle]="itemWidth">{{doc.WorkerName}}</div>
+          </div>
+          <div class="scroll-fixed c-666 f14" [ngStyle]="fixedWidth">未分诊</div>
+        </div>
+      </div>
+      <div class="scroll-right" [ngClass]="{'has-right':hasRight}" (click)="onScrollRight()"></div>
+    </div>
+    <div class="main-day-content">
+      <div class="time-line" [ngStyle]="timeLineBottom">
+        <div class="time-line-box">
+          <div class="current" *ngIf="isToday">{{currentTime}}</div>
+          <div class="time-passed"></div>
+          <div class="point" *ngIf="isToday"></div>
+        </div>
+      </div>
+      <div class="time-col">
+        <div *ngFor="let time of timeRows;"><span>{{time}}</span></div>
+      </div>
+      <div class="scroll-cols">
+        <div class="scroll-cols-full">
+          <div class="scroll-cols-container" [ngStyle]="scrollWidth" #doctorDataContainer>
+            <div class="doctor-col" *ngFor="let doc of doctorList;" [ngStyle]="itemWidth">
+              <div *ngFor="let time of timeRows;"></div>
+            </div>
+          </div>
+          <div class="end-col" [ngStyle]="fixedWidth" #noDoctorDataContainer>
+            <div *ngFor="let time of timeRows;"></div>
+          </div>
+        </div>
+      </div>
+      <div class="booking-schedule-item-container">
+        <div class="item-container-full">
+          <div class="item-container" #itemContainer [ngStyle]="scrollWidth">
+            <div class="item-container-col" id="item-container-col{{i}}" [attr.doctor-code]="doc.WorkerCode"
+                 *ngFor="let doc of doctorList;let i = index;"
+                 [ngStyle]="itemWidth" (mousedown)="onCellDown($event,doc.WorkerCode)"></div>
+          </div>
+          <div class="no-doctor-item-container" #noDoctorItemContainer [ngStyle]="fixedWidth"
+               (mousedown)="onCellDown($event, null)"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

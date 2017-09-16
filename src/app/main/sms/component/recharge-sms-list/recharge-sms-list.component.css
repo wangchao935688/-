@@ -1,0 +1,49 @@
+.list-table {
+  width: 47rem; }
+
+.list-table-head {
+  border-bottom: 1px solid #DBDBDB; }
+
+.list-table-item {
+  position: relative; }
+
+.list-table-item div:nth-of-type(2) {
+  position: absolute;
+  left: 145px; }
+
+.list-table-item div:nth-of-type(3) {
+  position: absolute;
+  left: 258px; }
+
+.list-table-item div:nth-of-type(4) {
+  position: absolute;
+  left: 395px;
+  font-weight: bold; }
+
+.list-table-item div:nth-of-type(5) {
+  position: absolute;
+  left: 510px; }
+
+.list-table-item div:nth-of-type(6) {
+  position: absolute;
+  left: 650px; }
+
+.list-table-item div:nth-of-type(7) {
+  position: absolute;
+  left: 765px; }
+
+.search-right {
+  width: 43rem;
+  height: 2.6rem;
+  background: #fafafa;
+  border: 1px solid #ccc;
+  padding: 10px;
+  padding-left: 20px; }
+
+.drop-down-select {
+  margin-left: 1rem;
+  margin-top: 0.5rem;
+  margin-right: 0.5rem;
+  background: #fff; }
+
+/*# sourceMappingURL=recharge-sms-list.component.css.map */

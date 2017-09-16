@@ -1,0 +1,94 @@
+<div class="popup-content-container" malihu-scrollbar [scrollbarOptions]="scrollbarOptions">
+  <div class="popup-content-box">
+    <div class="create-process" *ngIf="isDisplay">
+      <div class="create-process-patient">
+        <div class="create-process-patient-text">
+          <div *ngIf="data">
+            {{patientName}}<span>|</span>{{patientTel}}<span>|</span>No.{{patientCode}}
+          </div>
+          <div>
+            <app-icon-input></app-icon-input>
+          </div>
+        </div>
+      </div>
+      <div class="create-process-tooth">
+        <div class="create-process-tooth-bar">
+          <div>牙位</div>
+          <button class="button3" (click)="addTooth()">添加牙位</button>
+        </div>
+        <div *ngFor="let item of formModel.ItemList;let i = index;">
+          <qiezzi-tooth-edit [processToothAddModel]="item" [isEdit]="true" [num]="i"
+                             (isDeleteTooth)="deleteTooth($event)"></qiezzi-tooth-edit>
+        </div>
+        <div class="create-process-tooth-bottom"></div>
+      </div>
+      <div class="create-process-form">
+        <form class="validate-form" [formGroup]="formGroup" novalidate>
+          <div class="form-section">
+            <div class="form-title"><span class="red-point"><i></i></span>就诊日期</div>
+            <div class="form-element">
+              <div class="err-message" [attr.error]="formErrors['VisitingTime']">{{formErrors['VisitingTime']}}
+              </div>
+              <input class="input-text" placeholder="{{formPlaceholder['VisitingTime']}}" formControlName="VisitingTime"
+                     (blur)="onInputElementBlur('VisitingTime')">
+            </div>
+          </div>
+          <div class="form-section">
+            <div class="form-title"><span class="red-point"><i></i></span>医生</div>
+            <div class="form-element">
+              <div class="err-message" [attr.error]="formErrors['DoctorID']">{{formErrors['DoctorID']}}
+              </div>
+              <!--<input class="input-text" placeholder="" [(ngModel)]="formModel.DoctorID" name="DoctorID">-->
+              <qiezzi-drop-down-list name="DoctorID" class="drop-down-select"
+                                     [required]="false"
+                                     [dataList]="doctorList"  formControlName="DoctorID"
+                                     (onchange)="onInputElementBlur('DoctorID')"></qiezzi-drop-down-list>
+            </div>
+          </div>
+          <div class="form-section">
+            <div class="form-title"><span class="red-point"><i></i></span>加工单位</div>
+            <div class="form-element">
+              <div class="err-message" [attr.error]="formErrors['ProcessCompanyId']">{{formErrors['ProcessCompanyId']}}
+              </div>
+              <qiezzi-drop-down-list name="ProcessCompanyId" class="drop-down-select"
+                                     [required]="false"
+                                     [dataList]="processCompanyList" formControlName="ProcessCompanyId"
+                                     (onChange)="onInputElementBlur('ProcessCompanyId')"></qiezzi-drop-down-list>
+            </div>
+          </div>
+          <div class="form-section">
+            <div class="form-title">加工费</div>
+            <div class="form-element">
+              <div class="err-message" [attr.error]="formErrors['Price']">{{formErrors['Price']}}
+              </div>
+              <input class="input-text"  placeholder="{{formPlaceholder['Price']}}" formControlName="Price"
+                     (blur)="onInputElementBlur('Price')">
+            </div>
+          </div>
+          <div class="form-section">
+            <div class="form-title">加工数量</div>
+            <div class="form-element">
+              <div class="err-message" [attr.error]="formErrors['ProcessNum']">{{formErrors['ProcessNum']}}
+              </div>    <input class="input-text" placeholder="{{formPlaceholder['ProcessNum']}}" formControlName="ProcessNum"
+                               (blur)="onInputElementBlur('ProcessNum')">
+            </div>
+          </div>
+          <div class="form-section">
+            <div class="form-title">备注</div>
+            <div class="form-element">
+              <div class="err-message" [attr.error]="formErrors['Note']">{{formErrors['Note']}}
+              </div>
+              <input class="input-text" placeholder="{{formPlaceholder['Note']}}" formControlName="Note"
+                     (blur)="onInputElementBlur('Note')">
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="button-group button-group-right">
+  <button class="button5" (click)="ok()" [disabled]="!formGroup.valid || isProcessing">保存</button>
+  <button class="button4" (click)="close()">取消</button>
+</div>

@@ -1,0 +1,197 @@
+<div class="popup-content-container" malihu-scrollbar [scrollbarOptions]="scrollbarOptions">
+  <div class="popup-content-box">
+    <div class="create-process">
+
+      <!--<app-qiezzi-center-header [moduleName]="'新增入库单'"
+                                [showSearch]="false"
+                                [showFilter]="false"
+                                [showOptions]="false"
+                                [showAdd]="false"
+                                [controlList]="['添加']"
+                                ></app-qiezzi-center-header>-->
+
+      <div class="create-process-form">
+        <form class="validate-form">
+
+          <div class="form-section w50 fr">
+            <div class="form-title"><!--<span class="red-point"><i></i></span>-->退货人</div>
+            <div class="form-element ">
+              <!--<div class="err-message"></div>-->
+              <!--<input class="input-text" placeholder="" (blur)="onInputElementBlur()" >-->
+              <qiezzi-drop-down-list class="drop-down-select"
+                                     [placeholder]="'请选择供应商'"
+                                     [required]="false"
+                                     [selectIndex]="0"
+                                     [dataList]="supplierList"></qiezzi-drop-down-list>
+            </div>
+          </div>
+
+          <div class="form-section w50">
+            <div class="form-title"><!--<span class="red-point"><i></i></span>-->退货日期</div>
+            <div class="form-element">
+              <!--<div class="err-message" [attr.error]="formErrors['PatientCode']"></div>-->
+              <!--<input class="input-text" placeholder=""  (blur)="onInputElementBlur()">-->
+              <qiezzi-drop-down-list class="drop-down-select"
+                                     [placeholder]="'请选择入库日期'"
+                                     [required]="false"
+                                     [selectIndex]="0"
+                                     [dataList]="inputStockDateList"></qiezzi-drop-down-list>
+            </div>
+          </div>
+
+          <div class="form-section w50">
+            <div class="form-title"><!--<span class="red-point"><i></i></span>-->库管员</div>
+            <div class="form-element">
+              <!--<div class="err-message" [attr.error]="formErrors['PatientCode']">{{formErrors['PatientCode']}}</div>-->
+              <!--<input class="input-text" placeholder=""  (blur)="onInputElementBlur()">-->
+              <qiezzi-drop-down-list class="drop-down-select"
+                                     [placeholder]="'请选择库管员'"
+                                     [required]="false"
+                                     [selectIndex]="0"
+                                     [dataList]="stockmanList"></qiezzi-drop-down-list>
+            </div>
+          </div>
+          <!--表单-->
+          <div class="tab-ctrl tab-ctrl1">
+            <div class="tab-ctrl-content" style="position: relative; min-height: 400px;">
+              <qiezzi-loading [attr.status]="dataLoading" class="loading6 purple transparent"></qiezzi-loading>
+
+              <div class="list-table">
+                <div class="list-table-head">
+                  <div class="list-table-col0">物品</div>
+                  <div class="list-table-col1">当前库存</div>
+                  <div class="list-table-col2">退货数量</div>
+                  <div class="list-table-col3">退货价</div>
+                  <div class="list-table-col4">小计</div>
+                  <div class="list-table-col5">备注</div>
+                  <br clear="left">
+                </div>
+                <!--有返回数据的时候显示这个-->
+                <div class="list-table-content" *ngIf="true">
+
+                  <div  class="list-table-item click-no-hide-detail" (click)="clickFeeItem()">
+                    <div class="list-table-col0">
+                      <span>物品名称</span>
+                    </div>
+                    <div class="list-table-col1">
+                      <span>31</span>
+                    </div>
+                    <div class="list-table-col2">
+                      <input class="input-text" type="text" placeholder="1">
+                    </div>
+                    <div class="list-table-col3">
+                      <input class="input-text" type="text" placeholder="12">
+                    </div>
+                    <div class="list-table-col4">
+                      <span>31</span>
+                    </div>
+                    <div class="list-table-col5">
+                      <div class="table-control icon-edit-delete">
+                        <div class="w50">
+                          <i class="icon iconfont icon-xiugai" aria-hidden="true" (click)="edit($event)"></i>
+                        </div>
+                        <div class="w50">
+                          <i class="icon iconfont icon-shanchu" aria-hidden="true" (click)="delete($event)"></i>
+                        </div>
+                      </div>
+                    </div>
+                    <br clear="left">
+                  </div>
+
+                  <div  class="list-table-item click-no-hide-detail" (click)="clickFeeItem()">
+                    <div class="list-table-col0">
+                      <span>物品名称</span>
+                    </div>
+                    <div class="list-table-col1">
+                      <span>31</span>
+                    </div>
+                    <div class="list-table-col2">
+                      <input class="input-text" type="text" placeholder="1">
+                    </div>
+                    <div class="list-table-col3">
+                      <input class="input-text" type="text" placeholder="12">
+                    </div>
+                    <div class="list-table-col4">
+                      <span>31</span>
+                    </div>
+                    <div class="list-table-col5">
+                      <div class="table-control icon-edit-delete">
+                        <div class="w50">
+                          <i class="icon iconfont icon-xiugai" aria-hidden="true" (click)="edit($event)"></i>
+                        </div>
+                        <div class="w50">
+                          <i class="icon iconfont icon-shanchu" aria-hidden="true" (click)="delete($event)"></i>
+                        </div>
+                      </div>
+                    </div>
+                    <br clear="left">
+                  </div>
+
+                  <!--点击添加物品-->
+                  <div  class="list-table-item click-no-hide-detail" (click)="clickFeeItem()">
+                    <div class="list-table-col0 add-goods">
+                      <i class="icon icon-tianjiazhaopian"></i><span>添加物品</span>
+                    </div>
+                  </div>
+
+
+
+                </div>
+                <!--没有返回数据的时候显示-->
+                <div class="list-table-content no-content" *ngIf="false">
+                  <div class="add-input-goods" (click)="addInput()">
+                    <i class="icon icon-tianjiazhaopian"></i>
+                  </div>
+                  <span>点击添加入库物品</span>
+                </div>
+
+                <!--下边的合计-->
+                <div  class="list-table-footer list-table-content total">
+                  <div class="list-table-col0">
+                    <span>合计</span>
+                  </div>
+                  <div class="list-table-col1">
+                    <span>31</span>
+                  </div>
+                  <div class="list-table-col2">
+                  </div>
+                  <div class="list-table-col3">
+                  </div>
+                  <div class="list-table-col4">
+                  </div>
+                  <div class="list-table-col5">
+                  </div>
+
+                  <br clear="left">
+                </div>
+
+
+              </div>
+
+              <div class="input-stock-remarks">
+                <!--<textarea name="" id="" cols="30" rows="1">请填写备注~</textarea>-->
+                <input class="input-text" type="text" placeholder="请填写备注~">
+              </div>
+
+            </div>
+
+
+          </div>
+
+
+
+
+
+
+        </form>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+<div class="button-group button-group-right">
+  <button class="button5" (click)="save()">保存</button>
+  <button class="button4" (click)="cancel()">取消</button>
+</div>

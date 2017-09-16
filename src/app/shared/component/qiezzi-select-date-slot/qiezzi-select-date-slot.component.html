@@ -1,0 +1,29 @@
+<div class="step-buttons">
+  <button class="left-button"
+          type="button"
+          (click)="prev()"></button>
+  <button class="right-button"
+          type="button"
+          (click)="next()"></button>
+</div>
+<button class="button6"
+        [ngClass]="{'selected': view=='days'}"
+        (click)="dateView('days')">日
+</button>
+<button class="button6"
+        [ngClass]="{'selected': view=='months'}"
+        (click)="dateView('months')">月
+</button>
+<button class="button6"
+        [ngClass]="{'selected': view=='years'}"
+        (click)="dateView('years')">年
+</button>
+<qiezzi-double-date [options]="options"
+                    [defaultDate]="defaultDate"
+                    (onSelectLeft)="selectLeft($event)"
+                    (onSelectRight)="selectRight($event)"></qiezzi-double-date>
+
+<button class="button3"
+        (click)="search()"
+        *ngIf="left || right">确定
+</button>

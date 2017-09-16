@@ -1,0 +1,100 @@
+<div class="popup-content-container" malihu-scrollbar [scrollbarOptions]="scrollbarOptions">
+  <div class="popup-content-box">
+    <div class="create-process-form">
+      <form class="validate-form">
+        <div class="form-section">
+          <div class="form-title"><span class="no-red-point"><i></i></span>诊所名称</div>
+          <div class="form-element ">
+            <span class="hos-name">北京佳美口腔医疗中心</span>
+            <div class="err-message"></div>
+          </div>
+          <br clear="both">
+        </div>
+        <div class="form-section">
+          <div class="form-title"><span class="red-point"><i></i></span>医疗结构许可证名称</div>
+          <div class="form-element">
+            <input class="input-text" placeholder="请填写">
+            <div class="err-message" ></div>
+          </div>
+          <br clear="both">
+        </div>
+        <div class="form-section">
+          <div class="form-title"><span class="red-point"><i></i></span>医疗机构许可证号</div>
+          <div class="form-element">
+            <input class="input-text" placeholder="请填写">
+            <div class="err-message"></div>
+          </div>
+          <br clear="both">
+        </div>
+        <div class="form-section">
+          <div class="form-title"><span class="red-point"><i></i></span>医疗机构许可证照片<span class="hos-tips">（支持bmp,jpeg,jpg,gif,png，不可大于5MB）</span></div>
+          <div class="form-element">
+            <div class="upload-pic">
+              <i class="icon iconfont icon-tianjiazhaopian"></i>
+            </div>
+            <div class="err-message" [attr.error]=""></div>
+          </div>
+          <br clear="both">
+        </div>
+        <div class="form-section">
+          <div class="form-title"><span class="red-point"><i></i></span>联系人</div>
+          <div class="form-element">
+            <input class="input-text" placeholder="王大夫">
+            <div class="err-message" [attr.error]=""></div>
+          </div>
+          <br clear="both">
+        </div>
+        <div class="form-section">
+          <div class="form-title"><span class="red-point"><i></i></span>联系人手机号</div>
+          <div class="form-element">
+            <input class="input-text" placeholder="请填写">
+            <div class="err-message" [attr.error]=""></div>
+          </div>
+          <br clear="both">
+        </div>
+        <div class="form-section ">
+          <div class="form-title"><span class="red-point"><i></i></span>家庭地址</div>
+          <div class="form-element address">
+            <qiezzi-drop-down-list class="drop-down-select addre"
+                                   [placeholder]="'省'"
+                                   [required]="false"
+                                   [selectIndex]="0"
+                                   [dataList]="[]"></qiezzi-drop-down-list>
+            <!--  -->
+            <qiezzi-drop-down-list class="drop-down-select city addre"
+                                   [placeholder]="'市'"
+                                   [required]="false"
+                                   [selectIndex]="0"
+                                   [dataList]="[{label:'北京市',value:'1'}]"></qiezzi-drop-down-list>
+            <!-- -->
+            <qiezzi-drop-down-list class="drop-down-select area addre"
+                                   [placeholder]="'区'"
+                                   [required]="false"
+                                   [selectIndex]="0"
+                                   [dataList]="[{label:'朝阳区',value:'1'}]"></qiezzi-drop-down-list>
+            <!--  -->
+            <div class="err-message" [attr.error]=""></div>
+          </div>
+          <br clear="both">
+        </div>
+        <div class="form-section">
+          <div class="form-title"><span class="no-red-point"><i></i></span>详细地址</div>
+          <div class="form-element">
+            <input class="input-text" placeholder="北京市海淀区清华东路">
+            <div class="err-message" [attr.error]=""></div>
+          </div>
+          <br clear="both">
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+</div>
+<div class="button-group button-group-right">
+  <span><i class="icon iconfont icon-tishixinxi"></i>认证协议</span>
+  <button class="button5" (click)="save()">保存</button>
+  <button class="button4" (click)="cancel()">取消</button>
+</div>
+
+

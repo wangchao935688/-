@@ -1,0 +1,197 @@
+<div *ngIf="isDisplay" [attr.status]="displayStatus" class="right-slider-container">
+  <router-outlet></router-outlet>
+</div>
+<div class="container">
+  <div class="main">
+    <header class="head common-padding">
+      <i class="icon iconfont icon-guanbi-chahao fr" (click)="shunDown()"></i>
+      <span class="title">填写病例</span>
+    </header>
+    <div class="app-right-content" malihu-scrollbar [scrollbarOptions]="scrollbarOptions">
+      <nav class="nav common-padding case-line">
+      <div class="case-content">
+        <div class="info-item info-patient">
+          <span class="info-title">患者</span>
+          <span class='info-title-icon'><i class='icon-shoufeijilu'></i></span>
+          <div class='info-input-box'><input type='text'/></div>
+        </div>
+        <div class="info-item">
+          <span class="info-title">性别</span>
+          <span>女</span>
+        </div>
+        <div class="info-item">
+          <span class="info-title">年龄</span>
+          <span>23</span>
+        </div>
+        <div class="info-item">
+          <span class="info-title">病历号</span>
+          <span>女</span>
+        </div>
+        <div class="toggle-button" style="margin-bottom: 1rem;">
+          <div [ngClass]="{'toggle-selected':isFirstTime}" (click)="selectState(true)">初诊</div>
+          <div class="week" [ngClass]="{'toggle-selected':!isFirstTime}" (click)="selectState(false)">复诊</div>
+        </div>
+      </div>
+      <div class="case-content">
+        <div class="info-item info-patient">
+          <span class="info-title">医生</span>
+          <div class='info-input-box'><input type='text'/></div>
+        </div>
+        <div class="info-item info-son">
+          <span class="info-title">助理/护士</span>
+          <div class='info-input-box'><input type='text'/></div>
+        </div>
+        <div class="info-item info-son">
+          <span class="info-title">就诊时间</span>
+          <div class='info-input-box'><input type='text'/></div>
+        </div>
+      </div>
+    </nav>
+      <section class="common-padding case-line">
+        <button class="button2" style="border-radius: .5rem;" (click)="addCaseParse()">+病历标签</button>
+        <button class="button2" style="border-radius: .5rem;margin-left:.5rem;" (click)="addTemplate($event)">+病历模板</button>
+      </section>
+    <!--主体-->
+    <main class="common-padding">
+      <!--表单-->
+        <form class="validate-form">
+          <!--主诉-->
+          <div class="form-section glide">
+            <div class="form-title"><i></i>主诉</div>
+            <div class="form-element">
+              <div class="form-box">
+                <textarea placeholder='在此填写相关内容' class='form-content form-textarea'></textarea>
+              </div>
+            </div>
+          </div>
+          <!--现病史-->
+          <div class="form-section glide">
+            <div class="form-title"><i></i>现病史</div>
+            <div class="form-element">
+              <div class="form-box">
+                <textarea class='form-content form-textarea' placeholder='在此填写相关内容'></textarea>
+              </div>
+            </div>
+          </div>
+          <!--既往史-->
+          <div class="form-section glide">
+            <div class="form-title"><i></i>既往史</div>
+            <div class="form-element">
+              <div class="form-box">
+                <textarea class='form-content form-textarea' placeholder='请填写'></textarea>
+              </div>
+            </div>
+          </div>
+          <!--检查-->
+          <div class="parting-line glide" style="padding:0;">
+            <div class="form-section">
+              <div class="form-title"><i></i>检查</div>
+              <div class="form-element">
+                <div class='dental-examination'>
+                  <div class="teeth">
+                    <qiezzi-tooth [teeth]="teethList"></qiezzi-tooth>
+                  </div>
+                  <div>
+                    <textarea class='form-content' placeholder='请填写'></textarea>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="add-tooth">
+              <span><i class="icon-xinzeng"></i></span>
+              <span>添加牙位</span>
+            </div>
+            </div>
+          <!--x光检查-->
+          <div class="parting-line glide">
+            <div class="form-section" style="padding-bottom:0;">
+              <div class="form-title" style="padding-top:1rem;"><i></i>x光检查</div>
+              <div class="form-element">
+                  <div class='dental-examination'>
+                    <div class="teeth">
+                      <qiezzi-tooth [teeth]="teethList"></qiezzi-tooth>
+                    </div>
+                    <div>
+                      <textarea class='form-content' placeholder='请填写'></textarea>
+                      <div class="add-img">
+                        <span><i class="icon-xinzeng"></i></span>
+                        <span>添加图片</span>
+                      </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--诊断-->
+          <div class="parting-line glide">
+            <div class="form-section">
+              <div class="form-title"><i></i>诊断</div>
+              <div class="form-element">
+                <div class='dental-examination'>
+                  <div class="teeth">
+                    <qiezzi-tooth [teeth]="teethList"></qiezzi-tooth>
+                  </div>
+                  <div>
+                    <textarea class='form-content' placeholder='请填写'></textarea>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--治疗计划-->
+          <div class="parting-line glide">
+            <div class="form-section">
+              <div class="form-title"><i></i>治疗计划</div>
+              <div class="form-element">
+                <div class='dental-examination'>
+                  <div class="teeth">
+                    <qiezzi-tooth [teeth]="teethList"></qiezzi-tooth>
+                  </div>
+                  <div>
+                    <textarea class='form-content' placeholder='请填写'></textarea>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--治疗-->
+          <div class="parting-line glide">
+            <div class="form-section">
+              <div class="form-title"><i></i>治疗</div>
+              <div class="form-element">
+                <div class='dental-examination'>
+                  <div class="teeth">
+                    <qiezzi-tooth [teeth]="teethList"></qiezzi-tooth>
+                  </div>
+                  <div>
+                    <textarea class='form-content' placeholder='请填写'></textarea>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--医嘱-->
+          <div class="form-section glide">
+            <div class="form-title"><i></i>医嘱</div>
+            <div class="form-element">
+              <textarea class='form-content form-textarea' placeholder='请填写'></textarea>
+            </div>
+          </div>
+        </form>
+    </main>
+  </div>
+  </div>
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="form-checkbox-group">
+        <label class="form-checkbox"><input type="checkbox" name="noname"/>
+          <span class="iconfont"></span><span>打印</span>
+        </label>
+      </div>
+      <div class="button-group button-group-right">
+        <button class="button5">保存</button>
+        <button class="button4">取消</button>
+      </div>
+    </div>
+  </footer>
+</div>

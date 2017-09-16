@@ -1,0 +1,80 @@
+<div class="popup-content-container" malihu-scrollbar [scrollbarOptions]="scrollbarOptions">
+  <div class="popup-content-box">
+    <div class="create-process">
+      <div class="create-process-form">
+        <form class="validate-form"  [formGroup]="formGroup">
+
+          <div class="form-section">
+            <div class="form-title">供应商</div>
+            <div class="form-element">
+              <div class="err-message"  [attr.error]="formErrors['Tel']">{{formErrors['Tel']}}</div>
+              <input class="input-tel" placeholder="" formControlName="Tel" (blur)="onInputElementBlur('DictDetailName')">
+            </div>
+          </div>
+
+          <div class="form-section ">
+            <div class="form-title">所属地区</div>
+            <div class="form-element address" style="height:auto;display: block;">
+              <qiezzi-province-city-area [selectAddress]="selectAddress" (onChangeAddress)="onChangeAddress($event)"></qiezzi-province-city-area>
+              <br>
+              <div style="width: 100%;display: block;margin-top: 20px;">
+                <div class="err-message"  [attr.error]="formErrors['Address']">{{formErrors['Address']}}</div>
+                <input class="detailAddr" formControlName="Address" placeholder="请输入具体地址"  (blur)="onInputElementBlur('DictDetailName')">
+              </div>
+            </div>
+          </div>
+
+          <div class="form-section fr w50 list-two-r">
+            <div class="form-title"><span class="red-point"><i></i></span>联系电话</div>
+            <div class="form-element ">
+
+              <div class="err-message" [attr.error]="formErrors['PatientName']">{{formErrors['PatientName']}}</div>
+              <input class="input-text" placeholder="" formControlName="PatientName" (blur)="onInputElementBlur('DictDetailName')" >
+            </div>
+          </div>
+          <div class="form-section w50 list-two-l">
+            <div class="form-title"><span class="red-point"><i></i></span>联系人</div>
+            <div class="form-element">
+              <div class="err-message" [attr.error]="formErrors['PatientCode']">{{formErrors['PatientCode']}}</div>
+              <input class="input-text" placeholder=""  formControlName="PatientCode"  (blur)="onInputElementBlur('DictDetailName')">
+            </div>
+          </div>
+
+          <!--加号-->
+          <div class="add" (click)="showRelationName()">
+            <i class="icon iconfont icon-tianjia" style="color:#7a80fa;"></i>
+          </div>
+
+          <div class="form-section fr w50 list-two-r">
+            <div class="form-title"><span class="red-point"><i></i></span>邮箱地址</div>
+            <div class="form-element ">
+              <div class="err-message" [attr.error]="formErrors['PatientName']">{{formErrors['PatientName']}}</div>
+              <input class="input-text" placeholder="" formControlName="PatientName" (blur)="onInputElementBlur('DictDetailName')" >
+            </div>
+          </div>
+          <div class="form-section w50 list-two-l">
+            <div class="form-title"><span class="red-point"><i></i></span>官网地址</div>
+            <div class="form-element">
+              <div class="err-message" [attr.error]="formErrors['PatientCode']">{{formErrors['PatientCode']}}</div>
+              <input class="input-text" placeholder=""  formControlName="PatientCode"  (blur)="onInputElementBlur('DictDetailName')">
+            </div>
+          </div>
+
+          <div class="form-section ">
+            <div class="form-title">备注</div>
+            <div class="form-element">
+              <!--<div class="err-message" [attr.error]="formErrors['Note']">{{formErrors['Note']}}</div>-->
+              <textarea rows="4" placeholder="请输入备注" class="create-supplier-remarks"></textarea>
+            </div>
+          </div>
+
+
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="button-group button-group-right">
+  <button class="button5" [disabled]="!formGroup.valid" (click)="save()">保存</button>
+  <button class="button4" (click)="cancel()">取消</button>
+</div>

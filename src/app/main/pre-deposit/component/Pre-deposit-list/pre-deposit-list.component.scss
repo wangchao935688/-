@@ -1,0 +1,111 @@
+/*初始化*/
+
+:host {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+/********************************************************************************************自定义左侧列表样式*/
+.capital-flow-content{
+  overflow: hidden;
+  width:100%;
+  height:100%;
+  border-top: 1px solid #dddddd;
+  color: #333;
+  font-size: .7rem;
+}
+
+.list-table-content{
+  margin-top:.5rem;
+}
+.capital-flow-content-right{
+  height: 100%;
+}
+.rt{
+  float: right;
+}
+
+.capital-flow-content-left-list .capital-flow-content-left-list-item{
+  border: 1px solid transparent;
+  padding: 0 !important;
+}
+.capital-flow-content-left-list  .capital-flow-content-left-list-item:last-child:hover{
+  border-bottom-color: #7A80FA;
+}
+.list-table-content .list-table-item:last-child.selected{
+  border-bottom-color: #7A80FA;
+}
+.app-center-content .list-table-item{margin-left: 1px;margin-right: 1px;}
+.app-center-content .list-table-item:first-child{margin-top: 1px;}
+
+.list-table-content{
+  margin-top: 0;
+}
+/***********************************************************************************引用列表框架样式*/
+.list-table-head .list-table-col1, .list-table-head .list-table-col3 {
+  font-weight: normal;
+}
+
+.list-table-col0 {
+  width: calc(100% - 12% - 22% - 20% - 16% - 2px);
+  min-width: 7rem;
+  color: #666;
+}
+
+.list-table-col0 span {
+  color: #333
+}
+
+.list-table-col1 {
+  width: 16%;
+  min-width: 6rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.list-table-col2 {
+  width: 18%;
+  min-width: 8rem;
+  color: #666;
+}
+
+.list-table-col3 {
+  width: 22%;
+  min-width: 7rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.list-table-col4 {
+  width: 12%;
+  min-width: 6rem;
+}
+
+@media screen and (max-width: 999px) {
+  .list-table-col0 {
+    width: calc(100% - 30% - 23%);
+  }
+
+  .list-table-col3 {
+    width: 30%;
+  }
+
+  .list-table-col4 {
+    width: 23%;
+  }
+}
+/**********************************************************************************修改表单样式*/
+
+.list-table-item{
+  overflow: hidden;
+}
+.list-table-head{
+  overflow: hidden;
+  border: 1px solid #ccc;
+  border-bottom: none;
+}
+.row{
+  padding: 0 2rem;
+  transition: padding .2s;
+  margin: 1rem auto;
+}

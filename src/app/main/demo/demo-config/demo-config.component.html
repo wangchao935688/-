@@ -1,0 +1,123 @@
+<form>
+
+  <app-select-button-group class="select-button-group"
+                           [list]="[{title:'werytg',value:'1',selected:true},{title:'26y',value:'2'},{title:'emthnfbg',value:'3'},{title:'ewhned',value:'4',selected:true}]"></app-select-button-group>
+
+
+  <app-tag-box-group name="test4" class="tag-box"
+                     [(ngModel)]="tagValues"></app-tag-box-group>
+
+  <input name="test5" placeholder="" type="checkbox" value="egmjhnfbf" [(ngModel)]="testValue[0]">
+  <input name="test5" placeholder="" type="checkbox" value="egmjhetuhnnfbf" [(ngModel)]="testValue[1]">
+</form>
+
+<button class="button3" (click)="click()">
+  ceshi
+</button>
+
+<button class="button3" (click)="click1()">
+  ceshi
+</button>
+
+<!--级联菜单开始-->
+
+<!--一级-->
+<div class="one-level">
+  <div class="one-level-title">
+    <div class="item-add">
+      <span><i class="icon-xinzeng"></i></span>
+      <span>新增</span>
+    </div>
+    <span>资金账户</span>
+  </div>
+  <div class="one-level-content">
+    <div class="one-level-item">
+        <div class="item-operation">
+          <span class="item-icon">
+            <span class='amount'>3434</span>
+            <span class="is-show">
+              <i class="icon-bianji"></i>
+              <i class="icon-shanchu"></i>
+            </span>
+          </span>
+        </div>
+        <span class="one-level-cont">总金额</span>
+    </div>
+    <div class="one-level-item">
+      <div class="item-operation">
+        <span class="item-icon">
+            <span>3434</span>
+            <span class="is-show">
+              <i class="icon-bianji"></i>
+              <i class="icon-shanchu"></i>
+            </span>
+          </span>
+      </div>
+      <span class="one-level-cont">总金额</span>
+    </div>
+  </div>
+</div>
+<!--二级-->
+<div class="two-level">
+  <div class="two-level-title">
+    <div class="item-add">
+      <span><i class="icon-xinzeng"></i></span>
+      <span>新增</span>
+    </div>
+    <div class="triangle-title">
+      <span><i class="icon-youjiantou"></i></span>
+      <span>标题一</span>
+    </div>
+  </div>
+  <div class="two-level-content">
+    <div class="two-level-item" (click)="cascade()" [ngClass]="{'add-background':toggle,'delete-background':!toggle}">
+      <div class="item-operation">
+        <span class="item-icon">
+          <span class="is-show">
+            <i class="icon-bianji"></i>
+            <i class="icon-shanchu"></i>
+          </span>
+          </span>
+      </div>
+      <div class="dot-content">
+        <span><i></i></span>
+        <span>中和</span>
+      </div>
+    </div>
+  </div>
+</div>
+<!--三级-->
+<div class="two-level">
+  <div class="two-level-title">
+    <div class="item-add">
+      <span><i class="icon-xinzeng"></i></span>
+      <span>新增</span>
+    </div>
+    <div class="triangle-title">
+      <span><i class="icon-youjiantou"></i></span>
+      <span>标题一</span>
+    </div>
+  </div>
+  <div class="two-level-title three-level-title">
+    <div class="triangle-title">
+      <span><i class="icon-youjiantou"></i></span>
+      <span>标题一</span>
+    </div>
+  </div>
+  <div class="two-level-content three-level-content">
+    <div class="two-level-item">
+      <div class="item-operation">
+        <span class="item-icon">
+            <span class="is-show">
+              <i class="icon-bianji"></i>
+              <i class="icon-shanchu"></i>
+            </span>
+        </span>
+      </div>
+      <div class="dot-content">
+        <span><i></i></span>
+        <span>中和</span>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,68 @@
+<div [attr.status]="displayStatus" class="right-slider-container">
+  <router-outlet></router-outlet>
+</div>
+<div id="app-center-container">
+  <qiezzi-loading [attr.status]="mainShowLoading" class="loading6 purple transparent" style="margin-top: 15rem"></qiezzi-loading>
+  <app-qiezzi-center-header [showSearch]="false"
+                            [showFilter]="false"
+                            [showAdd]="false"
+                            [showOptions]="false"
+                            [moduleName]="moduleName"
+  ></app-qiezzi-center-header>
+  <div id="app-center-content">
+    <div id="appCenterContent" [style.border-top]="isBorder ? '1px solid #DBDBDB' : ''"
+         class="app-center-content" malihu-scrollbar [scrollbarOptions]="scrollbarOptions">
+      <div class="search-bar" style="padding:0 2rem 1rem">
+        <app-icon-input [placeholder]="'患者/病历号/手机号'"
+                        [(ngModel)]="requestData.keyword"
+                        style="width:10rem;float: left;margin-right: .5rem;"
+        ></app-icon-input>
+        <div class="search-right" style="float: left;margin-right: .5rem;">
+          <button class="button4" (click)="searchRechargeAccountList()" style="float: left;">查询</button>
+        </div>
+        <br style="clear: left;">
+      </div>
+      <qiezzi-loading [attr.status]="dataLoading" class="loading6 purple transparent"
+                      style="padding-top: 300px"></qiezzi-loading>
+
+      <div class="list-table">
+        <div class="list-table-head" style="border: 1px solid #dddddd; border-bottom:none;">
+          <span class="col-0">患者</span>
+          <span class="col-22" (click)="accountSort()">
+            <span>
+              账户余额
+              <i class="orderBy up"></i>
+              <i class="orderBy down"></i>
+            </span>
+          </span>
+          <span class="col-22" (click)="rechargeSort()">累计充值</span>
+          <span class="col-22" (click)="consumeSort()">累计消费</span>
+        </div>
+        <div class="list-table-content">
+          <div class="list-table-item"
+               [ngClass]="{'selected': i === selectIndex}"
+               *ngFor="let item of rechargeAccountList.Items, let i = index"
+               (click)="openDetail($event, item.PatientID, i)">
+            <div class="col-0"><span>{{item.PatientModel.PatientName}}</span></div>
+            <div class="col-22"><span>{{item.Balance | qiezziMoeny: true}}</span></div>
+            <div class="col-22"><span>{{item.TotalRecharge | qiezziMoeny: true}}</span></div>
+            <div class="col-22"><span>{{item.TotalConsumption | qiezziMoeny: true}}</span></div>
+            <!--<br clear="left">-->
+          </div>
+        </div>
+        <div *ngIf="!rechargeAccountList || !rechargeAccountList.TotalItems|| rechargeAccountList.TotalItems == 0" class="data-empty">
+          <app-data-empty [showEmpty]="rechargeAccountState"></app-data-empty>
+        </div>
+        <qiezzi-paginator *ngIf="rechargeAccountList && rechargeAccountList.TotalItems>10"
+                          [rows]="rechargeAccountList?.ItemsPerPage"
+                          [totalRecords]="rechargeAccountList?.TotalItems"
+                          [rowsPerPageOptions]="[10,20,30]"
+                          (onPageChange)="pageChange($event)"></qiezzi-paginator>
+      </div>
+
+
+    </div>
+  </div>
+</div>
+
+

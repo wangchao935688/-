@@ -1,0 +1,21 @@
+<div>
+  <div>
+    <input type="text" [(ngModel)]="KeyWords"/>
+    <button pButton label="搜索" (click)="searchPeople()"></button>
+  </div>
+  <div>
+    <div *ngFor="let worker of workers">
+      <span><!--<qiezzi-checkbox [value]="worker.WorkerId" [(ngModel)]="selectWorker"></qiezzi-checkbox>--></span>
+      <span>{{worker.WorkerName}}</span>
+      <span>{{worker.WorkerType}}</span>
+      <span>设为默认</span>
+    </div>
+
+  </div>
+  <div>
+    <button pButton type="text" (click)="savePeople()" label="保存"></button>
+    <button pButton type="text" (click)="cancelPeople()" label="取消"></button>
+
+  </div>
+
+</div>

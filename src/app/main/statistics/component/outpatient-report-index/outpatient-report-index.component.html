@@ -1,0 +1,337 @@
+<!--
+<div id="app-center-content">
+  <div class="app-center-content" malihu-scrollbar [scrollbarOptions]="scrollbarOptions">
+    <div class="tab-ctrl tab-ctrl1">
+      <div class="tab-ctrl-content">
+        上面的全是tab页面
+        <div class="list-table">
+          <div class="list-table-head">
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+-->
+
+<div class="list-table my-container">
+  <!--顶部-->
+  <div class="my-container-head">
+    <div class="header-top">
+      <div class="button-group button-group-right">
+        <button class="button4"><i class="icon iconfont icon-daochu"></i>导出</button>
+      </div>
+      <qiezzi-select-date-slot (onSelectDate)="selectDate($event)"></qiezzi-select-date-slot>
+    </div>
+    <div class="header-text">
+      <span>年月门诊统计报表</span>
+    </div>
+    <div class="header-box">
+      <div class="box-left list-box fl">
+        <div class="my-left-icon">
+          <i class="icon iconfont icon-tongjifenxi"></i>
+        </div>
+        <div class="my-right-content">
+          <div class="text-list">
+            <div class="text-list-item">
+              <div class="text-list-right fr">
+                <span>{{clinicResponse?.SeeDoctorNumber}}</span>
+              </div>
+              <div class="text-list-left">
+                <span>总就诊人次</span>
+              </div>
+            </div>
+            <div class="text-list-item">
+              <div class="text-list-right fr">
+                <span>{{clinicResponse?.BookingNumber}}</span>
+              </div>
+              <div class="text-list-left">
+                <span>预约挂号</span>
+              </div>
+            </div>
+            <div class="text-list-item">
+              <div class="text-list-right fr">
+                <span>{{clinicResponse?.PatlogNumber}}</span>
+              </div>
+              <div class="text-list-left">
+                <span>门诊挂号</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <span class="line"></span>
+        <br clear="both">
+      </div>
+      <div class="box-center list-box fl">
+        <div class="my-left-icon">
+          <i class="icon iconfont icon-tongjifenxi2"></i>
+        </div>
+        <div class="my-right-content">
+          <div class="text-list">
+            <div class="text-list-item">
+              <div class="text-list-right fr">
+                <span>{{clinicResponse?.NewPatientNumber}}</span>
+              </div>
+              <div class="text-list-left">
+                <span>新增患者</span>
+              </div>
+            </div>
+            <div class="text-list-item">
+              <div class="text-list-right fr">
+                <span>{{clinicResponse?.BookingNumber_NewPatient}}</span>
+              </div>
+              <div class="text-list-left">
+                <span>预约总量</span>
+              </div>
+            </div>
+            <div class="text-list-item">
+              <div class="text-list-right fr">
+                <span>{{clinicResponse?.PatlogNumber_NewPatient}}</span>
+              </div>
+              <div class="text-list-left">
+                <span>挂号总量</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <span class="line"></span>
+        <br clear="both">
+      </div>
+      <div class="box-right list-box fl">
+        <div class="my-left-icon">
+          <i class="icon iconfont icon-tongjifenxi1"></i>
+        </div>
+        <div class="my-right-content">
+          <div class="text-list">
+            <div class="text-list-item">
+              <div class="text-list-right fr">
+                <span>{{clinicResponse?.BookingRatio}}</span>
+              </div>
+              <div class="text-list-left">
+                <span>预约占比</span>
+              </div>
+            </div>
+            <div class="text-list-item">
+              <div class="text-list-right fr">
+                <span>{{clinicResponse?.BookingCancelRatio}}</span>
+              </div>
+              <div class="text-list-left">
+                <span>预约流失占比</span>
+              </div>
+            </div>
+            <div class="text-list-item">
+              <div class="text-list-right fr">
+                <span>{{clinicResponse?.PatlogCancelRatio}}</span>
+              </div>
+              <div class="text-list-left">
+                <span>挂号流失占比</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <br clear="both">
+      </div>
+      <br clear="both">
+    </div>
+  </div>
+  <!--下边内容部分-->
+  <div class="my-container-content">
+    <!--总就诊趋势-->
+    <div class="ec-header all-visit-header">
+      <span class="my-right fr">单位:人次</span>
+      <span class="my-ec-header-text">
+        总就诊趋势
+      </span>
+    </div>
+    <div class="ec-content all-visit" style="height: 346px;" id="allVisit">
+    </div>
+    <!--预约趋势-->
+    <div class="ec-header booking-report-header">
+      <span class="my-right fr">单位:人次</span>
+      <span class="my-ec-header-text">
+        预约趋势
+      </span>
+    </div>
+    <div class="ec-content booking-report" style="height: 346px;" id="bookingReport">
+    </div>
+    <!--挂号趋势-->
+    <div class="ec-header regist-report-header">
+      <span class="my-right fr">单位:人次</span>
+      <span class="my-ec-header-text">
+        挂号趋势
+      </span>
+    </div>
+    <div class="ec-content regist-report" style="height: 346px;" id="registReport">
+    </div>
+    <!--初复诊-->
+    <div class="ec-header first-return-header">
+      <span class="my-ec-header-text">
+        初复诊
+      </span>
+    </div>
+    <div class="ec-content-pie">
+      <div class="fr first-return" style="height: 224px; width: 510px" id="firstReturn">
+      </div>
+      <div class="ec-left first-return-left">
+        <div class="ec-list"  malihu-scrollbar [scrollbarOptions]="scrollbarOptionsLeft1">
+          <div class="ec-header">
+            <div class="ec-list-item">
+              <div class="ec-list-item-left fl">数据</div>
+              <div class="ec-list-item-right fr">单位:人次</div>
+              <br clear="both">
+            </div>
+          </div>
+          <div class="ec-content">
+            <div class="ec-list-item">
+              <div class="ec-list-item-left fl">初诊人次</div>
+              <div class="ec-list-item-right fr">{{clinicResponse.FirstVisitNumber}}</div>
+              <br clear="both">
+            </div>
+            <div class="ec-list-item">
+              <div class="ec-list-item-left fl">初诊占比</div>
+              <div class="ec-list-item-right fr">{{clinicResponse.FirstVisitRatio}}</div>
+              <br clear="both">
+            </div>
+            <div class="ec-list-item">
+              <div class="ec-list-item-left fl">复诊人次</div>
+              <div class="ec-list-item-right fr">{{clinicResponse.ReturnVisitNumber}}</div>
+              <br clear="both">
+            </div>
+            <div class="ec-list-item">
+              <div class="ec-list-item-left fl">复诊占比</div>
+              <div class="ec-list-item-right fr">{{clinicResponse.ReturnVisitRatio}}</div>
+              <br clear="both">
+            </div>
+          </div>
+        </div>
+      </div>
+      <br clear="both">
+    </div>
+    <!--预约流失-->
+    <div class="ec-header booking-loss-header">
+      <span class="my-ec-header-text">
+        预约流失
+      </span>
+    </div>
+    <div class="ec-content-pie">
+      <div class="fr booking-loss" style="height: 224px; width: 510px" id="bookingLoss">
+      </div>
+      <div class="ec-left booking-loss-left">
+        <div class="ec-list"  malihu-scrollbar [scrollbarOptions]="scrollbarOptionsLeft2">
+          <div class="ec-header">
+            <div class="ec-list-item">
+              <div class="ec-list-item-left fl">数据</div>
+              <div class="ec-list-item-right fr">单位:人次</div>
+              <br clear="both">
+            </div>
+          </div>
+          <div class="data-empty" *ngIf="showEmptyState">
+            <app-data-empty [showEmpty]="!(clinicResponse && clinicResponse?.Items>0)"></app-data-empty>
+          </div>
+          <div class="ec-content">
+            <div class="ec-list-item" *ngFor="let item of clinicResponse?.BookingCancelList;let i = index">
+              <div class="ec-list-item-left fl">{{item?.Name}}</div>
+              <div class="ec-list-item-right fr">{{item?.Num}}</div>
+              <br clear="both">
+            </div>
+          </div>
+        </div>
+      </div>
+      <br clear="both">
+    </div>
+    <!--挂号流失-->
+    <div class="ec-header regist-loss-header">
+      <span class="my-ec-header-text">
+        挂号流失
+      </span>
+    </div>
+    <div class="ec-content-pie">
+      <div class="fr regist-loss" style="height: 224px; width: 510px" id="registLoss">
+      </div>
+      <div class="ec-left regist-loss-left">
+        <div class="ec-list"  malihu-scrollbar [scrollbarOptions]="scrollbarOptionsLeft3">
+          <div class="ec-header">
+            <div class="ec-list-item">
+              <div class="ec-list-item-left fl">数据</div>
+              <div class="ec-list-item-right fr">单位:人次</div>
+              <br clear="both">
+            </div>
+          </div>
+          <div class="data-empty" *ngIf="showEmptyState">
+            <app-data-empty [showEmpty]="!(clinicResponse && clinicResponse?.PatlogCancelList>0)"></app-data-empty>
+          </div>
+          <div class="ec-content">
+            <div class="ec-list-item" *ngFor="let item of clinicResponse?.PatlogCancelList;let i = index">
+              <div class="ec-list-item-left fl">{{item?.Name}}</div>
+              <div class="ec-list-item-right fr">{{item?.Num}}</div>
+              <br clear="both">
+            </div>
+          </div>
+        </div>
+      </div>
+      <br clear="both">
+    </div>
+    <!--患者来源-->
+    <div class="ec-header patient-source-header">
+      <span class="my-ec-header-text">
+        患者来源
+      </span>
+    </div>
+    <div class="ec-content-pie">
+      <div class="fr patient-source" style="height: 224px; width: 510px" id="patientSource"></div>
+      <div class="ec-left patient-source-left">
+        <div class="ec-list"  malihu-scrollbar [scrollbarOptions]="scrollbarOptionsLeft4">
+          <div class="ec-header">
+            <div class="ec-list-item">
+              <div class="ec-list-item-left fl">数据</div>
+              <div class="ec-list-item-right fr">单位:人次</div>
+              <br clear="both">
+            </div>
+          </div>
+          <div class="data-empty" *ngIf="showEmptyState">
+            <app-data-empty [showEmpty]="!(clinicResponse && clinicResponse?.PatientsWiteList>0)"></app-data-empty>
+          </div>
+          <div class="ec-content">
+            <div class="ec-list-item" *ngFor="let item of clinicResponse?.PatientsWiteList;let i = index">
+              <div class="ec-list-item-left fl">{{item?.Name}}</div>
+              <div class="ec-list-item-right fr">{{item?.Num}}</div>
+              <br clear="both">
+            </div>
+          </div>
+        </div>
+      </div>
+      <br clear="both">
+    </div>
+    <!--就诊事项-->
+    <div class="ec-header outpatient-matter-header">
+      <span class="my-ec-header-text">
+        就诊事项
+      </span>
+    </div>
+    <div class="ec-content-pie">
+      <div class="fr outpatient-matter" style="height: 224px; width: 510px" id="outpatientMatter"></div>
+      <div class="ec-left outpatient-matter-left">
+        <div class="ec-list"  malihu-scrollbar [scrollbarOptions]="scrollbarOptionsLeft5">
+          <div class="ec-header">
+            <div class="ec-list-item">
+              <div class="ec-list-item-left fl">数据</div>
+              <div class="ec-list-item-right fr">单位:人次</div>
+              <br clear="both">
+            </div>
+          </div>
+          <div class="data-empty" *ngIf="showEmptyState">
+            <app-data-empty [showEmpty]="!(clinicResponse && clinicResponse?.AimList>0)"></app-data-empty>
+          </div>
+          <div class="ec-content">
+            <div class="ec-list-item" *ngFor="let item of clinicResponse?.AimList;let i = index">
+              <div class="ec-list-item-left fl">{{item?.Name}}</div>
+              <div class="ec-list-item-right fr">{{item?.Num}}</div>
+              <br clear="both">
+            </div>
+          </div>
+        </div>
+      </div>
+      <br clear="both">
+    </div>
+</div>

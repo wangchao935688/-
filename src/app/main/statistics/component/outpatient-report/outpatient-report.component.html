@@ -1,0 +1,41 @@
+<div id="app-center-container">
+  <qiezzi-loading [attr.status]="mainShowLoading" class="loading6 purple"></qiezzi-loading>
+  <app-qiezzi-center-header [showSearch]="false"
+                            [showFilter]="false"
+                            [showAdd]="false"
+                            [showOptions]="false"
+                            [moduleName]="'门诊统计'"
+                            [searchPlaceholder]="''"
+                            [controlList]="['']"
+                            (onControl)="onControl($event)"
+                            (onSearch)="onSearch($event)"
+                            (onOptions)="onOptions($event)"
+                            (onShowFilter)="onShowFilter($event)"
+  ></app-qiezzi-center-header>
+  <div id="app-center-content">
+    <div class="app-center-content" malihu-scrollbar [scrollbarOptions]="scrollbarOptions">
+      <!--<app-qiezzi-data-filter [filterConfig]="filterConfig"
+                              (onConditionChanged)="onConditionChanged($event)">
+      </app-qiezzi-data-filter>-->
+
+      <div class="tab-ctrl tab-ctrl1">
+        <app-qiezzi-tab-control class="tab-ctrl-head" style="padding:0 2rem !important;" [tabData]="['统计分析','就诊人次','初复诊','预约流失','挂号流失','患者来源','就诊事项']"
+                                [defaultSelectedIndex]="0"
+                                (onTabIndexChange)="selectTabIndex($event)"></app-qiezzi-tab-control>
+        <div class="tab-ctrl-content single-line" style="position: relative; min-height: 400px;">
+          <qiezzi-loading [attr.status]="dataLoading" class="loading6 purple transparent"></qiezzi-loading>
+          <!--<div class="list-table">-->
+            <!--<div class="list-table-head" *ngIf="currentIdx==0"></div>-->
+            <div *ngIf="currentIndex==0"><app-outpatient-report-index></app-outpatient-report-index></div>
+            <div *ngIf="currentIndex==1"><app-outpatient-visit-report></app-outpatient-visit-report></div>
+            <div *ngIf="currentIndex==2"><app-outpatient-first-return-report></app-outpatient-first-return-report></div>
+            <div *ngIf="currentIndex==3"><app-outpatient-booking-loss-report></app-outpatient-booking-loss-report></div>
+            <div *ngIf="currentIndex==4"><app-outpatient-regist-report></app-outpatient-regist-report></div>
+            <div *ngIf="currentIndex==5"><app-outpatient-patient-source-report></app-outpatient-patient-source-report></div>
+            <div *ngIf="currentIndex==6"><app-outpatient-matter-report></app-outpatient-matter-report></div>
+          <!--</div>-->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

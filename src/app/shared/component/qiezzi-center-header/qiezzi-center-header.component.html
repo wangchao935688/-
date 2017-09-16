@@ -1,0 +1,26 @@
+<span>{{moduleName}}</span>
+<div class="center-control">
+  <div class="more-panel fr" *ngIf="showAdd && controlList && controlList.length > 0"
+       (click)="onAddClick($event,0)"><i class="iconfont icon-xinzeng" aria-hidden="true"></i></div>
+    <div *ngIf="showFilter" class="filter-panel fr" (click)="onFilterClick()"><i class="iconfont icon-shaixuan2"
+                                                                                 [ngStyle]="displayFilterStatus"
+                                                                               aria-hidden="true"></i></div>
+    <div *ngIf="showOptions" class="filter-panel fr" (click)="onOptionsClick()"><i class="iconfont icon-shezhi"></i>
+    </div>
+  <div *ngIf="showSearch" class="search-panel fr">
+    <input id="search-key" type="text" [(ngModel)]="centerInput" placeholder="{{searchPlaceholder}}"
+           (keypress)="onSearchClick($event)"/>
+    <label for="search-key">
+      <i class="iconfont" aria-hidden="true" (click)="onSearchClick($event)"></i>
+    </label>
+  </div>
+  <div class="more-control" *ngIf="showAdd && controlList && controlList.length > 1" [ngStyle]="moreControlDDL">
+    <div class="click-mask" *ngIf="showMoreControl" (click)="hideMoreList($event)"></div>
+    <div class="more-control-arrow"></div>
+    <div class="more-control-list">
+      <div *ngFor="let menuItem of controlList; let i = index" class="more-control-item"
+           (click)="onAddClick($event,i)">{{menuItem}}
+      </div>
+    </div>
+  </div>
+</div>

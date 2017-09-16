@@ -1,0 +1,62 @@
+<app-qiezzi-right-header
+  [rightComponentName]="compName"
+  [controlList]="ctrlList"
+  (onClose)="onClose($event)"
+  (onBack)="onBack($event)"
+  (onControl)="onControlListClick($event)"></app-qiezzi-right-header>
+<qiezzi-loading [attr.status]="expenseLoading" class="loading6 purple transparent" style="padding-top: 15rem;"></qiezzi-loading>
+<!--<div id="appCenterContent" class="app-center-content" malihu-scrollbar [scrollbarOptions]="scrollbarOptions">-->
+<div class="right-content">
+  <div class="right-content-item">
+    <div class="conent-right fr">
+      <span >金额:</span>
+      <span class="money"> {{12555 | qiezziMoeny: true}}</span>
+    </div>
+    <div class="content-left">
+      <span>收费单号:</span>
+      <span>234121</span>
+    </div>
+  </div>
+  <div class="right-content-item">
+    <div class="title">
+      <i class="icon iconfont icon-shoufeijilu"></i>
+      <span style="margin-left: .3rem;">收入单信息</span>
+    </div>
+    <div class="content-row">
+      <span class="row-title">类别</span>
+      <span class="row-content">枕头</span>
+    </div>
+    <div class="content-row">
+      <span class="row-title">日期</span>
+      <span class="row-content">枕头</span>
+    </div>
+    <div class="content-row">
+      <span class="row-title">账户</span>
+      <span class="row-content">枕头</span>
+    </div>
+    <div class="content-row">
+      <span class="row-title">经手人</span>
+      <span class="row-content">枕头</span>
+    </div>
+    <div class="content-row">
+      <span class="row-title" style="float: left;">照片</span>
+      <img src="" alt="" width="100" height="100">
+    </div>
+  </div>
+  <div class="right-content-item" style="border: none">
+    <div class="title">
+      <i class="icon-beizhu"></i>
+      <span style="margin-left: .3rem;">备注</span>
+    </div>
+    <div class="content-row">
+      橙奇768
+    </div>
+  </div>
+  <div class="detail-footer">
+    <span>确认人:</span>
+    <span>王晓飞</span>
+    <span style="margin-left: 1rem;">操作日期:</span>
+    <span>2017-7-14</span>
+  </div>
+</div>
+<!--</div>-->

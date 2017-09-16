@@ -1,0 +1,89 @@
+<div [attr.status]="displayStatus" class="right-slider-container">
+  <router-outlet></router-outlet>
+</div>
+<div id="app-center-container">
+
+  <div id="app-center-content">
+    <app-qiezzi-center-header [showSearch]="false"
+                              [showFilter]="true"
+                              [showAdd]="false"
+                              [showOptions]="false"
+                              [moduleName]="moduleName"
+                              (onShowFilter)="onShowFilter($event)"
+    ></app-qiezzi-center-header>
+    <div id="appCenterContent"
+         class="app-center-content" malihu-scrollbar
+         [scrollbarOptions]="scrollbarOptions">
+      <app-qiezzi-data-filter [filterConfig]="filterConfig"
+                              (onConditionChanged)="onConditionChanged($event)"></app-qiezzi-data-filter>
+      <div class="gps">
+        <i class="iconfont icon-dingwei"></i><span class="gps-span" (click)="jump()">利润</span><span>>收入明细</span>
+      </div>
+      <div class="tab-ctrl tab-ctrl1">
+        <div class="tab-ctrl-content" style="position: relative; min-height: 400px;">
+          <qiezzi-loading [attr.status]="centerRouterLoading" class="loading6 purple transparent"></qiezzi-loading>
+          <div class="list-table single-line">
+            <div class="list-table-top" *ngIf="requestData.MainOrOther === ''">
+              <div>
+                <span class="span-text">主营收入:</span>
+                <span>{{statisticsResponse.Inflow_Main | qiezziMoeny:true}}</span>
+                <span class="span-text">日常收入:</span>
+                <span>{{statisticsResponse.Inflow_Other | qiezziMoeny:true}}</span>
+              </div>
+              <div>
+                <span class="span-text">总收入:</span>
+                <span class="span-moeny">{{statisticsResponse.Inflow | qiezziMoeny:true}}</span>
+              </div>
+            </div>
+            <div class="list-table-top" *ngIf="requestData.MainOrOther === 0">
+              <div>
+                <span class="span-text">主营收入:</span>
+                <span>{{statisticsResponse.Inflow_Main | qiezziMoeny:true}}</span>
+              </div>
+              <div>
+                <span class="span-text">总收入:</span>
+                <span class="span-moeny">{{statisticsResponse.Inflow | qiezziMoeny:true}}</span>
+              </div>
+            </div>
+            <div class="list-table-top" *ngIf="requestData.MainOrOther === 1">
+              <div>
+                <span class="span-text">日常收入:</span>
+                <span>{{statisticsResponse.Inflow_Other | qiezziMoeny:true}}</span>
+              </div>
+              <div>
+                <span class="span-text">总收入:</span>
+                <span class="span-moeny">{{statisticsResponse.Inflow | qiezziMoeny:true}}</span>
+              </div>
+            </div>
+            <div class="list-table-head" *ngIf="showData ">
+              <span class="col-1">时间</span>
+              <span class="mobile-hidden col-22">流水号</span>
+              <span class="col-22">类别</span>
+              <span class="col-18">金额</span>
+            </div>
+            <div class="list-table-content">
+              <div class="list-table-item" [ngClass]="{'selected': i==selectIndex}"
+                   *ngFor="let item of responseData.Items;let i = index;" (click)="openDetail($event,item.ID,i)">
+                <div class="col-1"><span>{{item.PayTime | qiezziDateAuto:0}}</span></div>
+                <div class="mobile-hidden col-22"><span>{{item.SerialNumber}}</span></div>
+                <div class="col-22"><span>{{item.TypeDescription}}</span></div>
+                <div class="col-18"><span><b>{{item.Money | qiezziMoeny:true}}</b></span></div>
+                <br clear="left">
+              </div>
+            </div>
+            <div class="data-empty" *ngIf="showData">
+              <app-data-empty
+                [showEmpty]="!(responseData && responseData.TotalItems>0)">
+              </app-data-empty>
+            </div>
+            <div *ngIf="responseData && responseData.TotalItems>10">
+              <qiezzi-paginator [rows]="responseData.ItemsPerPage" [totalRecords]="responseData.TotalItems"
+                                [rowsPerPageOptions]="[10,20,30]"
+                                (onPageChange)="pageChange($event)"></qiezzi-paginator>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

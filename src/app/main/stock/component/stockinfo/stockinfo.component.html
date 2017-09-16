@@ -1,0 +1,35 @@
+<div [attr.status]="displayStatus" class="right-slider-container large">
+  <!--<router-outlet></router-outlet>-->
+</div>
+<div id="app-center-container">
+  <!--顶部头-->
+  <qiezzi-loading [attr.status]="mainShowLoading" class="loading6 purple transparent" style="margin-top: 15rem"></qiezzi-loading>
+  <app-qiezzi-center-header [moduleName]="'当前库存'" [showSearch]="false"
+                            [showFilter]="false"
+                            [showOptions]="false"
+                            [showAdd]="false"
+                            [controlList]="['添加']"
+                            (onControl)="onControlClick($event)"></app-qiezzi-center-header>
+
+  <!--菜单栏切换-->
+  <div class="tab-ctrl">
+    <app-qiezzi-tab-control class="tab-ctrl-head" [tabData]="tabData.data"
+                            [defaultSelectedIndex]="tabData.defaultIndex"
+                            (onTabIndexChange)="changeTab($event)"></app-qiezzi-tab-control>
+    <!--<div class="tab-ctrl-content">
+    </div>-->
+  </div>
+
+  <div id="appCenterContent" [style.border-top]="isBorder?'1px solid #DBDBDB':''"
+       class="app-center-content">
+
+    <!--<router-outlet></router-outlet>-->
+    <!-- 当前库存页面主体 -->
+    <div class="app-stock-conter" *ngIf="pageIndex==0"><app-current-stock></app-current-stock></div>
+    <!--底量报警页面-->
+    <div class="app-stock-conter" *ngIf="pageIndex==1"><app-low-volume-alarm></app-low-volume-alarm></div>
+    <!--批次明细查询页面-->
+    <div class="app-stock-conter" *ngIf="pageIndex==2"><app-batch-detail-query></app-batch-detail-query></div>
+  </div>
+
+</div>

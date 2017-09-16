@@ -1,0 +1,72 @@
+
+<div class="list-table my-container">
+  <!--顶部-->
+  <div class="my-container-head">
+    <div class="header-top">
+      <div class="button-group button-group-right">
+        <button class="button4"><i class="icon iconfont icon-daochu"></i>导出</button>
+      </div>
+      <qiezzi-select-date-slot (onSelectDate)="selectDate($event)"></qiezzi-select-date-slot>
+    </div>
+    <div class="header-text">
+      <span>年月门诊统计报表</span>
+    </div>
+    <div class="header-box">
+      <div class="list-box fl">
+        <div class="my-content">
+          <span class="num">{{clinicResponse?.AimNumber}}</span>
+          <span class="my-list-name">事项总次数</span>
+        </div>
+        <span class="my-line"></span>
+      </div>
+      <div class="list-box fl">
+        <div class="my-content">
+          <span class="num">--</span>
+          <span class="my-list-name"></span>
+        </div>
+        <!--<span class="my-line"></span>-->
+      </div>
+      <br clear="both">
+    </div>
+  </div>
+  <!--下边内容部分-->
+  <div class="my-container-content">
+    <!--就诊事项图表-->
+    <div class="ec-header outpatient-matter-header">
+      <span class="my-ec-header-text">
+        就诊事项图表
+      </span>
+    </div>
+    <div class="ec-content outpatient-matter" style="height: 346px;" id="outpatientMatter"></div>
+
+    <div class="ec-header outpatient-matter-header">
+      <span class="my-ec-header-text">
+        数据明细
+      </span>
+    </div>
+    <div class="list-table-head">
+      <div class="list-table-col0">注意事项</div>
+      <div class="list-table-col1">人次</div>
+      <div class="list-table-col2">占比</div>
+      <br clear="left">
+    </div>
+    <div class="data-empty" *ngIf="showEmptyState">
+      <app-data-empty [showEmpty]="!(clinicResponse && clinicResponse?.AimList>0)"></app-data-empty>
+    </div>
+    <div class="list-table-content">
+      <div class="list-table-item click-no-hide-detail"
+           *ngFor="let item of clinicResponse?.AimList;let i = index" [ngClass]="{'selected': false}">
+        <div class="list-table-col0">
+          <span>{{item?.Name}}</span>
+        </div>
+        <div class="list-table-col1">
+          <span>{{item?.Num}}</span>
+        </div>
+        <div class="list-table-col2">
+          <span>{{item?.Ratio}}</span>
+        </div>
+        <br clear="left">
+      </div>
+    </div>
+  </div>
+</div>

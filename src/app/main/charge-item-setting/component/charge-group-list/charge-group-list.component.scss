@@ -1,0 +1,226 @@
+
+/*******************左侧*************************/
+.charge-left{
+  margin-right:1.5rem;
+  padding:1.1rem 1.5rem 0 2rem;
+  width:14rem;
+  border-right:1px solid #DBDBDB;
+  height:100%;
+  float:left;
+}
+.button4{
+  width:10.5rem;
+}
+/*左侧级联菜单*/
+.one-level-title,.one-level-content{
+  padding:0;
+}
+.one-level-item{
+  width:inherit;
+}
+.diagnosis-treatment-category{
+  &:last-child{
+    margin-bottom:2rem;
+  }
+  .diagnosis-treatment{
+    border-bottom:1px dashed #DBDBDB;
+    display:flex;
+    justify-content: space-between;
+    line-height:2.1rem;
+    color:#666;
+    font-size:.7rem;
+    padding-top:.5rem;
+  }
+  .charges-classification{
+    div{
+      padding-top:.5rem;
+      line-height:2.1rem;
+      font-size:.7rem;
+      color:#333;
+      span{
+        padding:0 .5rem;
+      }
+    }
+    div:hover{
+      color:#fbfbfb;
+    }
+  }
+}
+
+.button-search{
+  width:inherit;
+  display:inline-block;
+}
+.list-table-content-col-3 {
+  width: 10rem;
+  span {
+    color: #DBDBDB;
+    span {
+      padding: 0 .5rem;
+      color: #e4e6fe;
+    }
+  }
+  i {
+    font-size: .9rem;
+  }
+  i:hover {
+    color: #7a80fa;
+    cursor: pointer;
+  }
+}
+.form-checkbox{
+  height:0;
+}
+
+//右侧
+.capital-flow-content-right{
+  margin:0 2rem 0 15.5rem;
+  width:29.5rem;
+}
+// 面包屑
+.crumbs{
+  display: flex;
+  justify-content: space-between;
+  padding-top:1.1rem;
+  padding-bottom:.7rem;
+  color:#333;
+  height:20px;
+  line-height:20px;
+  .newly-increased{
+    div{
+      display:inline-block;
+      width:4.5rem;
+      height: 1.6rem;
+      font-size:.7rem;
+      color: #7a80fa;
+    }
+  }
+}
+// 地址
+.capital-flow-settings{
+  font-size:12px;
+  display:inline-block;
+  .icon-dingwei{
+    font-size:.7rem;
+    height:.7rem;
+    display:inline-block;
+  }
+  em{
+    padding:0 .5rem;
+  }
+  input {
+    width: 10rem;
+  }
+  qiezzi-drop-down-list {
+    width: 6rem;
+  }
+}
+.gps-span {
+  cursor: pointer;
+  padding-left: .5rem;
+}
+.gps-span:hover {
+  color: #7a80fa;
+}
+// 输入框
+.capital-headers{
+  padding-top:1.5rem;
+}
+.form-section{
+  position: relative;
+}
+.form-element{
+  display:inline-block;
+  margin-bottom:1rem;
+  input{
+    margin-right:0.5rem;
+  }
+}
+.list-table-head{
+  border:1px solid #DBDBDB;
+  border-bottom:none;
+}
+//分页
+.page{
+  margin-right:2rem;
+}
+//导入导出
+.contact-news{
+  position: absolute;
+  right:0;
+  &>span{
+    color:#ccc;
+    padding-left:0.3rem;
+    padding-right:0.2rem;
+  }
+  display:inline-block;
+  div{
+    width:2.4rem;
+    height:1.6rem;
+    line-height: 1.6rem;
+    display:inline-block;
+    cursor:pointer;
+    i,span{
+      color:#7a80fa;
+      font-size:0.7rem;
+      line-height:1rem;
+      padding-left:0.1rem;
+    }
+    i{
+      font-size:0.6rem;
+    }
+  }
+}
+.popup-content-box {
+  padding: 0 !important;
+}
+
+.list-table {
+  padding: 0 !important;
+}
+
+.form-checkbox {
+  height: 1.2rem;
+}
+
+.form-checkbox span:last-child {
+  display: none;
+}
+.list-table-content .list-table-item > *{
+  overflow: visible !important;
+}
+.col6{
+  font-size:.8rem;
+  flex:0 0 15%;
+}
+.col2 img {
+  width: 1.2rem;
+  height: 1.2rem;
+  border-radius: 50%;
+}
+.col50 {
+  flex: 0 0 25%;
+}
+
+.col200 {
+  flex: 0 0 10%;
+}
+
+.col3 {
+  width: 100%;
+}
+.togging{
+  font-size:.6rem;
+  color:#666;
+  em{
+    padding:0 .25rem;
+    display:inline-block;
+  }
+
+}
+.list-table-content .list-table-item > div > :only-child{
+  overflow: visible;
+}
+.list-table-content .list-table-item > div > :only-child{
+  padding:.6rem 0 !important;
+}

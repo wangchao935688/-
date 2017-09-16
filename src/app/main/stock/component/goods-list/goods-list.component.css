@@ -1,0 +1,215 @@
+@charset "UTF-8";
+/*初始化*/
+p, ul {
+  margin: 0;
+  padding: 0; }
+
+ul {
+  list-style: none; }
+
+:host {
+  width: 100%;
+  height: 100%;
+  display: block; }
+
+/********************************************************************************************自定义左侧列表样式*/
+#app-center-container {
+  height: 100%; }
+  #app-center-container .my-center-header {
+    width: 100%;
+    border-bottom: solid 1px #DBDBDB; }
+    #app-center-container .my-center-header app-qiezzi-center-header {
+      width: 47rem; }
+  #app-center-container #appCenterContent {
+    width: 47rem;
+    height: 100%; }
+    #app-center-container #appCenterContent .capital-flow-content-left {
+      float: left;
+      width: 14rem;
+      height: 100%;
+      border-right: 1px solid #dddddd;
+      padding-top: 2rem;
+      font-size: 0.7rem; }
+      #app-center-container #appCenterContent .capital-flow-content-left #appCenterLeftContent .capital-flow-content-left-header {
+        color: #333; }
+      #app-center-container #appCenterContent .capital-flow-content-left #appCenterLeftContent .list-table-content {
+        margin-left: 2.5rem;
+        margin-top: .5rem;
+        border: none;
+        padding-bottom: 3rem; }
+    #app-center-container #appCenterContent .capital-flow-content-right {
+      margin-left: 14rem;
+      height: 100%; }
+      #app-center-container #appCenterContent .capital-flow-content-right #appCenterRightContent .app-center-content-top .button-search-right-icon {
+        margin-right: 1rem;
+        margin-top: -2.6rem; }
+        #app-center-container #appCenterContent .capital-flow-content-right #appCenterRightContent .app-center-content-top .button-search-right-icon .search-right-icon {
+          border: none;
+          color: #969AFC;
+          font-size: 0.6rem;
+          min-width: 4rem;
+          padding: 0; }
+          #app-center-container #appCenterContent .capital-flow-content-right #appCenterRightContent .app-center-content-top .button-search-right-icon .search-right-icon .iconfont {
+            font-size: 0.6rem; }
+        #app-center-container #appCenterContent .capital-flow-content-right #appCenterRightContent .app-center-content-top .button-search-right-icon .search-right-icon:hover {
+          background-color: #fff;
+          color: #969AFC; }
+      #app-center-container #appCenterContent .capital-flow-content-right #appCenterRightContent .list-table .list-table-col0 {
+        width: calc(100% - (22% * 3)); }
+        #app-center-container #appCenterContent .capital-flow-content-right #appCenterRightContent .list-table .list-table-col0 .list-table-col0-text {
+          font-size: 0.6rem;
+          color: #999; }
+          #app-center-container #appCenterContent .capital-flow-content-right #appCenterRightContent .list-table .list-table-col0 .list-table-col0-text .list-table-col0-text-left {
+            position: relative;
+            float: left; }
+          #app-center-container #appCenterContent .capital-flow-content-right #appCenterRightContent .list-table .list-table-col0 .list-table-col0-text .list-table-col0-text-left::after {
+            content: "";
+            height: 0.5rem;
+            position: absolute;
+            right: -0.5rem;
+            top: 0.3rem;
+            display: block;
+            border: 1px solid #dddddd; }
+          #app-center-container #appCenterContent .capital-flow-content-right #appCenterRightContent .list-table .list-table-col0 .list-table-col0-text .list-table-col0-text-right {
+            margin-left: 0.6rem; }
+      #app-center-container #appCenterContent .capital-flow-content-right #appCenterRightContent .list-table .list-table-col1, #app-center-container #appCenterContent .capital-flow-content-right #appCenterRightContent .list-table .list-table-col2, #app-center-container #appCenterContent .capital-flow-content-right #appCenterRightContent .list-table .list-table-col3 {
+        width: 22%; }
+      #app-center-container #appCenterContent .capital-flow-content-right #appCenterRightContent .list-table .list-table-col4 {
+        margin-left: -1rem; }
+        #app-center-container #appCenterContent .capital-flow-content-right #appCenterRightContent .list-table .list-table-col4 .form-checkbox {
+          justify-content: flex-start;
+          align-items: center;
+          height: 1rem;
+          font-size: 0.8rem;
+          cursor: pointer; }
+          #app-center-container #appCenterContent .capital-flow-content-right #appCenterRightContent .list-table .list-table-col4 .form-checkbox input[type="checkbox"] {
+            display: none;
+            margin: 3px 3px 3px 4px; }
+          #app-center-container #appCenterContent .capital-flow-content-right #appCenterRightContent .list-table .list-table-col4 .form-checkbox .iconfont {
+            margin-left: 0.5rem;
+            font-size: 0.8rem; }
+      #app-center-container #appCenterContent .capital-flow-content-right #appCenterRightContent .list-table .list-table-head {
+        overflow: hidden;
+        border: 1px solid #ccc;
+        border-bottom: none;
+        padding: 0 1rem; }
+        #app-center-container #appCenterContent .capital-flow-content-right #appCenterRightContent .list-table .list-table-head .list-table-col4 {
+          margin-left: -0.5rem; }
+  #app-center-container #appCenterRightContent {
+    padding-bottom: 3rem; }
+
+.capital-flow-content {
+  overflow: hidden;
+  width: 47rem;
+  height: 100%;
+  color: #333;
+  font-size: .7rem; }
+
+.capital-flow-content-left {
+  float: left;
+  width: 14rem;
+  height: 100%;
+  border-right: 1px solid #dddddd;
+  padding-top: 1rem; }
+
+.capital-flow-content-left .capital-flow-content-left-header {
+ /*
+根据UI设计，修改滚动条位置，所以调整头部位置宽度
+*/
+  margin: 0 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px dashed #dddddd;
+  line-height: 1.5rem; }
+
+.capital-flow-content-left-list-item .size-normal {
+  font-size: .6rem;
+  color: #666; }
+
+.rt {
+  float: right; }
+
+.capital-flow-content-left-list .capital-flow-content-left-list-item {
+  line-height: 2.1rem;
+  border: 1px solid transparent;
+  padding: 0 !important;
+  display: flex;
+  justify-content: space-between; }
+
+/*.capital-flow-content-left-list  .capital-flow-content-left-list-item:last-child:hover{
+  border-bottom-color: #7A80FA;
+}*/
+/*.list-table-content .list-table-item:last-child.selected{
+  border-bottom-color: #7A80FA;
+}*/
+.list-table-content > li {
+  line-height: 2.1rem; }
+
+/***********************************************************************************引用列表框架样式*/
+.list-table-head .list-table-col1, .list-table-head .list-table-col3 {
+  font-weight: normal; }
+
+@media screen and (max-width: 999px) {
+  .list-table-col0 {
+    width: calc(100% - 30% - 23%); }
+
+  .list-table-col3 {
+    width: 30%; }
+
+  .list-table-col4 {
+    width: 23%; } }
+/***修改表单样式*/
+.list-table-item {
+  overflow: hidden; }
+
+.search-bar {
+  margin-top: 1.5rem;
+  display: flex;
+  padding: 0.3rem 2rem 1rem; }
+  .search-bar .search-left {
+    width: 16.5rem;
+    display: flex;
+    margin-right: 0.5rem; }
+    .search-bar .search-left input {
+      width: 10rem; }
+    .search-bar .search-left qiezzi-drop-down-list {
+      width: 6rem;
+      margin-left: 0.5rem; }
+  .search-bar .search-right {
+    width: 16.5rem;
+    display: flex; }
+    .search-bar .search-right .search-right-button {
+      border-color: #DBDBDB;
+      color: #999; }
+    .search-bar .search-right .search-right-button:hover {
+      border-color: #605bf5;
+      background-color: #605BF5;
+      color: #fff; }
+    .search-bar .search-right .begin-end-time {
+      height: 32px;
+      width: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-radius: 4px 4px;
+      border: solid 1px #e6e7f3;
+      margin-right: 0.5rem; }
+      .search-bar .search-right .begin-end-time input {
+        width: 98px;
+        line-height: 30px;
+        margin: 0;
+        border: 0 !important;
+        text-indent: 10px;
+        background-color: transparent; }
+      .search-bar .search-right .begin-end-time span {
+        display: block;
+        height: 20px;
+        width: 1px;
+        background-color: #DBDBDB; }
+
+@media screen and (max-width: 999px) {
+  .search-bar {
+    flex-direction: column; }
+    .search-bar .search-left {
+      margin-bottom: 1rem; } }
+
+/*# sourceMappingURL=goods-list.component.css.map */

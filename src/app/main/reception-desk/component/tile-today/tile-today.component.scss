@@ -1,0 +1,130 @@
+:host {
+  display: block;
+  height: 100%;
+  width: 100%;
+
+}
+
+.tile-item {
+  position: relative;
+  width: 310px;
+  margin: 0 20px;
+  display: inline-block;
+  border: solid 1px #F3F3F9;
+  background-color: #FDFDFF;
+  height: 100%;
+  overflow: hidden;
+  padding: 21px 20px 0;
+  .doctor-status {
+    width: 68px;
+    height: 20px;
+    line-height: 20px;
+    padding-left: 10px;
+    text-align: center;
+    background-color: #7A80FA;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    position: absolute;
+    right: 0;
+    top: 21px;
+  }
+  .doctor-name {
+    line-height: 20px;
+    width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .nurse-list {
+    height: 32px;
+    margin-top: 22px;
+    margin-bottom: 10px;
+  }
+
+  .scroll-list {
+    .reception-type {
+      .title {
+        line-height: 20px;
+        margin-bottom: 10px;
+      }
+      .reception-item {
+        margin-bottom: 10px;
+        height: 64px;
+        border: solid 1px #E6E7F3;
+        overflow: hidden;
+        position: relative;
+        padding: 11px 9px;
+        display: flex;
+        justify-content: space-between;
+        .flag {
+          height: 28px;
+          width: 28px;
+          transform-origin: 50%;
+          transform: rotateZ(45deg);
+          position: absolute;
+          right: -13px;
+          top: -13px;
+          background-color: #ACA6FF;
+          overflow: hidden;
+          line-height: 44px;
+          text-align: center;
+          span {
+            color: #fff;
+            transform: scale(0.7, 0.7);
+            display: block;
+          }
+        }
+        .head-info {
+          display: flex;
+          align-items: center;
+          height: 40px;
+          img {
+            width: 34px;
+            height: 34px;
+            margin-right: 12px;
+          }
+          div {
+            width: 140px;
+            span {
+              line-height: 20px;
+              display: block;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              white-space: nowrap;
+            }
+          }
+        }
+        .time-info {
+          display: flex;
+          align-items: center;
+          height: 40px;
+          justify-content: flex-end;
+          i + span {
+            margin-left: 8px;
+          }
+          i {
+            display: block;
+            height: 12px;
+            width: 12px;
+            overflow: hidden;
+
+          }
+          i:before {
+          }
+        }
+      }
+    }
+
+  }
+}
+
+.tile-box-container {
+  height: 100%;
+  width: 100%;
+}
+
+.tile-item-scroll {
+  padding: 40px 20px;
+  white-space: nowrap;
+  height: 100%;
+}

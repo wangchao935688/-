@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,iBAAiB;EACf,KAAK,EAAE,GAAG;;AAEZ,iCAAiC;EAC/B,KAAK,EAAC,GAAG;;AAEX,iCAAiC;EAC/B,KAAK,EAAC,4BAA4B;;AAEpC,iCAAiC;EAC/B,KAAK,EAAC,GAAG;;AAEX,WAAW;EACT,WAAW,EAAE,IAAI",
+"sources": ["sms-record-list.component.scss"],
+"names": [],
+"file": "sms-record-list.component.css"
+}

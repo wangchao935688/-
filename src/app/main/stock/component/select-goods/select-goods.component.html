@@ -1,0 +1,131 @@
+<div id="appCenterContent">
+  <!-- 左侧 -->
+  <div class="capital-flow-content-left">
+    <div id="appCenterLeftContent"
+         [ngStyle]="{'display': centerLeftLoadReady?'block':'none','border-top':isBorderLeft?'1px solid #DBDBDB':''}"
+         class="app-center-content" malihu-scrollbar
+         [scrollbarOptions]="scrollbarOptionsLeft">
+      <div class="capital-flow-content-left-header">
+        <!--<strong class="lf">物品类别</strong>-->
+        <span class="lf">物品类别</span>
+      </div>
+      <ul class="list-table-content capital-flow-content-left-list">
+        <li>全部</li>
+        <li>一次性器械</li>
+        <li>一次性器械</li>
+        <li>一次性器械</li>
+        <li>一次性器械</li>
+        <li>一次性器械</li>
+        <li>一次性器械</li>
+        <li>一次性器械</li>
+        <li>一次性器械</li>
+        <li>一次性器械</li>
+        <li>一次性器械</li>
+        <li>一次性器械</li>
+        <li>一次性器械</li>
+        <li>一次性器械</li>
+        <li>一次性器械</li>
+        <li>倒数第三个</li>
+        <li>倒数第二个</li>
+        <li>最后一个</li>
+      </ul>
+    </div>
+  </div>
+  <!--右侧-->
+  <div class="capital-flow-content-right">
+    <div id="appCenterRightContent"
+         [ngStyle]="{'display': centerRightLoadReady?'block':'none','border-top':isBorderRight?'1px solid #DBDBDB':''}"
+         class="app-center-content" malihu-scrollbar
+         [scrollbarOptions]="scrollbarOptionsRight">
+      <!--下面主体部分右侧顶端搜索条-->
+      <div class="app-center-content-top">
+        <div class="search-bar">
+          <div class="search-left">
+            <app-icon-input [placeholder]="'物品名称/拼音码'" style="width:10rem;"></app-icon-input>
+            <qiezzi-drop-down-list name="ProcessCompanyId" class="drop-down-select"
+                                   [placeholder]="'显示启用物品'"
+                                   [required]="false"
+                                   [selectIndex]="0"
+                                   [dataList]="[
+                                        {value: '0', label: '全部'},
+                                        {value: '1', label: '物品有库存'},
+                                        {value: '2', label: '物品无库存'}]"></qiezzi-drop-down-list>
+          </div>
+          <div class="search-right">
+            <button class="button4 search-right-button">查询</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 列表 -->
+      <div class="list-table">
+        <div class="list-table-head">
+          <div class="list-table-col3">
+              <span (click)="selecctAllCheckBox(true)" *ngIf="!IsChooseAll" class="icon iconfont icon-weixuanzhong"
+                    style="border-radius: 0px;color:#7a80fa;"></span>
+            <span (click)="selecctAllCheckBox(false)" *ngIf="IsChooseAll" class="icon iconfont icon-xuanzhong"
+                  style="background: #fff; color: #7a80fa;border-radius: 0px"></span>
+          </div>
+          <div class="list-table-col0">物品名称</div>
+          <div class="list-table-col1 ">最低库存</div>
+          <div class="list-table-col2">入库价</div>
+        </div>
+        <div class="list-table-content">
+
+          <div class="list-table-item click-no-hide-detail">
+            <div class="list-table-col3">
+              <label class="form-checkbox checkBox"  name="noname" >
+                <input class="checkBox" type="checkbox" name="noname" value="{{item.Id}}" [checked]="IsChooseAll" (click)="selectBox(item.Id)"/>
+                <span class="iconfont checkBox"></span>
+              </label>
+            </div>
+            <div class=" list-table-col0">
+              <p>牙酸利多卡因注射液</p>
+              <div class="list-table-col0-text">
+                <span class="list-table-col0-text-left">规格：0.1ml</span>&nbsp;<span class="list-table-col0-text-right">单位：瓶</span>
+              </div>
+            </div>
+            <div class="list-table-col1" >
+              <span>777</span>
+            </div>
+            <div class="list-table-col2">
+              <span>&yen;7777.00</span>
+            </div>
+
+          </div>
+          <div class="list-table-item click-no-hide-detail">
+            <div class="list-table-col3">
+              <label class="form-checkbox checkBox">
+                <input class="checkBox" type="checkbox" name="noname"/>
+                <span class="iconfont checkBox"></span>
+              </label>
+            </div>
+            <div class=" list-table-col0">
+              <p>牙酸利多卡因注射液</p>
+              <div class="list-table-col0-text">
+                <span class="list-table-col0-text-left">规格：0.1ml</span>&nbsp;<span class="list-table-col0-text-right">单位：瓶</span>
+              </div>
+            </div>
+            <div class="list-table-col1" >
+              <span>777</span>
+            </div>
+            <div class="list-table-col2">
+              <span>&yen;7777.00</span>
+            </div>
+
+          </div>
+
+
+        </div>
+      </div>
+      <!-- 结束列表 -->
+    </div>
+  </div>
+</div>
+
+<div class="button-group button-group-right">
+  <button class="button4">确定</button>
+  <button class="button4">取消</button>
+</div>
+
+

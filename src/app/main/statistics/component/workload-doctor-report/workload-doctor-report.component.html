@@ -1,0 +1,108 @@
+<div id="appCenterContent" class="app-center-content">
+  <div class="my-content"  malihu-scrollbar
+       [scrollbarOptions]="scrollbarOptions">
+
+    <div class="content-body">
+      <!--日期选择-->
+      <div class="header-top">
+        <div class="button-group button-group-right">
+          <button class="button4"><i class="icon iconfont icon-daochu"></i>导出</button>
+        </div>
+        <qiezzi-select-date-slot (onSelectDate)="selectDate($event)"></qiezzi-select-date-slot>
+      </div>
+      <div class="my-header">
+        <span class="my-header-name">医生工作量报表</span><span class="my-header-time">({{requestData?.beginTime|date:'yyyy'}}年{{requestData?.beginTime|date:'MM'}}月)</span>
+      </div>
+      <!--诊所外加工统计-->
+      <div class="data-ec">
+        <div class="data-ec-header">
+          <div class="data-ec-header-left fl">
+            <qiezzi-drop-down-list name="test1" class="drop-down-select"
+                                   [(ngModel)]="radioSelectValue"
+                                   [placeholder]="'选择医生'"
+                                   [required]="false"
+                                   [selectIndex]="0"
+                                   (onChange)="onChange($event)"
+                                   [dataList]="doctorList">
+            </qiezzi-drop-down-list>
+            <span class="charge-trend" [ngStyle]="{color:renderBy==0?'#605bf5':'#666'}" (click)="clickRenderBy(0)">收费趋势</span>
+            <span class="kinds-trend" [ngStyle]="{color:renderBy==1?'#605bf5':'#666'}" (click)="clickRenderBy(1)">类别趋势</span>
+          </div>
+          <div class="data-ec-header-right fr">
+            <span>总收入</span>
+            <span class="money-count">{{personWorkloadResponse?.TotalPrice | qiezziMoeny:true}}</span>
+          </div>
+          <br clear="both">
+        </div>
+        <div class="data-ec-container">
+          <div style="height: 400px;" id="ec-main"></div>
+        </div>
+      </div>
+
+      <!--收入列表-->
+      <div class="data-list">
+        <div class="list-table">
+          <div class="list-table-head">
+            <div class="list-table-col0">日期</div>
+            <div>
+              <div>月当期新增账单</div>
+              <div class="list-table-col1">原价</div>
+              <div class="list-table-col2">优惠</div>
+              <div class="list-table-col3">账单金额</div>
+              <div class="list-table-col4">已收</div>
+            </div>
+            <div class="list-table-col5">补交历史欠款</div>
+            <div class="list-table-col6">补交历史代收费</div>
+            <div class="list-table-col7">已退</div>
+            <div class="list-table-col8">收入</div>
+
+            <br clear="left">
+          </div>
+          <div class="data-empty" *ngIf="showEmptyState">
+            <app-data-empty [showEmpty]="!(personWorkloadResponse && personWorkloadResponse?.Items>0)"></app-data-empty>
+          </div>
+          <div class="list-table-content">
+            <div class="list-table-item click-no-hide-detail"
+                 *ngFor="let item of personWorkloadResponse?.Items;let i = index" [ngClass]="{'selected': false}">
+              <div class="list-table-col0">
+                <span>{{item.Date|date:'yyyy-MM-dd'}}</span>
+              </div>
+              <div class="list-table-col1">
+                <span>{{item.NoDiscountPrice}}</span>
+              </div>
+              <div class="list-table-col2">
+                <span>{{item.PrivilegePrice}}</span>
+              </div>
+              <div class="list-table-col3">
+                <span>{{item.ReducedPrice}}</span>
+              </div>
+              <div class="list-table-col4">
+                <span>{{item.EarningPrice}}</span>
+              </div>
+              <div class="list-table-col5">
+                <span>{{item.HistoryDebt}}</span>
+              </div>
+              <div class="list-table-col6">
+                <span>{{item.HistoryCharge}}</span>
+              </div>
+              <div class="list-table-col7">
+                <span>{{item.ReturnPrice}}</span>
+              </div>
+              <div class="list-table-col8">
+                <span>{{item.TotalPrice}}</span>
+              </div>
+              <br clear="left">
+            </div>
+
+
+          </div>
+
+        </div>
+
+
+      </div>
+
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,72 @@
+<div id="appCenterContent" class="app-center-content" malihu-scrollbar
+     [scrollbarOptions]="scrollbarOptions">
+  <div class="my-content">
+
+    <div class="content-body">
+      <!--日期选择-->
+      <div class="header-top">
+        <div class="button-group button-group-right">
+          <button class="button4"><i class="icon iconfont icon-daochu"></i>导出</button>
+        </div>
+        <qiezzi-select-date-slot (onSelectDate)="selectDate($event)"></qiezzi-select-date-slot>
+      </div>
+      <div class="my-header">
+        <span class="my-header-name">{{requestData?.beginTime|date:'yyyy'}}年{{requestData?.beginTime|date:'MM'}}月医生工作量报表</span><!--<span class="my-header-time">()</span>-->
+      </div>
+      <!--诊所外加工统计-->
+      <div class="data-ec">
+        <div class="data-ec-header">
+          <div class="data-ec-header-left fl">
+            <span class="charge-trend" [ngStyle]="{color:renderBy==0?'#605bf5':'#666'}" (click)="clickRenderBy(0)">费用趋势</span>
+            <span class="kinds-trend" [ngStyle]="{color:renderBy==1?'#605bf5':'#666'}" (click)="clickRenderBy(1)">件数趋势</span>
+          </div>
+          <div class="data-ec-header-right fr">
+            <span>总加工费</span>
+            <span class="money-count">{{clinicProcessResponse?.TotalPrice | qiezziMoeny:true}}</span>
+          </div>
+          <br clear="both">
+        </div>
+        <div class="data-ec-container">
+          <div style="height: 400px;" id="ec-main"></div>
+        </div>
+      </div>
+
+      <!--收入列表-->
+      <div class="data-list">
+        <div class="list-table">
+          <div class="list-table-head">
+            <div class="list-table-col0">医生</div>
+            <div class="list-table-col1">加工费</div>
+            <div class="list-table-col2">加工件数</div>
+            <br clear="left">
+          </div>
+          <div class="data-empty" *ngIf="showEmptyState">
+            <app-data-empty [showEmpty]="!(clinicProcessResponse && clinicProcessResponse?.Items>0)"></app-data-empty>
+          </div>
+          <div class="list-table-content">
+            <div class="list-table-item click-no-hide-detail"
+                 *ngFor="let item of clinicProcessResponse?.Items;let i = index" [ngClass]="{'selected': false}">
+              <div class="list-table-col0">
+                <span>{{item.DoctorName}}</span>
+              </div>
+              <div class="list-table-col1">
+                <span>{{item.Price}}</span>
+              </div>
+              <div class="list-table-col2">
+                <span>{{item.Num}}</span>
+              </div>
+              <br clear="left">
+            </div>
+
+
+          </div>
+
+        </div>
+
+
+      </div>
+
+    </div>
+
+  </div>
+</div>

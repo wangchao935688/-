@@ -1,0 +1,217 @@
+:host{
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+/*滚动条*/
+.app-right-content{
+  height: calc(100% - 8rem);
+}
+.container{
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background-color: #202020;
+  opacity: 0.6;
+  position: absolute;
+  left: 0;
+  top: 0;
+
+  .main{
+    width: 43rem;
+    height:100%;
+    background: #FFFFFF;
+    .common-padding{
+      padding: 1.5rem 0;
+      margin:0 1.5rem;
+    }
+    .head{
+      height: 5rem;
+      line-height: 3rem;
+      border-bottom: 1px solid #dddddd;
+      text-align: center;
+      i{
+        font-size: 1rem;
+      }
+      .title{
+        font-size: .8rem;
+        line-height: 1rem;
+        color: #333;
+        font-weight:bold;
+      }
+    }
+    .nav{
+      .case-content{
+        display: flex;
+        align-items: flex-start;
+        //flex-wrap: wrap;
+        .info-item{
+          margin-right: 2rem;
+          &:last-child{
+            margin-right:0;
+            margin-right:0;
+          }
+        }
+      }
+    }
+  }
+  .info-patient{ // 患者姓名
+      width: 13.3rem;
+      position: relative;
+      .info-title-icon{
+      position: absolute;
+      right:0;
+      width:1rem;
+      font-size:.6rem;
+    }
+  }
+  /*输入框的下划线*/
+.info-input-box{
+  border-bottom:1px solid #DBDBDB;
+  margin-left:2rem;
+  margin-top:-1rem;
+  input{
+    display: block;
+    outline: none;
+    border:none;
+  }
+}
+  // 患者护士就诊时间
+  .info-son{
+    .info-input-box{
+      width:8rem;
+      margin-left:3rem;
+    }
+  }
+  /*主体内容*/
+  main{
+    padding:0 !important;
+  }
+  /*表单*/
+  .form-section{
+    padding:1rem 0;
+    margin-top:.5rem;
+    .form-title{
+      width:4rem;
+      margin-right:2rem;
+      font-size:.6rem;
+      line-height: 1rem;
+      color:#000;
+      font-weight: bold;
+    }
+    .form-box{
+      border:1px solid transparent;
+    }
+    .form-content{
+      width:100%;
+      font-size:.6rem;
+      line-height:1rem;
+      color:#333;
+      resize: none;
+      outline: none;
+      border:none;
+      border-bottom:1px solid #e6e7f3;
+    }
+  }
+  /*检查牙位*/
+  .parting-line{
+    border-bottom:1px solid #e6e7f3;
+    padding:.5rem 0;
+    .form-section{
+      margin:0;
+    }
+  }
+  .dental-examination{
+    display: flex;
+    border:1px solid transparent;
+    .teeth{
+      width:12rem;
+      padding:0 1.5rem;
+    }
+    .form-content{
+      color:#999;
+    }
+  }
+  .add-tooth{
+    line-height:1rem;
+    font-size:.6rem;
+    padding-left:6rem;
+    margin-top:-1rem;
+    span{
+      color:#7A80FA;
+      font-size:.6rem;
+    }
+  }
+  /*x光检查*/
+  .add-img{
+    padding:.5rem 0 1rem 0;
+    color:#7A80FA;
+    line-height:1rem;
+  }
+  .footer{
+    position: fixed;
+    bottom: 0;
+    left:0;
+    width:100%;
+    height: 4rem;
+    border-top: 1px solid #dddddd;
+    margin-left: 4.5rem;
+    background: #FFFFFF;
+    .footer-content{
+      position: relative;
+      width: 43rem;
+      margin: auto;
+      height:100%;
+    }
+  }
+}
+/*打印*/
+.form-checkbox-group{
+  position: absolute;
+  top: 1rem;
+  left:0;
+}
+/*button确定  取消*/
+div.button-group-right{
+  position: absolute;
+  top: 1rem;
+  right:0;
+}
+.info-title{
+  color: #333;
+  font-size: .7rem;
+  font-weight:bold;
+  line-height: 1rem;
+  margin-right: .5rem;
+}
+.case-line{
+  border-bottom:1px solid #dddddd;
+}
+@media screen and (max-width: 999px) {
+
+}
+@media screen and (min-width: 999px) {
+
+}
+
+
+/*
+TODO 滑过加边框
+*/
+.glide:hover{
+  .form-box{
+    border:1px solid #7A80FA !important;
+    display: inline-block;
+  }
+  .dental-examination{
+    border:1px solid #7A80FA;
+  }
+}

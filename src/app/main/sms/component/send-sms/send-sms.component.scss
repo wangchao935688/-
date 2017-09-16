@@ -1,0 +1,303 @@
+:host{
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.mstemplate{
+  margin-left: 28.4rem;
+  width:14.5rem;
+}
+
+app-qiezzi-center-header {
+  border-bottom: 0.05rem solid #DBDBDB;
+}
+.message {
+  margin-left:2.5rem;
+  background-color:#fbfbfb;
+}
+.message li:first-child{
+  margin-top:2rem;
+  line-height:1rem;
+  font-size:0.7rem;
+  color: #686868;
+}
+.message li:first-child span {
+  font-size:0.6rem;
+  color: #999;
+}
+.message li:first-child .authentication {
+  display: inline-block;
+  margin-left:29.3rem;
+  font-size: 0.7rem;
+  border: 0.05rem #7b81fa solid;
+  //border-radius:45%;
+  color: #7b81fa;
+  width:4rem;
+  height:1.3rem;
+  line-height: 1.3rem;
+  text-align: center;
+}
+.message li:nth-child(2) {
+  margin-top:1.5rem;
+  line-height:1rem;
+  color: #999;
+  padding-bottom: 1.5rem;
+  font-size:0.7rem;
+}
+.message li:nth-child(2) b {
+  font-size:1rem;
+  color: #000;
+}
+.message li:nth-child(2) span {
+  color: #605bf5;
+  font-size:0.7rem;
+  margin-left:1rem;
+}
+.message li:last-child{
+  border: 0.05rem dashed #999;
+  margin-left: -0.5rem;
+}
+.send-sms {
+  margin-top:1.515rem;
+}
+.send-sms p {
+  font-weight:normal;
+  font-size:0.7rem;
+  color: #747474;
+  margin-bottom:0.5rem;
+}
+
+.send-sms .sms-content p:first-child {
+  height: 2rem;
+  line-height:2rem;
+  margin: 0 0.5rem;
+  border-bottom: 0.05rem solid #e6e7f3;
+  color: #aaa;
+}
+.send-sms .sms-content p:first-child input {
+  border:0;
+  outline:none;
+  max-height: 5rem;
+  width:5rem;
+}
+.send-sms .sms-content p:nth-child(2) {
+  margin: 0.4rem 0 0 0.4rem;
+  color: #aaa;
+}
+.send-sms .sms-content p:nth-child(3) {
+  position: absolute;
+  bottom:0;
+  left:1.03rem;
+  color: #aaa;
+}
+
+
+.send-sms-container{
+  margin: 2rem;
+}
+.send-sms-now span:first-of-type{
+  color:#666;
+  font-size:0.7rem;
+  line-height:1rem;
+}
+.send-sms-now span:nth-of-type(2){
+  line-height:1rem;
+  color:#999;
+}
+.send-sms-now>button{
+  width:4rem;
+  height:1.3rem;
+  border-radius:0.65rem;
+  position: absolute;
+  left:41rem;
+  font-size:0.7rem;
+}
+.send-sms-lists{
+  margin-top:1.5rem;
+  margin-bottom:1.5rem;
+}
+.send-sms-lists span:first-of-type,
+.send-sms-lists span:nth-of-type(3){
+  font-size:0.7rem;
+  line-height:1rem;
+  color:#999;
+}
+.send-sms-lists span:nth-of-type(2){
+  font-size:1rem;
+  color:#333;
+}
+.send-sms-lists span:nth-of-type(4){
+  color:#e6e7f3;
+  font-size:0.6rem;
+  padding:0 0.25rem;
+}
+.send-sms-lists a{
+  font-size:0.7rem;
+  line-height:1rem;
+  color:#7a80fa;
+}
+.send-sms-lists a:hover{
+  color:#605bf5;
+  cursor:pointer;
+}
+.sendms{
+  float:left;
+  width: 27.2rem;
+}
+.sendms-word,
+.msmb{
+    font-size:0.7rem;
+    line-height:1rem;
+    color:#666;
+    margin-bottom:0.5rem;
+}
+.send-sms-top span{
+    font-size:0.7rem;
+    line-height:1rem;
+    color:#aaa;
+}
+.send-sms-top i{
+    color:#524ddb;
+}
+.send-sms-center textarea{
+    width: 100%;
+    min-height: 15rem;
+    border:none;
+    resize:none;
+    outline:none;
+    padding:0.5rem 0 0 0.5rem;
+    margin-bottom: 1.5rem;
+    color:#333;
+}
+.send-sms-sendsms{
+    height:17rem;
+    border:1px solid #e6e7f3;
+    position: relative;
+}
+.send-sms-top{
+    padding:0 0.5rem;
+    border-bottom:0.05rem solid #e6e7f3;
+    line-height:1.5rem;
+}
+.send-sms-top span{
+    font-size:0.7rem;
+    line-height:1rem;
+    color:#aaa;
+}
+.send-sms-top i{
+    position: absolute;
+    right:0.5rem;
+    cursor:pointer;
+}
+
+//短信模板
+.msmb{
+    position: relative;
+    color:#666;
+  //bottom:0.5rem;
+}
+
+.send-sms-sendsmsbox2{
+    width:14.5rem;
+    height:17rem;
+    border:1px solid #e6e7f3;
+    padding:0.7rem 0.7rem 0 0.7rem;
+}
+
+.send-sms-center textarea::-webkit-input-placeholder{
+    color:#aaa;
+}
+.send-sms-bottom{
+    position: absolute;
+    bottom:0.5rem;
+    left:0.5rem;
+    width: 96%;
+}
+.send-sms-bottom i{
+    color:#7a80fa;
+}
+.send-sms-bottom a{
+    font-size:0.6rem;
+    color:#999;
+    line-height:1rem;
+}
+.send-sms-bottom div{
+    font-size:0.6rem;
+    color:#999;
+    line-height:1rem;
+}
+.send-sms-bottom div>span{
+    color:#7a80fa;
+}
+
+//短信模板
+.diagnosis-treatment span{
+  font-size: 0.7rem;
+  color:#666;
+  line-height:1rem;
+  margin:1rem 0 0.6rem 0;
+}
+.tab-ctrl-content{
+  border:none;
+}
+.tab-ctrl > .tab-ctrl-content{
+  padding:0 !important;
+}
+.diagnosis-treatment{
+  position: relative;
+}
+.icon-zhankai{
+  position: absolute;
+  right:0;
+  font-style:normal;
+}
+.charges-classification>span{
+  font-size:0.6rem;
+  color:#333;
+  line-height:1rem;
+}
+.son-classification div{
+  font-size:0.6rem;
+  color:#666;
+  line-height:1rem;
+}
+.son-classification div{
+  padding-left:1rem;
+  margin: 0.5rem 0;
+}
+.diagnosis-treatment-category>div{
+  margin:0.5rem 0;
+}
+.ordinary-charges-content,
+.charges-classification{
+  padding-left:1.5rem;
+}
+
+.icon-duanxinmoban{
+  font-size:0.6rem;
+}
+/*
+TODO 右侧菜单
+*/
+.two-level-title{
+  padding:0;
+}
+/*提示信息*/
+.sms-send{
+  text-align: right;
+  padding-top:1rem;
+}
+.tishixinxi{
+  i{
+    color:#fea356;
+    font-size:.7rem;
+    padding-right:.2rem;
+  }
+  span{
+    display: inline-block;
+    font-size:.6rem;
+    line-height: 1rem;
+    color:#999;
+  }
+}

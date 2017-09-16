@@ -1,0 +1,67 @@
+/*说明性头部文字*/
+.sms-header{
+  padding-top:1.5rem;
+  font-size:.7rem;
+  color:#333;
+  line-height:1rem;
+}
+.sending-mode{
+  line-height:1.6rem;
+  margin:1rem 0;
+  .form-radio-group{
+    line-height:1.6rem;
+  }
+}
+
+.sending-title{
+  color:#999;
+  font-size:.7rem;
+  display:inline-block;
+  width:7rem;
+  text-align:left;
+  float:left;
+}
+/*短信内容*/
+.sms-content{
+  margin-bottom:1rem;
+  .appointment-reminder{
+    width:15rem;
+    margin-left:7rem;
+    .drop-down-select{
+      color:#333;
+      font-size:.7rem;
+      line-height:1rem;
+    }
+  }
+}
+.make-appointment{
+  padding-left:7rem;
+  padding-bottom:1.5rem;
+  border-bottom:1px dashed #DBDBDB;
+  .make{
+    font-size:.7rem;
+    line-height:1rem;
+    width:80%;
+    resize: none;
+    outline: none;
+    border-radius:.25rem;
+    border:1px solid #e6e7f3;
+    padding-left:.5rem;
+    color:#999;
+  }
+}
+//input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder{
+  color:#333;
+}
+.button-group-left{
+  padding-top:1rem;
+  border-top:1px solid #dbdbdb;
+  padding-bottom:2rem;
+}
+.form-checkbox *:nth-child(2){
+  height:inherit;
+}
+.form-radio span:last-child{
+  font-size:.7rem;
+}

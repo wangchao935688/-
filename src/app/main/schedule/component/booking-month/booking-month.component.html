@@ -1,0 +1,38 @@
+<div class="main-month">
+  <div class="main-month-control">
+    <div class="control-left">
+      <app-qiezzi-day-week-month-step [type]="'month'"
+                                      (onChange)="onTimeSpanChange($event)"></app-qiezzi-day-week-month-step>
+      <div class="color-prompt"><span class="point"></span><span>日程</span><span class="point"></span><span>预约</span>
+      </div>
+    </div>
+    <div class="main-select">
+      <qiezzi-drop-down-list class="drop-down-select" [required]="false" [dataList]="doctorListDataSource"
+                             (onChange)="onDoctorSelectChange($event)"></qiezzi-drop-down-list>
+      <qiezzi-drop-down-list class="drop-down-select" [required]="true" [selectIndex]="0"
+                             [dataList]="bookingScheduleType"
+                             (onChange)="onTypeChange($event)"></qiezzi-drop-down-list>
+    </div>
+  </div>
+  <div class="main-month-container" #bookingScheduleList>
+    <table class="main-month-content" cellpadding="0" cellspacing="0">
+      <tr class="main-month-header">
+        <td class="weekly-list-item">周一</td>
+        <td class="weekly-list-item">周二</td>
+        <td class="weekly-list-item">周三</td>
+        <td class="weekly-list-item">周四</td>
+        <td class="weekly-list-item">周五</td>
+        <td class="weekly-list-item">周六</td>
+        <td class="weekly-list-item">周日</td>
+      </tr>
+      <tr *ngFor="let week of dateSpan;let i = index">
+        <td *ngFor="let day of week;let j = index;" (click)="onCellClick($event,day)"
+            [ngClass]="{'passed':checkTimePassed(day), 'today':day === today,'no-current-month':day === ''}">
+          <div class="day-cell-txt"> {{validDate[i][j]}}</div>
+          <div id="day-cell-{{day}}" [attr.data-date]="day" class="booking-schedule-list"
+               [ngClass]="{'today':day === today,'no-passed':!checkTimePassed(day)}"></div>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>

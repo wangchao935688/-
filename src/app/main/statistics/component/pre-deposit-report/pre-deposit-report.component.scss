@@ -1,0 +1,141 @@
+.fl {
+  float: left;
+}
+
+.fr {
+  float: right;
+}
+
+#app-center-container {
+
+  //内容主题
+  #appCenterContent {
+    padding: 0 2rem;
+    .main-income-header {
+      text-align: center;
+      .main-name {
+        font-size: 0.8rem;
+      }
+      span {
+        display: inline-block;
+      }
+    }
+    .main-income-content {
+      padding: 0 1rem;
+      //border: 1px solid #DBDBDB;
+
+      .content-body {
+        //border: 1px solid #DBDBDB;
+        //日期选择
+        .header-top {
+          background-color: #fbfbfb;
+          margin: 1.5rem 0;
+          padding: 0.5rem;
+
+          .button-group-right {
+            float: right;
+            width: 5.3rem;
+
+            .button4 {
+              background-color: #fff;
+              border: 1px solid #DBDBDB;
+              font-size: 0.6rem;
+              line-height: 1.6rem;
+              color: #666;
+              .icon-daochu {
+                margin-right: 0.5rem;
+              }
+            }
+            .button4:hover {
+              color: #605bf5;
+              border: 1px solid #605bf5;
+            }
+
+          }
+          //日期
+          qiezzi-select-date-slot {
+
+          }
+        }
+        .my-header {
+          margin: 1.5rem 0;
+          font-size: 1rem;
+          line-height: 1rem;
+          color: #333;
+          text-align: center;
+          .my-header-name {
+            display: inline-block;
+          }
+          .my-header-time {
+            font-size: 0.8rem;
+            display: inline-block;
+          }
+        }
+        //收入趋势图
+        .data-ec {
+          width: 100%;
+          //border: 1px solid #DBDBDB;
+          .data-ec-header {
+            padding: 1rem 0.5rem;
+            //border-bottom: 1px solid #DBDBDB;
+            font-size: 0.7rem;
+            .data-ec-header-left {
+              line-height: 1.6rem;
+              font-size: 0.7rem;
+              color: #666;
+            }
+            .data-ec-header-right {
+              span{
+                font-size: 0.6rem;
+                line-height: 1.6rem;
+                color:#666;
+              }
+              .money-count {
+                font-size: 1rem;
+                color: #333;
+                line-height: 1.6rem;
+                font-weight: 700;
+              }
+            }
+          }
+          .data-ec-container {
+            width: 100%;
+            height: 20rem;
+            #ec-main {
+              width: 100%;
+            }
+          }
+        }
+
+        //收入列表
+        .data-list {
+          margin-top: 1.5rem;
+          .list-table {
+            padding: 0;
+            .list-table-head {
+              border: 1px solid #DBDBDB;
+              border-bottom: none;
+            }
+            .list-table-content {
+
+            }
+          }
+          .list-table-col0 {
+            width: 25%;
+          }
+          .list-table-col1 {
+            width: 25%;
+          }
+          .list-table-col2 {
+            width: 25%;
+          }
+          .list-table-col3 {
+            width: 25%;
+          }
+
+        }
+      }
+    }
+  }
+
+}

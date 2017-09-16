@@ -1,0 +1,9 @@
+<div class="popup-content-container">
+  <div class="popup-content-box">
+    <app-select-button-group  [list]="list" (click)="onItemClick($event)" ></app-select-button-group>
+  </div>
+</div>
+<div class="button-group button-group-right">
+  <button class="button5" (click)="save()">保存</button>
+  <button class="button4" (click)="close()">取消</button>
+</div>

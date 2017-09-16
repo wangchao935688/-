@@ -1,0 +1,34 @@
+#left-content {
+  width: 180px;
+  left: 0;
+  transition: width 0.2s, left 0.2s;
+}
+
+#app-main-container {
+  width: calc(100% - 180px);
+  left: 180px;
+  transition: width 0.2s, left 0.2s;
+}
+
+#app-center-container {
+  width: calc((100% - 960px - 481px) / 2 + 960px);
+  transition: width 0.2s;
+  border-left: solid 1px #dbdbdb;
+}
+
+#right-slider-container {
+  left: calc((100% - 960px - 480px) / 2 + 960px);
+  width: calc((100% - 960px - 480px) / 2 + 480px);
+  transition: left 0.2s, width 0.2s;
+}
+
+#app-right-detail {
+  width: calc((100% - 940px - 480px - 180px - 1px) / 2 + 480px);
+  left: calc(180px + 940px + ((100% - 940px - 480px - 180px - 1px) / 2));
+  transition: width 0.2s, left 0.2s;
+}
+
+#left-roll-toggle {
+  width: 0;
+  transition: width 0.2s;
+}

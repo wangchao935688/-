@@ -1,0 +1,130 @@
+<div class="right-slider-container">
+  <router-outlet></router-outlet>
+</div>
+<div id="app-center-container">
+  <app-qiezzi-center-header [showSearch]="false"
+                            [showFilter]="false"
+                            [showAdd]="false"
+                            [showOptions]="false"
+                            [moduleName]="'短信模板'"
+                            [searchPlaceholder]="'患者/收费单号'"
+                            [controlList]="['添加']"
+                            (onControl)="onControl($event)"
+                            (onSearch)="onSearch($event)"
+                            (onOptions)="onOptions($event)"
+                            (onShowFilter)="onShowFilter($event)"
+  ></app-qiezzi-center-header>
+  <qiezzi-loading [attr.status]="mainShowLoading" class="loading6 purple transparent"
+                  style="margin-top: 15rem;"></qiezzi-loading>
+  <div id="app-center-content">
+    <div class="app-center-content"
+         malihu-scrollbar
+         [scrollbarOptions]="scrollbarOptions">
+      <div class="tab-ctrl tab-ctrl1">
+        <app-qiezzi-tab-control class="tab-ctrl-head" [tabData]="['我的模版','系统模版']"
+                                [defaultSelectedIndex]="0"
+                                (onTabIndexChange)="changeTab($event)"></app-qiezzi-tab-control>
+        <div class="tab-ctrl-content">
+          <!--左侧菜单-->
+          <div class="one-level myte-aside">
+            <div class="one-level-title">
+              <div class="item-add" (click)="changeKindList()"
+                   style="cursor:pointer;">
+                <span><i class="icon-duanxinmoban-guanli"></i></span>
+                <span>管理</span>
+              </div>
+              <span>模板类别</span>
+            </div>
+            <div class="one-level-content">
+              <div class="one-level-item temp-item" (click)="clickItem(item.TypeCode)"
+                   [ngStyle]="{ fontWeight:Indexs === i ? 'bold' : 'normal'}"
+                   *ngFor="let item of templateTypeList; let i = index;">
+                <!--<span (click)="clickItem(-1)" [ngStyle] = "{ fontWeight:Indexs === -1 ?'bold' : ''}">全部模板</span>-->
+                <span class="one-level-cont">{{item.TypeName}}</span>
+              </div>
+            </div>
+          </div>
+          <!--右边内容-->
+          <!--<div class="myte-content-top">{{templateTypeList[Indexs]?.TypeName}}</div>-->
+          <div class="myte-content-bottom">
+            <!--面包屑-->
+            <span class="sms-settings">
+                  <i class="icon-dingwei"></i>
+                  <span class="gps-span" (click)="jump()">我的模板</span>
+                  <em class="icon-chakanxiangqing"></em>
+                  <span>模板类别</span>
+                  <em class="icon-chakanxiangqing"></em>
+                  <span>治疗药品类</span>
+                </span>
+            <div class="search-bar">
+              <div class="search-left">
+                <app-icon-input [placeholder]="'物品名称/拼音码'" style="width:10rem;"></app-icon-input>
+              </div>
+              <div class="search-right">
+                <button class="button4 search-right-button">查询</button>
+              </div>
+            </div>
+            <div class="button-search-right-icon rt">
+              <span><i class="icon iconfont icon-xinzeng"></i>新增</span>
+            </div>
+            <div class="list-table myte-content-bottom-co">
+              <div class="list-table-head">
+                <div class="list-table-col-1 col20">短信名称</div>
+                <div class="mobile-hidden list-table-col-1 col">短信内容</div>
+                <div class="list-table-col-1 col20">操作</div>
+              </div>
+              <div class="list-table-content single-line">
+                <div class="list-table-item" *ngFor="let item of templateList; let i = index;">
+                  <div class="list-table-col1 col20">
+                    <span class="span-ellipsis">{{item.SMSName}}</span>
+                  </div>
+                  <div
+                    class="mobile-hidden list-table-col-1 col"><span>{{item.SMSContext}}</span>
+                  </div>
+                  <div class="list-table-content-col-2 col20">
+                        <span>
+                          <i class="iconfont icon-xiangshang" (click)="up(item.Id)"></i>
+                          <span>|</span>
+                          <i class="iconfont icon-xiangxia" (click)="down(item.Id)"></i>
+                          <span>|</span>
+                          <i class="iconfont icon-xiugai" (click)="update(item)"></i>
+                          <span>|</span>
+                          <i class="iconfont icon-shanchu" (click)="delete(item.Id)"></i>
+                        </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!--<div>
+              <div>
+                <div class="list-table-content">
+
+                  <div class="list-table-item" >
+                    <div class="list-table-col-1">短信名称</div>
+                    <div class="list-table-col-1">短信内容</div>
+                    <div class="list-table-col-1">操作</div>
+                  </div>
+
+                  <div class="list-table-item" >
+                    <div class="list-table-col-1"></div>
+                    <div class="list-table-col-1"></div>
+                    <div class="list-table-col-1" >
+                      <i class="iconfont icon-xiangshang" (click)="up(item.Id)"></i>
+                      <span>|</span>
+                      <i class="iconfont icon-xiangxia" (click)="down(item.Id)"></i>
+                      <span>|</span>
+                      <i class="iconfont icon-xiugai" (click)="update(item)"></i>
+                      <span>|</span>
+                      <i class="iconfont icon-shanchu" (click)="delete(item.Id)"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>-->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

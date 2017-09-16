@@ -1,0 +1,38 @@
+<div class="popup-content-box">
+  <form class="validate-form">
+    <div class="form-section">
+      <div class="form-element all-width">
+        <div class="err-message" [attr.error]="''">
+        </div>
+        <input class="input-text" placeholder="" >
+      </div>
+    </div>
+
+    <div class="form-section">
+      <div class="form-element half-width" style="position: relative;">
+        <div class="err-message" [attr.error]="''">
+        </div>
+        <input class="input-text" placeholder="请输入图形验证码" >
+        <div class="code">
+          <img src="" alt="" width="5rem" height="1.6rem">
+        </div>
+      </div>
+    </div>
+
+    <div class="form-section">
+      <div class="form-element half-width">
+        <div class="err-message" [attr.error]="''">
+        </div>
+        <input class="input-text" placeholder="" >
+        <div class="code">
+          <button class="button5">{{countTime}}s后重新获取</button>
+        </div>
+      </div>
+    </div>
+
+  </form>
+</div>
+<div class="button-group button-group-right">
+  <button (click)="ok()" class="button5">保存</button>
+  <button (click)="cancel()" class="button4">取消</button>
+</div>

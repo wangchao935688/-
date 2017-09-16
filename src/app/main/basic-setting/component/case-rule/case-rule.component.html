@@ -1,0 +1,47 @@
+<!--病历规则设置-->
+<div class="medical-setting">
+  <!--病历号规则-->
+  <div class="medical-record">
+    <strong>病历号规则</strong><span>(系统默认年月日+3位流水生成病历号，若更换设置默认值将以设置项生成病历号)</span>
+  </div>
+  <!--单选组件内容-->
+  <div class="form-radio-group">
+    <label class="form-radio"><input type="radio" name="sex"/>
+      <span class="iconfont"></span><span>年月日+3位流水号,示例16年6月20日：160620001、160620002</span>
+    </label>
+  </div>
+  <div class="form-radio-group">
+    <label class="form-radio"><input type="radio" name="sex"/>
+      <span class="iconfont"></span><span>年月日+2位流水号,示例16年6月20日：16062001、16062002、…  *每日门诊量超过100人不建议使用此规则*</span>
+    </label>
+  </div>
+  <div class="form-radio-group">
+    <label class="form-radio"><input type="radio" name="sex"/>
+      <span class="iconfont"></span><span>年月日+4位流水号,示例16年6月20日：1606200001、16060002、</span>
+    </label>
+  </div>
+  <div class="form-radio-group">
+    <label class="form-radio"><input type="radio" name="sex"/>
+      <span class="iconfont"></span><span>年月+4位流水号,示例16年6月：160620001、16060002、…</span>
+    </label>
+  </div>
+  <div class="form-radio-group">
+    <label class="form-radio"><input type="radio" name="sex"/>
+      <span class="iconfont"></span><span>流水号自由递增方式一,示例 000001、000002、000003</span>
+    </label>
+  </div>
+  <div class="form-radio-group">
+    <label class="form-radio"><input type="radio" name="sex"/>
+      <span class="iconfont"></span><span>流水号自由递增方式二,示例 100001、100002、100003、</span>
+    </label>
+  </div>
+  <div class="form-radio-group">
+    <label class="form-radio"><input type="radio" name="sex"/>
+      <span class="iconfont"></span><span>示例 100001、100002、100003、</span>
+    </label>
+  </div>
+</div>
+
+<div class="button-group button-group-left">
+  <button class="button5" (click)="testNamedRouter()">保存</button>
+</div>

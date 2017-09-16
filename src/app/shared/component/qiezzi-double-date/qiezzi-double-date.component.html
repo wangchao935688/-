@@ -1,0 +1,13 @@
+<input qiezzi-air-datepicker [index]="0" [defaultDate]="defaultDate.leftDate" (click)="onSelectDate(0)"
+       (onDate)="onDate($event)"
+       [options]="options.leftOptions"
+       (focus)="$event.target.parentNode.style.border = 'solid 1px #7a80fa'"
+       (blur)="$event.target.parentNode.style.border = ''"/>
+<span></span>
+<input qiezzi-air-datepicker [index]="1" [defaultDate]="defaultDate.rightDate" (click)="onSelectDate(1)"
+       (onDate)="onDate($event)"
+       [options]="options.rightOptions"
+       (focus)="$event.target.parentNode.style.border = 'solid 1px #7a80fa'"
+       (blur)="$event.target.parentNode.style.border = ''"/>
+
+

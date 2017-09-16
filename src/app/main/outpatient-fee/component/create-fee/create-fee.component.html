@@ -1,0 +1,393 @@
+<div class="add-from">
+<div class="top">
+  <form *ngIf="!isEdit" class="validate-form">
+    <div class="form-section" style="width: 50%;float:left;padding-right:.5rem;">
+      <div class="form-title">患者</div>
+      <div class="form-element">
+        <div class="err-message"></div>
+        <app-icon-input [marginRight]="'4px'" [placeholder]="'请输入患者姓名'" [iconList]=" [{icon: 'dianhuabu', color: '#7a80fa'}]"
+                        (onIconClick)="onInputIconClick($event)"></app-icon-input>
+      </div>
+    </div>
+    <div class="form-section" style="width: 50%;float:right;padding-left:.5rem;">
+      <div class="form-title">账单日期</div>
+      <div class="form-element">
+        <div class="err-message"></div>
+        <input qiezzi-air-datepicker [index]="0" [defaultDate]="defaultDate.leftDate" (click)="onSelectDate(0)"
+               (onDate)="onDate($event)"
+               [options]="options.leftOptions"
+               (focus)="$event.target.parentNode.style.border = 'none'"
+               (blur)="$event.target.parentNode.style.border = ''"/>
+      </div>
+    </div>
+    <div class="form-section" style="width: 50%;float:left;padding-right:.5rem;">
+      <div class="form-title">医生</div>
+      <div class="form-element">
+        <div class="err-message"></div>
+        <qiezzi-drop-down-list name="ProcessCompanyId" class="drop-down-select"
+                               [required]="true"
+                               [selectIndex]="0"
+                               [dataList]="doctorList">
+        </qiezzi-drop-down-list>
+      </div>
+    </div>
+    <div class="form-section" style="width: 50%;float:right;padding-left:.5rem;">
+      <div class="form-title">护士</div>
+      <div class="form-element">
+        <div class="err-message"></div>
+        <qiezzi-drop-down-list class="drop-down-select"
+                               [required]="true"
+                               [selectIndex]="0"
+                               [dataList]="nurseList">
+        </qiezzi-drop-down-list>
+      </div>
+    </div>
+  </form>
+  <div style="clear:both"></div>
+  <div class="center">
+    <div class="left">
+      <div class="tab-ctrl tab-ctrl1">
+        <app-qiezzi-tab-control class="tab-ctrl-head" [tabData]="['明细收费','快速收费']"
+                                [defaultSelectedIndex]="0"
+                                (onTabIndexChange)="selectTabIndex($event)"></app-qiezzi-tab-control>
+        <div class="tab-content-box">
+          <div *ngIf='!isShow' class="tab-box">
+            <div class="tab-item">
+              <div class="tab-border" malihu-scrollbar
+                   [scrollbarOptions]="scrollbarOptionslLeft">
+                <div class="list-table">
+                  <div class="list-table-head tab-title">
+                    <div class="list-table-col0" (click)="clickItem(0)" [ngStyle] = "{color: Indexs === 0 ?'#605bf5' : '' }">明细项目</div>
+                    <div class="mobile-hidden list-table-col1" (click)="clickItem(2)" [ngStyle] = "{color: Indexs === 2 ?'#605bf5' : '' }">数量</div>
+                    <div class="mobile-hidden list-table-col2" (click)="clickItem(3)" [ngStyle] = "{color: Indexs === 3 ?'#605bf5' : '' }">折扣率</div>
+                    <div class="list-table-col3" (click)="clickItem(1)" [ngStyle] = "{color: Indexs === 1 ?'#605bf5' : '' }">单价</div>
+                    <div class="list-table-col4" (click)="clickItem(4)" [ngStyle] = "{color: Indexs === 4 ?'#605bf5' : '' }">删除</div>
+
+                  </div>
+                  <div class="list-table-content single-line">
+                    <div  class="list-table-item click-no-hide-detail">
+                      <div class="list-table-col0">
+                        <span class="project-name">黄金牙钟超级便宜哦</span>
+                      </div>
+                      <div
+                        class="mobile-hidden list-table-col1"><input type="text" value="1" class="tab-num">
+                      </div>
+                      <div
+                        class="mobile-hidden list-table-col2"><span><input (focus)="focusInput($event)" (click)="cancelSelect($event)" (blur)="blurRate($event)"  (keyup)="changeAllRate($event)" style="width:3rem;height:1.6rem" type="text"></span>
+                      </div>
+                      <div
+                        class="mobile-hidden list-table-col3"><span><input (focus)="focusInput($event)" (click)="cancelSelect($event)" (blur)="blurPrice($event)" (keyup)="changeAllReducePrice($event)" type="text" style="width:4.3rem;height:1.6rem;"></span>
+                      </div>
+                      <div
+                        class="list-table-content-col-2 list-table-col4">
+                      <span>
+                          <i class="iconfont icon-shanchu"></i>
+                      </span>
+                      </div>
+
+                    </div>
+                    <div  class="list-table-item click-no-hide-detail">
+                      <div class="list-table-col0">
+                        <span class="project-name">黄金牙钟超级便宜哦</span>
+                      </div>
+                      <div
+                        class="mobile-hidden list-table-col1"><input type="text" value="1" class="tab-num">
+                      </div>
+                      <div
+                        class="mobile-hidden list-table-col2"><span><input (focus)="focusInput($event)" (click)="cancelSelect($event)" (blur)="blurRate($event)"  (keyup)="changeAllRate($event)" style="width:3rem;height:1.6rem" type="text"></span>
+                      </div>
+                      <div
+                        class="mobile-hidden list-table-col3"><span><input (focus)="focusInput($event)" (click)="cancelSelect($event)" (blur)="blurPrice($event)" (keyup)="changeAllReducePrice($event)" type="text" style="width:4.3rem;height:1.6rem;"></span>
+                      </div>
+                      <div
+                        class="list-table-content-col-2 list-table-col4">
+                      <span>
+                          <i class="iconfont icon-shanchu"></i>
+                      </span>
+                      </div>
+
+                    </div>
+                    <div  class="list-table-item click-no-hide-detail">
+                      <div class="list-table-col0">
+                        <span class="project-name">黄金牙钟超级便宜哦</span>
+                      </div>
+                      <div
+                        class="mobile-hidden list-table-col1"><input type="text" value="1" class="tab-num">
+                      </div>
+                      <div
+                        class="mobile-hidden list-table-col2"><span><input (focus)="focusInput($event)" (click)="cancelSelect($event)" (blur)="blurRate($event)"  (keyup)="changeAllRate($event)" style="width:3rem;height:1.6rem" type="text"></span>
+                      </div>
+                      <div
+                        class="mobile-hidden list-table-col3"><span><input (focus)="focusInput($event)" (click)="cancelSelect($event)" (blur)="blurPrice($event)" (keyup)="changeAllReducePrice($event)" type="text" style="width:4.3rem;height:1.6rem;"></span>
+                      </div>
+                      <div
+                        class="list-table-content-col-2 list-table-col4">
+                      <span>
+                          <i class="iconfont icon-shanchu"></i>
+                      </span>
+                      </div>
+
+                    </div>
+                    <div  class="list-table-item click-no-hide-detail">
+                      <div class="list-table-col0">
+                        <span class="project-name">黄金牙钟超级便宜哦</span>
+                      </div>
+                      <div
+                        class="mobile-hidden list-table-col1"><input type="text" value="1" class="tab-num">
+                      </div>
+                      <div
+                        class="mobile-hidden list-table-col2"><span><input (focus)="focusInput($event)" (click)="cancelSelect($event)" (blur)="blurRate($event)"  (keyup)="changeAllRate($event)" style="width:3rem;height:1.6rem" type="text"></span>
+                      </div>
+                      <div
+                        class="mobile-hidden list-table-col3"><span><input (focus)="focusInput($event)" (click)="cancelSelect($event)" (blur)="blurPrice($event)" (keyup)="changeAllReducePrice($event)" type="text" style="width:4.3rem;height:1.6rem;"></span>
+                      </div>
+                      <div
+                        class="list-table-content-col-2 list-table-col4">
+                      <span>
+                          <i class="iconfont icon-shanchu"></i>
+                      </span>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class='checkout'>
+                <label class='single-rate-discount'>整单折扣率</label><input (focus)="focusInput($event)" (click)="cancelSelect($event)" (blur)="blurRate($event)"  (keyup)="changeAllRate($event)" type="text" >
+                <div class="bill-amount"><label>账单金额</label><input (focus)="focusInput($event)" (click)="cancelSelect($event)" (blur)="blurPrice($event)" (keyup)="changeAllReducePrice($event)" type="text" ></div>
+              </div>
+              <div>
+                <div class='original-price'>
+                  <span>原价:￥</span>
+                  <span>总折扣率：%</span>
+                  <span>优惠金额 ￥</span>
+                </div>
+                <div class="remarks"><input type="text" placeholder="请输入备注~"></div>
+                <div class="confirming-person"><span>确认人：张丽丽</span><span>2017-07-12</span></div>
+              </div>
+            </div>
+            <div class="charge">
+              <div class="name-search">
+                <input type="text" placeholder="名称/拼音码" (keypress)="autoChargeDetail($event)" [(ngModel)]="chargeDetailKeyword">
+              </div>
+              <div class="tab-ctrl tab-ctrl2">
+                <app-qiezzi-tab-control class="tab-ctrl-head" [tabData]="['普通收费','组合收费']"
+                                        [defaultSelectedIndex]="0"
+                                        (onTabIndexChange)="selectTab($event)"></app-qiezzi-tab-control>
+
+              </div>
+              <div class="tab-scroll" malihu-scrollbar
+                   [scrollbarOptions]="scrollbarOptionsRight">
+                <div class="ordinary-charges-content" *ngIf='!isShows'>
+                  <div class="diagnosis-treatment-category">
+                    <div class="diagnosis-treatment">
+                      <span>诊疗类</span>
+                      <i class="icon-zhankai" (click)="unfoldingClosure()" [ngClass]="{'icon-jiantouxiangxia':toggle,'icon-jiantouxiangshang':!toggle}"></i>
+                    </div>
+                    <div *ngIf="isShowH">
+                    <div class="charges-classification">
+                      <span>
+                          <i class="icon-wenjianjiaheshang" (click)="toggleShow(0)" [ngClass]="{'icon-wenjianjiadakai':!isShowH || !chooseList[0],'icon-wenjianjiaheshang':isShowH && chooseList[0]}"></i>
+                          综合收费
+                      </span>
+                      <div *ngIf="isShowH && chooseList[0]">
+                        <div class="son-classification">
+                          <span>1<i class="son-text">元旦节的</i></span>
+                          <span><i>￥</i>200.00</span>
+                        </div>
+                        <div class="son-classification">
+                          <span>1<i class="son-text">的房間裡的幾分</i></span>
+                          <span><i>￥</i>200.00</span>
+                        </div>
+                      </div>
+                      </div>
+                      <div class="charges-classification">
+                      <span>
+                          <i class="icon-wenjianjiaheshang" (click)="toggleShow(1)" [ngClass]="{'icon-wenjianjiadakai':!isShowH || !chooseList[1] ,'icon-wenjianjiaheshang':isShowH && chooseList[1] }"></i>
+                          手术费
+                      </span>
+                        <div *ngIf="isShowH && chooseList[1]">
+                        <div class="son-classification">
+                          <span>1<i class="son-text">房價低飛</i></span>
+                          <span><i>￥</i>200.00</span>
+                        </div>
+                        <div class="son-classification">
+                          <span>1<i class="son-text">費勁兒我我如惡魔發多少</i></span>
+                          <span><i>￥</i>200.00</span>
+                        </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="diagnosis-treatment-category">
+                    <div class="diagnosis-treatment">
+                      <span>药品类</span>
+                      <i class="icon-zhankai" (click)="unfoldingClosures()" [ngClass]="{'icon-jiantouxiangxia':toggles,'icon-jiantouxiangshang':!toggles}"></i>
+                    </div>
+                    <div *ngIf="isShowHs">
+                    <div class="charges-classification">
+                      <span>
+                          <i class="icon-wenjianjiaheshang" (click)="toggleShow(2)" [ngClass]="{'icon-wenjianjiadakai':!isShowHs || !chooseList[2],'icon-wenjianjiaheshang':isShowHs && chooseList[2] }"></i>
+                          综合收费
+                      </span>
+                      <div *ngIf="isShowHs && chooseList[2]">
+                        <div class="son-classification">
+                          <span>1<i class="son-text">元旦节的</i></span>
+                          <span>￥<i>200.00</i></span>
+                        </div>
+                        <div class="son-classification">
+                          <span>1<i class="son-text">的房間裡的幾分</i></span>
+                          <span>￥<i>200.00</i></span>
+                        </div>
+                      </div>
+                      </div>
+                      <div class="charges-classification">
+                      <span>
+                          <i class="icon-wenjianjiaheshang" (click)="toggleShow(3)" [ngClass]="{'icon-wenjianjiadakai':!isShowHs || !chooseList[3],'icon-wenjianjiaheshang': isShowHs && chooseList[3] }"></i>
+                          手术费
+                      </span>
+                        <div *ngIf="isShowHs && chooseList[3]">
+                        <div class="son-classification">
+                          <span>1<i class="son-text">房價低飛</i></span>
+                          <span>￥<i>200.00</i></span>
+                        </div>
+                        <div class="son-classification">
+                          <span>1<i class="son-text">費勁兒我我如惡魔發多少</i></span>
+                          <span>￥<i>200.00</i></span>
+                        </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="combination-charge" *ngIf='isShows'>
+                  <div class="diagnosis-treatment-category">
+                    <div class="diagnosis-treatment">
+                      <span>诊疗类</span>
+                      <i>￥ 200.0</i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div *ngIf='isShow' class="quick-charge">
+            <div class="appCenterRightContent" malihu-scrollbar
+                 [scrollbarOptions]="scrollbarOptionsRights">
+              <div class="quick-charge-cont">
+                <div>
+                  <label>收费</label>
+                  <input (focus)="focusInput($event)" (click)="cancelSelect($event)" (blur)="blurPrice($event)" (keyup)="changeAllReducePrice($event)" type="text"  class="c-bold">
+                </div>
+                <div>
+                  <label>类药品费</label>
+                  <input (focus)="focusInput($event)" (click)="cancelSelect($event)" (blur)="blurPrice($event)" (keyup)="changeAllReducePrice($event)" type="text">
+                </div>
+                <div>
+                  <label>收费</label>
+                  <input (focus)="focusInput($event)" (click)="cancelSelect($event)" (blur)="blurPrice($event)" (keyup)="changeAllReducePrice($event)" type="text">
+                </div>
+              </div>
+              <div class="quick-charge-cont">
+                <div>
+                  <label>收费</label>
+                  <input (focus)="focusInput($event)" (click)="cancelSelect($event)" (blur)="blurPrice($event)" (keyup)="changeAllReducePrice($event)" type="text"  class="c-bold">
+                </div>
+                <div>
+                  <label>类药品费</label>
+                  <input (focus)="focusInput($event)" (click)="cancelSelect($event)" (blur)="blurPrice($event)" (keyup)="changeAllReducePrice($event)" type="text">
+                </div>
+                <div>
+                  <label>收费</label>
+                  <input (focus)="focusInput($event)" (click)="cancelSelect($event)" (blur)="blurPrice($event)" (keyup)="changeAllReducePrice($event)" type="text">
+                </div>
+              </div>
+              <div class="quick-charge-cont">
+                <div>
+                  <label>收费</label>
+                  <input (focus)="focusInput($event)" (click)="cancelSelect($event)" (blur)="blurPrice($event)" (keyup)="changeAllReducePrice($event)" type="text"  class="c-bold">
+                </div>
+                <div>
+                  <label>类药品费</label>
+                  <input (focus)="focusInput($event)" (click)="cancelSelect($event)" (blur)="blurPrice($event)" (keyup)="changeAllReducePrice($event)" type="text">
+                </div>
+                <div>
+                  <label>收费</label>
+                  <input (focus)="focusInput($event)" (click)="cancelSelect($event)" (blur)="blurPrice($event)" (keyup)="changeAllReducePrice($event)" type="text">
+                </div>
+              </div>
+              <div class="quick-charge-cont">
+                <div>
+                  <label>收费</label>
+                  <input (focus)="focusInput($event)" (click)="cancelSelect($event)" (blur)="blurPrice($event)" (keyup)="changeAllReducePrice($event)" type="text"  class="c-bold">
+                </div>
+                <div>
+                  <label>类药品费</label>
+                  <input (focus)="focusInput($event)" (click)="cancelSelect($event)" (blur)="blurPrice($event)" (keyup)="changeAllReducePrice($event)" type="text">
+                </div>
+                <div>
+                  <label>收费</label>
+                  <input (focus)="focusInput($event)" (click)="cancelSelect($event)" (blur)="blurPrice($event)" (keyup)="changeAllReducePrice($event)" type="text">
+                </div>
+              </div>
+              <div class="quick-charge-cont">
+                <div>
+                  <label>收费</label>
+                  <input (focus)="focusInput($event)" (click)="cancelSelect($event)" (blur)="blurPrice($event)" (keyup)="changeAllReducePrice($event)" type="text"  class="c-bold">
+                </div>
+                <div>
+                  <label>类药品费</label>
+                  <input (focus)="focusInput($event)" (click)="cancelSelect($event)" (blur)="blurPrice($event)" (keyup)="changeAllReducePrice($event)" type="text">
+                </div>
+                <div>
+                  <label>收费</label>
+                  <input (focus)="focusInput($event)" (click)="cancelSelect($event)" (blur)="blurPrice($event)" (keyup)="changeAllReducePrice($event)" type="text">
+                </div>
+              </div>
+              <div class="quick-charge-cont">
+                <div>
+                  <label>收费</label>
+                  <input (focus)="focusInput($event)" (click)="cancelSelect($event)" (blur)="blurPrice($event)" (keyup)="changeAllReducePrice($event)" type="text"  class="c-bold">
+                </div>
+                <div>
+                  <label>类药品费</label>
+                  <input (focus)="focusInput($event)" (click)="cancelSelect($event)" (blur)="blurPrice($event)" (keyup)="changeAllReducePrice($event)" type="text">
+                </div>
+                <div>
+                  <label>收费</label>
+                  <input (focus)="focusInput($event)" (click)="cancelSelect($event)" (blur)="blurPrice($event)" (keyup)="changeAllReducePrice($event)" type="text">
+                </div>
+              </div>
+            </div>
+            <div class='checkout'>
+              <label class='single-rate-discount'>整单折扣率</label><input (focus)="focusInput($event)" (click)="cancelSelect($event)" (blur)="blurRate($event)"  (keyup)="changeAllRate($event)" type="text" >
+              <div class="bill-amount"><label>账单金额</label><input (focus)="focusInput($event)" (click)="cancelSelect($event)" (blur)="blurPrice($event)" (keyup)="changeAllReducePrice($event)" type="text" ></div>
+            </div>
+            <div>
+              <div class='original-price'>
+                <span>原价:￥</span>
+                <span>总折扣率：%</span>
+                <span>优惠金额 ￥</span>
+              </div>
+              <div class="remarks"><input type="text" placeholder="请输入备注~"></div>
+              <div class="confirming-person"><span>确认人：张丽丽</span><span>2017-07-12</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+</div>
+<div  class="form-checkbox-group">
+  <label  class="form-checkbox"><input  name="noname" type="checkbox">
+    <span  class="iconfont"></span><span >打印</span>
+  </label>
+</div>
+<div  class="button-group button-group-right" style="margin:.5rem 0;width:100%;padding-top:.5rem;padding-bottom:1rem;">
+  <button  class="button4" style="border:1px solid #DBDBDB;color:#9a9a9a">保存并收费</button>
+  <button  class="button4" (click)="accountTransfer()">保存</button>
+  <button  class="button4" (click)="cancel()">取消</button>
+</div>
+

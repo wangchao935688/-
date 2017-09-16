@@ -1,0 +1,47 @@
+<div class="main-week">
+  <div class="main-week-control">
+    <div class="control-left">
+      <app-qiezzi-day-week-month-step [type]="'week'"
+                                      (onChange)="onTimeSpanChange($event)"></app-qiezzi-day-week-month-step>
+    </div>
+    <div class="main-select">
+      <qiezzi-drop-down-list class="drop-down-select" [required]="false" [dataList]="doctorListDataSource"
+                             (onChange)="onDoctorSelectChange($event)"></qiezzi-drop-down-list>
+      <qiezzi-drop-down-list class="drop-down-select" [required]="true" [selectIndex]="0"
+                             [dataList]="bookingScheduleType"
+                             (onChange)="onTypeChange($event)"></qiezzi-drop-down-list>
+    </div>
+  </div>
+
+  <div class="main-week-container">
+    <div class="main-week-header">
+      <div class="weekly-list">
+        <div class="weekly-list-item">周一</div>
+        <div class="weekly-list-item">周二</div>
+        <div class="weekly-list-item">周三</div>
+        <div class="weekly-list-item">周四</div>
+        <div class="weekly-list-item">周五</div>
+        <div class="weekly-list-item">周六</div>
+        <div class="weekly-list-item">周日</div>
+      </div>
+    </div>
+    <div class="main-week-content">
+      <div class="time-col">
+        <div *ngFor="let time of timeRows;"><span>{{time}}</span></div>
+      </div>
+      <div class="main-weekly-box" #bookingScheduleList>
+        <div class="weekly-col" *ngFor="let day of dateSpan;let i = index">
+          <div class="time-line" [ngStyle]="timeLineBottom[i]">
+            <div class="point" *ngIf="isToday === i"></div>
+            <div class="time-passed" [ngStyle]="{borderBottom: isToday === i ? 'solid 1px #fe4e74' : 'none'}"></div>
+          </div>
+          <div class="booking-schedule-container" id="col-{{day}}" [attr.bind-date]="day"
+               (mousedown)="onColDown($event,day)" (dragover)="onDragOver($event)" (drop)="onDrop($event)"></div>
+          <div class="weekly-cell-grid">
+            <div class="weekly-cell" *ngFor="let time of timeRows;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

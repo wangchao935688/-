@@ -1,0 +1,49 @@
+<div class="filter-box" #filterBox>
+  <div class="condition-box" *ngFor="let conditionKey of conditionKeys">
+    <div class="condition-title">{{filterConfig[conditionKey].title}}</div>
+    <div class="condition-title-all"><span [ngClass]="{selected: -1 === conditionsStatus[conditionKey].selectIndex }"
+                                           (click)="onConditionItemChange($event,conditionKey,-1,'all')">全部</span>
+    </div>
+    <div class="condition-list" *ngIf="filterConfig[conditionKey].type === 'list'"
+         [attr.id]="'filterConditionList_'+ conditionKey">
+      <div class="condition-list-arrow" *ngIf="conditionsStatus[conditionKey].showArrow"
+           [attr.status]="conditionsStatus[conditionKey].conditionListArrow"><i
+        (click)="changeConditionListStatus(conditionKey,'open')" class="fa fa-angle-down" aria-hidden="true"></i>
+        <i (click)="changeConditionListStatus(conditionKey,'close')" class="fa fa-angle-up" aria-hidden="true"></i>
+      </div>
+      <div class="condition-list-box" [attr.id]="'filterConditionListBox_'+ conditionKey">
+        <div class="condition-item" *ngFor="let title of filterConfig[conditionKey].data;let i = index;"
+             (click)="onConditionItemChange($event,conditionKey,i,title)"><span
+          [ngClass]="{selected: i === conditionsStatus[conditionKey].selectIndex }">{{title}}</span></div>
+        <br clear="left">
+      </div>
+    </div>
+    <div class="condition-text" *ngIf="filterConfig[conditionKey].type === 'text'">
+      <input type="text" [(ngModel)]="conditionsStatus[conditionKey].conditionText" placeholder="{{filterConfig[conditionKey].placeholder}}">
+      <button class="ok" [disabled]="conditionsStatus[conditionKey].conditionText === ''">确定</button>
+    </div>
+
+    <div class="condition-list condition-time" *ngIf="filterConfig[conditionKey].type === 'time'">
+      <div class="condition-time-input">
+        <input type="text"><span></span><input type="text">
+        <button class="ok">确定</button>
+      </div>
+      <div class="condition-item">
+        <span>一周内</span>
+      </div>
+      <div class="condition-item">
+        <span>一月内</span>
+      </div>
+      <div class="condition-item">
+        <span>三月内</span>
+      </div>
+      <div class="condition-item">
+        <span>半年内</span>
+      </div>
+      <br clear="left">
+    </div>
+
+    <br clear="left">
+  </div>
+  <div class="filter-box-arrow"></div>
+</div>

@@ -1,0 +1,31 @@
+<div [attr.status]="displayStatus" class="right-slider-container">
+  <router-outlet></router-outlet>
+</div>
+<div id="app-center-container">
+  <qiezzi-loading [attr.status]="mainShowLoading" class="loading6 purple"></qiezzi-loading>
+  <app-qiezzi-center-header [showSearch]="false"
+                            [showFilter]="false"
+                            [showAdd]="false"
+                            [showOptions]="false"
+                            [moduleName]="'医生工作量统计'"
+                            [searchPlaceholder]=""
+                            [controlList]="['添加']"
+                            (onControl)="onControl($event)"
+                            (onSearch)="onSearch($event)"
+                            (onOptions)="onOptions($event)"
+                            (onShowFilter)="onShowFilter($event)"
+  ></app-qiezzi-center-header>
+  <qiezzi-loading [attr.status]="mainDataLoading" class="loading6 purple transparent"
+                  style="margin-top: 15rem"></qiezzi-loading>
+  <div class="tab-ctrl">
+    <app-qiezzi-tab-control class="tab-ctrl-head" [tabData]="tabData.data"
+                            [defaultSelectedIndex]="tabData.defaultIndex"
+                            (onTabIndexChange)="changeTab($event)"></app-qiezzi-tab-control>
+    <div class="tab-ctrl-content single-line">
+      <!--全部医生报表-->
+      <div *ngIf="currentIdx==0"><app-workload-all-report></app-workload-all-report></div>
+      <!--医生个人报表-->
+      <div *ngIf="currentIdx==1"><app-workload-doctor-report></app-workload-doctor-report></div>
+    </div>
+  </div>
+</div>

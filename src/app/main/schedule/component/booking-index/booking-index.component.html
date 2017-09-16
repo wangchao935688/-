@@ -1,0 +1,33 @@
+<div [attr.status]="displayStatus" class="right-slider-container">
+  <router-outlet></router-outlet>
+</div>
+<div id="app-center-container">
+  <app-qiezzi-center-header [showSearch]="true"
+                            [showFilter]="true"
+                            [showAdd]="true"
+                            [showOptions]="false"
+                            [moduleName]="'预约管理'"
+                            [searchPlaceholder]="'患者/单号'"
+                            [controlList]="['新增预约','新增日程','qgdfv']"
+                            (onControl)="onControlClick($event)"
+
+  ></app-qiezzi-center-header>
+  <div id="appCenterContent" class="app-center-content">
+    <div class="tab-ctrl">
+      <app-qiezzi-tab-control class="tab-ctrl-head" [tabData]="tabData.data"
+                              [defaultSelectedIndex]="tabData.defaultIndex"
+                              (onTabIndexChange)="changeTab($event)"></app-qiezzi-tab-control>
+      <div class="tab-ctrl-content" malihu-scrollbar [scrollbarOptions]="scrollbarOptions">
+        <app-booking-day *ngIf="displayIndex == 0" (onSliderOpen)="onSliderOpen($event)" ></app-booking-day>
+        <app-booking-week *ngIf="displayIndex == 1" (onSliderOpen)="onSliderOpen($event)" ></app-booking-week>
+        <app-booking-month *ngIf="displayIndex == 2" (onSliderOpen)="onSliderOpen($event)" ></app-booking-month>
+        <app-booking-list *ngIf="displayIndex == 3" (onSliderOpen)="onSliderOpen($event)" ></app-booking-list>
+        <app-schedule-list *ngIf="displayIndex == 4" (onSliderOpen)="onSliderOpen($event)" ></app-schedule-list>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+

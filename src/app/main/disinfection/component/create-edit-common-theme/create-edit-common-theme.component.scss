@@ -1,0 +1,31 @@
+
+.form-title{
+  float:left;
+}
+
+.form-element{
+  input{
+    padding-left:.25rem;
+    font-size:12px;
+    display: inline-block;
+
+  }
+  textarea{
+    padding-left:.25rem;
+    font-size:12px;
+    padding-top:.3rem;
+    resize: none;
+    display: inline-block;
+  }
+}
+
+.validate-form > .form-section > .form-element{
+  padding-left:1rem;
+  margin-right:2rem;
+}
+
+.form-section{
+  &:first-child{
+    padding-top:1rem;
+  }
+}

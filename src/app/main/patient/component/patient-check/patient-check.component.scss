@@ -1,0 +1,102 @@
+:host{
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.rt{
+  float: right;
+}
+.header{
+  margin-bottom: .9rem;
+  .main{
+    margin-right: 1.3rem;
+  }
+  span{
+    font-size: .6rem;
+    line-height: 1rem;
+    color: #666;
+  }
+}
+.content{
+  border: 1px solid #dddddd;
+  padding:1.5rem 0;
+  .more{
+    position: absolute;
+    right: 0.7rem;
+    bottom: 3rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    line-height: 1.5rem;
+    background: #7A80FA;
+    color: #ffffff;
+    font-size: .7rem;
+    border-radius: 50%;
+    text-align: center;
+    cursor: pointer;
+  }
+  .more:hover{
+    background: #605bf5;
+  }
+  div{
+    .contain{
+      margin:0 1.5rem;
+      .content-item{ //遍历项
+        width:100%;
+        display: flex;
+        align-items: left;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        padding-bottom: .5rem;
+        border-bottom: 1px dashed #dddddd;
+        margin-bottom: 1.5rem;
+        .content-icon{
+          width: 2.5rem;
+          margin-right: 2.5rem;
+          .icon-contain{
+            /*margin-top: 50%;
+            -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);*/
+            text-align: center;
+            width:100%;
+            i{
+              font-size: 2rem;
+            }
+            p{
+              margin-top: .3rem;
+              font-weight: bold;
+              font-size: .6rem;
+              line-height: 1rem;
+              color: #333;
+            }
+          }
+        }
+        .type{
+          width: 31rem;
+          display: flex;
+          align-items: left;
+          justify-content: space-between;
+          flex-wrap: wrap;
+          .row-type{
+            width: 15rem;
+            p{
+              font-size: .6rem;
+              line-height: 1rem;
+              color: #666;
+            }
+            div{
+              border:1px solid #dddddd;
+              margin-bottom: 1rem;
+              height: 5.1rem;
+              width: 14rem;
+              padding: 1rem;
+            }
+          }
+        }
+      }
+      .content-item:last-child{
+        border: none;
+        margin-bottom:0;
+      }
+    }
+  }
+}

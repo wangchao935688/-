@@ -1,0 +1,44 @@
+<qiezzi-loading [attr.status]="dataLoading" class="loading6 purple transparent" style="margin-top: 10rem"></qiezzi-loading>
+<div class="list-table">
+  <i class="icon iconfont icon-huanzheguanli-youxiajiaojiahao more" (click)="addBooking()"></i>
+  <div class="list-table-head">
+    <span class="list-table-col-1">预约时间</span>
+    <span class="mobile-hidden list-table-col-15">预约医生</span>
+    <span class="mobile-hidden list-table-col-15">初/复诊</span>
+    <span class="mobile-hidden list-table-col-15">就诊事项</span>
+    <span class="list-table-col-15">就诊状态</span>
+  </div>
+  <div class="list-table-content">
+    <div class="list-table-item" *ngFor="let item of responseData?.Items; let i = index"
+    (click)="getBookingDatail(item.Id)" >
+      <div class="list-table-col-1">
+        <span class="span-ellipsis">{{item.StartTime | date:'yyyy-MM-dd'}}</span>
+        <span>{{item.StartTime | date:'hh:mm'}}</span>
+      </div>
+      <div class="mobile-hidden list-table-col-15">
+        <span>{{item.DoctorName | qiezziTextNull}}</span>
+      </div>
+      <div class="mobile-hidden list-table-col-15">
+        <span class="span-ellipsis" [ngStyle]="{ color: item.PatlogType===1 && '#605bf5' }">{{item.PatlogType ===0 ? '初诊' : '复诊'}}</span>
+      </div>
+      <div class="mobile-hidden list-table-col-15">
+        <span class="text-overflow text-overflow-l">{{item.Aim | qiezziTextNull}}</span>
+      </div>
+      <div class="list-table-col-15">
+        <span *ngIf="Status == 0">未到达</span>
+        <span *ngIf="Status == 1" style="color:#605bf5;">候诊中</span>
+        <span *ngIf="Status == 2">治疗中</span>
+        <span *ngIf="Status == 3">已完成</span>
+        <span *ngIf="Status == 4">取消</span>
+      </div>
+    </div>
+  </div>
+  <app-data-empty *ngIf="(responseData )"
+                  [showEmpty]="showEmpty"></app-data-empty>
+  <div *ngIf="responseData && responseData?.Items.length>0">
+    <qiezzi-paginator [rows]="responseData?.ItemsPerPage" [totalRecords]="responseData?.TotalItems"
+                      [rowsPerPageOptions]="[10,20,30]"
+                      (onPageChange)="pageChange($event)"></qiezzi-paginator>
+  </div>
+
+</div>

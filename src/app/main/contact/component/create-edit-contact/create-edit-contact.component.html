@@ -1,0 +1,131 @@
+<div class="popup-content-container" malihu-scrollbar [scrollbarOptions]="scrollbarOptions">
+  <div class="popup-content-box">
+    <div class="create-process">
+      <div class="create-process-form">
+        <form class="validate-form" >
+          <!--姓名-->
+          <div class="form-section">
+            <div class="form-title"><span class="red-point"><i></i></span>姓名</div>
+            <div class="form-element ">
+              <div class="err-message"></div>
+              <input class="input-text" placeholder="不超过20个字" style="border-color: #dbdbdb;box-shadow: none;outline: none !important;width:15.3rem;">
+            </div>
+          </div>
+          <!--性别-->
+          <div class="form-section sex">
+            <div class="form-title">性别</div>
+            <div class="form-element Gender">
+              <div class="form-radio-group">
+                <label class="form-radio"><input type="radio" name="Sex" value="0"/>
+                  <span class="iconfont"></span><span>男</span>
+                </label>
+                <label class="form-radio"><input type="radio" name="Sex" value="1"/>
+                  <span class="iconfont"></span><span>女</span>
+                </label>
+              </div>
+            </div>
+          </div>
+          <!--年龄-->
+          <div class="form-section" style="position: relative;">
+            <div class="form-title" style="">年龄</div>
+            <div class="form-element" style="width: 1.6rem;">
+              <div class="err-message"></div>
+              <input class="input-text" placeholder="年龄" style="border-color: #dbdbdb;box-shadow: none;outline: none !important;width:5rem; margin-left:0.2rem;">
+              <div class="ages">岁</div>
+             </div>
+            <!--时间控件-->
+            <!--<div class="form-element" >-->
+              <input qiezzi-air-datepicker [index]="1" [defaultDate]="defaultDate.rightDate" (click)="onSelectDate(1)"
+                     (onDate)="onDate($event)"
+                     [options]="options.rightOptions" placeholder="出生日期"
+                      style="width: 10rem;margin-left: 2.8rem;margin-right: 2rem;"/>
+            <!--</div>-->
+          </div>
+          <!--手机号-->
+          <div class="form-section">
+            <div class="form-title">手机号</div>
+            <div class="form-element">
+              <div class="err-message"  ></div>
+              <input class="input-tel" placeholder="手机" style="border-color: #dbdbdb;box-shadow: none;outline: none !important;width:15.3rem;">
+            </div>
+          </div>
+          <!--电子邮箱-->
+          <div class="form-section">
+            <div class="form-title">电子邮箱</div>
+            <div class="form-element">
+              <div class="err-message"  ></div>
+              <input class="input-tel" placeholder="邮箱" style="border-color: #dbdbdb;box-shadow: none;outline: none !important;width:15.3rem;">
+            </div>
+          </div>
+          <!--QQ-->
+          <div class="form-section">
+            <div class="form-title">QQ</div>
+            <div class="form-element">
+              <div class="err-message"  ></div>
+              <input class="input-tel" placeholder="QQ" style="border-color: #dbdbdb;box-shadow: none;outline: none !important;width:15.3rem;">
+            </div>
+          </div>
+          <!--家庭住址-->
+          <div class="form-section line">
+            <div class="form-title">家庭地址</div>
+            <div class="form-element address" style="height:auto;display: block;">
+              <div style="width: 100%; display: block;" class="province">
+                <qiezzi-drop-down-list class="drop-down-select addre"
+                                       [placeholder]="'省'"
+                                       [required]="false"
+                                       [selectIndex]="0"
+                                       [dataList]="[{label:'北京市',value:'1'},{'label':'天津市',value:'2'}]"></qiezzi-drop-down-list>
+                <!--  -->
+                <qiezzi-drop-down-list class="drop-down-select city addre"
+                                       [placeholder]="'市'"
+                                       [required]="false"
+                                       [selectIndex]="0"
+                                       [dataList]="[{label:'北京市',value:'1'}]"></qiezzi-drop-down-list>
+                <!-- -->
+                <qiezzi-drop-down-list class="drop-down-select area addre"
+                                       [placeholder]="'区'"
+                                       [required]="false"
+                                       [selectIndex]="0"
+                                       [dataList]="[{label:'朝阳区',value:'1'}]"></qiezzi-drop-down-list>
+                <!--  -->
+              </div>
+              <br>
+              <div style="width: 100%;display: block;margin-top: -18px;">
+                <div class="err-message"></div>
+                <input class="detailAddr"  placeholder="请输入具体地址" style="border-color: #dbdbdb;box-shadow: none;outline: none !important;width:15.3rem;">
+              </div>
+            </div>
+          </div>
+          <!--选择分组-->
+          <div class="form-section chooselists">
+            <div class="form-title">选择分组</div>
+            <div class="form-element">
+              <!--   -->
+              <div class="err-message" >
+              </div>
+              <qiezzi-drop-down-list class="drop-down-select"
+                                     [placeholder]="'请选择'"
+                                     [required]="false"
+                                     [selectIndex]="0"
+                                     [dataList]="doctorFirstList">
+              </qiezzi-drop-down-list>
+            </div>
+          </div>
+          <!--备注-->
+          <div class="form-section">
+            <div class="form-title">备注</div>
+            <div class="form-element">
+              <div class="err-message"></div>
+                <textarea name="createTextarea" class="textarea-beizhu"></textarea>
+              </div>
+            </div>
+
+        </form>
+      </div>
+      </div>
+    </div>
+  </div>
+<div class="button-group button-group-right">
+  <button class="button5" (click)="ok()">保存</button>
+  <button class="button4" (click)="cancel()">取消</button>
+</div>

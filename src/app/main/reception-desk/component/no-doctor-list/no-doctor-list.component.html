@@ -1,0 +1,38 @@
+<div class="list-table">
+  <div class="list-table-head">
+    <span class="col1">患者|病历号</span>
+    <span class="mobile-hidden col2">性别|年龄</span>
+    <span class="mobile-hidden col3">医生</span>
+    <span class="col4">时间|类型</span>
+    <span class="col5">就诊事项|备注</span>
+    <span class="col7">操作</span>
+  </div>
+  <div class="list-table-content">
+    <div class="list-table-item" [ngClass]="{'selected': i==selectIndex}"
+         *ngFor="let item of listData;let i=index;" (click)="openDetail($event,item.Id,i)">
+      <div class="col1">
+        <span class="span-ellipsis">{{item.Patient.PatientName|qiezziTextNull}}</span>
+        <span>{{item.PatientCode|qiezziTextNull}}</span>
+      </div>
+      <div class="mobile-hidden col2">
+        <span>{{item.Tel|qiezziTextNull}}</span>
+      </div>
+      <div class="mobile-hidden col3"><span
+        class="span-ellipsis">{{item.PatlogType | qiezziDic:'bookingSchedulePatlogType'}}</span>
+      </div>
+      <div class="col4"><span>{{item.StartTime | qiezziDateAuto:0}}</span>
+      </div>
+      <div class="col5"><span><b>{{item.DoctorName|qiezziTextNull}}</b></span></div>
+      <div class="col6 mobile-hidden"><span>{{item.Aim|qiezziArrayString:['Name',null]|qiezziTextNull}}</span></div>
+      <div class="col7"><span>{{item.ProcessNum|qiezziTextNull}}</span></div>
+    </div>
+  </div>
+  <app-data-empty *ngIf="!(data && data.TotalItems && data.TotalItems > 0)"
+                  [showEmpty]="showEmpty"></app-data-empty>
+
+  <qiezzi-paginator [ngStyle]="{display: (data && data.TotalItems && data.TotalItems>10) ?'block' : 'none'}"
+                    [rows]="data?.ItemsPerPage" [totalRecords]="data?.TotalItems"
+                    [rowsPerPageOptions]="[10,20,30]"
+                    (onPageChange)="pageChange($event)"></qiezzi-paginator>
+
+</div>

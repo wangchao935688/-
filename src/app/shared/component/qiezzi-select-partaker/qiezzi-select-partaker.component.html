@@ -1,0 +1,27 @@
+<div class="popup-content-container" id="selectPartaker" malihu-scrollbar [scrollbarOptions]="scrollbarOptions">
+  <div class="popup-content-box">
+    <div class="list-table">
+      <div class="list-table-head">
+        <span class="col1"></span>
+        <span class="col2"></span>
+        <span class="col3">员工</span>
+        <span class="col4">类型</span>
+      </div>
+      <div class="list-table-content single-line">
+        <div class="list-table-item" *ngFor="let item of listData">
+          <div class="col1"><label class="form-checkbox"><input type="checkbox" name="noname"
+                                                                [(ngModel)]="list[item.WorkerId].selected"/>
+            <span class="iconfont"></span><span></span>
+          </label></div>
+          <div class="col2"><span><img [src]="item.HeadImageUrl"/></span></div>
+          <div class="col3"><span>{{item.WorkerName}}</span></div>
+          <div class="col4"><span>{{item.WorkerType | qiezziDic:workerType}}</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="button-group button-group-right">
+  <button (click)="save()" class="button5">保存</button>
+  <button (click)="close()" class="button4">取消</button>
+</div>

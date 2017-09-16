@@ -1,0 +1,66 @@
+<div class="tile-box-container">
+  <div class="tile-item-scroll">
+    <div class="tile-item" *ngFor="let item of doctorList">
+      <div class="doctor-name c-333 f14">{{item.DoctorName}}</div>
+      <div class="doctor-status c-fff">{{item.CureCount >0 ? '治疗' : '空闲中'}}</div>
+      <div class="nurse-list">
+        <qiezzi-drop-down-list class="drop-down-select"></qiezzi-drop-down-list>
+      </div>
+      <div class="scroll-list">
+        <div class="reception-type" *ngIf="item.CureCount > 0">
+          <div class="title c-666 f12">治疗中{{count}}</div>
+          <div class="reception-item">
+            <div class="flag"><span>初</span></div>
+            <div class="head-info"><img src="../../../../../assets/images/logo.png">
+              <div><span class="f14 c-333">患者姓名患者姓名患者姓名患者姓名患者姓名</span>
+                <span class="f12 c-999">就诊事项1,就诊事项2</span></div>
+            </div>
+            <div class="time-info">
+              <i *ngIf="checkPassed()"></i><span>10:15</span>
+            </div>
+          </div>
+        </div>
+        <div class="reception-type">
+          <div class="title c-666 f12">未到达{{count}}</div>
+          <div class="reception-item">
+            <div class="flag"><span>初</span></div>
+            <div class="head-info"><img src="../../../../../assets/images/logo.png">
+              <div><span class="f14 c-333">患者姓名患者姓名患者姓名患者姓名患者姓名</span>
+                <span class="f12 c-999">就诊事项1,就诊事项2</span></div>
+            </div>
+            <div class="time-info">
+              <i *ngIf="checkPassed()"></i><span>10:15</span>
+            </div>
+          </div>
+        </div>
+        <div class="reception-type">
+          <div class="title c-666 f12">候诊中{{count}}</div>
+          <div class="reception-item">
+            <div class="flag"><span>初</span></div>
+            <div class="head-info"><img src="../../../../../assets/images/logo.png">
+              <div><span class="f14 c-333">患者姓名患者姓名患者姓名患者姓名患者姓名</span>
+                <span class="f12 c-999">就诊事项1,就诊事项2</span></div>
+            </div>
+            <div class="time-info">
+              <i *ngIf="checkPassed()"></i><span>10:15</span>
+            </div>
+          </div>
+        </div>
+        <div class="reception-type">
+          <div class="title c-666 f12">已完成{{count}}</div>
+          <div class="reception-item">
+            <div class="flag"><span>初</span></div>
+            <div class="head-info"><img src="../../../../../assets/images/logo.png">
+              <div><span class="f14 c-333">患者姓名患者姓名患者姓名患者姓名患者姓名</span>
+                <span class="f12 c-999">就诊事项1,就诊事项2</span></div>
+            </div>
+            <div class="time-info">
+              <i *ngIf="checkPassed()"></i><span>10:15</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,37 @@
+em {
+  font-style: normal; }
+
+.disinfection-details {
+  padding: 0 1.5rem; }
+  .disinfection-details h3 {
+    padding-top: .5rem;
+    font-size: 16px; }
+
+.information {
+  border-bottom: 1px solid #DBDBDB; }
+  .information div {
+    padding-bottom: 1rem;
+    font-size: 12px; }
+    .information div span {
+      text-align: right;
+      color: #666;
+      padding-right: 1rem;
+      width: 2rem; }
+    .information div em {
+      color: #333;
+      width: 7rem;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+      display: inline-block; }
+  .information .theme {
+    padding-left: 1.3rem; }
+
+.remarks p {
+  color: #666;
+  width: 15rem;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap; }
+
+/*# sourceMappingURL=disinfection.component.css.map */

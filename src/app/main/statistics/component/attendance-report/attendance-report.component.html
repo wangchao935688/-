@@ -1,0 +1,99 @@
+<div [attr.status]="displayStatus" class="right-slider-container">
+  <router-outlet></router-outlet>
+</div>
+<div id="app-center-container">
+  <qiezzi-loading [attr.status]="mainShowLoading" class="loading6 purple"></qiezzi-loading>
+  <app-qiezzi-center-header [showSearch]="false"
+                            [showFilter]="false"
+                            [showAdd]="false"
+                            [showOptions]="false"
+                            [moduleName]="'考勤统计'"
+                            [searchPlaceholder]=""
+                            [controlList]="['添加']"
+                            (onControl)="onControl($event)"
+                            (onSearch)="onSearch($event)"
+                            (onOptions)="onOptions($event)"
+                            (onShowFilter)="onShowFilter($event)"
+  ></app-qiezzi-center-header>
+  <div id="appCenterContent" class="app-center-content" malihu-scrollbar
+       [scrollbarOptions]="scrollbarOptions">
+    <div class="my-header">
+      <span class="ma-header-name">考勤统计</span><span class="myheader-time">({{requestData?.beginTime|date:'yyyy'}}年{{requestData?.beginTime|date:'MM'}}月)</span>
+    </div>
+    <div class="attendance-content">
+
+      <div class="content-body">
+
+        <div class="header-top">
+          <div class="button-group button-group-right">
+            <button class="button4"><i class="icon iconfont icon-daochu"></i>导出</button>
+          </div>
+          <qiezzi-select-date-slot (onSelectDate)="selectDate($event)"></qiezzi-select-date-slot>
+        </div>
+
+        <!--考勤统计-->
+        <div class="data-list">
+          <div class="list-table">
+            <div class="list-table-head">
+              <div class="list-table-col0">姓名</div>
+              <div class="list-table-col1">职位</div>
+              <div class="list-table-col2">科室</div>
+              <div class="list-table-col3">出勤天数</div>
+              <div class="list-table-col4">正常</div>
+              <div class="list-table-col5">迟到</div>
+              <div class="list-table-col6">缺卡</div>
+              <div class="list-table-col7">缺勤</div>
+              <div class="list-table-col8">休息天数</div>
+              <br clear="left">
+            </div>
+            <div class="data-empty" *ngIf="showEmptyState">
+              <app-data-empty [showEmpty]="!(mainIncomeResponse && mainIncomeResponse?.Items>0)"></app-data-empty>
+            </div>
+            <div class="list-table-content">
+              <div class="list-table-item click-no-hide-detail"
+                   *ngFor="let item of mainIncomeResponse?.Items;let i = index" [ngClass]="{'selected': false}">
+                <div class="list-table-col0">
+                  <span>{{item.Date | date:'yyyy-MM-dd'}}</span>
+                </div>
+                <div class="list-table-col1">
+                  <span>{{item.Inflow}}</span>
+                </div>
+                <div class="list-table-col2">
+                  <span>{{item.Outflow}}</span>
+                </div>
+                <div class="list-table-col3">
+                  <span>{{item.Sum}}</span>
+                </div>
+                <div class="list-table-col4">
+                  <span>{{item.Date | date:'yyyy-MM-dd'}}</span>
+                </div>
+                <div class="list-table-col5">
+                  <span>{{item.Inflow}}</span>
+                </div>
+                <div class="list-table-col6">
+                  <span>{{item.Outflow}}</span>
+                </div>
+                <div class="list-table-col7">
+                  <span>{{item.Sum}}</span>
+                </div>
+                <div class="list-table-col8">
+                  <span>{{item.Date | date:'yyyy-MM-dd'}}</span>
+                </div>
+                <br clear="left">
+              </div>
+
+
+            </div>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+</div>
+

@@ -1,0 +1,44 @@
+<div>
+  <div>{{returnVisitDetail.PatientModel.PatientName}}</div>
+  ,
+  <div>{{returnVisitDetail.PatientModel.Sex}}</div>
+  ,
+  <div>{{returnVisitDetail.PatientModel.Age}}</div>
+</div>
+<hr>
+
+<div>
+  医生
+  <div>{{returnVisitDetail.DoctorName}}</div>
+  回访日期
+  <div>{{returnVisitDetail.InterviewDate}}</div>
+  回访状态
+  <div>{{returnVisitDetail.State}}</div>
+  回访类型
+  <div>{{returnVisitDetail.InterviewType}}</div>
+  回访人员
+  <div>{{returnVisitDetail.InterviewTypeName}}</div>
+  备注
+  <div>{{returnVisitDetail.Note}}</div>
+
+</div>
+
+<hr>
+
+<div>
+  回访内容
+  <div>{{returnVisitDetail.Content}}</div>
+
+</div>
+
+<hr>
+
+<div>
+  回访结果
+  <div *ngFor="let item of returnVisitDetail.InterviewResultList">
+    <div>{{item.WorkerName}}</div>
+    <div>{{item.CreateTime}}</div>
+    <div>{{item.CreateTime}}</div>
+
+  </div>
+</div>

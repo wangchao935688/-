@@ -1,0 +1,24 @@
+<div class="address-container" >
+  <qiezzi-drop-down-list class="drop-down-select addr"
+                         [placeholder]="'省'"
+                         [required]="false"
+                         [selectIndex]="provIndex"
+                         [(ngModel)]="form.province"
+                         (onChange)="chooseProv($event)"
+                         [dataList]="provinceList"></qiezzi-drop-down-list>
+  <qiezzi-drop-down-list class="drop-down-select addr"
+                         [placeholder]="'市'"
+                         [required]="false"
+                         [selectIndex]="cityIndex"
+                         [(ngModel)]="form.city"
+                         (onChange)="chooseCity($event)"
+                         [dataList]="citiesList"></qiezzi-drop-down-list>
+  <qiezzi-drop-down-list class="drop-down-select addr"
+                         [placeholder]="'区'"
+                         [required]="false"
+                         [selectIndex]="areaIndex"
+                         [(ngModel)]="form.area"
+                         (onChange)="chooseArea($event)"
+                         [dataList]="areaList"></qiezzi-drop-down-list>
+</div>
+<div class="err-info" >{{errInfo}}</div>

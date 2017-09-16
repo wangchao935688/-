@@ -1,0 +1,42 @@
+<div class="popup-content-container" malihu-scrollbar [scrollbarOptions]="scrollbarOptions">
+  <div class="popup-content-box">
+    <form class="validate-form" [formGroup]="formGroup">
+      <div class="form-section">
+        <div class="form-title"><span class="red-point"><i></i></span>取件日期</div>
+        <div class="form-element">
+          <div class="err-message" [attr.error]="formErrors['CommonTime']">{{formErrors['CommonTime']}}</div>
+          <input qiezzi-air-datepicker placeholder="{{formPlaceholder['CommonTime']}}" formControlName="CommonTime"
+                 (blur)="onInputElementBlur('CommonTime')">
+        </div>
+      </div>
+      <div class="form-section">
+        <div class="form-title"><span class="red-point"><i></i></span>加工单号</div>
+        <div class="form-element">
+          <div class="err-message" [attr.error]="formErrors['ExpressCode']">{{formErrors['ExpressCode']}}</div>
+          <input class="input-text" placeholder="{{formPlaceholder['ExpressCode']}}" formControlName="ExpressCode"
+                 (blur)="onInputElementBlur('ExpressCode')">
+        </div>
+      </div>
+      <div class="form-section">
+        <div class="form-title"><span class="red-point"><i></i></span>联系人</div>
+        <div class="form-element">
+          <div class="err-message" [attr.error]="formErrors['ContactID']">{{formErrors['ContactID']}}</div>
+          <input class="input-text" placeholder="{{formPlaceholder['ContactID']}}" formControlName="ContactID"
+                 (blur)="onInputElementBlur('ContactID')">
+        </div>
+      </div>
+      <div class="form-section">
+        <div class="form-title"><i></i>加工天数</div>
+        <div class="form-element">
+          <div class="err-message" [attr.error]="formErrors['DayNum']">{{formErrors['DayNum']}}</div>
+          <input class="input-text" placeholder="{{formPlaceholder['DayNum']}}" formControlName="DayNum"
+                 (blur)="onInputElementBlur('DayNum')">
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<div class="button-group button-group-right">
+  <button (click)="ok()" class="button5" [disabled]="!formGroup.valid || isProcessing">保存</button>
+  <button (click)="close()" class="button4">取消</button>
+</div>

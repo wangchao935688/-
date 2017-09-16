@@ -1,0 +1,67 @@
+<div class="popup-content-container" malihu-scrollbar [scrollbarOptions]="scrollbarOptions">
+  <div class="popup-content-box">
+    <form class="validate-form" [formGroup]="formGroup">
+      <div class="form-section">
+        <div class="form-title">名称</div>
+        <div class="form-element">
+          <div class="err-message" [attr.error]="formErrors['Name']">{{formErrors['Name']}}</div>
+          <input class="input-text" placeholder="请输入名称" formControlName="Name" (blur)="onInputElementBlur('Name')">
+        </div>
+      </div>
+      <div class="form-section">
+        <div class="form-title">上班时间</div>
+        <div class="form-element">
+          <div class="err-message" [attr.error]="formErrors['StartTime']">{{formErrors['StartTime']}}</div>
+          <!--<input class="input-text" placeholder="" formControlName="StartTime">-->
+          <qiezzi-drop-down-list class="drop-down-select"
+                                 [placeholder]=""
+                                 [required]="false"
+                                 [selectIndex]="0"
+                                 (onChange)="onStartChange($event)"
+                                 formControlName="StartTime"
+                                 [dataList]="StartTimeList"></qiezzi-drop-down-list>
+        </div>
+      </div>
+      <div class="form-section">
+        <div class="form-title">下班时间</div>
+        <div class="form-element">
+          <div class="err-message" [attr.error]="formErrors['StopTime']">{{formErrors['StopTime']}}</div>
+          <!--<input class="input-text" placeholder="" formControlName="StopTime">-->
+          <qiezzi-drop-down-list class="drop-down-select"
+                                 [placeholder]=""
+                                 [required]="false"
+                                 [selectIndex]="0"
+                                 (onChange)="onStopChange($event)"
+                                 formControlName="StopTime"
+                                 [dataList]="StopTimeList"></qiezzi-drop-down-list>
+        </div>
+      </div>
+      <div class="form-section" style="margin-bottom: 2rem;">
+        <div class="form-title">颜色</div>
+        <div class="form-element colorList">
+          <div class="color-picker" (click)="showColorList()"  style="margin-bottom: 1rem;">
+            <i class="icon iconfont icon-tianjia" style="color:#7a80fa;"></i>
+          </div>
+          <div class="more-ctrl-list" *ngIf="IsCtrl">
+            <div class="right-ctrl-more">
+              <div class="right-more-item"
+                   *ngFor="let ctrlItem of controlList; let i = index"
+                   (click)="moreItemClick($event,i)"
+              [ngClass]="{hover: selectedColorIndex === i}">
+                  <div class="inner-circle" [ngStyle]="{background: ctrlItem}">
+
+                  </div>
+              </div>
+            </div>
+            <div class="right-ctrl-arrow"></div>
+          </div>
+        </div>
+      </div>
+
+    </form>
+  </div>
+</div>
+<div class="button-group button-group-right">
+  <button (click)="ok()" class="button5" [disabled]="!formGroup.valid">保存</button>
+  <button (click)="close()" class="button4">取消</button>
+</div>

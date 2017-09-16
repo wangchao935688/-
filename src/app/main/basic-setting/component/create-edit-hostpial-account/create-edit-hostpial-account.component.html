@@ -1,0 +1,47 @@
+<div>
+  <!--新增账户表单开始-->
+  <form class="validate-form">
+    <div class="form-section">
+      <div class="form-title"><span class="red-point"><i></i></span>账户名称</div>
+      <div class="form-element">
+        <div class="err-message"></div>
+        <div class="form-input"><input class="input-text" placeholder="请输入名称"></div>
+      </div>
+    </div>
+    <div class="form-section">
+      <div class="form-title"><span class="red-point"><i></i></span>初始金额</div>
+      <div class="form-element">
+        <div class="err-message"></div>
+        <div class="form-input"><input class="input-text " placeholder="请输入初始金额"></div>
+      </div>
+    </div>
+    <div class="form-section">
+      <div class="form-title"><span class="red-point"><i></i></span>账户类型</div>
+      <div class="form-element">
+        <div class="err-message"></div>
+        <div class="account-type form-input"><qiezzi-drop-down-list class="drop-down-select" [placeholder]="'请选择'" [selectIndex]="0" [required]="false" [dataList]="[{label:'qatgdfvsd',value:'123'},{label:'qdfvsd',value:'124'}]" ></qiezzi-drop-down-list></div>
+      </div>
+    </div>
+    <div class="form-section">
+      <div class="form-title"><span class="red-point"><i></i></span>状态</div>
+      <div class="form-element">
+        <div class="err-message"></div>
+        <div class="form-radio-group">
+          <label class="form-radio"><input type="radio" name="sex"/>
+            <span class="iconfont"></span><span>启用</span>
+          </label>
+          <label class="form-radio"><input type="radio" name="sex"/>
+            <span class="iconfont"></span><span>禁用</span>
+          </label>
+        </div>
+      </div>
+    </div>
+  </form>
+  <!--新增账户表单结束-->
+
+  <!--按钮-->
+  <div class="button-group button-group-right">
+    <button class="button5" (click)="accountTransfer()">保存</button>
+    <button class="button4" (click)="cancel()">取消</button>
+  </div>
+</div>

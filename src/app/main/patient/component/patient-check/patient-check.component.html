@@ -1,0 +1,76 @@
+
+<div class="header">
+  <span>医生:</span>
+  <span class="main">张医生</span>
+  <span>护士:</span>
+  <span class="main">艾美森</span>
+  <div class="rt" style="color: #999;">
+    <span>就诊日期:</span>
+    <span >2017-05-20</span>
+  </div>
+</div>
+<div class="content" style="height:100%;">
+  <i class="icon iconfont icon-bianji more" (click)="editCheck()"></i>
+  <div id="appCenterContent"
+       class="app-center-content" malihu-scrollbar
+       [scrollbarOptions]="scrollbarOptions">
+    <div class="contain">
+      <div class="content-item">
+        <div class="content-icon">
+          <div class="icon-contain">
+            <i class="icon iconfont icon-quchi"></i>
+            <p>龋齿</p>
+          </div>
+        </div>
+        <div class="type">
+          <div class="row-type">
+            <p>1度</p>
+            <div >
+              <qiezzi-tooth [teeth]="item"></qiezzi-tooth>
+            </div>
+          </div>
+          <div class="row-type">
+            <p>7度</p>
+            <div >
+              <qiezzi-tooth [teeth]="item"></qiezzi-tooth>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--<div class="content-item">
+        <div class="content-icon">
+          <div class="icon-contain">
+            <i class="icon iconfont icon-quchixiufu"></i>
+            <p>龋齿填充情况</p>
+          </div>
+        </div>
+        <div class="type">
+            <div class="row-type">
+              <p>1度</p>
+              <div >
+                <qiezzi-tooth [teeth]="item"></qiezzi-tooth>
+              </div>
+            </div>
+            <div class="row-type">
+              <p>7度</p>
+              <div >
+                <qiezzi-tooth [teeth]="item"></qiezzi-tooth>
+              </div>
+            </div>
+            <div class="row-type">
+              <p>1度</p>
+              <div >
+                <qiezzi-tooth [teeth]="item"></qiezzi-tooth>
+              </div>
+            </div>
+            <div class="row-type">
+              <p>7度</p>
+              <div >
+                <qiezzi-tooth [teeth]="item"></qiezzi-tooth>
+              </div>
+            </div>
+        </div>
+      </div>-->
+    </div>
+  </div>
+</div>

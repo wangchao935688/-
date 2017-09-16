@@ -1,0 +1,45 @@
+<div class="popup-content-container" style="width: 100%;" malihu-scrollbar [scrollbarOptions]="scrollbarOptionsRight">
+  <div class="popup-content-box">
+    <div class="list-table">
+      <div class="list-table-head">
+        <div class="list-table-col-6 col1">
+              <span (click)="selecctAllCheckBox(true)" *ngIf="!IsChooseAll" class="icon iconfont icon-weixuanzhong"
+                    style="border-radius: 0px;color:#7a80fa;"></span>
+          <span (click)="selecctAllCheckBox(false)" *ngIf="IsChooseAll" class="icon iconfont icon-xuanzhong"
+                style="background: #fff; color: #7a80fa;border-radius: 0px"></span>
+        </div>
+        <span class="col2"></span>
+        <span class="col3">员工</span>
+        <span class="col4">类型</span>
+        <span class="col5"></span>
+      </div>
+      <div class="list-table-content single-line">
+        <div class="list-table-item" *ngFor="let item of responseData; let i = index;">
+          <div class="list-table-col-6 col1">
+            <label class="form-checkbox checkBox">
+              <input class="checkBox" type="checkbox" name="noname" value="{{item?.WorkerId}}" [checked]="checkBoxList[i]" (click)="selectBox(item.WorkerName, item.WorkerId, i)"/>
+              <span class="iconfont checkBox"></span>
+            </label>
+          </div>
+          <div class="col2">
+            <span><img [src]="item.HeadImageUrl"/></span>
+          </div>
+          <div class="col3"><span>{{item.WorkerName}}</span></div>
+          <div class="col4"><span>{{item.WorkerType | qiezziDic:workerType}}</span></div>
+          <div class="col5">
+            <div>
+              <span *ngIf="item.IsDefault == true">默认</span>
+              <span [ngStyle]="{display: item.IsDefault == true ? 'none' : 'block'}">
+                <span class="isShow" (click)="setDefault(item.WorkerId,item.IsDefault)">设为默认</span>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="button-group button-group-right">
+  <button class="button5" (click)="accountTransfer()">保存</button>
+  <button class="button4" (click)="cancel()">取消</button>
+</div>

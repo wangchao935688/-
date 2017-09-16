@@ -1,0 +1,51 @@
+<app-qiezzi-right-header
+  [rightComponentName]="compName"
+  [controlList]="ctrlList"
+  (onControl)="onControlListClick($event)"></app-qiezzi-right-header>
+<qiezzi-loading [attr.status]="processLoading" class="loading6 purple transparent" style="padding-top: 300px;"></qiezzi-loading>
+<div class="right-content" *ngIf="showData"
+     [ngStyle]="{'height': processState == 0 && responseData.Status != 5?'calc(100% - 162px)': ''}"
+     id="rightContentScroll"
+     malihu-scrollbar [scrollbarOptions]="scrollbarOptions">
+  <div class="right-content-header">
+    <div class="right-content-header-text">
+      <span>{{responseData.PatientModel.PatientName}}</span>
+      <span *ngIf="responseData.PatientModel.Tel">|</span>
+      <span>{{responseData.PatientModel.Tel}}</span>
+      <span class="fr">No.{{responseData.PatientModel.PatientCode}}</span>
+    </div>
+    <div style="height: 0.4rem;"></div>
+    <div class="right-content-header-text">
+      <span>医生：{{responseData.DoctorName}}</span>
+      <span class="fr" style="padding: 0;color: #666666;font-size: 0.6rem;">{{responseData.VisitingTime | date:'yyyy-MM-dd'}}</span>
+    </div>
+  </div>
+  <div class="tab-ctrl tab-ctrl1">
+    <app-qiezzi-tab-control class="tab-ctrl-head" [tabData]="tabData.data"
+                            [defaultSelectedIndex]="tabData.defaultIndex"
+                            (onTabIndexChange)="tabData.changeTab($event)"></app-qiezzi-tab-control>
+    <div class="tab-ctrl-content">
+      <div *ngIf="processState == 0">
+        <process-rate [rateData]="responseData"></process-rate>
+      </div>
+      <div *ngIf="processState == 1">
+        <process-detail [processItemFull]="responseData.ItemList" [note]="responseData.Note"
+                        [price]="responseData.Price"
+                        [processNum]="responseData.ProcessNum"></process-detail>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<div class="bottom-div" *ngIf="processState == 0 && responseData.Status != 5 && showData">
+  <span (click)="sent(responseData.Status>=1 && responseData.Status!=4)"
+        [ngClass]="{'un-click': responseData.Status>=1 && responseData.Status!=4}">取件</span>
+  <span (click)="received(responseData.Status>=2 && responseData.Status!=4)"
+        [ngClass]="{'un-click': responseData.Status>=2 && responseData.Status!=4}">回件</span>
+  <span (click)="reworked(responseData.Status==4)" [ngClass]="{'un-click': responseData.Status==4}">返工</span>
+  <span (click)="completed(responseData.Status>=5 && responseData.Status!=4)"
+        [ngClass]="{'un-click': responseData.Status>=5 && responseData.Status!=4}">戴走</span>
+  <button class="button5">预约试戴</button>
+</div>

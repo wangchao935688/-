@@ -1,0 +1,6 @@
+<app-qiezzi-right-header [rightComponentName]="rightComponentName" [controlList]="controlList"></app-qiezzi-right-header>
+
+<button (click)="clickSecondRouter($event)">二次侧滑</button>
+<div [attr.status]="displayStatus" class="right-slider-container">
+  <router-outlet></router-outlet>
+</div>

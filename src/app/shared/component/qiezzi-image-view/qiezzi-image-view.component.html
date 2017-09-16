@@ -1,0 +1,11 @@
+<div class="img-preview">
+  <qiezzi-loading [attr.status]="imageLoading" class="loading6 purple"></qiezzi-loading>
+  <div class="img-view"><img #imageView src="" /></div>
+  <div class="img-prev"></div>
+  <div class="img-next"></div>
+  <div class="img-ctrl">
+    <div class="img-ctrl-box"><i class="zoom-out" (click)="imageZoomOut()"></i><i class="zoom-in" (click)="imageZoomIn()"></i><i class="rotate-left"></i><i
+      class="rotate-right"></i><i class="download"></i><i class="delete"></i></div>
+  </div>
+</div>
+<div class="prompt-msg">滑动滚轮可缩放图片</div>

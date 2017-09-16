@@ -1,0 +1,91 @@
+
+<div class="list-table my-container">
+  <!--顶部-->
+  <div class="my-container-head">
+    <div class="header-top">
+      <div class="button-group button-group-right">
+        <button class="button4"><i class="icon iconfont icon-daochu"></i>导出</button>
+      </div>
+      <qiezzi-select-date-slot (onSelectDate)="selectDate($event)"></qiezzi-select-date-slot>
+    </div>
+    <div class="header-text">
+      <span>年月门诊统计报表</span>
+    </div>
+    <div class="header-box">
+      <div class="list-box fl">
+        <div class="my-content">
+          <span class="num">{{clinicResponse?.SeeDoctorNumber}}</span>
+          <span class="my-list-name">总就诊人次</span>
+        </div>
+        <span class="my-line"></span>
+      </div>
+      <div class="list-box fl">
+        <div class="my-content">
+          <span class="num">{{clinicResponse?.FirstVisitRatio}}</span>
+          <span class="my-list-name">初诊占比</span>
+        </div>
+        <span class="my-line"></span>
+      </div>
+      <div class="list-box fl">
+        <div class="my-content">
+          <span class="num">{{clinicResponse?.ReturnVisitRatio}}</span>
+          <span class="my-list-name">复诊占比</span>
+        </div>
+        <!--<span class="my-line"></span>-->
+      </div>
+      <br clear="both">
+    </div>
+  </div>
+  <!--下边内容部分-->
+  <div class="my-container-content">
+    <!--初复诊图表-->
+    <div class="ec-header outpatient-matter-header">
+      <span class="my-ec-header-text">
+       初复诊图表
+      </span>
+    </div>
+    <div class="ec-content outpatient-matter" style="height: 346px;" id="firstReturn"></div>
+
+    <div class="ec-header outpatient-matter-header">
+      <span class="my-ec-header-text">
+        数据明细
+      </span>
+    </div>
+    <div class="list-table-head">
+      <div class="list-table-col0">医生</div>
+      <div class="list-table-col1">初诊人次</div>
+      <div class="list-table-col2">复诊人次</div>
+      <div class="list-table-col3">总就诊人次</div>
+      <div class="list-table-col4">初诊占比</div>
+      <div class="list-table-col5">复诊占比</div>
+      <br clear="left">
+    </div>
+    <div class="data-empty" *ngIf="showEmptyState">
+      <app-data-empty [showEmpty]="!(clinicResponse && clinicResponse?.VisitList>0)"></app-data-empty>
+    </div>
+    <div class="list-table-content">
+      <div class="list-table-item click-no-hide-detail"
+           *ngFor="let item of clinicResponse?.VisitList;let i = index" [ngClass]="{'selected': false}">
+        <div class="list-table-col0">
+          <span>{{item?.Name}}</span>
+        </div>
+        <div class="list-table-col1">
+          <span>{{item?.FirstVisitNumber}}</span>
+        </div>
+        <div class="list-table-col2">
+          <span>{{item?.ReturnVisitNumber}}</span>
+        </div>
+        <div class="list-table-col3">
+          <span>{{item?.SeeDoctorNumber}}</span>
+        </div>
+        <div class="list-table-col4">
+          <span>{{item?.FirstVisitRatio}}</span>
+        </div>
+        <div class="list-table-col5">
+          <span>{{item?.ReturnVisitRatio}}</span>
+        </div>
+        <br clear="left">
+      </div>
+    </div>
+  </div>
+</div>

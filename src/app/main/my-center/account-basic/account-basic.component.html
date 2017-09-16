@@ -1,0 +1,64 @@
+<qiezzi-loading [attr.status]="dataLoading" class="loading6 purple transparent"
+                style="padding-top: 5rem"></qiezzi-loading>
+<div class="create-process-form">
+  <div class="photo pic" >
+    <img style="border-radius: 50%;width:100%"  src="http://img1.qiezzi.com/Upload/2017/05/PatientImages/20170522105736410.jpg" alt="" (click)="upLoadImg()">
+    <i class="icon iconfont icon-bianji img-edit"></i>
+  </div>
+  <form class="validate-form" [formGroup]="formGroup">
+    <div class="form-section" style="width: 67%;">
+      <div class="form-title"><span class="red-point"><i></i></span>姓名</div>
+      <div class="form-element ">
+        <div class="err-message" [attr.error]="formErrors['WorkerName']">{{formErrors['WorkerName']}}</div>
+        <input class="input-text" placeholder="请输入姓名" formControlName="WorkerName"   (blur)="onInputElementBlur('WorkerName')">
+      </div>
+    </div>
+    <div class="form-section sex">
+      <div class="form-title">性别</div>
+      <div class="form-element Gender">
+        <div class="form-radio-group">
+          <label class="form-radio"><input type="radio" formControlName="Sex" value="0"/>
+            <span class="iconfont"></span><span>男</span>
+          </label>
+          <label class="form-radio"><input type="radio" formControlName="Sex" value="1"/>
+            <span class="iconfont"></span><span>女</span>
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="form-section" style="width: 67%;">
+      <div class="form-title">出生日期</div>
+      <div class="form-element">
+        <div class="err-message"  [attr.error]="formErrors['BirthDate']">{{formErrors['BirthDate']}}</div>
+        <input qiezzi-air-datepicker placeholder="" formControlName="BirthDate" readonly
+               (blur)="onInputElementBlur('BirthDate')">
+      </div>
+    </div>
+
+    <div class="form-section" style="width: 67%;">
+      <div class="form-title">联系方式</div>
+      <div class="form-element">
+        <div class="err-message"  [attr.error]="formErrors['Tel']">{{formErrors['Tel']}}</div>
+        <input class="input-tel" placeholder="" formControlName="Tel"  (blur)="onInputElementBlur('Tel')">
+      </div>
+    </div>
+
+    <div class="form-section">
+      <div class="form-title">家庭地址</div>
+      <div class="form-element address">
+          <qiezzi-province-city-area [selectAddress]="selectAddress" (onChangeAddress)="onChangeAddress($event)"></qiezzi-province-city-area>
+      </div>
+    </div>
+
+    <div class="form-section">
+      <div class="form-title"></div>
+      <div class="form-element">
+        <div class="err-message"  [attr.error]="formErrors['Address']">{{formErrors['Address']}}</div>
+        <input style="width:100%;" class="detailAddr" placeholder="请输入具体地址" formControlName="Address" (blur)="onInputElementBlur('Address')">
+      </div>
+    </div>
+  </form>
+</div>
+<div class="button-group button-group-left" style="padding-left: 4rem;padding-top: .5rem;">
+  <button (click)="ok()" class="button5" [disabled]="!formGroup.valid || isProcessing">保存</button>
+</div>

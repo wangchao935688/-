@@ -1,0 +1,32 @@
+<div>
+  <div><label>姓名</label>
+    <!--<qiezzi-name-input [name]="returnVisitAdd.PatientID"></qiezzi-name-input>-->
+  </div>
+  <div>
+    <label>医生</label>
+    <select [(ngModel)]="returnVisitAdd.DoctorID">
+      <option *ngFor="let doctor of doctorList" [value]="doctor.WorkerId">{{doctor.WorkerName}}</option>
+    </select>
+  </div>
+  <div><label>回访人员</label><i class="iconfont icon-tianjia" (click)="addReturnVisitPeople()"></i></div>
+  <div><label>回访日期</label><input type="text"/></div>
+  <div>
+    <label>回访类型</label>
+    <select [(ngModel)]="returnVisitAdd.InterviewType">
+      <option *ngFor="let type of returnTypeList" [value]="type.TypeID">{{type.TypeName}}</option>
+    </select>
+  </div>
+  <div><label>回访内容</label><input type="text" [(ngModel)]="returnVisitAdd.Content"/></div>
+
+  <div>
+    <return-visit-template [returnVisitTemplateType]="0" (onSelectTemplate)="selectTemplate($event)"></return-visit-template>
+  </div>
+
+  <div><label>备注</label><input type="text" [(ngModel)]="returnVisitAdd.Note"/></div>
+
+  <div>
+    <button pButton (click)="saveReturnVisit()" label="保存"></button>
+    <button pButton (click)="cancelReturnVisit()" label="取消"></button>
+  </div>
+
+</div>

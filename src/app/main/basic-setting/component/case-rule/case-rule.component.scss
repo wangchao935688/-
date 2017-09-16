@@ -1,0 +1,39 @@
+/*头部信息*/
+.medical-record{
+  padding-top: 1.5rem;
+  strong{
+    padding-right:.3rem;
+    font-size:.7rem;
+    color:#333;
+    line-height:1rem;
+  }
+  span{
+    font-size:.6rem;
+    color:#999;
+    line-height:1rem;
+  }
+}
+
+/*内容*/
+.form-radio-group{
+  padding-top:1rem;
+  height:inherit !important;
+  &:last-child{
+    margin-bottom:1rem;
+  }
+}
+.button-group-left{
+  padding-top:1rem;
+  border-top:1px solid #dbdbdb;
+}
+.form-radio span:last-child{
+  font-size:.7rem;
+  line-height:1rem;
+}
+.form-radio{
+  line-height:1rem;
+  height:inherit !important;
+}
+.form-radio *:nth-child(3){
+  height:inherit !important;
+}

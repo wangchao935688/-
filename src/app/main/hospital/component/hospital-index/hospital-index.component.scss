@@ -1,0 +1,78 @@
+//诊所信息主体
+#app-center-content {
+  border-top: 1px solid #DBDBDB;
+
+  #appCenterContent {
+
+    //列表开始
+    .list-table {
+
+      //列表头部
+      .list-table-head {
+        height: 100%;
+        padding: 2rem 0 1rem;
+        border-bottom: 1px solid #DBDBDB;
+
+        div{
+          height: 1.6rem;
+          line-height: 1.6rem;
+        }
+      }
+
+      //列表主体
+      .list-table-content {
+
+        border: none;
+        .list-table-item {
+          padding: 1.3rem 0 !important;
+          line-height: 1rem;
+          font-size: 0.7rem;
+          color: #333;
+        }
+        .list-table-item:hover .icon{
+          visibility: visible;
+        }
+      }
+      .list-table-item-left {
+        width: 7.5rem;
+      }
+      .list-table-item-right {
+        width: calc(100% - 7.5rem - 3.1rem);
+
+      }
+      .list-table-item-edit{
+        width: 3.1rem;
+        .icon{
+          visibility: hidden;
+          margin-left: 1rem;
+          width: 1.6rem;
+          height: 1.6rem;
+          padding: 0.4rem;
+        }
+        //认证按钮
+        .autherticate-btn{
+          margin-left: 1rem;
+          color: #7A80FA;
+        }
+      }
+      //认证
+      .autherticate-info{
+        span{
+          display: inline-block;
+        }
+        span.autherticate-result{
+          display: inline-block;
+        }
+        span.autherticate-tips{
+          display: inline-block;
+          color: #999;
+        }
+      }
+
+    }
+    //列表结束
+
+  }
+
+}
+

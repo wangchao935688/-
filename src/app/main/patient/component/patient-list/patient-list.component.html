@@ -1,0 +1,125 @@
+<div [attr.status]="displayStatus" class="right-slider-container large">
+  <router-outlet></router-outlet>
+</div>
+<div id="app-center-container">
+  <div id="app-center-content">
+    <app-qiezzi-center-header [showSearch]="true"
+                              [showFilter]="true"
+                              [showAdd]="true"
+                              [moduleName]="moduleName"
+                              [searchPlaceholder]="'患者/单号'"
+                              [controlList]="['添加']"
+                              (onControl)="onControlClick($event)"
+                              (onSearch)="onSearch($event)"
+                              (onOptions)="onOptions($event)"
+                              (onShowFilter)="onShowFilter($event)"
+    ></app-qiezzi-center-header>
+    <div id="appCenterContent" [style.border-top]="isBorder?'1px solid #DBDBDB':''"
+         class="app-center-content" malihu-scrollbar
+         [scrollbarOptions]="scrollbarOptions">
+      <qiezzi-loading [attr.status]="mainShowLoading" class="loading6 purple transparent"
+                      style="margin-top: 15rem"></qiezzi-loading>
+      <app-qiezzi-data-filter [filterConfig]="filterConfig"
+                              (onConditionChanged)="onConditionChanged($event)"></app-qiezzi-data-filter>
+      <div class="list-table-center">
+        <div class="list-table-center-left">
+          <p class="list-table-center-state">状态</p>
+          <qiezzi-drop-down-list class="drop-down-select"
+                                 [(ngModel)]="radioSelectValue"
+                                 [placeholder]="'最近就诊'"
+                                 [required]="false"
+                                 [selectIndex]="0"
+                                 (onChange)="onChange($event)"
+                                 [dataList]="[{label:'最新患者',value:'2'},{label:'消费最多患者',value:'12'},{label:'充值最多患者',value:'13'}]">
+          </qiezzi-drop-down-list>
+        </div>
+        <div class="list-table-center-right">
+          <span class="list-table-center-total">患者共{{patientList?.TotalItems}}人</span>
+          <span>|</span>
+          <i class="list-table-center-more iconfont icon-gengduo" (click)="rightCtrl()"></i>
+        </div>
+      </div>
+      <div class="tab-ctrl tab-ctrl1">
+        <!-- 加载框 -->
+        <qiezzi-loading [attr.status]="dataLoading" class="loading6 purple transparent"
+                        style="margin-top: 15rem"></qiezzi-loading>
+        <div class="list-table">
+          <div class="more-ctrl-list" *ngIf="IsCtrl">
+            <div class="right-ctrl-more">
+              <div class="right-more-item" *ngFor="let ctrlItem of controlList; let i = index"
+                   (click)="moreItemClick($event,i)">{{ctrlItem}}
+              </div>
+            </div>
+            <div class="right-ctrl-arrow"></div>
+          </div>
+          <div class="list-table-head">
+            <div class="list-table-col-6">
+              <span (click)="selecctAllCheckBox(true)" *ngIf="!IsChooseAll" class="icon iconfont icon-weixuanzhong"
+                    style="border-radius: 0px;color:#7a80fa;"></span>
+              <span (click)="selecctAllCheckBox(false)" *ngIf="IsChooseAll" class="icon iconfont icon-xuanzhong"
+                    style="background: #fff; color: #7a80fa;border-radius: 0px"></span>
+            </div>
+            <div class="list-table-col0">
+              <span style="height: 2.9rem;line-height: 2.9rem;width: 5rem;display: block;float: left">患者|病历号</span>
+            </div>
+            <div class="mobile-hidden list-table-col1">性别|年龄</div>
+            <div class="mobile-hidden list-table-col2">联系方式</div>
+            <div class="list-table-col2">就诊医生|时间</div>
+            <div class="list-table-col4">就诊事项</div>
+            <div class="list-table-col4">患者来源</div>
+            <br clear="left">
+          </div>
+
+          <div class="list-table-content">
+            <div class="list-table-item" *ngFor="let item of patientList?.Items;let i = index"
+                 (click)="clickFeeItem($event,item.Id,i)">
+              <div class="list-table-col-6">
+                <label class="form-checkbox checkBox">
+                  <input class="checkBox" type="checkbox" name="noname" value="{{item.Id}}" [checked]="IsChooseAll"
+                         (click)="selectBox(item.Id)"/>
+                  <span class="iconfont checkBox"></span>
+                </label><i></i>
+              </div>
+              <div class="list-table-col0">
+                <p>
+                  <span class="patient-name text-overflow span-ellipsis text-overflow-s">{{item.PatientName | qiezziTextNull }}</span>
+                  <i *ngIf="item.IsImportant" class="icon iconfont icon-zhongyao"
+                     style="background: #ffffff;color:#FEA356;"></i>
+                </p>
+                <span>{{item.PatientCode | qiezziTextNull}}</span>
+              </div>
+              <div class="mobile-hidden list-table-col1">
+                <span>{{item.Sex == null ? '-&nbsp;&nbsp;-' : item.Sex === 0 ? '男' : '女'}}</span>
+                <span>{{item.Age ? item.Age+ '岁' : '-&nbsp;&nbsp;-' }}</span>
+              </div>
+              <div class="mobile-hidden list-table-col2">
+                <span>{{ item.Tel | qiezziTextNull}}</span>
+                <span>{{item.Phone | qiezziTextNull}}</span>
+              </div>
+              <div class="list-table-col2">
+                <span class="text-overflow text-overflow-s">{{item.DoctorName | qiezziTextNull }}</span>
+                <span>{{item.Date | date: 'yyyy-MM-dd' | qiezziTextNull}}</span>
+              </div>
+              <div class="list-table-col4">
+                <span class="text-overflow span-ellipsis text-overflow-l">{{ item.AimString | qiezziTextNull}}</span>
+              </div>
+              <div class="list-table-col4">
+                <!--<span>{{item.Aim | qiezziTextNull}}</span>-->
+                <span>无字段</span>
+              </div>
+              <br clear="left">
+            </div>
+            <div class="data-empty" *ngIf="showEmptyState">
+              <app-data-empty [showEmpty]="!(patientList && patientList?.TotalItems>0)"></app-data-empty>
+            </div>
+          </div>
+          <qiezzi-paginator [ngStyle]="{display: (patientList && patientList?.TotalItems>10) ?'block' : 'none'}"
+                            [rows]="patientList?.ItemsPerPage" [totalRecords]="patientList?.TotalItems"
+                            [rowsPerPageOptions]="[10,20,30]"
+                            [style]="showOrHide" (onPageChange)="onPageChange($event)">
+          </qiezzi-paginator>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

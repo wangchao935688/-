@@ -1,0 +1,8 @@
+<p>
+sheetCode:<input type="text" [(ngModel)]="sheetCode1">
+ sheetName: <input type="text" [(ngModel)]="sheetName1">
+  <button class="button3" (click)="go()">刷新</button>
+</p>
+<p>
+<app-qiezzi-setting-dict-list [sheetName]="sheetName" [inputName]="'输入'" [serverFormName]="" [sheetCode]="sheetCode" [sort]="1" [isTextarea]="false"></app-qiezzi-setting-dict-list>
+</p>

@@ -1,0 +1,86 @@
+#left-content {
+  width: 180px;
+  transition: width 0.2s;
+}
+
+.hospital-logo {
+  padding: 0 3.25rem;
+  transition: padding .2s;
+}
+
+.hospital-logo img {
+  width: 2.5rem;
+  height: 2.5rem;
+  transition: width .2s, height .2s;
+}
+
+.hospital-name {
+  width: 50%;
+  transition: width 0.2s, margin-left 0.2s;
+}
+
+.hospita-user-name {
+  width: 80%;
+  transition: width 0.2s, margin-left 0.2s;
+}
+
+#app-main-container{
+  width: calc(100% - 180px);
+  left: 180px;
+  transition: width 0.2s, left 0.2s;
+
+}
+#app-center-container {
+  width: 100%;
+  transition: width 0.2s;
+}
+
+#left-roll-toggle {
+  width: 0;
+  transition: width 0.2s;
+}
+
+#app-right-detail {
+  width: 480px;
+  left: 100%;
+  transition: width 0.2s, left 0.2s;
+}
+#right-slider-container{
+  left:100%;width:480px;
+  border-left: solid 1px #dbdbdb;
+}
+
+#right-slider-container[status='show'] {
+  left: calc(100% - 480px);
+  right: 0;
+  width: 480px;
+  transition: left0 0.2s, width 0.2s, right 0.2s;
+}
+@keyframes right-roll-out {
+  0% {
+    left: 100%;
+  }
+  100% {
+    left: calc(100% - 480px);
+  }
+}
+
+@keyframes right-roll-in {
+  0% {
+    left: calc(100% - 480px);
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+.right-title .right-close {
+  width: 1.6rem;
+  transition: width .2s;
+}
+
+.right-title .right-title-name {
+  padding-left: 2.1rem;
+  transition: padding-left .2s;
+}
+

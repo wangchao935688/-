@@ -1,0 +1,35 @@
+.add{
+  padding: 1rem 2rem 1rem;
+}
+.lt{
+  margin: 1rem 2rem;
+}
+.gps {
+  font-size: .6rem;
+  padding: 0 2rem;
+  height: 2.8rem;
+  line-height: 2.8rem;
+  border-top: 1px solid #DBDBDB;
+  i {
+    font-size: .7rem;
+  }
+  .gps-span {
+    cursor: pointer;
+    padding-left: .5rem;
+  }
+  .gps-span:hover {
+    color: #7a80fa;
+  }
+}
+.circle{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .class-color{
+    width:24px;
+    height:24px;
+    background-color:#cb18f8;
+    border-radius:12px;
+  }
+
+}

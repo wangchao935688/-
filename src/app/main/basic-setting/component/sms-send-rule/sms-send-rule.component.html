@@ -1,0 +1,96 @@
+<div>
+  <!--新建预约短信-->
+  <div>
+    <div class="sms-header"><strong>新建预约短信</strong></div>
+    <div class="sms-content-left">
+      <div class="sending-mode">
+        <span class="sending-title">发送方式</span>
+        <div class="form-radio-group">
+          <label class="form-radio"><input type="radio" name="sex"/>
+            <span class="iconfont"></span><span>手动发送</span>
+          </label>
+          <label class="form-radio"><input type="radio" name="sex"/>
+            <span class="iconfont"></span><span>系统发送短信</span>
+          </label>
+        </div>
+      </div>
+      <div class="sms-content">
+        <span class="sending-title">短信内容</span>
+        <div class="appointment-reminder">
+          <qiezzi-drop-down-list class="drop-down-select" [placeholder]="'预约提醒'" [selectIndex]="0" [required]="false" [dataList]="[{label:'qatgdfvsd',value:'123'},{label:'qdfvsd',value:'124'}]" ></qiezzi-drop-down-list>
+        </div>
+      </div>
+      <div class="make-appointment">
+        <div class="make">
+          尊敬的患者
+          姓名您好，您已成功预约诊所名称的预约医生，预约项目：预约事项 ，就诊日期：预约时间，请准时就诊。诊所电话：诊所电话，诊所地址：诊所地址<div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--新建预约短信结束-->
+
+  <!--预约提醒短信开始-->
+  <div>
+    <div class="sms-header"><strong>预约提醒短信</strong></div>
+    <div class="sms-content-left">
+      <div class="sending-mode">
+        <span class="sending-title">预约提醒</span>
+        <div class="form-checkbox-group">
+          <label class="form-checkbox"><input type="checkbox" name="noname"/>
+            <span class="iconfont"></span>
+          </label>
+        </div>
+        <div style="clear:both;padding-left:7.3rem;color:#aaa;line-height:normal;">(系统默认年月日+3位流水生成病历号，若更换设置默认值将以设置项生成病历号)</div>
+      </div>
+      <div class="sms-content">
+        <span class="sending-title">提醒时间</span>
+        <div class="appointment-reminder">
+          <qiezzi-drop-down-list class="drop-down-select" [placeholder]="'提前2天'" [selectIndex]="0" [required]="false" [dataList]="[{label:'qatgdfvsd',value:'123'},{label:'qdfvsd',value:'124'}]" ></qiezzi-drop-down-list>
+        </div>
+      </div>
+      <div class="sms-content">
+        <span class="sending-title">发送时间</span>
+        <div class="appointment-reminder">
+          <qiezzi-drop-down-list class="drop-down-select" [placeholder]="'10：30'" [selectIndex]="0" [required]="false" [dataList]="[{label:'qatgdfvsd',value:'123'},{label:'qdfvsd',value:'124'}]" ></qiezzi-drop-down-list>
+        </div>
+      </div>
+      <div class="sms-content">
+        <span class="sending-title">短信内容</span>
+        <div class="appointment-reminder">
+          <qiezzi-drop-down-list class="drop-down-select" [placeholder]="'预约提醒'" [selectIndex]="0" [required]="false" [dataList]="[{label:'qatgdfvsd',value:'123'},{label:'qdfvsd',value:'124'}]" ></qiezzi-drop-down-list>
+        </div>
+      </div>
+      <div class="make-appointment">
+        <div class="make">
+          尊敬的患者
+          姓名您好，您已成功预约诊所名称的预约医生，预约项目：预约事项 ，就诊日期：预约时间，请准时就诊。诊所电话：诊所电话，诊所地址：诊所地址<div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+<!--预约提醒短信结束-->
+
+  <!--收费提醒短信开始-->
+  <div>
+    <div class="sms-header"><strong>收费提醒短信</strong></div>
+    <div class="sms-content-left">
+      <div class="sending-mode">
+        <span class="sending-title">开启提醒</span>
+        <div class="form-checkbox-group">
+          <label class="form-checkbox"><input type="checkbox" name="noname"/>
+            <span class="iconfont"></span>
+          </label>
+        </div>
+        <div style="clear:both;padding-left:7.3rem;color:#aaa;line-height:normal;">(系统默认年月日+3位流水生成病历号，若更换设置默认值将以设置项生成病历号)</div>
+      </div>
+    </div>
+  </div>
+  <!--收费提醒短信结束-->
+
+  <!--保存-->
+  <div class="button-group button-group-left">
+    <button class="button5" (click)="testNamedRouter()">保存</button>
+  </div>
+</div>
+

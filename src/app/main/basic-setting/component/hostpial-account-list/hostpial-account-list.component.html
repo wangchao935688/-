@@ -1,0 +1,328 @@
+<!--收款账户设置开始-->
+<qiezzi-loading [attr.status]="dataLoading" class="loading6 purple transparent"></qiezzi-loading>
+<!--头部-->
+<div class="list-table">
+  <div class="list-table-head">
+    <div class="list-table-col0">账户名称</div>
+    <div class="mobile-hidden list-table-col1">账户类型</div>
+    <div class="mobile-hidden list-table-col2">禁用状态</div>
+    <div class="list-table-col6 operation">操作</div>
+
+  </div>
+  <!--内容-->
+  <div class="list-table-content single-line">
+    <div  class="list-table-item click-no-hide-detail">
+      <div class="list-table-col0">
+        <span><i class="icon-xianjin icon"></i>现金</span>
+      </div>
+      <div
+        class="mobile-hidden list-table-col1"><span>现金</span>
+      </div>
+      <div
+        class="mobile-hidden list-table-col2"><span>已启用</span>
+      </div>
+      <div
+        class="list-table-content-col-2 list-table-col6 operation">
+        <span>
+            <i class="iconfont icon-xiangshang"></i>
+            <span>|</span>
+            <i class="iconfont icon-xiangxia"></i>
+            <span>|</span>
+            <i class="iconfont icon-shanchu"></i>
+            <span>|</span>
+            <i class="iconfont icon-xiugai" (click)="ngClick()"></i>
+            <span>|</span>
+            <i class="icon-jinyong"></i>
+        </span>
+      </div>
+
+    </div>
+    <div  class="list-table-item click-no-hide-detail">
+      <div class="list-table-col0">
+        <span><i class="icon-yibaoqia icon"></i>医保卡</span>
+      </div>
+      <div
+        class="mobile-hidden list-table-col1"><span>现金</span>
+      </div>
+      <div
+        class="mobile-hidden list-table-col2"><span>已启用</span>
+      </div>
+      <div
+        class="list-table-content-col-2 list-table-col6 operation">
+        <span>
+            <i class="iconfont icon-xiangshang"></i>
+            <span>|</span>
+            <i class="iconfont icon-xiangxia"></i>
+            <span>|</span>
+            <i class="icon-shanchu"></i>
+            <span>|</span>
+            <i class="iconfont icon-xiugai"></i>
+            <span>|</span>
+            <i class="icon-jinyong"></i>
+        </span>
+      </div>
+
+    </div>
+    <div  class="list-table-item click-no-hide-detail">
+      <div class="list-table-col0">
+        <span><i class="icon-yinhangqia icon"></i>银行卡</span>
+      </div>
+      <div
+        class="mobile-hidden list-table-col1"><span>现金</span>
+      </div>
+      <div
+        class="mobile-hidden list-table-col2"><span>已启用</span>
+      </div>
+      <div
+        class="list-table-content-col-2 list-table-col6 operation">
+        <span>
+            <i class="iconfont icon-xiangshang"></i>
+            <span>|</span>
+            <i class="iconfont icon-xiangxia"></i>
+            <span>|</span>
+            <i class="icon-shanchu"></i>
+            <span>|</span>
+            <i class="iconfont icon-xiugai"></i>
+            <span>|</span>
+            <i class="icon-jinyong"></i>
+        </span>
+      </div>
+
+    </div>
+    <div  class="list-table-item click-no-hide-detail">
+      <div class="list-table-col0">
+        <span><i class="icon-zhifubao icon"></i>支付宝</span>
+      </div>
+      <div
+        class="mobile-hidden list-table-col1"><span>现金</span>
+      </div>
+      <div
+        class="mobile-hidden list-table-col2"><span>已启用</span>
+      </div>
+      <div
+        class="list-table-content-col-2 list-table-col6 operation">
+        <span>
+            <i class="iconfont icon-xiangshang"></i>
+            <span>|</span>
+            <i class="iconfont icon-xiangxia"></i>
+            <span>|</span>
+            <i class="icon-shanchu"></i>
+            <span>|</span>
+            <i class="iconfont icon-xiugai"></i>
+            <span>|</span>
+            <i class="icon-jinyong"></i>
+        </span>
+      </div>
+
+    </div>
+    <div  class="list-table-item click-no-hide-detail">
+      <div class="list-table-col0">
+        <span><i class="icon-weixin2 icon"></i>现金</span>
+      </div>
+      <div
+        class="mobile-hidden list-table-col1"><span>现金</span>
+      </div>
+      <div
+        class="mobile-hidden list-table-col2"><span>已启用</span>
+      </div>
+      <div
+        class="list-table-content-col-2 list-table-col6 operation">
+        <span>
+            <i class="iconfont icon-xiangshang"></i>
+            <span>|</span>
+            <i class="iconfont icon-xiangxia"></i>
+            <span>|</span>
+            <i class="icon-shanchu"></i>
+            <span>|</span>
+            <i class="iconfont icon-xiugai"></i>
+            <span>|</span>
+            <i class="icon-jinyong"></i>
+        </span>
+      </div>
+
+    </div>
+    <div  class="list-table-item click-no-hide-detail">
+      <div class="list-table-col0">
+        <span><i class="icon-qita icon"></i>其他</span>
+      </div>
+      <div
+        class="mobile-hidden list-table-col1"><span>现金</span>
+      </div>
+      <div
+        class="mobile-hidden list-table-col2"><span>已启用</span>
+      </div>
+      <div
+        class="list-table-content-col-2 list-table-col6 operation">
+        <span>
+            <i class="iconfont icon-xiangshang"></i>
+            <span>|</span>
+            <i class="iconfont icon-xiangxia"></i>
+            <span>|</span>
+            <i class="icon-shanchu"></i>
+            <span>|</span>
+            <i class="iconfont icon-xiugai"></i>
+            <span>|</span>
+            <i class="icon-jinyong"></i>
+        </span>
+      </div>
+
+    </div>
+    <div  class="list-table-item click-no-hide-detail">
+      <div class="list-table-col0">
+        <span><i class="icon-xianjin icon"></i>现金</span>
+      </div>
+      <div
+        class="mobile-hidden list-table-col1"><span>现金</span>
+      </div>
+      <div
+        class="mobile-hidden list-table-col2"><span>已启用</span>
+      </div>
+      <div
+        class="list-table-content-col-2 list-table-col6 operation">
+        <span>
+            <i class="iconfont icon-xiangshang"></i>
+            <span>|</span>
+            <i class="iconfont icon-xiangxia"></i>
+            <span>|</span>
+            <i class="iconfont icon-shanchu"></i>
+            <span>|</span>
+            <i class="iconfont icon-xiugai"></i>
+            <span>|</span>
+            <i class="iconfont icon-jinyong"></i>
+        </span>
+      </div>
+
+    </div>
+    <div  class="list-table-item click-no-hide-detail">
+      <div class="list-table-col0">
+        <span><i class="icon-yibaoqia icon"></i>医保卡</span>
+      </div>
+      <div
+        class="mobile-hidden list-table-col1"><span>现金</span>
+      </div>
+      <div
+        class="mobile-hidden list-table-col2"><span>已启用</span>
+      </div>
+      <div
+        class="list-table-content-col-2 list-table-col6 operation">
+        <span>
+            <i class="iconfont icon-xiangshang"></i>
+            <span>|</span>
+            <i class="iconfont icon-xiangxia"></i>
+            <span>|</span>
+            <i class="icon-shanchu"></i>
+            <span>|</span>
+            <i class="iconfont icon-xiugai"></i>
+            <span>|</span>
+            <i class="icon-jinyong"></i>
+        </span>
+      </div>
+
+    </div>
+    <div  class="list-table-item click-no-hide-detail">
+      <div class="list-table-col0">
+        <span><i class="icon-yinhangqia icon"></i>银行卡</span>
+      </div>
+      <div
+        class="mobile-hidden list-table-col1"><span>现金</span>
+      </div>
+      <div
+        class="mobile-hidden list-table-col2"><span>已启用</span>
+      </div>
+      <div
+        class="list-table-content-col-2 list-table-col6 operation">
+        <span>
+            <i class="iconfont icon-xiangshang"></i>
+            <span>|</span>
+            <i class="iconfont icon-xiangxia"></i>
+            <span>|</span>
+            <i class="icon-shanchu"></i>
+            <span>|</span>
+            <i class="iconfont icon-xiugai"></i>
+            <span>|</span>
+            <i class="icon-jinyong"></i>
+        </span>
+      </div>
+
+    </div>
+    <div  class="list-table-item click-no-hide-detail">
+      <div class="list-table-col0">
+        <span><i class="icon-zhifubao icon"></i>支付宝</span>
+      </div>
+      <div
+        class="mobile-hidden list-table-col1"><span>现金</span>
+      </div>
+      <div
+        class="mobile-hidden list-table-col2"><span>已启用</span>
+      </div>
+      <div
+        class="list-table-content-col-2 list-table-col6 operation">
+        <span>
+            <i class="iconfont icon-xiangshang"></i>
+            <span>|</span>
+            <i class="iconfont icon-xiangxia"></i>
+            <span>|</span>
+            <i class="icon-shanchu"></i>
+            <span>|</span>
+            <i class="iconfont icon-xiugai"></i>
+            <span>|</span>
+            <i class="icon-jinyong"></i>
+        </span>
+      </div>
+
+    </div>
+    <div  class="list-table-item click-no-hide-detail">
+      <div class="list-table-col0">
+        <span><i class="icon-weixin2 icon"></i>现金</span>
+      </div>
+      <div
+        class="mobile-hidden list-table-col1"><span>现金</span>
+      </div>
+      <div
+        class="mobile-hidden list-table-col2"><span>已启用</span>
+      </div>
+      <div
+        class="list-table-content-col-2 list-table-col6 operation">
+        <span>
+            <i class="iconfont icon-xiangshang"></i>
+            <span>|</span>
+            <i class="iconfont icon-xiangxia"></i>
+            <span>|</span>
+            <i class="icon-shanchu"></i>
+            <span>|</span>
+            <i class="iconfont icon-xiugai"></i>
+            <span>|</span>
+            <i class="icon-jinyong"></i>
+        </span>
+      </div>
+
+    </div>
+    <div  class="list-table-item click-no-hide-detail">
+      <div class="list-table-col0">
+        <span><i class="icon-qita icon"></i>其他</span>
+      </div>
+      <div
+        class="mobile-hidden list-table-col1"><span>现金</span>
+      </div>
+      <div
+        class="mobile-hidden list-table-col2"><span>已启用</span>
+      </div>
+      <div
+        class="list-table-content-col-2 list-table-col6 operation">
+        <span>
+            <i class="iconfont icon-xiangshang"></i>
+            <span>|</span>
+            <i class="iconfont icon-xiangxia"></i>
+            <span>|</span>
+            <i class="icon-shanchu"></i>
+            <span>|</span>
+            <i class="iconfont icon-xiugai"></i>
+            <span>|</span>
+            <i class="icon-jinyong"></i>
+        </span>
+      </div>
+
+    </div>
+  </div>
+</div>
+<!--收款账户设置结束-->

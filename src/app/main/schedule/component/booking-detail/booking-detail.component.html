@@ -1,0 +1,81 @@
+<app-qiezzi-right-header
+  [rightComponentName]="compName"
+  [controlList]="ctrlList"
+  (onControl)="onControlListClick($event)"></app-qiezzi-right-header>
+<div class="right-content" id="rightContentScroll" malihu-scrollbar [scrollbarOptions]="scrollbarOptions">
+  <div class="right-content-header">
+    <div class="detail-section">
+      <div class="patient-info">
+        <div class="patient-head"><img [src]="patientData?.Image"></div>
+        <div>
+          <div class="patient-name">{{patientData?.PatientName}}</div>
+          <div class="patient-sex-age">
+            <div class="sex-icon sex-icon{{patientData?.Sex}}"></div>
+            <div class="sex">{{patientData?.Sex | qiezziDic:sex}}</div>
+            <div class="age-icon"></div>
+            <div class="age">{{patientData?.Age}}</div>
+          </div>
+        </div>
+        <div class="right-arrow" (click)="openPatientInfoPanel()"></div>
+      </div>
+    </div>
+    <div class="detail-section">
+      <div class="section-title"><i class="role"></i><span>基本信息</span></div>
+      <dl>
+        <dt>病例号</dt>
+        <dd>No.{{data?.PatientCode}}</dd>
+      </dl>
+      <dl>
+        <dt>手机号</dt>
+        <dd>{{data?.Tel | qiezziTextNull}}</dd>
+      </dl>
+      <dl>
+        <dt>座机</dt>
+        <dd>{{data?.Phone | qiezziTextNull}}</dd>
+      </dl>
+      <dl>
+        <dt>其它联系方式</dt>
+        <dd>
+          - -
+        </dd>
+      </dl>
+      <dl>
+        <dt>家庭地址</dt>
+        <dd>{{patientData?.Province + patientData?.City + patientData?.Area + patientData?.Address | qiezziTextNull}}
+        </dd>
+      </dl>
+    </div>
+    <div class="detail-section">
+      <div class="section-title"><i class="info"></i><span>预约记录</span></div>
+      <dl>
+        <dt>预约状态</dt>
+        <dd class="booking-state"><span>{{data?.Status | qiezziDic:bookingState}}</span>
+          <button class="button2" (click)="onBookingButtonClick()">{{buttonText}}</button>
+        </dd>
+      </dl>
+      <dl>
+        <dt>医生</dt>
+        <dd>{{data?.DoctorName | qiezziTextNull}}</dd>
+      </dl>
+      <dl>
+        <dt>预约类型</dt>
+        <dd>{{data?.PatlogType | qiezziDic:patlogType}}</dd>
+      </dl>
+      <dl>
+        <dt>预约事项</dt>
+        <dd>{{data?.Aim | qiezziArrayString:'Name' | qiezziTextNull}}</dd>
+      </dl>
+      <dl>
+        <dt>预约时间</dt>
+        <dd>{{converTimeFormat(data?.Date,data?.Time, data?.Minute) | qiezziTextNull}} 至
+          {{converTimeFormat(data?.Date,data?.Time2,data?.Minute2) | qiezziTextNull}}
+        </dd>
+      </dl>
+      <dl>
+        <dt>备注</dt>
+        <dd>{{data?.Note | qiezziTextNull}}</dd>
+      </dl>
+    </div>
+  </div>
+</div>
+<router-outlet></router-outlet>

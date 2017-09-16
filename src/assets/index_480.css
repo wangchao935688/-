@@ -1,0 +1,145 @@
+#left-content {
+  left: -9rem;
+  width: 9rem;
+  transition: left 0.2s, width 0.2s;
+}
+
+.hospital-name {
+  width: 0;
+  margin-left: 0;
+  transition: width 0.2s, margin-left 0.2s;
+}
+#app-main-container{
+  width: 100%;
+  left: 0;
+  transition: width 0.2s, left 0.2s;
+}
+#app-center-container {
+  width: 100%;
+  transition: width 0.2s;
+}
+
+#app-center-mask {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  display: none;
+  background-color: #333333;
+  z-index: 5;
+  opacity: 0.2;
+}
+
+app-qiezzi-center-header {
+  padding: 1.2rem 1rem;
+  transition: padding .2s;
+}
+
+#left-roll-toggle {
+  width: 1.4rem;
+  transition: width 0.2s;
+}
+
+#left-roll-toggle i {
+  width: .9rem;
+}
+
+#app-right-detail {
+  left: 100%;
+  width: 100%;
+  transition: width 0.2s, left 0.2s;
+}
+#right-slider-container{width:100%;
+left:100%;}
+
+
+#right-slider-container[status='show'] {
+  left: 0;
+  width: 100%;
+  transition: left 0.2s, width 0.2s;
+}
+
+@keyframes right-roll-out {
+  0% {
+    left: 100%;
+  }
+  100% {
+    left: 0;
+  }
+}
+
+@keyframes right-roll-in {
+  0% {
+    left: 0;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+@keyframes center-roll-out {
+  0% {
+    left: 0;
+  }
+  100% {
+    left: 180px;
+  }
+}
+
+@keyframes center-roll-in {
+  0% {
+    left: 180px;
+  }
+  100% {
+    left: 0;
+  }
+}
+
+@keyframes left-roll-out {
+  0% {
+    left: -180px;
+  }
+  100% {
+    left: 0;
+  }
+}
+
+@keyframes left-roll-in {
+  0% {
+    left: 0;
+  }
+  100% {
+    left: -180px;
+  }
+}
+
+
+
+.right-title {
+  padding: 1.2rem 1rem;
+  transition: padding .2s;
+}
+
+.right-title .right-back {
+  width: 1.6rem;
+  transition: width .2s;
+}
+
+.right-title .right-title-name {
+  text-align: center;
+  padding-left: 0;
+  transition: padding-left .2s, text-align .2s;
+}
+
+.right-top-line {
+  width: calc(100% - 2rem);
+  transition: width .2s;
+}
+
+.right-content {
+  padding: 0 1rem;
+  transition: padding .2s;
+}
+
+

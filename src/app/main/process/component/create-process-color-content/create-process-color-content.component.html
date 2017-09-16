@@ -1,0 +1,17 @@
+<div class="popup-content-container">
+  <div class="popup-content-box">
+    <form class="validate-form" [formGroup]="formGroup">
+      <div class="form-section">
+        <div class="form-title"><span class="red-point"><i></i></span>名称</div>
+        <div class="form-element">
+          <div class="err-message" [attr.error]="formErrors['DictDetailName']">{{formErrors['DictDetailName']}}</div>
+          <input class="input-text" placeholder="" formControlName="DictDetailName" (blur)="onInputElementBlur('DictDetailName')">
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<div class="button-group button-group-right">
+  <button (click)="ok()" class="button5" [disabled]="!formGroup.valid || isProcessing">保存</button>
+  <button (click)="close()" class="button4">取消</button>
+</div>

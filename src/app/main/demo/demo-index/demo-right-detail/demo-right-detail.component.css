@@ -1,0 +1,22 @@
+.input-group span.help-message {
+  width: 0.8rem;
+  height: 0.8rem;
+  background-color: #fea356;
+  border-radius: 50% 50%;
+  display: block;
+  float: left;
+  line-height: 0.8rem;
+  text-align: center;
+  font-size: 0.6rem;
+  padding: 0;
+  color: #fff;
+  cursor: pointer;
+  overflow: hidden;
+  margin-top: 0.4rem;
+}
+
+
+:host {
+  display: block;
+  height:100%
+}

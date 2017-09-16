@@ -1,0 +1,85 @@
+<div class="statistics">
+  <div class="statistics-line">
+    <div class="data">
+      <span class="num Pseudo" style="color: #524DDB">{{PatientCenterResponse?.AdvanceMoney ? PatientCenterResponse?.AdvanceMoney :0}}</span>
+      <span class="explain">预存款余额</span>
+    </div>
+    <div class="data">
+      <span class="num Pseudo" style="color: #FEA356">{{PatientCenterResponse?.TotalPay ? PatientCenterResponse?.TotalPay :0}}</span>
+      <span class="explain">累计消费</span>
+    </div>
+    <div class="data">
+      <span class="num Pseudo">{{PatientCenterResponse?.BookingCount ? PatientCenterResponse?.BookingCount : 0}}次</span>
+      <span class="explain">预约</span>
+    </div>
+    <div class="data">
+      <span class="num Pseudo">{{PatientCenterResponse?.InterviewCount ? PatientCenterResponse?.InterviewCount : 0}}次</span>
+      <span class="explain">回访</span>
+    </div>
+    <div class="data">
+      <span class="num">{{PatientCenterResponse?.ProcessCount ? PatientCenterResponse?.ProcessCount : 0}}次</span>
+      <span class="explain">外加工</span>
+    </div>
+  </div>
+  <div class="statistics-content">
+    <div class="degree">
+      <span class="icon iconfont icon-jiuzhenrenci-huanzheguanlicehua one">就诊次数&nbsp;: </span>
+      <span class="two">{{PatientCenterResponse?.PatlogCount ? PatientCenterResponse?.PatlogCount : 0}}</span>
+    </div>
+    <div class="time">
+      <span class="icon iconfont icon-jiuzhenshijian-huanzheguanlicehua one">最近就诊日期&nbsp;: </span>
+      <span class="two">{{PatientCenterResponse?.RecentlyDate ? PatientCenterResponse?.RecentlyDate : 0}}</span>
+    </div>
+    <br style="clear: left;">
+  </div>
+  <div class="jumpone" style="width: 100%;">
+    <div class="visit">
+      <div class="round">
+        <i class="icon iconfont icon-yuyuefuzhen "></i>
+      </div>
+      <span>预约复诊</span>
+    </div>
+    <div class="visit">
+      <div class="round">
+        <i class="icon iconfont icon-dianhuahuifang "></i>
+      </div>
+      <span>新增回访</span>
+    </div>
+    <div class="visit">
+      <div class="round">
+        <i class="icon iconfont icon-xinzengwaijiagong "></i>
+      </div>
+      <span>新增外加工</span>
+    </div>
+    <div class="visit" style="margin-right:0;">
+      <div class="round">
+        <i class="icon iconfont icon-xinzengshoufeidan "></i>
+      </div>
+      <span>新增收费单</span>
+    </div>
+  </div>
+  <div class="jumptwo">
+    <div class="visit">
+      <div class="round">
+        <i class="icon iconfont icon-binglishouye "></i>
+      </div>
+      <span>病例首页</span>
+    </div>
+    <div class="visit">
+      <div class="round">
+        <i class="icon iconfont icon-xinzengbingli "></i>
+      </div>
+      <span>新增病例</span>
+    </div>
+    <div class="visit">
+      <div class="round">
+        <i class="icon iconfont icon-tuxiangcaiji"></i>
+      </div>
+      <span>图像采集</span>
+    </div>
+    <div class="visit">
+      <div ></div>
+      <span></span>
+    </div>
+  </div>
+</div>

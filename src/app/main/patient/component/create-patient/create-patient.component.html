@@ -1,0 +1,150 @@
+<div class="popup-content-container" malihu-scrollbar [scrollbarOptions]="scrollbarOptions">
+  <div class="popup-content-box">
+    <div class="create-process-form">
+        <div class="photo pic" >
+          <img width="100%" src="../../../../../assets/images/logo.png" alt="">
+          <i class="icon iconfont icon-bianji img-edit"></i>
+        </div>
+        <form class="validate-form"  [formGroup]="formGroup">
+              <div class="form-section">
+                <div class="form-title">姓名</div>
+                <div class="form-element ">
+                  <div class="err-message" [attr.error]="formErrors['PatientName']">{{formErrors['PatientName']}}</div>
+                  <app-icon-input class="input-text" [marginRight]="'0'" formControlName="PatientName"
+                                  [placeholder]="'请输入患者姓名'" [iconList]="inputIconList"
+                                  (onIconClick)="onInputIconClick($event)"
+                                  (onPatientSelected)="choosePatient($event)"
+                                  (blur)="onInputElementBlur('PatientName')">
+                  </app-icon-input>
+                </div>
+              </div>
+              <div class="form-section">
+                <div class="form-title">病历号</div>
+                <div class="form-element">
+                  <div class="err-message" [attr.error]="formErrors['PatientCode']">{{formErrors['PatientCode']}}</div>
+                  <input class="input-text" placeholder=""  formControlName="PatientCode"  (blur)="onInputElementBlur('PatientCode')">
+                </div>
+              </div>
+              <div class="form-section sex">
+                <div class="form-title">性别</div>
+                <div class="form-element Gender">
+                  <div class="form-radio-group">
+                    <label class="form-radio"><input type="radio" name="Sex" value="0"/>
+                      <span class="iconfont"></span><span>男</span>
+                    </label>
+                    <label class="form-radio"><input type="radio" name="Sex" value="1"/>
+                      <span class="iconfont"></span><span>女</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="form-section">
+                <div class="form-title">年龄</div>
+                <div class="form-element">
+                  <div class="err-message"  [attr.error]="formErrors['Age']">{{formErrors['Age']}}</div>
+                  <input class="input-text" placeholder=""  formControlName="Age" (blur)="onInputElementBlur('Age')">
+                </div>
+              </div>
+
+              <div class="form-section">
+                <div class="form-title">手机号</div>
+                <div class="form-element">
+                  <div class="err-message"  [attr.error]="formErrors['Tel']">{{formErrors['Tel']}}</div>
+                  <input class="input-tel" placeholder="" formControlName="Tel" (blur)="onInputElementBlur('Tel')">
+                </div>
+              </div>
+              <div class="form-section number">
+                <div class="form-title">座机号</div>
+                <div class="form-element phone">
+                  <div class="in-block" style="width:40%;">
+                    <div class="err-message"  [attr.error]="formErrors['AreaCode']">{{formErrors['AreaCode']}}</div>
+                    <input class="input-phone" placeholder="" formControlName="AreaCode" (blur)="onInputElementBlur('AreaCode')" >
+                  </div>
+                  <div class="in-block">
+                    <span style="padding-left: 2rem;">-</span>
+                  </div>
+                  <div class="in-block addLine" style="width:40%;margin-left: 2rem;">
+                    <div class="err-message"  [attr.error]="formErrors['Phone']">{{formErrors['Phone']}}</div>
+                    <input class="input-phone"  formControlName="Phone"  placeholder="{{formPlaceholder['ExpressCode']}}"  (blur)="onInputElementBlur('Phone')">
+                  </div>
+
+                </div>
+              </div>
+              <div class="form-section line">
+                <div class="form-title">家庭地址</div>
+                <div class="form-element address" style="height:auto;display: block;">
+                  <div style="width: 100%; display: block;" >
+                    <qiezzi-province-city-area [selectAddress]="selectAddress" (onChangeAddress)="onChangeAddress($event)"></qiezzi-province-city-area>
+                  </div>
+                  <br>
+                  <div style="width: 100%;display: block;margin-top: 20px;">
+                    <div class="err-message"  [attr.error]="formErrors['Address']">{{formErrors['Address']}}</div>
+                    <input class="detailAddr" formControlName="Address" placeholder="请输入具体地址"  (blur)="onInputElementBlur('Address')">
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-section doctorfirst">
+                <div class="form-title">初诊医生</div>
+                <div class="form-element">
+                  <!--   -->
+                  <div class="err-message" [attr.error]="''">
+                  </div>
+                  <qiezzi-drop-down-list class="drop-down-select"
+                                         [placeholder]=""
+                                         [required]="false"
+                                         [selectIndex]="0"
+                                         [dataList]="doctorFirstList">
+                  </qiezzi-drop-down-list>
+                </div>
+              </div>
+              <div class="form-section">
+                <div class="form-title">初诊日期</div>
+                <div class="form-element">
+                  <div class="err-message" [attr.error]="formErrors['FirstDate']">{{formErrors['FirstDate']}}</div>
+                  <input qiezzi-air-datepicker placeholder="" formControlName="FirstDate" (blur)="onInputElementBlur('FirstDate')">
+                </div>
+              </div>
+              <div class="form-section ">
+                <div class="form-title">意向医生</div>
+                <div class="form-element">
+                  <div class="err-message" [attr.error]="''">
+                  </div>
+                  <input class="input-text note" placeholder=""  (blur)="onInputElementBlur('DictDetailName')">
+                </div>
+              </div>
+              <div class="form-section">
+                <div class="form-title">来源</div>
+                <div class="form-element">
+                  <qiezzi-drop-down-list style="margin-bottom: 1rem;" formControlName="PatientsWith" class="drop-down-select"
+                                         [placeholder]="'朋友介绍'"
+                                         [required]="false"
+                                         [selectIndex]="0"
+                                         [dataList]="patientsWithList">
+                  </qiezzi-drop-down-list>
+                </div>
+              </div>
+              <div class="form-section">
+                <div class="form-title">标签</div>
+                <div class="form-element">
+                  <div class="sign" (click)="showRelationName()"  style="margin-bottom: 1rem;">
+                    <i class="icon iconfont icon-tianjia" style="color:#7a80fa;"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="form-section ">
+                <div class="form-title">备注</div>
+                <div class="form-element">
+                  <div class="err-message" [attr.error]="formErrors['Note']">{{formErrors['Note']}}</div>
+                  <input class="input-text note" placeholder=""  formControlName="Note" (blur)="onInputElementBlur('Note')">
+                </div>
+              </div>
+
+        </form>
+      </div>
+  </div>
+</div>
+<div class="button-group button-group-right">
+  <button class="button5" [disabled]="!formGroup.valid" (click)="save()">保存</button>
+  <button class="button4" (click)="cancel()">取消</button>
+</div>

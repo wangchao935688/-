@@ -1,0 +1,54 @@
+#app-center-container {
+  height: 100%;
+  width: 47rem; }
+
+#appCenterContent {
+  border: none;
+  height: 100%; }
+
+.tab-ctrl-head {
+  height: 4.1rem;
+  border-top: 1px solid #dbdbdb;
+  border-bottom: 1px solid #dbdbdb; }
+  .tab-ctrl-head .search-right-icon {
+    border: none;
+    width: 2.6rem;
+    min-width: 2.6rem;
+    height: 1.6rem;
+    float: right;
+    margin-top: 1.5rem;
+    margin-right: 0.5rem;
+    padding: 0; }
+    .tab-ctrl-head .search-right-icon .iconfont {
+      font-size: 0.7rem;
+      margin-right: 0.5rem; }
+  .tab-ctrl-head .search-right-icon:hover {
+    background-color: #fff;
+    color: #969AFC; }
+
+.tab-ctrl-content {
+  margin: 0 2rem;
+  border: 1px solid #dbdbdb; }
+
+.list-table {
+  padding: 0; }
+  .list-table .list-table-col0 {
+    width: 16%; }
+  .list-table .list-table-col1 {
+    width: 16%; }
+  .list-table .list-table-col2 {
+    width: calc(100% - 16% - 16% - 10% - 15% - 10% - 10%); }
+  .list-table .list-table-col3 {
+    width: 10%; }
+  .list-table .list-table-col4 {
+    width: 15%; }
+  .list-table .list-table-col5 {
+    width: 10%; }
+  .list-table .list-table-col6 {
+    width: 10%; }
+  .list-table .list-table-head {
+    color: #333; }
+  .list-table .list-table-content {
+    color: #666; }
+
+/*# sourceMappingURL=input-stock-list.component.css.map */

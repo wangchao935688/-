@@ -1,0 +1,77 @@
+<div class="container">
+  <div class="container-left">
+    <div id="appCenterContent" class="app-center-content" malihu-scrollbar
+         [scrollbarOptions]="scrollbarOptions">
+      <div class="container-left-item"  *ngFor="let item of CaseList?.Items;let i = index"
+           [ngClass]="{active: i == selectIndex }"
+      (click)="getCaseDetails(item.Id, i)">
+        <div class="time-line">
+          <p class="year" *ngIf="i===0">2017</p>
+          <span class="point"></span>
+        </div>
+        <p class="item-date">{{item.VisitingTime | date: 'MM-dd'}}</p>
+        <span>{{item.DoctorName}}</span>
+      </div>
+    </div>
+  </div>
+  <div class="container-right">
+    <i class="icon iconfont icon-huanzheguanli-youxiajiaojiahao more add"></i>
+    <i class="icon iconfont icon-gengduogedian more"></i>
+    <div class="more-ctrl">
+      <i class="icon iconfont icon-dayinshezhi "></i>
+      <i class="icon iconfont icon-dayin" ></i>
+      <i class="icon iconfont icon-bianji "></i>
+    </div>
+    <div id="appCenterContentRight" class="app-center-content" malihu-scrollbar
+         [scrollbarOptions]="scrollbarOptionsRight">
+      <div class="container-right-content">
+
+        <div class="container-right-list">
+          <div class="right-content-title">
+            <p >标签</p>
+          </div>
+          <div class="right-content-item">
+            <app-tag-box-group class="tag-box" #tagBox [(ngModel)]="tagList"></app-tag-box-group>
+          </div>
+        </div>
+
+        <div class="container-right-list">
+          <div class="right-content-title">
+            <p >主诉</p>
+          </div>
+          <div class="right-content-item">
+            <p>{{caseDetailsResponse?.MainSuit |  qiezziTextNull}}</p>
+          </div>
+        </div>
+
+        <div class="container-right-list">
+          <div class="right-content-title">
+            <p >既往史</p>
+          </div>
+          <div class="right-content-item">
+            <p>{{caseDetailsResponse?.PastHistory | qiezziTextNull}}</p>
+          </div>
+        </div>
+
+        <div class="container-right-list"  *ngFor="let item of caseDetailsResponse?.CaseItemList;let i = index">
+          <div class="right-content-title">
+            <p *ngIf="item.Type==0">检查</p>
+            <p *ngIf="item.Type==1">X光检查</p>
+            <p *ngIf="item.Type==2">诊断</p>
+            <p *ngIf="item.Type==3">治疗计划</p>
+            <p *ngIf="item.Type==4">治疗</p>
+          </div>
+          <div class="right-content-item">
+            <div class="item-pic">
+              <qiezzi-tooth [teeth]="item.ToothPlace"></qiezzi-tooth>
+              <span *ngIf="!item">-&nbsp;&nbsp;-</span>
+            </div>
+            <div class="item-txt">
+              <p>{{item.Content}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

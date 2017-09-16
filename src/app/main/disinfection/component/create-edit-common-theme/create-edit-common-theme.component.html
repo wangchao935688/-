@@ -1,0 +1,24 @@
+<!--新增模板弹窗-->
+<div>
+  <div class="validate-form">
+    <div class="form-section">
+      <div class="form-title"><span class="red-point"><i></i></span>名称</div>
+      <div class="form-element">
+        <div class="err-message"></div>
+        <input class="input-text" placeholder="请输入名称" id="PatientName" formControlName="PatientName"
+               (blur)="onInputElementBlur('DictDetailName')">
+      </div>
+    </div>
+    <div class="form-section">
+      <div class="form-title"><span class="red-point"><i></i></span>内容</div>
+      <div class="form-element">
+        <div class="err-message"></div>
+        <textarea id="" cols="30" rows="3" placeholder="请输入模板内容"></textarea>
+      </div>
+    </div>
+  </div>
+  <div class="button-group button-group-right">
+    <button class="button5" (click)="accountTransfer()">保存</button>
+    <button class="button4" (click)="cancel()">取消</button>
+  </div>
+</div>

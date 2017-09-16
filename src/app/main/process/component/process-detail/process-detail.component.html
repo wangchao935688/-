@@ -1,0 +1,21 @@
+<div class="process-detail-div">
+  <div *ngFor="let item of processItemFull;let i = index">
+    <qiezzi-tooth-edit [processToothFullModel]="item"></qiezzi-tooth-edit>
+  </div>
+
+
+  <div class="process-detail-div-note">
+    <div>
+      <span>加工数量</span>
+      <span>{{processNum}}</span>
+    </div>
+    <div>
+      <span>加工费</span>
+      <span>{{price | qiezziMoeny}}</span>
+    </div>
+    <div>
+      <span>备注</span>
+      <span>{{note}}</span>
+    </div>
+  </div>
+</div>

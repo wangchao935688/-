@@ -1,0 +1,86 @@
+<!--<div class="popup-content-container" malihu-scrollbar [scrollbarOptions]="scrollbarOptions">-->
+<div class="popup-content-container">
+  <div class="popup-content-box">
+    <div class="create-process">
+      <div class="create-process-form">
+        <form class="validate-form">
+          <!--座机-->
+          <div class="form-section landline">
+            <div class="form-title">
+              <qiezzi-drop-down-list class="drop-down-select city addre"
+                                     [placeholder]="'座机'"
+                                     [required]="false"
+                                     [selectIndex]="0"
+                                     [dataList]="[{label:'座机',value:'1'},{label:'手机',value:'1'},{label:'400客服',value:'3'}]"></qiezzi-drop-down-list>
+            </div>
+            <div class="form-element ">
+              <div class="landline-num">
+                <input class="input-text num1" placeholder="区号"><span></span>
+                <input class="input-text num2" placeholder="座机号">
+              </div>
+              <div class="err-message"></div>
+            </div>
+            <div class="form-icon">
+              <i class="icon iconfont icon-shanchu"></i>
+            </div>
+            <br clear="both">
+          </div>
+          <!--手机-->
+          <div class="form-section cellphone">
+            <div class="form-title">
+              <qiezzi-drop-down-list class="drop-down-select city addre"
+                                     [placeholder]="'手机'"
+                                     [required]="false"
+                                     [selectIndex]="1"
+                                     [dataList]="[{label:'座机',value:'1'},{label:'手机',value:'1'},{label:'400客服',value:'3'}]"></qiezzi-drop-down-list>
+            </div>
+            <div class="form-element ">
+              <div class="cellphone-num">
+                  <input class="input-text" placeholder="手机号">
+              </div>
+              <div class="err-message"></div>
+            </div>
+            <div class="form-icon">
+              <i class="icon iconfont icon-shanchu"></i>
+            </div>
+            <br clear="both">
+          </div>
+          <!--400客服-->
+          <div class="form-section service400">
+            <div class="form-title">
+              <qiezzi-drop-down-list class="drop-down-select city addre"
+                                     [placeholder]="'400客服'"
+                                     [required]="false"
+                                     [selectIndex]="2"
+                                     [dataList]="[{label:'座机',value:'1'},{label:'手机',value:'1'},{label:'400客服',value:'3'}]"></qiezzi-drop-down-list>
+            </div>
+            <div class="form-element ">
+              <div class="service400-num">
+                <input class="input-text" placeholder="400客服">
+              </div>
+              <div class="err-message"></div>
+            </div>
+            <div class="form-icon">
+              <i class="icon iconfont icon-shanchu"></i>
+            </div>
+            <br clear="both">
+          </div>
+          <!--点击添加号码-->
+          <div class="form-section add-phone-num">
+            <div class="form-title">
+              <i class="icon icon-tianjiazhaopian"></i><span>添加物品</span>
+            </div>
+            <div class="form-element ">
+
+            </div>
+            <br clear="both">
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="button-group button-group-right">
+  <button class="button5" (click)="save()">保存</button>
+  <button class="button4" (click)="cancel()">取消</button>
+</div>

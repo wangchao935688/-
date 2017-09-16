@@ -1,0 +1,98 @@
+<!--底量报警页面-->
+<!--<div class="capital-flow-content low-volume-alarm" *ngIf="pageIndex==1">-->
+<div class="capital-flow-content low-volume-alarm">
+  <!-- 左侧 -->
+  <div class="capital-flow-content-left">
+    <div id="appCenterLeftContent"
+         [ngStyle]="{'display': centerLeftLoadReady?'block':'none','border-top':isBorderLeft?'1px solid #DBDBDB':''}"
+         class="app-center-content" malihu-scrollbar
+         [scrollbarOptions]="scrollbarOptionsLeft">
+      <div class="capital-flow-content-left-header">
+        <!--<strong class="lf">物品类别</strong>-->
+        <span class="lf">物品类别</span>
+      </div>
+      <qiezzi-loading [attr.status]="dataLoadingLeft" class="loading6 purple transparent"
+                      style="padding-top: 300px"></qiezzi-loading>
+      <ul class="list-table-content capital-flow-content-left-list">
+        <li>全部</li>
+        <li *ngFor="let item of dictDetailListResponse?.Items,let i = index " (click)="clickGoodsKinds(item.Code)">{{item?.Name}}</li>
+      </ul>
+    </div>
+  </div>
+  <!-- 右侧 -->
+  <!--<div>-->
+  <div class="capital-flow-content-right" malihu-scrollbar
+       [scrollbarOptions]="scrollbarOptionsRight">
+    <!--<div id="appCenterRightContent"
+         [ngStyle]="{'display': centerRightLoadReady?'block':'none','border-top':isBorderRight?'1px solid #DBDBDB':''}"
+         class="app-center-content" >-->
+      <div>
+        <div class="search-bar">
+          <div class="search-left">
+            <app-icon-input [placeholder]="'物品名称/拼音码'" [(ngModel)]="requestData.keyword" style="width:10rem;"></app-icon-input>
+            <button class="button4 search-left-button" (click)="searchCurrentGoodsList()">查询</button>
+          </div>
+          <!--<div class="search-right">
+          </div>-->
+        </div>
+        <div class="button-search-right-icon rt">
+          <button class="button4 search-right-icon"><i class="icon iconfont icon-daochu"></i>导出</button>
+        </div>
+
+      </div>
+    <qiezzi-loading [attr.status]="dataLoading" class="loading6 purple transparent"
+                    style="padding-top: 300px"></qiezzi-loading>
+      <!-- 列表 -->
+      <div class="list-table">
+        <div class="list-table-head">
+          <div class="list-table-col0" (click)="goodsNameSort()">物品名称
+            <span class="icon-sort">
+              <i class="icon top iconfont icon-qiehuanjiantouxiangxia" [ngClass]="{'active-color':currentClick===1&&goodsNameSortBoolean}"></i>
+              <i class="icon bottom iconfont icon-qiehuanjiantouxiangshang" [ngClass]="{'active-color':currentClick===1&&!goodsNameSortBoolean}"></i>
+            </span>
+          </div>
+          <div class="list-table-col1 " (click)="currentStockSort()">当前库存
+            <span class="icon-sort">
+              <i class="icon top iconfont icon-qiehuanjiantouxiangxia" [ngClass]="{'active-color':currentClick===2&&currentStockSortBoolean}"></i>
+              <i class="icon bottom iconfont icon-qiehuanjiantouxiangshang" [ngClass]="{'active-color':currentClick===2&&!currentStockSortBoolean}"></i>
+            </span>
+          </div>
+          <div class="list-table-col1" (click)="lowStockSort()">最低库存
+            <span class="icon-sort">
+              <i class="icon top iconfont icon-qiehuanjiantouxiangxia" [ngClass]="{'active-color':currentClick===3&&LowSortBoolean}"></i>
+              <i class="icon bottom iconfont icon-qiehuanjiantouxiangshang" [ngClass]="{'active-color':currentClick===3&&!LowSortBoolean}"></i>
+            </span>
+          </div>
+        </div>
+        <div class="list-table-content">
+          <div class="list-table-item click-no-hide-detail" *ngFor="let item of currentGoodsListResponse.Items, let i = index">
+            <div class=" list-table-col0">
+              <p>{{item?.GoodsName}}</p>
+              <div class="list-table-col0-text">
+                <span class="list-table-col0-text-left" *ngIf="item?.Specifications">规格:{{item?.Specifications}}</span>
+                <span class="list-table-col0-text-right" *ngIf="item?.Specifications">单位：{{item?.Unit}}</span>
+              </div>
+            </div>
+            <div class="list-table-col1">
+              <span>{{item?.InventoryNum}}</span>
+            </div>
+            <div class="list-table-col2">
+              <input class="low-volume-num" [(ngModel)]="item.AlarmBase">
+            </div>
+          </div>
+
+
+          <div class="data-empty" *ngIf="showEmptyState">
+            <app-data-empty [showEmpty]="!(currentGoodsListResponse && currentGoodsListResponse?.TotalItems>0)"></app-data-empty>
+          </div>
+        </div>
+        <qiezzi-paginator [ngStyle]="{display: (currentGoodsListResponse && currentGoodsListResponse?.TotalItems>20) ?'block' : 'none'}"
+                          [rows]="currentGoodsListResponse?.ItemsPerPage" [totalRecords]="currentGoodsListResponse?.TotalItems"
+                          [rowsPerPageOptions]="[10,20,30]"
+                          [style]="showOrHide" (onPageChange)="onPageChange($event)">
+        </qiezzi-paginator>
+      </div>
+      <!-- 结束列表 -->
+    <!--</div>-->
+  </div>
+</div>

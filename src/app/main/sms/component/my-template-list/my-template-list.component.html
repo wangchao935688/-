@@ -1,0 +1,97 @@
+<div id="myte-container">
+  <div class="myte-aside">
+    <div class="myte-aside-menu">
+      <span>模板类型</span>
+      <span (click)="selectReceiver()">管理</span>
+    </div>
+    <div class="myte-aside-list">
+      <ul>
+        <li (click)="clickItem(0)" [ngStyle] = "{ fontWeight:Indexs === 0 ?'bold' : ''}">全部模板</li>
+        <li (click)="clickItem(1)" [ngStyle] = "{ fontWeight:Indexs === 1 ?'bold' : ''}">医嘱</li>
+        <li (click)="clickItem(2)" [ngStyle] = "{ fontWeight:Indexs === 2 ?'bold' : ''}">生日</li>
+        <li (click)="clickItem(3)" [ngStyle] = "{ fontWeight:Indexs === 3 ?'bold' : ''}">节日问候</li>
+        <li (click)="clickItem(4)" [ngStyle] = "{ fontWeight:Indexs === 4 ?'bold' : ''}">诊所信息</li>
+        <li (click)="clickItem(5)" [ngStyle] = "{ fontWeight:Indexs === 5 ?'bold' : ''}">正畸治疗注意事项</li>
+        <li (click)="clickItem(6)" [ngStyle] = "{ fontWeight:Indexs === 6 ?'bold' : ''}">口腔种植术后注意事项</li>
+        <li (click)="clickItem(7)" [ngStyle] = "{ fontWeight:Indexs === 7 ?'bold' : ''}">洁牙后注意事项</li>
+        <li (click)="clickItem(8)" [ngStyle] = "{ fontWeight:Indexs === 8 ?'bold' : ''}">美白后注意事项</li>
+        <li (click)="clickItem(9)" [ngStyle] = "{ fontWeight:Indexs === 9 ?'bold' : ''}">固定修复后注意事项</li>
+        <li (click)="clickItem(10)" [ngStyle] = "{ fontWeight:Indexs === 10 ?'bold' : ''}">拔牙后注意事项</li>
+        <li (click)="clickItem(11)" [ngStyle] = "{ fontWeight:Indexs === 11 ?'bold' : ''}">根管治疗后注意事项</li>
+      </ul>
+    </div>
+  </div>
+
+
+  <!--右边内容-->
+  <div class="myte-content">
+    <div class="myte-content-top">口腔种植术后注意事项</div>
+    <div class="myte-content-bottom">
+      <div class="myte-content-input">
+        <input type="text" name="smsTe" value="" placeholder="短信内容/短信内容">
+        <button class="button5">查询</button>
+        <button class="button5" (click) = 'createmo()'>新增模板</button>
+      </div>
+
+
+    <div>
+
+      <div class="myte-content-bottom-co">
+        <div class="list-table-content">
+
+          <div class="list-table-item" id="list-not">
+            <div class="list-table-col-1">短信名称</div>
+            <div class="list-table-col-1">短信内容</div>
+            <div class="list-table-col-1">操作</div>
+          </div>
+
+          <div class="list-table-item">
+            <div class="list-table-col-1">
+              注意事项1
+            </div>
+            <div class="list-table-col-1">
+              初戴矫治器及每次复诊加力后，牙齿可能出现轻度反应性疼痛或
+              不适，一般持续3-5天后即可减轻及消失。若疼痛3-5天不减反而
+              加重，或出现其他情况，则需及时与医生联系就诊检查。
+            </div>
+            <div class="list-table-col-1">
+              <i class="iconfont icon-xiangshang"></i>
+              <span>|</span>
+              <i class="iconfont icon-xiangxia"></i>
+              <span>|</span>
+              <i class="iconfont icon-xiugai"></i>
+              <span>|</span>
+              <i class="iconfont icon-shanchu"></i>
+            </div>
+          </div>
+
+
+          <div class="list-table-item">
+            <div class="list-table-col-1">
+              注意事项1
+            </div>
+            <div class="list-table-col-1">
+              初戴矫治器及每次复诊加力后，牙齿可能出现轻度反应性疼痛或
+              不适，一般持续3-5天后即可减轻及消矫治器及每次复诊加力后，牙齿可能出现轻度反应性疼痛或
+              不适，一般持续3-5天后即可减轻及消失。若失。若疼痛3-5天不减反而
+              加重，或出现其他情况，则需及时与医生联系就诊检查。
+            </div>
+            <div class="list-table-col-1">
+              <i class="iconfont icon-xiangshang" ></i>
+              <span>|</span>
+              <i class="iconfont icon-xiangxia" ></i>
+              <span>|</span>
+              <i class="iconfont icon-xiugai" ></i>
+              <span>|</span>
+              <i class="iconfont icon-shanchu"></i>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      </div>
+    </div>
+  </div>
+</div>

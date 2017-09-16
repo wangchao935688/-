@@ -1,0 +1,72 @@
+
+<div class="list-table my-container">
+  <!--顶部-->
+  <div class="my-container-head">
+    <div class="header-top">
+      <div class="button-group button-group-right">
+        <button class="button4"><i class="icon iconfont icon-daochu"></i>导出</button>
+      </div>
+      <qiezzi-select-date-slot (onSelectDate)="selectDate($event)"></qiezzi-select-date-slot>
+    </div>
+    <div class="header-text">
+      <span>年月门诊统计报表</span>
+    </div>
+    <div class="header-box">
+      <div class="list-box fl">
+        <div class="my-content">
+          <span class="num">{{clinicResponse?.NewPatientNumber}}</span>
+          <span class="my-list-name">新增患者(人)</span>
+        </div>
+        <span class="my-line"></span>
+      </div>
+      <div class="list-box fl">
+        <div class="my-content">
+          <span class="num">{{clinicResponse?.PatientNumber}}</span>
+          <span class="my-list-name">患者总量(人)</span>
+        </div>
+        <!--<span class="my-line"></span>-->
+      </div>
+      <br clear="both">
+    </div>
+  </div>
+  <!--下边内容部分-->
+  <div class="my-container-content">
+    <!--患者来源图表-->
+    <div class="ec-header outpatient-matter-header">
+      <span class="my-ec-header-text">
+        患者来源图表
+      </span>
+    </div>
+    <div class="ec-content outpatient-matter" style="height: 346px;" id="patientSource"></div>
+
+    <div class="ec-header outpatient-matter-header">
+      <span class="my-ec-header-text">
+        数据明细
+      </span>
+    </div>
+    <div class="list-table-head">
+      <div class="list-table-col0">来源</div>
+      <div class="list-table-col1">人数</div>
+      <div class="list-table-col2">占比</div>
+      <br clear="left">
+    </div>
+    <div class="data-empty" *ngIf="showEmptyState">
+      <app-data-empty [showEmpty]="!(clinicResponse && clinicResponse?.PatientsWiteList>0)"></app-data-empty>
+    </div>
+    <div class="list-table-content">
+      <div class="list-table-item click-no-hide-detail"
+           *ngFor="let item of clinicResponse?.PatientsWiteList;let i = index" [ngClass]="{'selected': false}">
+        <div class="list-table-col0">
+          <span>{{item?.Name}}</span>
+        </div>
+        <div class="list-table-col1">
+          <span>{{item?.Num}}</span>
+        </div>
+        <div class="list-table-col2">
+          <span>{{item?.Ratio}}</span>
+        </div>
+        <br clear="left">
+      </div>
+    </div>
+  </div>
+</div>

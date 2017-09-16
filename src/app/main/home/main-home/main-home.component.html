@@ -1,0 +1,9 @@
+<app-left-content [attr.status]="displayStatus"
+                  (onExit)="exit()" (onNavigate)="onRouterNavigate($event)"></app-left-content>
+<div id="app-main-container" [attr.status]="displayStatus">
+  <div id="left-toggle-button" (click)="onShowLeftNav()"></div>
+  <router-outlet></router-outlet>
+  <qiezzi-loading [attr.status]="mainShowLoading" class="loading3 purple" style="height:100%;"></qiezzi-loading>
+</div>
+<div id="app-main-mask" [attr.status]="displayStatus" (click)="clickMask()"></div>
+

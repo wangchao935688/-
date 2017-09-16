@@ -1,0 +1,80 @@
+<div>
+  <!--<img [src]="returnVisitDetail.PatientModel.Image"/>
+  <div>患者:{{returnVisitDetail.PatientModel.PatientName}}</div>
+  <div>状态:{{returnVisitDetail.State}}</div>
+  <div>回访日期:{{returnVisitDetail.InterviewDate}}</div>
+  <div>回访类型:{{returnVisitDetail.InterviewType}}</div>
+  <div>回访内容:{{returnVisitDetail.Content}}</div>-->
+</div>
+<div>
+  <div>回访结果</div>
+  <div>
+    <textarea rows="3" [(ngModel)]="returnVisitResult.Result"></textarea>
+  </div>
+  <div>
+    <return-visit-template [returnVisitTemplateType]="1"
+                           (onSelectTemplate)="selectTemplate($event)"></return-visit-template>
+    <button pButton (click)="saveReturnVisitResult()" label="提交"></button>
+  </div>
+</div>
+
+<div>
+  <div>全部结果</div>
+  <div *ngFor="let item of returnVisitDetailList.InterviewResultList">
+    <span>item.WorkerName</span>
+    <span>item.Result</span>
+    <span>item.CreateTime</span>
+  </div>
+</div>
+
+
+<div>
+  <button pButton label="完成" (click)="saveReturnVisitComplete()"></button>
+  <button pButton label="取消" (click)="saveReturnVisitCancel()"></button>
+  <button pButton label="修改" (click)="saveReturnVisitUpdate()"></button>
+  <button pButton label="删除" (click)="saveReturnVisitDelete()"></button>
+  <button pButton label="预约复诊"></button>
+</div>
+
+
+<div>
+  <div>回访</div>
+  <div>
+    <span>回访时间</span>
+    <span>回访人员</span>
+    <span>回访内容</span>
+    <span>医生</span>
+    <span>状态</span>
+  </div>
+  <div *ngFor="let item of returnVisitDetailList">
+    <span>{{item.InterviewDate}}</span>
+    <span>{{item.InterviewWorkerList}}</span>
+    <span>{{item.Content}}</span>
+    <span>{{item.DoctorName}}</span>
+    <span>{{item.State}}</span>
+    <span (click)="isOpen=item.Id;">展开</span>
+    <div *ngIf="isOpen==item.Id">
+      <div>
+        <span>医生:{{item.DoctorName}}</span>
+        <span>状态:{{item.State}}</span>
+        <span>回访日期:{{item.InterviewDate}}</span>
+      </div>
+      <div>
+        <span>回访类型:{{item.DoctorName}}</span>
+        <span>回访人员:{{item.State}}</span>
+      </div>
+      <div>
+        <span>回访内容:{{item.Content}}</span>
+      </div>
+      <div>
+        <div>回访结果</div>
+        <div *ngFor="let result of item.InterviewResultList">
+          <div>{{result.CreateTime}}-{{result.WorkerName}}</div>
+          <div>{{result.Result}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</div>

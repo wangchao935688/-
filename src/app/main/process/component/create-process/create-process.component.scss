@@ -1,0 +1,76 @@
+.create-process {
+  font-size: 0.6rem;
+  .create-process-patient {
+    height: 2.1rem;
+    border-bottom: 1px dashed #DBDBDB;
+    .create-process-patient-text {
+      color: #666666;
+      height: 1rem;
+      line-height: 1rem;
+    }
+    span {
+      padding: 0 .5rem;
+    }
+  }
+  .create-process-tooth {
+    min-height: 3.2rem;
+    .create-process-tooth-bar {
+      height: 2.2rem;
+      line-height: 3.2rem;
+      font-size: .7rem;
+      button {
+        float: right;
+        margin-top: .8rem;
+      }
+      div {
+        display: inline-block;
+      }
+    }
+    .create-process-tooth-bottom {
+      padding-top: 1rem;
+      border-bottom: 1px dashed #DBDBDB;
+    }
+  }
+  .create-process-form {
+    margin-top: 1.5rem;
+  }
+  .create-process-button {
+    margin-top: 1.5rem;
+  }
+}
+.detailAddr{
+  margin-top: 1rem;
+  width: 100%;
+}
+.container-left{
+  float: left;
+  width:50%;
+  .form-section{
+    .form-title{
+      color: #333;
+      width: 2.9rem;
+      height: 1.6rem;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      font-size: 0.6rem;
+    }
+  }
+  .line{
+    border-bottom:1px dashed #dddddd;
+  }
+}
+.container-right{
+  position: relative;
+  margin-left: 50%;
+}
+.pic{
+  border-radius: 50%;
+  position: relative;
+}
+/*
+初始化
+*/
+i{
+  font-style: normal;
+}

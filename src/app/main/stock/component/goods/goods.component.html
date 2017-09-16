@@ -1,0 +1,174 @@
+<!--<div id="appCenterLeftContent"
+     [ngStyle]="{'display': centerLoadReady?'block':'none','border-top':isBorder?'1px solid #DBDBDB':''}"
+     class="app-center-content" malihu-scrollbar
+     [scrollbarOptions]="scrollbarOptions">-->
+<app-qiezzi-right-header
+  [rightComponentName]="patientName"
+  [controlList]="ctrlList"
+  (onControl)="onControlListClick($event)">
+</app-qiezzi-right-header>
+<div class="goods-content">
+  <qiezzi-loading [attr.status]="dataLoading" class="loading6 purple transparent"
+                  style="padding-top: 300px"></qiezzi-loading>
+  <div class="goods-info">
+    <div class="content-header no-top-line">
+      <div class="drop-down fr">
+        <i class="icon iconfont icon-jiantouxiangxia" *ngIf="isShowGoodsInfo" (click)="changeGoodsShowOrHide()" ></i>
+        <i class="icon iconfont icon-jiantouxiangshang" *ngIf="!isShowGoodsInfo" (click)="changeGoodsShowOrHide()" ></i>
+      </div>
+      <div class="header-text">
+        <i class="icon iconfont icon-shoufeijilu"></i><span>物品信息</span>
+      </div>
+    </div>
+    <div class="list-content" *ngIf="isShowGoodsInfo">
+      <div class="list-item">
+        <div class="list-col0">
+          物品名称
+        </div>
+        <div class="list-col1">
+          {{goodsInfoResponse?.GoodsName}}
+        </div>
+      </div>
+      <div class="list-item">
+        <div class="list-col0">
+          物品条码
+        </div>
+        <div class="list-col1">
+          {{goodsInfoResponse?.Barcode}}
+        </div>
+      </div>
+      <div class="list-item">
+        <div class="list-col0">
+          物品类别
+        </div>
+        <div class="list-col1">
+          {{goodsInfoResponse?.GoodsTypeName}}
+        </div>
+      </div>
+      <div class="list-item">
+        <div class="list-col0">
+          拼音码
+        </div>
+        <div class="list-col1">
+          {{goodsInfoResponse?.PhoneticCode}}
+        </div>
+      </div>
+      <div class="list-item">
+        <div class="list-col0">
+          规格
+        </div>
+        <div class="list-col1">
+          {{goodsInfoResponse?.Specifications}}
+        </div>
+      </div>
+      <div class="list-item">
+        <div class="list-col0">
+          型号
+        </div>
+        <div class="list-col1">
+          {{goodsInfoResponse?.CateNum}}
+        </div>
+      </div>
+      <div class="list-item">
+        <div class="list-col0">
+          品牌
+        </div>
+        <div class="list-col1">
+          {{goodsInfoResponse?.Brand}}
+        </div>
+      </div>
+      <div class="list-item">
+        <div class="list-col0">
+          单位
+        </div>
+        <div class="list-col1">
+          {{goodsInfoResponse?.Unit}}
+        </div>
+      </div>
+      <div class="list-item">
+        <div class="list-col0">
+          是否启用
+        </div>
+        <div class="list-col1">
+          {{goodsInfoResponse?.MgtSwitch?'是':'否'}}
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="remarks">
+    <div class="content-header">
+      <div class="header-text">
+        <i class="icon iconfont icon-beizhu"></i><span>备注</span>
+      </div>
+    </div>
+    <div class="list-content">
+      <div class="list-item">
+        {{goodsInfoResponse?.Note}}
+      </div>
+    </div>
+
+  </div>
+  <div class="stock-price">
+    <div class="content-header">
+      <div class="drop-down fr">
+        <i class="icon iconfont icon-jiantouxiangxia" *ngIf="isShowPrice" (click)="changePriceShowOrHide()"></i>
+        <i class="icon iconfont icon-jiantouxiangshang" *ngIf="!isShowPrice" (click)="changePriceShowOrHide()"></i>
+      </div>
+      <div class="header-text">
+        <i class="icon iconfont icon-liebiaoshoufei"></i><span>库存及价格</span>
+      </div>
+    </div>
+    <div class="list-content" *ngIf="isShowPrice">
+      <div class="list-item">
+        <div class="list-col0">
+          入库价(元)
+        </div>
+        <div class="list-col1">
+          {{goodsInfoResponse?.InPrice| qiezziMoeny:true}}
+        </div>
+      </div>
+      <div class="list-item">
+        <div class="list-col0">
+          期初单价
+        </div>
+        <div class="list-col1">
+          {{goodsInfoResponse?.InitCost| qiezziMoeny:true}}
+        </div>
+      </div>
+      <div class="list-item">
+        <div class="list-col0">
+          最低库存
+        </div>
+        <div class="list-col1">
+          {{goodsInfoResponse?.AlarmBase}}
+        </div>
+      </div>
+      <div class="list-item">
+        <div class="list-col0">
+          出库价(元)
+        </div>
+        <div class="list-col1">
+          {{goodsInfoResponse?.Price| qiezziMoeny:true}}
+        </div>
+      </div>
+      <div class="list-item">
+        <div class="list-col0">
+          期初库存
+        </div>
+        <div class="list-col1">
+          {{goodsInfoResponse?.InitNum}}
+        </div>
+      </div>
+      <div class="list-item">
+        <div class="list-col0">
+          报警天数(天)
+        </div>
+        <div class="list-col1">
+          {{goodsInfoResponse?.BatchAlarmDayNum}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--</div>-->

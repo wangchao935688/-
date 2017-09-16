@@ -1,0 +1,232 @@
+@mixin tooth-pic-w-h {
+  width: 2.2rem;
+  height: 6.2rem;
+}
+
+@mixin process-tooth-pic-list-w-h {
+  float: left;
+  width: 50%;
+  height: 50%;
+  text-align: center;
+}
+
+@mixin list-div {
+  display: inline-block;
+  height: 8rem;
+  line-height: 8rem;
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+
+.process-tooth-pic {
+  .process-tooth-pic-switch {
+    height: 1.6rem;
+    text-align: center;
+  }
+  .process-tooth-pic-checkbox {
+    margin: 1.5rem 0;
+    height: 1rem;
+    font-size: .6rem;
+    display: flex;
+    justify-content: center;
+  }
+  .process-tooth-pic-bottom {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 3rem;
+  }
+  .process-tooth-pic-list {
+    width: 100%;
+    height: 17.2rem;
+    background: url("images/tooth_all.png") no-repeat center;
+    .process-tooth-pic-list-1 {
+      @include process-tooth-pic-list-w-h;
+      .list-1-div {
+        @include list-div;
+        .tooth-left-up-8 {
+          @include tooth-pic-w-h;
+          background: url("images/tooth-left-up-8.png") no-repeat center;
+        }
+        .tooth-left-up-7 {
+          @include tooth-pic-w-h;
+          background: url("images/tooth-left-up-7.png") no-repeat center;
+        }
+        .tooth-left-up-6 {
+          @include tooth-pic-w-h;
+          background: url("images/tooth-left-up-6.png") no-repeat center;
+        }
+        .tooth-left-up-5 {
+          @include tooth-pic-w-h;
+          background: url("images/tooth-left-up-5.png") no-repeat center;
+        }
+        .tooth-left-up-4 {
+          @include tooth-pic-w-h;
+          background: url("images/tooth-left-up-4.png") no-repeat center;
+        }
+        .tooth-left-up-3 {
+          @include tooth-pic-w-h;
+          background: url("images/tooth-left-up-3.png") no-repeat center;
+        }
+        .tooth-left-up-2 {
+          @include tooth-pic-w-h;
+          background: url("images/tooth-left-up-2.png") no-repeat center;
+        }
+        .tooth-left-up-1 {
+          @include tooth-pic-w-h;
+          background: url("images/tooth-left-up-1.png") no-repeat center;
+        }
+      }
+      .list-1-div:hover {
+        box-shadow: 0px 0px 2px 0px;
+      }
+    }
+    .process-tooth-pic-list-2 {
+      @include process-tooth-pic-list-w-h;
+      //padding-left: .8rem;
+      .list-2-div {
+        @include list-div;
+        .tooth-right-up-1 {
+          @include tooth-pic-w-h;
+          background: url("images/tooth-right-up-1.png") no-repeat center;
+        }
+        .tooth-right-up-2 {
+          @include tooth-pic-w-h;
+          background: url("images/tooth-right-up-2.png") no-repeat center;
+        }
+        .tooth-right-up-3 {
+          @include tooth-pic-w-h;
+          background: url("images/tooth-right-up-3.png") no-repeat center;
+        }
+        .tooth-right-up-4 {
+          @include tooth-pic-w-h;
+          background: url("images/tooth-right-up-4.png") no-repeat center;
+        }
+        .tooth-right-up-5 {
+          @include tooth-pic-w-h;
+          background: url("images/tooth-right-up-5.png") no-repeat center;
+        }
+        .tooth-right-up-6 {
+          @include tooth-pic-w-h;
+          background: url("images/tooth-right-up-6.png") no-repeat center;
+        }
+        .tooth-right-up-7 {
+          @include tooth-pic-w-h;
+          background: url("images/tooth-right-up-7.png") no-repeat center;
+        }
+        .tooth-right-up-8 {
+          @include tooth-pic-w-h;
+          background: url("images/tooth-right-up-8.png") no-repeat center;
+        }
+      }
+      .list-2-div:hover {
+        box-shadow: 0px 0px 2px 0px;
+      }
+    }
+    .process-tooth-pic-list-3 {
+      @include process-tooth-pic-list-w-h;
+      margin-top: .5rem;
+      .list-3-div {
+        @include list-div;
+        .tooth-left-down-8 {
+          @include tooth-pic-w-h;
+          background: url("images/tooth-left-down-8.png") no-repeat center;
+        }
+        .tooth-left-down-7 {
+          @include tooth-pic-w-h;
+          background: url("images/tooth-left-down-7.png") no-repeat center;
+        }
+        .tooth-left-down-6 {
+          @include tooth-pic-w-h;
+          background: url("images/tooth-left-down-6.png") no-repeat center;
+        }
+        .tooth-left-down-5 {
+          @include tooth-pic-w-h;
+          background: url("images/tooth-left-down-5.png") no-repeat center;
+        }
+        .tooth-left-down-4 {
+          @include tooth-pic-w-h;
+          background: url("images/tooth-left-down-4.png") no-repeat center;
+        }
+        .tooth-left-down-3 {
+          @include tooth-pic-w-h;
+          background: url("images/tooth-left-down-3.png") no-repeat center;
+        }
+        .tooth-left-down-2 {
+          @include tooth-pic-w-h;
+          background: url("images/tooth-left-down-2.png") no-repeat center;
+        }
+        .tooth-left-down-1 {
+          @include tooth-pic-w-h;
+          background: url("images/tooth-left-down-1.png") no-repeat center;
+        }
+      }
+      .list-3-div:hover {
+        box-shadow: 0px 0px 2px 0px;
+      }
+    }
+    .process-tooth-pic-list-4 {
+      @include process-tooth-pic-list-w-h;
+      //padding-left: .8rem;
+      margin-top: .5rem;
+      .list-4-div {
+        @include list-div;
+        .tooth-right-down-1 {
+          @include tooth-pic-w-h;
+          background: url("images/tooth-right-down-1.png") no-repeat center;
+        }
+        .tooth-right-down-2 {
+          @include tooth-pic-w-h;
+          background: url("images/tooth-right-down-2.png") no-repeat center;
+        }
+        .tooth-right-down-3 {
+          @include tooth-pic-w-h;
+          background: url("images/tooth-right-down-3.png") no-repeat center;
+        }
+        .tooth-right-down-4 {
+          @include tooth-pic-w-h;
+          background: url("images/tooth-right-down-4.png") no-repeat center;
+        }
+        .tooth-right-down-5 {
+          @include tooth-pic-w-h;
+          background: url("images/tooth-right-down-5.png") no-repeat center;
+        }
+        .tooth-right-down-6 {
+          @include tooth-pic-w-h;
+          background: url("images/tooth-right-down-6.png") no-repeat center;
+        }
+        .tooth-right-down-7 {
+          @include tooth-pic-w-h;
+          background: url("images/tooth-right-down-7.png") no-repeat center;
+        }
+        .tooth-right-down-8 {
+          @include tooth-pic-w-h;
+          background: url("images/tooth-right-down-8.png") no-repeat center;
+        }
+      }
+      .list-4-div:hover {
+        box-shadow: 0px 0px 2px 0px;
+      }
+    }
+    .num {
+      width: 1.4rem;
+      height: 1rem;
+      line-height: 1rem;
+      border: 1px solid #ccc;
+      margin: .5rem auto 0 auto;
+      border-radius: 4px;
+      font-size: 0.6rem;
+      text-align: center;
+    }
+  }
+}
+
+.background-div {
+  border: 1px solid #7a80fa !important;
+}
+
+.background-num {
+  background-color: #7a80fa;
+  border: 1px solid #7a80fa !important;
+  color: #FFFFFF;
+}

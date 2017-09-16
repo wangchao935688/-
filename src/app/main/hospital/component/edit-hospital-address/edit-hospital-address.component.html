@@ -1,0 +1,35 @@
+<div class="popup-content-box">
+  <div class="address">
+    <div class="address-select">
+      <qiezzi-drop-down-list class="drop-down-select province"
+                             [placeholder]="'省'"
+                             [required]="false"
+                             [selectIndex]="0"
+                             [dataList]="[]"></qiezzi-drop-down-list>
+      <!--  -->
+      <qiezzi-drop-down-list class="drop-down-select city"
+                             [placeholder]="'市'"
+                             [required]="false"
+                             [selectIndex]="0"
+                             [dataList]="[{label:'北京市',value:'1'}]"></qiezzi-drop-down-list>
+      <!-- -->
+      <qiezzi-drop-down-list class="drop-down-select area"
+                             [placeholder]="'区'"
+                             [required]="false"
+                             [selectIndex]="0"
+                             [dataList]="[{label:'朝阳区',value:'1'}]"></qiezzi-drop-down-list>
+      <!--  -->
+    </div>
+    <div class="address-info">
+      <div class="err-message"></div>
+      <input class="detailAddr input-text" placeholder="请输入具体地址">
+    </div>
+  </div>
+</div>
+<div class="button-group button-group-right">
+  <button class="button5" (click)="save()">保存</button>
+  <button class="button4" (click)="cancel()">取消</button>
+</div>
+
+
+

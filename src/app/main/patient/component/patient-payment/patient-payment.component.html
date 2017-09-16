@@ -1,0 +1,110 @@
+<div class="tab-ctrl tab-ctrl2">
+  <div class="count" *ngIf="selectIndex == 0">
+    <div class="count-info">
+      <span class="">欠费:</span>
+      <span class="">111</span>
+    </div>
+    <div class="count-info">
+      <span class="">已收:</span>
+      <span class="">222</span>
+    </div>
+    <div class="count-info">
+      <span class="">账单总金额:</span>
+      <span class="">333</span>
+    </div>
+  </div>
+  <div class="count" *ngIf="selectIndex == 1">
+    <div class="count-info">
+      <span class="">预存款余额:</span>
+      <span class="">111</span>
+    </div>
+  </div>
+  <app-qiezzi-tab-control class="tab-ctrl-head" [tabData]="tabData.data"
+                          [defaultSelectedIndex]="tabData.defaultIndex"
+                          (onTabIndexChange)="changeTab($event)"></app-qiezzi-tab-control>
+  <div class="container">
+    <i class="icon iconfont icon-huanzheguanli-youxiajiaojiahao more" (click)="addPayment()"></i>
+    <div class="tab-ctrl-content" style="position: relative; min-height: 400px;">
+      <qiezzi-loading [attr.status]="dataLoading" class="loading6 purple transparent"></qiezzi-loading>
+      <div class="list-table" *ngIf="selectIndex == 0">
+        <div class="list-table-head">
+          <span class="list-table-col-1">单号</span>
+          <span class="mobile-hidden list-table-col-15">账单时间</span>
+          <span class="mobile-hidden list-table-col-15">账单金额</span>
+          <span class="mobile-hidden list-table-col-15">已收</span>
+          <span class="list-table-col-15">欠费</span>
+          <span class="list-table-col-12">状态</span>
+        </div>
+        <div class="list-table-content" >
+          <div class="list-table-item" *ngFor="let item of billData;let i = index" (click)="getBillDetail(item.Id)">
+            <div class="list-table-col-1">
+              <span class="span-ellipsis">{{item?.BillCode}}</span>
+            </div>
+            <div class="mobile-hidden list-table-col-15">
+              <span>{{item.VisitingTime | qiezziDateAuto : 0}}</span>
+            </div>
+            <div class="mobile-hidden list-table-col-15"><span
+              class="span-ellipsis">{{item?.Price}}</span>
+            </div>
+            <div class="mobile-hidden list-table-col-15"><span>998</span>
+            </div>
+            <div class="list-table-col-15"><span><b style="color:red;">132</b></span></div>
+            <div class="list-table-col-12">
+              <span *ngIf="item?.BillStatus==0">待收费</span>
+              <span *ngIf="item?.BillStatus==1">已付清</span>
+              <span *ngIf="item?.BillStatus==2">欠费</span>
+              <span *ngIf="item?.BillStatus==3">退费</span>
+              <span *ngIf="item?.BillStatus==4">作废</span>
+              <span *ngIf="item?.BillStatus==5">已关闭</span>
+              <span *ngIf="item?.BillStatus==6">已锁定</span>
+            </div>
+          </div>
+        </div>
+        <app-data-empty [showEmpty]="showEmpty"></app-data-empty>
+      </div>
+      <div class="list-table" *ngIf="selectIndex == 1">
+        <div class="list-table-head">
+          <span class="list-table-col-1">单号</span>
+          <span class="mobile-hidden list-table-col-15">操作时间</span>
+          <span class="mobile-hidden list-table-col-15">金额</span>
+          <span class="mobile-hidden list-table-col-15">类型</span>
+          <span class="list-table-col-15">支付账户</span>
+          <span class="list-table-col-12">操作人</span>
+        </div>
+        <div class="list-table-content">
+          <div class="list-table-item" *ngFor="let item of rechargeData;let i = index" (click)="getRechargeDetail(item.Id)">
+            <div class="list-table-col-1">
+              <span class="span-ellipsis">{{item?.BillCode}}</span>
+            </div>
+            <div class="mobile-hidden list-table-col-15">
+              <span>{{item.VisitingTime | qiezziDateAuto : 0}}</span>
+            </div>
+            <div class="mobile-hidden list-table-col-15"><span
+              class="span-ellipsis">{{item?.Price}}</span>
+            </div>
+            <div class="mobile-hidden list-table-col-15"><span>998</span>
+            </div>
+            <div class="list-table-col-15"><span><b style="color:red;">132</b></span></div>
+            <div class="list-table-col-12">
+              <span *ngIf="item?.BillStatus==0">待收费</span>
+              <span *ngIf="item?.BillStatus==1">已付清</span>
+              <span *ngIf="item?.BillStatus==2">欠费</span>
+              <span *ngIf="item?.BillStatus==3">退费</span>
+              <span *ngIf="item?.BillStatus==4">作废</span>
+              <span *ngIf="item?.BillStatus==5">已关闭</span>
+              <span *ngIf="item?.BillStatus==6">已锁定</span>
+            </div>
+          </div>
+        </div>
+        <app-data-empty [showEmpty]="showEmpty"></app-data-empty>
+        <div>
+          <qiezzi-paginator [rows]="rechargeData?.ItemsPerPage" [totalRecords]="rechargeData?.TotalItems"
+                            [rowsPerPageOptions]="[10,20,30]"
+                            (onPageChange)="pageChange($event)"></qiezzi-paginator>
+        </div>
+      </div>
+    </div>
+    <!-- end container -->
+  </div>
+</div>
+

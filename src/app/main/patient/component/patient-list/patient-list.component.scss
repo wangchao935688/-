@@ -1,0 +1,147 @@
+:host {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+p{
+  margin: 0;
+}
+.list-table{
+  position: relative;
+}
+.list-table-center{
+  height: 4.2rem;
+  line-height: 4.2rem;
+  padding: 1.25rem 0;
+  margin:0 2rem;
+  border-top: 1px solid #e6e7f3;
+}
+.list-table-head{
+  border: 1px solid #ddd;
+  border-bottom: none;
+}
+.list-table-center-state{
+  font-size: 12px;
+  color: #333333;
+  width: 1.2rem;
+  height: 0.8rem;
+  line-height: 0.8rem;
+  display: block;
+  float: left;
+  margin-top: 0.3rem;
+}
+.drop-down-select{
+  width: 6rem;
+  height: 1.6rem;
+  line-height: 1.6rem;
+  float: left;
+  margin-left: 1rem;
+}
+.list-table-center-left{
+  width: 10rem;
+  height: 1.6rem;
+  line-height: 1.6rem;
+  float: left;
+}
+.list-table-center-right{
+  height: 1.6rem;
+  line-height: 1.6rem;
+  float: right;
+  font-size: .6rem;
+  span:nth-child(2) {
+    font-size: 0.4rem;
+  }
+}
+.list-table-center-total{
+  height: 0.8rem;
+  line-height: 0.8rem;
+  font-size: 12px;
+  color: #999999;
+  margin-top: 0.3rem;
+  margin-right: .6rem;
+}
+.list-table-center-more{
+  height: 0.8rem;
+  line-height: 0.8rem;
+  width: 0.8rem;
+  float: right;
+  color: #7A80FA;
+  display: block;
+  margin-left: 0.6rem;
+  margin-top: 0.4rem;
+}
+.list-table-col1{
+  width: 10%;
+  float: left;
+}
+.list-table-col2{
+  width: 20%;
+  float: left;
+}
+.list-table-col4{
+  width: 12%;
+  float: left;
+}
+.list-table-col0 {
+  width: calc(100% - 10% - (20% * 2) - (12% * 2));
+  float: left;
+}
+.list-table-item  .list-table-col0 .patient-name{
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  width: 5rem;
+}
+.list-table-item  .list-table-col0 .patient-name:hover{
+  overflow:visible;
+}
+/*
+列表右侧弹出框
+*/
+.control{
+  position: absolute;
+  right:0;
+  top:0;
+  width: 5rem;
+  height: 5rem;
+  background: #dddddd;
+}
+.more-ctrl-list{
+  position: absolute;
+  right: 1.8rem;
+  top: -1.9rem;
+  opacity:1;
+  height: 5rem;
+  .right-ctrl-more{
+    padding:.5rem 0;
+    .right-more-item{
+      height:100%;
+      padding:0 1.5rem;
+    }
+  }
+  .right-more-item:hover{
+    background: #605bf5;
+    color: #ffffff;
+  }
+}
+.form-checkbox span:last-child {
+  font-size: 16px;
+}
+/*
+列表复选框位置margin-left为0
+*/
+.form-checkbox span:last-child{
+  margin-left: 0;
+}
+/*文本溢出省略*/
+.text-overflow{
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.text-overflow-l{
+  width: 6rem !important;
+}
+.text-overflow-s{
+  width: 4.5rem !important;
+}
